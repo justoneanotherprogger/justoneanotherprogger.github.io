@@ -23,21 +23,27 @@ body {
 /* WRAPPER */
 
 .wrapper {
-  width: 640px;
-  margin: 0 auto;
-  background: #DEDEDE;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
-  border-radius: 8px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 0 0 1px, rgba(0, 0, 0, 0.45) 0 3px 10px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 0 0 1px, rgba(0, 0, 0, 0.45) 0 3px 10px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 0 0 1px, rgba(0, 0, 0, 0.45) 0 3px 10px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background: white;
 }
 
-.without-description h1 {
-  margin: 10px 0;
+.wrapper-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.wrapper-left {
+  color: red;
+}
+
+.wrapper-right {
+  padding: 10px;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
 }
 
 /* MAIN */
@@ -70,6 +76,10 @@ body {
 }
 
 /* HEADER */
+
+.header {
+  margin-top: 80px;
+}
 
 .header-container {
   height: 155px;
