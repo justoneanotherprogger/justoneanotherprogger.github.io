@@ -1,0 +1,29 @@
+/* WRAPPER */
+
+.wrapper {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background: white;
+}
+
+.wrapper-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.wrapper-left {
+  color: red;
+}
+
+.wrapper-right {
+  padding: 10px;
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+}
+
+.header {
+  margin-top: 80px;
+}

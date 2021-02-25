@@ -1,3 +1,39 @@
+@font-face {
+  font-family: 'Muller';
+  src: url('/fonts/MullerRegular.woff2') format('woff2'),
+    url('/fonts/MullerRegular.woff') format('woff');
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url('/fonts/MullerLight.woff2') format('woff2'),
+    url('/fonts/MullerLight.woff') format('woff');
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url('/fonts/MullerBold.woff2') format('woff2'),
+    url('/fonts/MullerBold.woff') format('woff');
+  font-display: swap;
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Muller';
+  src: url('/fonts/MullerMedium.woff2') format('woff2'),
+    url('/fonts/MullerMedium.woff') format('woff');
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -16,37 +52,13 @@ img {
   max-width: 100%;
 }
 
+html {
+  font-family: 'Muller', sans-serif;
+}
+
 body {
   background-color: #e5e5e5;
 }
-
-/* WRAPPER */
-
-.wrapper {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  background: white;
-}
-
-.wrapper-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.wrapper-left {
-  color: red;
-}
-
-.wrapper-right {
-  padding: 10px;
-  background-color: black;
-  border-radius: 10px;
-  color: white;
-}
-
-/* MAIN */
 
 .container {
   max-width: 1200px;
@@ -71,15 +83,12 @@ body {
   margin-left: 40px;
   margin-top: auto;
   font-size: 40px;
+  font-weight: 400;
   color: #333;
   margin-bottom: 20px;
 }
 
 /* HEADER */
-
-.header {
-  margin-top: 80px;
-}
 
 .header-container {
   height: 155px;
@@ -127,7 +136,12 @@ body {
 
 .header-nav-list {
   display: flex;
+  justify-content: space-between;
   margin-left: 45px;
+}
+
+.header-nav-item {
+  min-width: fit-content;
 }
 
 .header-nav-link {
@@ -140,7 +154,7 @@ body {
 }
 
 .header-bottom-right {
-  justify-self: flex-end;
+  display: flex;
   margin-right: 45px;
 }
 
@@ -193,6 +207,7 @@ body {
   max-width: 300px;
   color: white;
   font-size: 40px;
+  font-weight: 700;
 }
 
 .special-cost {
@@ -225,6 +240,7 @@ body {
 .special-big-name {
   margin-bottom: 15px;
   font-size: 60px;
+  font-weight: 700;
   color: white;
   max-width: 300px;
 }
@@ -245,6 +261,7 @@ body {
 .about-info {
   max-width: 80%;
   font-size: 16px;
+  font-weight: 400;
   color: black;
   line-height: 200%;
 }
@@ -258,8 +275,7 @@ body {
 
 .services-list {
   display: flex;
-  justify-content: center;
-  align-items: space-between;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
@@ -294,11 +310,12 @@ body {
   float: left;
   color: #CC9933;
   font-size: 20px;
+  font-weight: 500;
   line-height: 40px;
   background-image: url("/img/Rectangle-orange.svg");
   background-repeat: no-repeat;
   background-position: right;
-  background-position-y: center;
+  background-position-y: 45%;
 }
 
 .service-info {
@@ -308,6 +325,8 @@ body {
   max-width: 400px;
   margin-top: 0;
   float: left;
+  line-height: 200%;
+  font-weight: 400;
 }
 
 /* ADVANTAGES */
@@ -319,6 +338,7 @@ body {
 
 .advantages-list {
   display: flex;
+  justify-content: space-between;
   margin-bottom: -23px;
   flex-wrap: wrap;
 }
@@ -366,7 +386,7 @@ body {
   margin-bottom: 23px;
   flex: 1 1 30%;
   min-height: 400px;
-  max-width: 374px;
+  max-width: 370px;
   background-color: white;
   border-radius: 15px;
   overflow: hidden;
@@ -379,6 +399,7 @@ body {
   margin-top: 36px;
   padding-right: 46px;
   font-size: 20px;
+  font-weight: 700;
 }
 
 .cost-gray {
@@ -424,9 +445,10 @@ body {
   text-align: center;
   color: white;
   font-size: 20px;
+  font-weight: 500;
   line-height: 200%;
   background-image: url("/img/Rectangle-white.svg");
   background-repeat: no-repeat;
   background-position: right;
-  background-position-y: center;
+  background-position-y: 45%;
 }
