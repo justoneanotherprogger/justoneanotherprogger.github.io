@@ -5,6 +5,7 @@
   position: fixed;
   top: 0;
   background: white;
+  z-index: 1;
 }
 
 .wrapper-container {

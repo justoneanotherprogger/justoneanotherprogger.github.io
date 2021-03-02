@@ -34,6 +34,12 @@
   font-style: normal;
 }
 
+:root {
+  --gray: #999;
+  --maincolor: #CC9933;
+  --nearblack: #333;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -75,13 +81,29 @@ address {
 .button {
   display: inline-block;
   padding: 13px 20px;
-  color: #CC9933;
-  border: 1px solid #CC9933;
+  color: var(--maincolor);
+  border: 1px solid var(--maincolor);
   background-color: white;
   font-size: 16px;
-  line-height: 1;
+  text-align: center;
+  line-height: 100%;
   border-radius: 10px;
   cursor: pointer;
+  transition: transform .4s ease;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.link {
+  transition-property: text-shadow;
+  transition-duration: .4s;
+  transition-timing-function: ease;
+}
+
+.link:hover {
+  text-shadow: 0 0 2px;
 }
 
 .section-header {
@@ -89,7 +111,7 @@ address {
   margin-top: auto;
   font-size: 40px;
   font-weight: 400;
-  color: #333;
+  color: var(--nearblack);
   margin-bottom: 20px;
 }
 
@@ -118,7 +140,7 @@ address {
 }
 
 .header-personal-link {
-  color: #CC9933;
+  color: var(--maincolor);
   font-size: 16px;
 }
 
@@ -126,6 +148,7 @@ address {
   margin-left: 55px;
   margin-right: 55px;
   width: 1px;
+  flex: 0 0 1px;
   height: 50px;
   background-color: #e1e1e1;
 }
@@ -134,7 +157,6 @@ address {
   display: flex;
   height: 70px;
   align-items: center;
-  justify-content: space-between;
   background-color: white;
   border-radius: 15px;
 }
@@ -189,6 +211,11 @@ address {
   flex-direction: column;
 }
 
+.special-item-1, .special-item-2 {
+  position: relative;
+  overflow: hidden;
+}
+
 .special-item-1 {
   display: flex;
   flex-direction: column;
@@ -208,11 +235,22 @@ address {
   border-radius: 15px;
 }
 
+.special-item-1::after, .special-item-2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 35%;
+  background: linear-gradient(to left, rgba(48, 64, 89, 0), rgba(48, 64, 89, .7));
+}
+
 .special-name {
   max-width: 300px;
   color: white;
   font-size: 40px;
   font-weight: 700;
+  z-index: 1;
 }
 
 .special-cost {
@@ -220,20 +258,24 @@ address {
   color: white;
   font-size: 20px;
   margin-bottom: auto;
+  z-index: 1;
 }
 
 .special-info {
   margin-right: auto;
   padding-right: 15px;
-  color: #CC9933;
+  color: var(--maincolor);
   font-size: 16px;
   background-image: url("/img/Rectangle-orange.svg");
   background-repeat: no-repeat;
   background-position: right;
+  z-index: 1;
 }
 
 .special-big {
   display: flex;
+  position: relative;
+  overflow: hidden;
   flex-direction: column;
   justify-content: flex-end;
   padding: 40px;
@@ -242,18 +284,30 @@ address {
   border-radius: 15px;
 }
 
+.special-big::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  top: 35%;
+  background: linear-gradient(to bottom, rgba(48, 64, 89, 0), rgba(48, 64, 89, .7));
+}
+
 .special-big-name {
   margin-bottom: 15px;
   font-size: 60px;
   font-weight: 700;
   color: white;
   max-width: 300px;
+  z-index: 1;
 }
 
 .special-big-cost {
   margin-bottom: 47px;
   font-size: 30px;
   color: white;
+  z-index: 1;
 }
 
 /* ABOUT */
@@ -280,7 +334,8 @@ address {
 
 .services-list {
   display: flex;
-  justify-content: space-between;
+  margin-bottom: -23px;
+  margin-right: -23px;
   flex-wrap: wrap;
 }
 
@@ -291,18 +346,12 @@ address {
 
 .services-item {
   max-width: 572px;
+  margin-bottom: 23px;
+  margin-right: 23px;
   flex: 1 1 570px;
   background-color: white;
   border-radius: 15px;
   overflow: hidden;
-}
-
-.services-item:not(:nth-child(2n)) {
-  margin-right: 23px;
-}
-
-.services-item:not(:nth-child(3)):not(:nth-child(4)) {
-  margin-bottom: 23px;
 }
 
 .service-link {
@@ -313,7 +362,7 @@ address {
   padding-right: 15px;
   padding-bottom: 2px;
   float: left;
-  color: #CC9933;
+  color: var(--maincolor);
   font-size: 20px;
   font-weight: 500;
   line-height: 40px;
@@ -343,22 +392,20 @@ address {
 
 .advantages-list {
   display: flex;
-  justify-content: space-between;
+  margin-right: -23px;
   margin-bottom: -23px;
   flex-wrap: wrap;
 }
 
 .advantage-card {
-  flex: 1 1 20%;
+  margin-right: 23px;
+  flex: 1 1 275px;
   min-height: 275px;
+  max-width: 275px;
   margin-bottom: 23px;
   padding: 40px 42px 41px 45px;
   background-color: white;
   border-radius: 15px;
-}
-
-.advantage-card:not(:nth-child(4n)) {
-  margin-right: 23px;
 }
 
 .advantage-icon {
@@ -381,17 +428,18 @@ address {
 
 .accomodations-list {
   margin-bottom: -23px;
+  margin-right: -23px;
   display: flex;
   margin-top: 30px;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .accomodation-item {
   margin-bottom: 23px;
-  flex: 1 1 30%;
+  margin-right: 23px;
+  flex: 1 1 370px;
+  max-width: 375px;
   min-height: 400px;
-  max-width: 370px;
   background-color: white;
   border-radius: 15px;
   overflow: hidden;
@@ -408,7 +456,7 @@ address {
 }
 
 .cost-gray {
-  color: #999;
+  color: var(--gray);
   font-size: 16px;
 }
 
@@ -426,7 +474,7 @@ address {
   padding-left: 45px;
   padding-top: 16px;
   font-size: 16px;
-  color: #999;
+  color: var(--gray);
 }
 
 .accomodation-info {
@@ -437,6 +485,7 @@ address {
 
 .accomodation-item-last {
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: flex-end;
   background-image: url("/img/accom-big.jpg");
@@ -456,6 +505,15 @@ address {
   background-repeat: no-repeat;
   background-position: right;
   background-position-y: 45%;
+}
+
+.last-accomodation-link::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 /* FORM */
@@ -569,11 +627,11 @@ address {
 }
 
 .contact-link {
-  color: #CC9933;
+  color: var(--maincolor);
 }
 
 .text-mail-contacts {
-  color: #999;
+  color: var(--gray);
 }
 
 .contacts-button {
@@ -596,7 +654,7 @@ address {
   display: flex;
   padding: 45px 50px 55px 50px;
   justify-content: space-between;
-  background-color: #333;
+  background-color: var(--nearblack);
   border-radius: 15px;
   background-image: url("/img/footer-sun.png");
   background-repeat: no-repeat;
@@ -609,6 +667,7 @@ address {
 
 .footer-row {
   margin: 0;
+  min-height: 25px;
   color: white;
   font-size: 16px;
   font-weight: 400;
@@ -651,9 +710,15 @@ address {
 }
 
 .footer-icon {
+  display: block;
   margin-bottom: 20px;
   width: 25px;
   height: 25px;
+  transition: filter .5s ease;
+}
+
+.footer-icon:hover {
+  filter: drop-shadow(0 0 3px);
 }
 
 .icon-tripadvisor {
