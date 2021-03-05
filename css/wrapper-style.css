@@ -5,7 +5,7 @@
   position: fixed;
   top: 0;
   background: white;
-  z-index: 1;
+  z-index: 2;
 }
 
 .wrapper-container {
@@ -15,10 +15,12 @@
 }
 
 .wrapper-left {
+  margin: auto;
   color: red;
 }
 
 .wrapper-right {
+  margin: auto;
   padding: 10px;
   background-color: black;
   border-radius: 10px;
