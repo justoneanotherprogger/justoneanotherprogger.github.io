@@ -5,7 +5,7 @@
   height: 50px;
   position: fixed;
   top: 0;
-  background: white;
+  background: #eee;
   z-index: 2;
 }
 
@@ -30,5 +30,5 @@
 }
 
 .header {
-  margin-top: 80px;
+  margin-top: 50px;
 }
