@@ -32,3 +32,14 @@
 .header {
   margin-top: 50px;
 }
+
+@media (max-width: 800px) {
+  .wrapper-left {
+    font-size: 12px;
+  }
+
+  .wrapper-right {
+    font-size: 12px;
+    line-height: 14px;
+  }
+}

@@ -580,11 +580,7 @@ body {
 
 /* ADAPTABLES */
 
-@media (min-width: 1800px) {
-  .work__page-picture {
-    max-height: 500px;
-  }
-
+@media (min-width: 2000px) {
   .header__nav-list {
     margin-right: auto;
   }
