@@ -31,8 +31,12 @@
   color: white;
 }
 
-.header {
+body {
   margin-top: 50px;
+}
+
+.header__nav {
+  top: 50px;
 }
 
 @media (max-width: 800px) {
