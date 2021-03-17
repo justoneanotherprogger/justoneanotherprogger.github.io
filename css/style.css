@@ -840,7 +840,7 @@ body {
     z-index: 5;
     padding: 40px 50px;
     background-color: white;
-    transform: translateX(-1000px);
+    transform: translateY(-1000px);
     box-shadow: rgba(0, 0, 0, 0.1) 0 5px 40px;
   }
 
@@ -1204,7 +1204,7 @@ body {
     right: 0;
     left: auto;
     padding: 10px 10px;
-    transform: translateX(500px);
+    transform: translateY(-500px);
   }
 
   .header__nav-list {
