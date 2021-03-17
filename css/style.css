@@ -142,7 +142,7 @@ body {
 
 .header__nav {
   height: 100%;
-  transition: display 0.4s ease;
+  transition: 0.4s;
 }
 
 .header__nav-cross {
@@ -830,11 +830,17 @@ body {
   }
 
   .header__nav {
-    display: none;
     width: 420px;
     height: 720px;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    z-index: 5;
     padding: 40px 50px;
     background-color: white;
+    transform: translateX(-1000px);
     box-shadow: rgba(0, 0, 0, 0.1) 0 5px 40px;
   }
 
@@ -851,21 +857,13 @@ body {
     font-weight: 700;
   }
 
-  .header__nav-active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 5;
-  }
-
   .header__nav-cross {
     display: block;
   }
 
   .header__logo {
-    margin-right: 5px;
+    margin-right: auto;
+    margin-left: auto;
     margin-top: 3px;
   }
 
@@ -1000,6 +998,10 @@ body {
     padding-right: 34px;
     margin-right: 5px;
   }
+
+  .header__nav-active {
+    transform: none;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -1069,6 +1071,10 @@ body {
 
   .footer__social-list {
     width: 230px;
+  }
+
+  .header__nav-active {
+    transform: none;
   }
 }
 
@@ -1153,6 +1159,10 @@ body {
   .questions__header {
     margin-right: -25px;
   }
+
+  .header__nav-active {
+    transform: none;
+  }
 }
 
 @media (max-width: 700px) {
@@ -1184,12 +1194,17 @@ body {
     flex-direction: row-reverse;
   }
 
+  .header__logo {
+    margin-left: 0;
+  }
+
   .header__nav {
     width: 300px;
     height: 665px;
     right: 0;
     left: auto;
     padding: 10px 10px;
+    transform: translateX(500px);
   }
 
   .header__nav-list {
@@ -1198,7 +1213,8 @@ body {
   }
 
   .header__nav-cross {
-    margin-right: 0;
+    margin-right: 40px;
+    margin-top: 10px;
     margin-left: auto;
   }
 
@@ -1262,6 +1278,10 @@ body {
 
   .questions__question {
     font-weight: 500;
+  }
+
+  .header__nav-active {
+    transform: none;
   }
 }
 
@@ -1375,7 +1395,7 @@ body {
   }
 
   .info__picture {
-    zoom: 40%;
+    zoom: 50%;
     object-position: left;
   }
 
@@ -1551,5 +1571,9 @@ body {
   .footer__social-icon {
     width: 35px;
     height: 35px;
+  }
+
+  .header__nav-active {
+    transform: none;
   }
 }
