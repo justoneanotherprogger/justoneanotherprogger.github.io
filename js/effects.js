@@ -18,10 +18,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
 window.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.header__burger-button').addEventListener('click', function(event) {
-    document.querySelector('.header__nav').classList.toggle('header__nav-active')
+    document.querySelector('.header__nav-list').classList.toggle('header__nav-active')
   })
   document.querySelector('.header__nav-cross').addEventListener('click', function(event) {
-    document.querySelector('.header__nav').classList.toggle('header__nav-active')
+    document.querySelector('.header__nav-list').classList.toggle('header__nav-active')
   })
 })
 
@@ -47,4 +47,5 @@ const swiper = new Swiper('.swiper-container', {
   },
 
   spaceBetween: 200,
+  loop: true,
 });
