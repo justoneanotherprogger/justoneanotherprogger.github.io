@@ -764,7 +764,7 @@ body {
 }
 
 .footer__form-checkbox:focus + .check {
-  outline: white auto 3px;
+  outline: #999 dotted 2px;
 }
 
 .footer__label-text {
@@ -1509,6 +1509,8 @@ body {
 
   .about__main-block-link {
     margin-top: 0;
+    margin-bottom: 5px;
+    padding-bottom: 11px;
   }
 
   .about__block {
