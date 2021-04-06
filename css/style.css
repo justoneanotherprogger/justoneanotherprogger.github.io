@@ -765,6 +765,7 @@ body {
 
 .footer__form-checkbox:focus + .check {
   outline: #999 dotted 2px;
+  outline-offset: 5px;
 }
 
 .footer__label-text {
@@ -911,7 +912,6 @@ body {
     flex-direction: column;
     top: 0;
     left: 0;
-    z-index: -1;
     padding: 40px 50px;
     background-color: white;
     opacity: 0;
@@ -1073,7 +1073,7 @@ body {
   .footer__form-button {
     padding-left: 33px;
     padding-right: 33px;
-    margin-right: 4px;
+    margin-right: 5px;
   }
 
   .header__nav-active {
@@ -1651,6 +1651,10 @@ body {
   .footer__social-icon {
     width: 35px;
     height: 35px;
+  }
+
+  .footer__label-text {
+    font-size: 14px;
   }
 
   .header__nav-active {
