@@ -1,51 +1,162 @@
-window.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.work__step').forEach(function(step) {
-    step.addEventListener('click', function(event) {
-      const path = event.currentTarget.dataset.path
+$(document).ready(function(){
+  $("#header-nav-menu").on("click","a", function (event) {
+    event.preventDefault();
+    var id  = $(this).attr('href'),
+    top = $(id).offset().top;
+    $('body,html').animate({scrollTop: top}, 1000);
+  });
+});
 
-      document.querySelectorAll('.work__page').forEach(function(page) {
-        page.classList.remove('active-page')
-      })
-      document.querySelector(`[data-target="${path}"]`).classList.add('active-page')
+$(document).ready(function(){
+  document.querySelectorAll('.header__dropdown-menu-name').forEach(function (elem) {
+    elem.addEventListener('click', function (event) {
+      const menu = event.currentTarget.dataset.menu
 
-      document.querySelectorAll('.work__step').forEach(function(stepp) {
-        stepp.classList.remove('active-step')
-      })
-      event.currentTarget.classList.add('active-step')
+      if (document.querySelector(`[data-list="${menu}"]`).classList.contains('header__dropdown-visible')) {
+        document.querySelector('.header__dropdown-visible').classList.remove('header__dropdown-visible');
+      } else {
+        document.querySelectorAll('.header__dropdown-item').forEach(function (hdi) {
+          hdi.classList.remove('header__dropdown-visible');
+        });
+        document.querySelector(`[data-list="${menu}"]`).classList.add('header__dropdown-visible');
+      }
     })
   })
-})
-
-window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.header__burger-button').addEventListener('click', function(event) {
-    document.querySelector('.header__nav-list').classList.toggle('header__nav-active')
-  })
-  document.querySelector('.header__nav-cross').addEventListener('click', function(event) {
-    document.querySelector('.header__nav-list').classList.toggle('header__nav-active')
-  })
-})
-
-$( "#accordion" ).accordion({
-  collapsible:true,
-  active:1000,
 });
 
-const swiper = new Swiper('.swiper-container', {
+$( ".catalogue__accordion-active" ).accordion();
 
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
+$(document).ready(function(){
+  document.querySelectorAll('.catalogue__country-button').forEach(function (elem) {
+    elem.addEventListener('click', function (event) {
+      const country = event.currentTarget.dataset.country
 
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
+      document.querySelectorAll('.catalogue__country-button').forEach(function (button) {
+        button.classList.remove('catalogue__country-button-active')
+      })
+      event.currentTarget.classList.add('catalogue__country-button-active')
 
+      document.querySelectorAll('.catalogue__accordion-active').forEach(function (accordion1) {
+        accordion1.classList.remove('catalogue__accordion-active')
+      })
+      document.querySelector(`[data-accord="${country}"]`).classList.add('catalogue__accordion-active')
+
+      $( ".catalogue__accordion-active" ).accordion();
+
+      document.querySelectorAll('.catalogue__accordion-list-item').forEach(function (listitem) {
+        listitem.classList.remove('catalogue__accordion-list-item-active')
+      })
+      document.querySelectorAll('.catalogue__artist-page').forEach(function (artistpage) {
+        artistpage.classList.remove('catalogue__artist-page-active')
+      })
+      document.querySelector('.catalogue__artist-page-blank').classList.add('catalogue__artist-page-active')
+    })
+  })
+  document.querySelectorAll('.catalogue__accordion-list-item').forEach(function (artistpage) {
+    artistpage.addEventListener('click', function (event) {
+      const number = event.currentTarget.dataset.artistlink
+
+      document.querySelectorAll('.catalogue__accordion-list-item').forEach(function (listitem) {
+        listitem.classList.remove('catalogue__accordion-list-item-active')
+      })
+      event.currentTarget.classList.add('catalogue__accordion-list-item-active')
+
+      document.querySelectorAll('.catalogue__artist-page').forEach(function (artistpage) {
+        artistpage.classList.remove('catalogue__artist-page-active')
+      })
+      document.querySelector(`[data-artistpage="${number}"]`).classList.add('catalogue__artist-page-active')
+    })
+  })
+});
+
+const swiper_hero = new Swiper('.swiper-container-hero', {
+  speed: 2000,
+  allowTouchMove: false,
+  effect: 'fade',
+  loop:true,
   autoplay: {
-    delay: 10000,
+    delay: 15000,
   },
-
-  spaceBetween: 200,
-  loop: true,
 });
+
+const swiper_gallery = new Swiper('.swiper-container-gallery', {
+  speed: 500,
+  spaceBetween: 50,
+  allowTouchMove: false,
+  effect: 'slide',
+  slidesPerView: 3,
+  slidesPerGroup: 3,
+  slidesPerColumn: 2,
+  navigation: {
+    nextEl: '.gallery__swiper-button-next',
+    prevEl: '.gallery__swiper-button-prev',
+  },
+  pagination: {
+    el: '.gallery__swiper-pagination',
+    type: 'fraction',
+  },
+});
+
+const swiper_books = new Swiper('.swiper-container-books', {
+  speed: 500,
+  spaceBetween: 50,
+  allowTouchMove: false,
+  effect: 'slide',
+  slidesPerView: 3,
+  slidesPerGroup: 3,
+  navigation: {
+    nextEl: '.books__swiper-button-next',
+    prevEl: '.books__swiper-button-prev',
+  },
+  pagination: {
+    el: '.books__swiper-pagination',
+    type: 'fraction',
+  },
+});
+
+const swiper_projects = new Swiper('.swiper-container-projects', {
+  speed: 500,
+  spaceBetween: 50,
+  allowTouchMove: false,
+  loop: true,
+  effect: 'slide',
+  slidesPerView: 3,
+  navigation: {
+    nextEl: '.projects__swiper-button-next',
+    prevEl: '.projects__swiper-button-prev',
+  },
+});
+
+ymaps.ready(init);
+
+function init () {
+    myMap = new ymaps.Map('map', {
+        center: [55.755, 37.610],
+        zoom: 15
+    }, {
+        searchControlProvider: 'yandex#search'
+    });
+    var myPlacemark = new ymaps.Placemark([55.758458,37.600995], {}, {
+      iconLayout: 'default#image',
+      iconImageHref: '/img/map-pin.svg',
+      iconImageSize: [20, 20],
+      iconImageOffset: [-10, -10]
+    });
+    myMap.geoObjects.add(myPlacemark);
+};
+
+document.querySelector('.events__more-button').onclick = function() {
+  document.querySelector('.events__card-list').style.height = 'fit-content';
+
+  document.querySelectorAll('.events__card').forEach(function(card) {
+    card.style.visibility = 'visible';
+    card.addEventListener('transitionend', function (ev) {
+      document.querySelector('.events__more-button').style.visibility = 'hidden';
+    })
+  });
+  document.querySelector('.events__more-button').style.display = 'none';
+};
+
+function inputfocus() {
+  $(".header__search").focus()
+}
