@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+address {
+  font-style: normal;
+}
+
+.container {
+  padding: 100px 40px;
+}
+
+.section-header {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+/* PROJECTS */
+
+.projects__list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.projects__project {
+  flex: 1 1 30%;
+  text-align: center;
+}
+
+.projects__projects-pic {
+  width: 90%;
+}
