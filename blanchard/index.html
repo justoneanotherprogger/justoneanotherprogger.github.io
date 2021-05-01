@@ -22,13 +22,16 @@
 
   <header class="header">
     <div class="container header__higher-row">
+      <button onclick="opencloseheadernav()" class="button header__burger-button">
+        <div class="header__burger-icon"></div>
+      </button>
       <a href="" class="header__logo">
         <img src="/blanchard/img/logo.svg" alt="Blanchard" class="header__logo-img">
       </a>
       <nav id="header-nav-menu" class="header__nav">
         <ul class="header__nav-list">
           <li class="header__nav-item">
-            <a href="#about-section" class="header__nav-link">О нас</a>
+            <a href="#about-section" class="header__nav-link">О&nbsp;нас</a>
           </li>
           <li class="header__nav-item">
             <a href="#gallery-section" class="header__nav-link">Галерея</a>
@@ -49,8 +52,8 @@
             <a href="#contacts-section" class="header__nav-link">Контакты</a>
           </li>
         </ul>
+        <button class="button header__login-button"><div class="header__login-button-icon"></div>Войти</button>
       </nav>
-      <button class="button header__login-button"><div class="header__login-button-icon"></div>Войти</button>
     </div>
     <div class="container header__lower-row">
       <ul class="header__dropdown-menu">
@@ -218,13 +221,25 @@
         </div>
         <div class="hero__swiper swiper-wrapper">
           <div class="hero__swiper-slide swiper-slide">
-            <img src="/blanchard/img/hero-slide-1-1920p.jpg" alt="" class="hero__swiper-img">
+            <picture>
+              <source media="(max-width: 1500px)" srcset="/blanchard/img/hero-slide-1-1024p.jpg">
+              <source media="(min-width: 1501px)" srcset="/blanchard/img/hero-slide-1-1920p.jpg">
+              <img src="/blanchard/img/hero-slide-1-1920p.jpg" alt="" class="hero__swiper-img">
+            </picture>
           </div>
           <div class="hero__swiper-slide swiper-slide">
-            <img src="/blanchard/img/hero-slide-2-1920p.jpg" alt="" class="hero__swiper-img">
+            <picture>
+              <source media="(max-width: 1500px)" srcset="/blanchard/img/hero-slide-2-1024p.jpg">
+              <source media="(min-width: 1501px)" srcset="/blanchard/img/hero-slide-2-1920p.jpg">
+              <img src="/blanchard/img/hero-slide-2-1920p.jpg" alt="" class="hero__swiper-img">
+            </picture>
           </div>
           <div class="hero__swiper-slide swiper-slide">
-            <img src="/blanchard/img/hero-slide-3-1920p.jpg" alt="" class="hero__swiper-img">
+            <picture>
+              <source media="(max-width: 1500px)" srcset="/blanchard/img/hero-slide-3-1024p.jpg">
+              <source media="(min-width: 1501px)" srcset="/blanchard/img/hero-slide-3-1920p.jpg">
+              <img src="/blanchard/img/hero-slide-3-1920p.jpg" alt="" class="hero__swiper-img">
+            </picture>
           </div>
         </div>
       </div>
@@ -243,7 +258,7 @@
           <div class="gallery__filters-top">
             <h2 class="gallery__header section-header">Галерея</h2>
             <p class="gallery__filters-text">Фильтровать по:</p>
-            <select name="" id="" class="gallery__filters-author">
+            <select name="" id="" class="gallery__filters">
               <option value="" class="gallery__filters-option">Автор</option>
               <option value="" class="gallery__filters-option">Направление</option>
               <option value="" class="gallery__filters-option">Техника</option>
@@ -539,32 +554,32 @@
             <div data-accord="Italy" id="accordion-italy" class="catalogue__accordion-italy catalogue__accordion-active catalogue__accordion-country">
               <h3 class="catalogue__accordion-cat">C 1400 по 1499 гг.</h3>
               <div class="catalogue__accordion-list">
-                <ul class="catalogue__accordion-list-col">
-                  <li data-artistlink="italy001" class="catalogue__accordion-list-item">Бенедетто ди Биндо</li>
-                  <li data-artistlink="italy002" class="catalogue__accordion-list-item">Бергоньоне, Амброджо</li>
-                  <li data-artistlink="italy003" class="catalogue__accordion-list-item">Биссоло, Франческо</li>
-                  <li data-artistlink="italy004" class="catalogue__accordion-list-item">Больтраффио, Джованни</li>
-                  <li data-artistlink="italy005" class="catalogue__accordion-list-item">Бонсиньори, Франческо</li>
-                  <li data-artistlink="italy006" class="catalogue__accordion-list-item">Боттичини, Рафаэлло</li>
-                  <li data-artistlink="italy007" class="catalogue__accordion-list-item">Брамантино</li>
-                  <li data-artistlink="italy008" class="catalogue__accordion-list-item">Бреа, Людовико</li>
-                  <li data-artistlink="italy009" class="catalogue__accordion-list-item">Бьяджо д’Антонио Туччи</li>
-                  <li data-artistlink="italy010" class="catalogue__accordion-list-item">Веккьетта</li>
-                  <li data-artistlink="italy011" class="catalogue__accordion-list-item">Андреа Верроккьо</li>
-                  <li data-artistlink="italy012" class="catalogue__accordion-list-item catalogue__accordion-list-item-active">Доменико Гирландайо</li>
-                  <li data-artistlink="italy013" class="catalogue__accordion-list-item">Беноццо Гоццоли</li>
-                  <li data-artistlink="italy014" class="catalogue__accordion-list-item">Граначчи, Франческо</li>
-                  <li data-artistlink="italy015" class="catalogue__accordion-list-item">Грегорио ди Чекко</li>
-                  <li data-artistlink="italy016" class="catalogue__accordion-list-item">Джованни да Удине</li>
-                  <li data-artistlink="italy017" class="catalogue__accordion-list-item">Джованни ди Паоло</li>
-                  <li data-artistlink="italy018" class="catalogue__accordion-list-item">Джорджоне</li>
-                  <li data-artistlink="italy019" class="catalogue__accordion-list-item">Парентино, Бернардо</li>
-                  <li data-artistlink="italy020" class="catalogue__accordion-list-item">Пезеллино</li>
-                  <li data-artistlink="italy021" class="catalogue__accordion-list-item">Пьетро Перуджино</li>
-                  <li data-artistlink="italy022" class="catalogue__accordion-list-item">Перуцци, Бальдассаре</li>
-                  <li data-artistlink="italy023" class="catalogue__accordion-list-item">Пизанелло</li>
-                  <li data-artistlink="italy024" class="catalogue__accordion-list-item">Пинтуриккьо</li>
-                </ul>
+                <div class="catalogue__accordion-list-col">
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy001" class="catalogue__accordion-list-item">Бенедетто ди Биндо</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy002" class="catalogue__accordion-list-item">Бергоньоне, Амброджо</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy003" class="catalogue__accordion-list-item">Биссоло, Франческо</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy004" class="catalogue__accordion-list-item">Больтраффио, Джованни</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy005" class="catalogue__accordion-list-item">Бонсиньори, Франческо</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy006" class="catalogue__accordion-list-item">Боттичини, Рафаэлло</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy007" class="catalogue__accordion-list-item">Брамантино</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy008" class="catalogue__accordion-list-item">Бреа, Людовико</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy009" class="catalogue__accordion-list-item">Бьяджо д’Антонио Туччи</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy010" class="catalogue__accordion-list-item">Веккьетта</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy011" class="catalogue__accordion-list-item">Андреа Верроккьо</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy012" class="catalogue__accordion-list-item catalogue__accordion-list-item-active">Доменико Гирландайо</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy013" class="catalogue__accordion-list-item">Беноццо Гоццоли</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy014" class="catalogue__accordion-list-item">Граначчи, Франческо</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy015" class="catalogue__accordion-list-item">Грегорио ди Чекко</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy016" class="catalogue__accordion-list-item">Джованни да Удине</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy017" class="catalogue__accordion-list-item">Джованни ди Паоло</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy018" class="catalogue__accordion-list-item">Джорджоне</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy019" class="catalogue__accordion-list-item">Парентино, Бернардо</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy020" class="catalogue__accordion-list-item">Пезеллино</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy021" class="catalogue__accordion-list-item">Пьетро Перуджино</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy022" class="catalogue__accordion-list-item">Перуцци, Бальдассаре</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy023" class="catalogue__accordion-list-item">Пизанелло</div></div>
+                  <div class="catalogue__accordion-list-item-frame"><div data-artistlink="italy024" class="catalogue__accordion-list-item">Пинтуриккьо</div></div>
+                </div>
               </div>
               <h3 class="catalogue__accordion-cat">C 1500 по 1599 гг.</h3>
               <div class="catalogue__accordion-list">Будут добавлены позже</div>
@@ -666,7 +681,7 @@
             <p class="events__card-date"></p>
             <h3 class="events__card-header"></h3>
             <p class="events__card-desc"></p>
-            <a href="" class="events__card-link">Подробнее</a>
+            <a tabindex="-1" href="" class="events__card-link">Подробнее</a>
           </div>
         </div>
         <button onclick="opencards()" class="button events__more-button">Все события</button>
@@ -731,7 +746,7 @@
             <span class="books__cost-filter-from">От</span>
             <input type="text" class="books__cost-filter-from-input" placeholder="50">
             <span class="books__cost-filter-to">до</span>
-            <input type="text" class="books__cost-filter-to-input" placeholder="25000">
+            <input type="text" class="books__cost-filter-to-input" placeholder="25 000">
             <span class="books__cost-filter-rub">руб.</span>
           </div>
         </div>
@@ -829,7 +844,7 @@
         <h2 class="projects__header section-header">Проекты</h2>
         <div class="projects__text-container">
           <div class="projects__text">
-            Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи. А ещё независимые государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. Прежде всего, постоянное информационно&nbsp;-&nbsp;пропагандистское
+            Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи. А ещё независимые государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. Прежде всего, постоянное информационно&#8288;-&#8288;пропагандистское
             <div class="projects__i-tooltip">
               <span class="projects__tooltip-icon">i</span>
               <p class="projects__tooltip-text">Пример современных тенденций - современная методология разработки</p>
@@ -898,9 +913,9 @@
                 </a>
               </div>
             </div>
-            <div class="projects__swiper-button-prev swiper-button-prev"></div>
-            <div class="projects__swiper-button-next swiper-button-next"></div>
           </div>
+          <div class="projects__swiper-button-prev swiper-button-prev"></div>
+          <div class="projects__swiper-button-next swiper-button-next"></div>
         </div>
       </div>
     </section>

@@ -24,7 +24,7 @@ $(document).ready(function(){
   })
 });
 
-$( ".catalogue__accordion-active" ).accordion();
+$( ".catalogue__accordion-active" ).accordion({autoHeight: false});
 
 $(document).ready(function(){
   document.querySelectorAll('.catalogue__country-button').forEach(function (elem) {
@@ -41,7 +41,7 @@ $(document).ready(function(){
       })
       document.querySelector(`[data-accord="${country}"]`).classList.add('catalogue__accordion-active')
 
-      $( ".catalogue__accordion-active" ).accordion();
+      $( ".catalogue__accordion-active" ).accordion({autoHeight: false});
 
       document.querySelectorAll('.catalogue__accordion-list-item').forEach(function (listitem) {
         listitem.classList.remove('catalogue__accordion-list-item-active')
@@ -79,59 +79,126 @@ const swiper_hero = new Swiper('.swiper-container-hero', {
   },
 });
 
-const swiper_gallery = new Swiper('.swiper-container-gallery', {
-  speed: 500,
-  spaceBetween: 50,
-  allowTouchMove: false,
-  effect: 'slide',
-  slidesPerView: 3,
-  slidesPerGroup: 3,
-  slidesPerColumn: 2,
-  navigation: {
-    nextEl: '.gallery__swiper-button-next',
-    prevEl: '.gallery__swiper-button-prev',
-  },
-  pagination: {
-    el: '.gallery__swiper-pagination',
-    type: 'fraction',
-  },
-});
+var screen1500 = window.matchMedia('(max-width: 1500px)');
+var screen1501 = window.matchMedia('(min-width: 1501px)');
 
-const swiper_books = new Swiper('.swiper-container-books', {
-  speed: 500,
-  spaceBetween: 50,
-  allowTouchMove: false,
-  effect: 'slide',
-  slidesPerView: 3,
-  slidesPerGroup: 3,
-  navigation: {
-    nextEl: '.books__swiper-button-next',
-    prevEl: '.books__swiper-button-prev',
-  },
-  pagination: {
-    el: '.books__swiper-pagination',
-    type: 'fraction',
-  },
-});
+function screen1500match (scr) {
+  if (scr.matches) {
+    var swiper_gallery = new Swiper('.swiper-container-gallery', {
+      speed: 500,
+      spaceBetween: 35,
+      allowTouchMove: true,
+      effect: 'slide',
+      slidesPerView: 2,
+      slidesPerGroup: 2,
+      slidesPerColumn: 2,
+      navigation: {
+        nextEl: '.gallery__swiper-button-next',
+        prevEl: '.gallery__swiper-button-prev',
+      },
+      pagination: {
+        el: '.gallery__swiper-pagination',
+        type: 'fraction',
+      },
+    });
 
-const swiper_projects = new Swiper('.swiper-container-projects', {
-  speed: 500,
-  spaceBetween: 50,
-  allowTouchMove: false,
-  loop: true,
-  effect: 'slide',
-  slidesPerView: 3,
-  navigation: {
-    nextEl: '.projects__swiper-button-next',
-    prevEl: '.projects__swiper-button-prev',
-  },
-});
+    var swiper_books = new Swiper('.swiper-container-books', {
+      speed: 500,
+      spaceBetween: 48,
+      allowTouchMove: true,
+      effect: 'slide',
+      slidesPerView: 2,
+      slidesPerGroup: 2,
+      navigation: {
+        nextEl: '.books__swiper-button-next',
+        prevEl: '.books__swiper-button-prev',
+      },
+      pagination: {
+        el: '.books__swiper-pagination',
+        type: 'fraction',
+      },
+    });
+
+    var swiper_projects = new Swiper('.swiper-container-projects', {
+      speed: 500,
+      spaceBetween: 50,
+      allowTouchMove: true,
+      loop: true,
+      effect: 'slide',
+      slidesPerView: 2,
+      navigation: {
+        nextEl: '.projects__swiper-button-next',
+        prevEl: '.projects__swiper-button-prev',
+      },
+    });
+  }
+}
+
+function screen1501match (scr) {
+  if (scr.matches) {
+    var swiper_gallery = new Swiper('.swiper-container-gallery', {
+      speed: 500,
+      spaceBetween: 50,
+      allowTouchMove: false,
+      effect: 'slide',
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      slidesPerColumn: 2,
+      navigation: {
+        nextEl: '.gallery__swiper-button-next',
+        prevEl: '.gallery__swiper-button-prev',
+      },
+      pagination: {
+        el: '.gallery__swiper-pagination',
+        type: 'fraction',
+      },
+    });
+
+    var swiper_books = new Swiper('.swiper-container-books', {
+      speed: 500,
+      spaceBetween: 48,
+      allowTouchMove: false,
+      effect: 'slide',
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      navigation: {
+        nextEl: '.books__swiper-button-next',
+        prevEl: '.books__swiper-button-prev',
+      },
+      pagination: {
+        el: '.books__swiper-pagination',
+        type: 'fraction',
+      },
+    });
+
+    var swiper_projects = new Swiper('.swiper-container-projects', {
+      speed: 500,
+      spaceBetween: 50,
+      allowTouchMove: false,
+      loop: true,
+      effect: 'slide',
+      slidesPerView: 3,
+      navigation: {
+        nextEl: '.projects__swiper-button-next',
+        prevEl: '.projects__swiper-button-prev',
+      },
+    });
+  }
+}
+
+screen1500.addEventListener("change", screen1500match(screen1500));
+screen1501.addEventListener("change", screen1501match(screen1501));
+window.onresize = function () {
+  screen1500match(screen1500);
+  screen1501match(screen1501);
+};
 
 ymaps.ready(init);
 
 function init () {
     myMap = new ymaps.Map('map', {
-        center: [55.755, 37.610],
+        center: [55.76, 37.6],
+        controls: ['geolocationControl', 'zoomControl'],
         zoom: 15
     }, {
         searchControlProvider: 'yandex#search'
@@ -150,7 +217,7 @@ function opencards () {
     card.classList.add('events__card-visible');
   });
   document.querySelector('.events__more-button').classList.add('events__more-button-hidden');
-  document.querySelector('.events__card-list').classList.add('events__card-list-full')
+  document.querySelector('.events__more-button-hidden').remove();
 };
 
 function inputfocus () {
@@ -161,12 +228,17 @@ function slidetomap () {
   $('body,html').animate({scrollTop: top = $("#contacts-section").offset().top}, 1000);
 }
 
+function opencloseheadernav() {
+  document.querySelector(".header__nav").classList.toggle('header__nav-visible');
+  document.querySelector(".header__burger-button").classList.toggle('header__burger-cross');
+}
+
 var selector1 = document.querySelector(".phone-input");
 
 var im1 = new Inputmask("+7(999) 999-99-99");
 im1.mask(selector1);
 
-const choices = new Choices('.gallery__filters-author', {
+const choices = new Choices('.gallery__filters', {
   shouldSort: false,
   itemSelectText: '',
   searchEnabled: false,
