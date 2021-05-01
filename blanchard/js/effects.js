@@ -205,7 +205,7 @@ function init () {
     });
     var myPlacemark = new ymaps.Placemark([55.758458,37.600995], {}, {
       iconLayout: 'default#image',
-      iconImageHref: '/img/map-pin.svg',
+      iconImageHref: '/blanchard/img/map-pin.svg',
       iconImageSize: [20, 20],
       iconImageOffset: [-10, -10]
     });
