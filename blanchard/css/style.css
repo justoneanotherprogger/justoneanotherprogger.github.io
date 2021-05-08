@@ -145,6 +145,7 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
+  column-gap: 170px;
   transition: .4s;
 }
 
@@ -219,6 +220,7 @@ body {
   border: 2px solid white;
   border-radius: 2px;
   transition: .3s;
+  transform: scale(0.75);
 }
 
 .header__login-button-icon::before {
@@ -466,14 +468,44 @@ body {
 
 .header__search-field {
   display: flex;
-  padding-left: 30px;
-  padding-right: 10px;
+  padding-left: 40px;
   padding-top: 10px;
   padding-bottom: 10px;
   position: relative;
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
+}
+
+.header__search-close {
+  display: none;
+  width: 38px;
+  height: 4px;
+  padding: 0;
+  position: absolute;
+  right: 40px;
+  background-color: transparent;
+  border: none;
+}
+
+.header__search-close::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  transform: rotate(45deg);
+}
+
+.header__search-close::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  transform: rotate(-45deg);
 }
 
 .header__search-field:hover > .header__search,
@@ -492,7 +524,7 @@ body {
 .header__search-icon {
   margin-right: 10px;
   position: absolute;
-  left: 0;
+  left: 12px;
   top: 15px;
   display: inline-block;
   width: 25px;
@@ -662,6 +694,7 @@ body {
   height: 995px;
   background-image: url("/blanchard/img/gallery-background.jpg");
   background-size: cover;
+  background-position: center center;
   color: white;
 }
 
@@ -899,6 +932,7 @@ body {
   background-image: url("/blanchard/img/gallery-hover.svg");
   background-position: center center;
   background-repeat: no-repeat;
+  background-size: 80% 80%;
   opacity: 0;
   transition: .3s;
   z-index: 1;
@@ -1188,9 +1222,11 @@ body {
 
 .catalogue__accordion-list-col {
   display: flex;
+  width: 100%;
   height: 300px;
   align-items: flex-start;
   justify-content: flex-start;
+  align-content: space-between;
   flex-direction: column;
   flex-wrap: wrap;
 }
@@ -1241,8 +1277,9 @@ body {
 
 .events__card-list {
   height: fit-content;
-  margin-right: -50px;
   display: flex;
+  row-gap: 50px;
+  column-gap: 50px;
   justify-content: space-between;
   flex-wrap: wrap;
   transition: .5s;
@@ -1250,11 +1287,10 @@ body {
 
 .events__card {
   display: none;
+  height: 700px;
   position: relative;
   flex: 1 1 25%;
-  max-width: 31%;
-  margin-right: 50px;
-  margin-bottom: 50px;
+  max-width: 32%;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -1264,8 +1300,8 @@ body {
 }
 
 .events__card-visible {
-  display: flex;
-  opacity: 1;
+  display: flex !important;
+  opacity: 1 !important;
 }
 
 .events__visible-at-1920 {
@@ -1346,12 +1382,13 @@ body {
 }
 
 .events__card-template {
-  height: 0;
-  opacity: 0;
+  height: 0 !important;
+  opacity: 0 !important;
   pointer-events: none;
 }
 
 .events__more-button {
+  margin-top: 50px;
   position: relative;
   align-self: center;
   padding: 17px 33px;
@@ -1407,6 +1444,7 @@ body {
   background-image: url("/blanchard/img/books-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center center;
   color: white;
 }
 
@@ -1436,6 +1474,11 @@ body {
   font-size: 16px;
   line-height: 2;
   font-weight: 700;
+}
+
+.books__filters {
+  display: flex;
+  flex-direction: column;
 }
 
 .books__cat-filter-label {
@@ -1528,6 +1571,35 @@ body {
   position: relative;
   font-size: 16px;
   line-height: 2;
+}
+
+.books__unselect-button {
+  display: none;
+  position: relative;
+  background-color: transparent;
+  border: none;
+}
+
+.books__unselect-button::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 25%;
+  height: 50%;
+  width: 2px;
+  background-color: var(--color-violet);
+  transform: rotate(45deg);
+}
+
+.books__unselect-button::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 25%;
+  height: 50%;
+  width: 2px;
+  background-color: var(--color-violet);
+  transform: rotate(-45deg);
 }
 
 .books__cost-filter-text {
@@ -1672,6 +1744,9 @@ body {
 {
   font-size: 16px;
   line-height: 22px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .books__book-name {
@@ -1786,9 +1861,10 @@ body {
   width: 260px;
   position: absolute;
   bottom: 100%;
+  left: -200px;
   opacity: 0;
   pointer-events: none;
-  transform: translateX(-45%);
+  transform: translateX(83px);
   text-align: center;
   color: white;
   font-size: 12px;
@@ -1863,6 +1939,7 @@ body {
 .projects__swiper-slide {
   height: 150px;
   border: 1px solid #885BC7;
+  overflow: hidden;
 }
 
 .projects__swiper-button-prev {
@@ -1948,13 +2025,19 @@ body {
 }
 
 .projects__partner-img {
-  transform: scale(1.1);
+  width: 100%;
+  height: 100%;
 }
 
 /* CONTACTS */
 
+.contacts__container {
+  position: relative;
+}
+
 .contacts__content {
   display: flex;
+  justify-content: space-between;
 }
 
 .contacts__header {
@@ -2134,9 +2217,16 @@ body {
   display: flex;
 }
 
+.footer__social-item {
+  margin-left: 20px;
+}
+
+.footer__social-item:first-child {
+  margin-left: 0;
+}
+
 .footer__social-link {
   display: block;
-  margin-left: 20px;
   width: 45px;
   height: 45px;
   background-size: contain;
@@ -2170,8 +2260,8 @@ body {
 
 @media (max-width: 1500px) {
   .container {
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 
   .header__higher-row {
@@ -2180,7 +2270,7 @@ body {
 
   .header__burger-button {
     display: flex;
-    left: 80px;
+    left: 43px;
     justify-content: space-around;
     align-items: center;
   }
@@ -2194,7 +2284,7 @@ body {
     position: absolute;
     padding-top: 100px;
     padding-bottom: 50px;
-    padding-left: 80px;
+    padding-left: 50px;
     top: 0;
     height: 768px;
     width: 100%;
@@ -2205,6 +2295,8 @@ body {
   }
 
   .header__nav-list {
+    margin-right: 0;
+    width: fit-content;
     flex-direction: column;
   }
 
@@ -2231,12 +2323,13 @@ body {
 
   .header__search-field {
     position: absolute;
-    right: 80px;
+    right: 47px;
     top: 22px;
     overflow: hidden;
   }
 
   .header__search-icon {
+    left: 2px;
     transform: translateX(232px);
   }
 
@@ -2251,7 +2344,6 @@ body {
 
   .hero {
     height: 768px;
-    overflow: hidden;
   }
 
   .hero__text-block {
@@ -2291,6 +2383,10 @@ body {
     height: 280px;
   }
 
+  .catalogue {
+    margin-bottom: 95px;
+  }
+
   .catalogue__countries {
     align-items: flex-end;
   }
@@ -2320,20 +2416,18 @@ body {
     height: 395px;
   }
 
-  .events {
-    margin-top: 95px;
-  }
-
   .events__card-list {
-    margin-right: -30px;
+    column-gap: 27px;
   }
 
   .events__card {
-    margin-right: 30px;
+    height: 683px;
+    max-width: 32%;
+    overflow: hidden;
   }
 
   .events__card-img {
-    height: 200px;
+    min-height: 200px;
     object-fit: cover;
   }
 
@@ -2356,7 +2450,7 @@ body {
   }
 
   .events__more-button {
-    margin-top: 5px;
+    margin-top: 50px;
   }
 
   .books__filters-col {
@@ -2402,48 +2496,17 @@ body {
   }
 
   .contacts__header {
-    margin-left: 80px;
-  }
-
-  .contacts__left {
-    width: 47.5%;
-    padding-left: 80px;
-  }
-
-  .contacts__form-header {
-    margin-bottom: 13px;
-  }
-
-  .contacts__map {
-    width: 50%;
-  }
-}
-
-@media (max-width: 1100px) {
-  .container {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-
-  .header__burger-button {
-    left: 43px;
-  }
-
-  .header__nav {
-    padding-left: 50px;
-  }
-
-  .header__search-field {
-    right: 47px;
-  }
-
-  .contacts__header {
     margin-left: 50px;
   }
 
   .contacts__left {
+    width: 47.5%;
     padding-left: 50px;
     padding-right: 98px;
+  }
+
+  .contacts__form-header {
+    margin-bottom: 13px;
   }
 
   .contacts__link {
@@ -2452,9 +2515,914 @@ body {
     height: 60px;
   }
 
-  .footer__social-link {
+  .contacts__map {
+    width: 52.5%;
+  }
+
+  .footer__social-item {
     margin-left: 29px;
+  }
+
+  .footer__social-link {
     width: 60px;
     height: 60px;
   }
+}
+
+@media (max-width: 800px) {
+
+  .header__higher-row {
+    z-index: 3;
+  }
+
+  .header__nav {
+    z-index: 15;
+  }
+
+  .header__burger-cross {
+    z-index: 16;
+  }
+
+  .header__search-field {
+    width: 0;
+    height: 100%;
+    padding-left: 90px;
+    padding-right: 0;
+    top: 0;
+    right: 0;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-35px);
+    z-index: 10;
+  }
+
+  .header__search {
+    width: 100%;
+    transform: translateX(0);
+    border-color: transparent !important;
+  }
+
+  .header__search-icon {
+    top: initial;
+    left: 50px;
+    transform: translateX(0) scale(1);
+  }
+
+  .header__search-visible {
+    width: 100%;
+    padding-right: 100px;
+    transform: none;
+  }
+
+  .header__search-visible > .header__search {
+    border-color: white !important;
+  }
+
+  .header__search-visible > .header__search-close {
+    display: block;
+  }
+
+  .header__search-field:hover > .header__search {
+    border-color: initial;
+  }
+
+  .header__logo-img {
+    transform: scale(1.1) translateX(4px);
+  }
+
+  .hero__text-block {
+    width: 100%;
+  }
+
+  .choices {
+    width: 40.5%;
+  }
+
+  .gallery {
+    height: 1169px;
+  }
+
+  .gallery__container {
+    position: relative;
+  }
+
+  .gallery__filters-column {
+    margin-right: 0;
+    width: 90%;
+    height: 86%;
+    position: absolute;
+  }
+
+  .gallery__swiper-column {
+    width: 100%;
+    margin-top: 247px;
+  }
+
+  .catalogue__countries {
+    align-items: center;
+  }
+
+  .catalogue__country-item {
+    margin-right: 54px;
+  }
+
+  .catalogue__country-item:last-child {
+    margin-right: 0;
+  }
+
+  .catalogue__header-text {
+    margin-bottom: 20px;
+  }
+
+  .catalogue__main-row {
+    flex-direction: column-reverse;
+    height: unset;
+  }
+
+  .catalogue__accordion {
+    width: 100%;
+    margin-bottom: 1190px;
+  }
+
+  .catalogue__accordion-list-col {
+    height: 300px;
+  }
+
+  .ui-accordion .ui-accordion-content {
+    padding-right: 10px;
+  }
+
+  .catalogue__accordion-list-item-frame {
+    width: fit-content;
+  }
+
+  .catalogue__artist-page-place {
+    width: 100%;
+    margin-right: 0;
+    height: 700px;
+  }
+
+  .events__header {
+    margin-top: 15px;
+  }
+
+  .events__card {
+    flex: 1 1 40%;
+    max-width: unset;
+  }
+
+  .events__card-desc {
+    margin-bottom: 135px;
+  }
+
+  .events__more-button {
+    margin-top: 50px;
+  }
+
+  .events__visible-at-1920 {
+    display: none;
+    opacity: 0;
+  }
+
+  .events__visible-at-768 {
+    display: flex;
+    opacity: 1;
+  }
+
+  .books {
+    margin-top: 85px;
+    background-image: url("/blanchard/img/gallery-background-768p.jpg");
+  }
+
+  .books__container {
+    flex-direction: column;
+  }
+
+  .books__filters-col {
+    width: 100%;
+  }
+
+  .books__filters {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    height: 130px;
+  }
+
+  .books__cat-filter-label {
+    margin-right: 7px;
+  }
+
+  .books__cost-filter-text {
+    margin-top: 24px;
+  }
+
+  .books__swiper-col {
+    width: 100%;
+    padding-right: 30px;
+    padding-left: 20px;
+  }
+
+  .books__swiper-nav {
+    top: 40px;
+    left: -8px;
+  }
+
+  .books__swiper-slide {
+    margin-bottom: 0;
+    height: 446px;
+  }
+
+  .projects__text-container {
+    padding-right: 10px;
+  }
+
+  .projects__partners {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  .projects__swiper-slide {
+    height: 106px;
+  }
+
+  .projects__swiper-button-next, .projects__swiper-button-prev {
+    top: 60px;
+  }
+
+  .contacts__header {
+    margin-left: 47px;
+  }
+
+  .contacts__left {
+    width: 56%;
+    padding-right: 42px;
+    padding-left: 48px;
+    padding-top: 122px;
+  }
+
+  .contacts__form-header {
+    margin-top: 28px;
+    margin-bottom: 15px;
+  }
+
+  .contacts__form-input {
+    margin-bottom: 23px;
+  }
+
+  .contacts__form-button {
+    padding: 15px 33px;
+  }
+
+  .contacts__link {
+    margin-right: 29px;
+  }
+
+  .contacts__map {
+    width: 44%;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .catalogue__header-row {
+    flex-wrap: wrap;
+  }
+
+  .catalogue__countries {
+    margin-left: 0;
+  }
+
+  .catalogue__accordion {
+    margin-bottom: 1650px;
+  }
+
+  .catalogue__accordion-list-col {
+    height: fit-content;
+  }
+
+  .books__filters {
+    height: 200px;
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .section-header {
+    font-size: 28px;
+    line-height: 38px;
+  }
+
+  .header__higher-row {
+    height: 45px;
+  }
+
+  .header__logo-img {
+    height: 22px;
+    width: 100px;
+    transform: translateX(0) translateY(2px);
+  }
+
+  .header__burger-button {
+    top: -9px;
+    left: 0px;
+    transform: scale(0.55);
+  }
+
+  .header__burger-cross {
+    top: 0;
+  }
+
+  .header__nav {
+    height: 355px;
+    padding-top: 45px;
+    padding-left: 15px;
+  }
+
+  .header__nav-link {
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  .header__login-button {
+    margin-top: 18px;
+    padding: 10px 30px;
+    font-size: 12px;
+  }
+
+  .header__login-button:focus {
+    outline: none;
+  }
+
+  .header__login-button-icon {
+    transform: scale(0.65);
+  }
+
+  .header__logo {
+    margin-right: 0;
+  }
+
+  .header__search-field {
+    transform: translateX(5px);
+  }
+
+  .header__search-icon {
+    transform: scale(0.6);
+  }
+
+  .header__search-visible {
+    height: 200%;
+    padding-right: 64px;
+    padding-left: 76px;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(40px);
+    transform: translateX(0);
+  }
+
+  .header__search-close {
+    top: 20px;
+    right: 10px;
+    transform: scale(0.5);
+  }
+
+  .header__search {
+    font-size: 12px;
+  }
+
+  .header__search:focus {
+    outline: none;
+  }
+
+  .header__search:focus + .header__search-icon {
+    transform: scale(0.6);
+  }
+
+  .hero {
+    height: 355px;
+  }
+
+  .hero__container {
+    height: 100%;
+  }
+
+  .hero__text-block {
+    padding-left: 25px;
+    padding-right: 25px;
+    top: 0;
+    text-align: center;
+  }
+
+  .hero__text-header {
+    margin-left: 0;
+    margin-top: 77px;
+    font-size: 32px;
+    line-height: 37px;
+  }
+
+  .hero__text {
+    margin-top: 14px;
+    margin-left: 2px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  .hero__subscribe-button {
+    margin-top: 29px;
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+
+  .hero__swiper-img {
+    height: 100%;
+  }
+
+  .about__container {
+    padding-top: 50px;
+    padding-bottom: 41px;
+  }
+
+  .about__text {
+    margin-top: 12px;
+    font-size: 14px;
+  }
+
+  .gallery {
+    height: 962px;
+  }
+
+  .gallery__container {
+    padding-top: 50px;
+  }
+
+  .gallery__filters-column {
+    height: 86.5%;
+  }
+
+  .gallery__filters-text {
+    margin-top: 12px;
+  }
+
+  .choices {
+    width: 100%;
+  }
+
+  .choices:focus {
+    outline: none;
+  }
+
+  .choices__inner {
+    min-height: 40px;
+    height: 40px;
+  }
+
+  .choices__list--single {
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  .gallery__swiper-column {
+    margin-top: 160px;
+  }
+
+  .gallery__swiper-slide {
+    height: 367px;
+  }
+
+  .gallery__swiper-img {
+    height: 367px;
+  }
+
+  .gallery__swiper-nav {
+    bottom: 170px;
+    left: 24%;
+    top: unset;
+  }
+
+  .catalogue {
+    margin-bottom: 120px;
+  }
+
+  .catalogue__header-row {
+    margin-bottom: 20px;
+  }
+
+  .catalogue__countries {
+    margin-top: 12px;
+  }
+
+  .catalogue__country-item {
+    margin-right: 32px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .catalogue__country-button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .catalogue__country-button-border {
+    border-width: 21px;
+  }
+
+  .catalogue__header-text {
+    display: none;
+  }
+
+  .catalogue__accordion {
+    margin-bottom: 1375px;
+  }
+
+  .catalogue__accordion-cat {
+    font-size: 18px !important;
+    padding: 20px 0 !important;
+  }
+
+  .catalogue__accordion-cat::before {
+    width: 27px;
+    height: 27px;
+    top: 23px;
+    right: 1px;
+  }
+
+  .catalogue__accordion-cat::after {
+    width: 6px;
+    height: 6px;
+    top: 34px;
+    right: 12px;
+  }
+
+  .catalogue__accordion-list {
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+  }
+
+  .catalogue__artist-name {
+    margin-top: 17px;
+    max-width: unset;
+  }
+
+  .catalogue__artist-dates {
+    margin-top: 12px;
+  }
+
+  .catalogue__atrist-text {
+    margin-top: 7px;
+    width: 99%;
+  }
+
+  .events__container {
+    padding-bottom: 67px;
+  }
+
+  .events__header {
+    margin-top: 14px;
+    margin-bottom: 10px;
+  }
+
+  .events__card-list {
+    flex-wrap: nowrap;
+  }
+
+  .events__card {
+    margin-right: 0;
+    margin-bottom: 0;
+    display: flex;
+    opacity: 1;
+    flex: unset;
+    flex-shrink: 0;
+  }
+
+  .events__card-place,
+  .events__card-date
+  {
+    margin-right: 10px;
+  }
+
+  .events__card-header {
+    margin-top: 3px;
+    margin-left: 28px;
+    margin-right: 10px;
+  }
+
+  .events__card-desc {
+    margin-top: 35px;
+    margin-left: 28px;
+    margin-right: 30px;
+    margin-bottom: 138px;
+  }
+
+  .events__card-link {
+    bottom: 46px;
+    left: 28px;
+  }
+
+  .events__more-button {
+    display: none;
+  }
+
+  .events__swiper-nav {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    width: 125px;
+    height: 20px;
+    transform: translateX(-44%);
+  }
+
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin-right: 15px;
+    filter: grayscale(1);
+  }
+
+  .books {
+    margin-top: 15px;
+  }
+
+  .books__container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .books__header {
+    margin-bottom: 12px;
+  }
+
+  .books__cat-filter-label:focus {
+    outline: none;
+  }
+
+  .books__filters-col {
+    position: relative;
+  }
+
+  .books__cat-filter {
+    position: relative;
+    padding-top: 2px;
+    padding-bottom: 3px;
+    border-top: 1px solid rgba(255, 255, 255, .5);
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+  }
+
+  .books__cat-filter::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 1px;
+    top: 30%;
+    height: 8px;
+    width: 8px;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+    transform-origin: center center;
+    transform: rotate(45deg);
+    transition: .3s;
+  }
+
+  .books__cat-filter-opened::after {
+    top: 40%;
+    transform: rotate(-135deg);
+  }
+
+  .books__cat-filter-label {
+    margin-right: 0;
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .books__cat-filter-label::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, .5);
+    opacity: 0;
+  }
+
+  .books__cat-filter-label-visible::after {
+    opacity: 1;
+  }
+
+  .books__cat-filter-label-visible-always::after {
+    opacity: 1;
+  }
+
+  .books__cat-filter-desc {
+    display: none;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .books__cat-filter-desc::after {
+    top: 16.5px;
+  }
+
+  .books__filters {
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: fit-content;
+  }
+
+  .books__cat-filter-label-visible > .books__cat-filter-desc {
+    display: initial;
+  }
+
+  .books__cat-filter-item:checked + .books__cat-filter-desc,
+  .books__cat-filter-item:checked ~ .books__unselect-button
+  {
+    display: initial;
+  }
+
+  .books__cat-filter-item:checked ~ .books__cat-filter-label::after {
+    opacity: 1;
+  }
+
+  .books__cost-filter-text {
+    margin-top: 20px;
+    margin-bottom: 6px;
+  }
+
+  .books__swiper-nav {
+    display: none;
+  }
+
+  .books__swiper-col {
+    padding-top: 38px;
+    padding-right: 0;
+    padding-left: 0;
+    overflow: visible;
+  }
+
+  .books__swiper {
+    flex-wrap: wrap;
+    column-gap: 29px;
+    row-gap: 50px;
+  }
+
+  .books__swiper-slide {
+    padding-left: 0;
+    height: 254px;
+    width: unset;
+    flex: 1 1 30%;
+    max-width: 45%;
+  }
+
+  .books__book-info {
+    flex-direction: column;
+  }
+
+  .books__book-name {
+    margin-top: 10px;
+  }
+
+  .books__book-name, .books__book-author, .books__book-cost {
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .books__book-button {
+    margin-bottom: 0;
+    padding: 8px 34px;
+    font-size: 12px;
+  }
+
+  .projects__header {
+    margin-top: 50px;
+    margin-bottom: 14px;
+  }
+
+  .projects__text-container {
+    padding-right: 0;
+  }
+
+  .projects__tooltip-text {
+    width: 100px;
+    left: -40px;
+    transform: translateX(0);
+  }
+
+  .projects__tooltip-text::after {
+    left: 38px;
+  }
+
+  .projects__partners {
+    margin-left: 0;
+    margin-top: 12px;
+    margin-bottom: 14px;
+    font-size: 18px;
+  }
+
+  .projects__swiper-container {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .projects__swiper-slide {
+    height: 65px;
+  }
+
+  .projects__swiper-button-next, .projects__swiper-button-prev {
+    top: 38px;
+  }
+
+  .contacts__header {
+    margin-left: 13px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+  }
+
+  .contacts__left {
+    width: 100%;
+    height: unset;
+    border: none;
+    padding: 0 13px;
+  }
+
+  .contacts__addr-header {
+    font-size: 18px;
+    line-height: 24.5px;
+  }
+
+  .contacts__addr {
+    margin-right: 0;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .contacts__form-header {
+    margin-top: 356px;
+    font-size: 18px;
+  }
+
+  .contacts__form-input {
+    margin-bottom: 22px;
+  }
+
+  .contacts__form-button {
+    margin-top: -4px;
+    padding: 11px 35px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .contacts__link-text {
+    margin-top: 19px;
+    margin-bottom: 7px;
+    font-size: 18px;
+  }
+
+  .contacts__links {
+    margin-bottom: 30px;
+  }
+
+  .contacts__link {
+    margin-right: 24px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .contacts__map {
+    position: absolute;
+    width: 100%;
+    height: 320px;
+    top: 110px;
+  }
+
+  .footer {
+    height: 132px;
+  }
+
+  .footer__container {
+    padding-top: 20px;
+    padding-bottom: 17px;
+    flex-direction: column-reverse;
+  }
+
+  .footer__logo-img {
+    width: 97px;
+  }
+
+  .footer__social-link {
+    width: 50px;
+    height: 50px;
+  }
+
 }

@@ -204,6 +204,7 @@
         </li>
       </ul>
       <div class="header__search-field">
+        <button onclick="searchclose()" class="header__search-close button"></button>
         <input type="text" placeholder="Поиск по сайту" class="header__search">
         <button onclick="inputfocus()" class="header__search-icon button"></button>
       </div>
@@ -221,21 +222,24 @@
         </div>
         <div class="hero__swiper swiper-wrapper">
           <div class="hero__swiper-slide swiper-slide">
-            <picture>
+            <picture  class="hero__swiper-img">
+              <source media="(max-width: 500px)" srcset="/blanchard/img/hero-slide-1-320p.jpg">
               <source media="(max-width: 1500px)" srcset="/blanchard/img/hero-slide-1-1024p.jpg">
               <source media="(min-width: 1501px)" srcset="/blanchard/img/hero-slide-1-1920p.jpg">
               <img src="/blanchard/img/hero-slide-1-1920p.jpg" alt="" class="hero__swiper-img">
             </picture>
           </div>
           <div class="hero__swiper-slide swiper-slide">
-            <picture>
+            <picture class="hero__swiper-img">
+              <source media="(max-width: 500px)" srcset="/blanchard/img/hero-slide-2-320p.jpg">
               <source media="(max-width: 1500px)" srcset="/blanchard/img/hero-slide-2-1024p.jpg">
               <source media="(min-width: 1501px)" srcset="/blanchard/img/hero-slide-2-1920p.jpg">
               <img src="/blanchard/img/hero-slide-2-1920p.jpg" alt="" class="hero__swiper-img">
             </picture>
           </div>
           <div class="hero__swiper-slide swiper-slide">
-            <picture>
+            <picture class="hero__swiper-img">
+              <source media="(max-width: 500px)" srcset="/blanchard/img/hero-slide-3-320p.jpg">
               <source media="(max-width: 1500px)" srcset="/blanchard/img/hero-slide-3-1024p.jpg">
               <source media="(min-width: 1501px)" srcset="/blanchard/img/hero-slide-3-1920p.jpg">
               <img src="/blanchard/img/hero-slide-3-1920p.jpg" alt="" class="hero__swiper-img">
@@ -276,58 +280,112 @@
           </div>
           <div class="gallery__swiper swiper-wrapper">
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-1.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-1.png">
+                <img src="/blanchard/img/gallery/gallery-picture-1.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-2.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-2.png">
+                <img src="/blanchard/img/gallery/gallery-picture-2.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-3.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-3.png">
+                <img src="/blanchard/img/gallery/gallery-picture-3.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-4.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-4.png">
+                <img src="/blanchard/img/gallery/gallery-picture-4.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-5.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-5.png">
+                <img src="/blanchard/img/gallery/gallery-picture-5.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-6.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-6.png">
+                <img src="/blanchard/img/gallery/gallery-picture-6.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-7.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-7.png">
+                <img src="/blanchard/img/gallery/gallery-picture-7.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-8.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-8.png">
+                <img src="/blanchard/img/gallery/gallery-picture-8.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-9.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-9.png">
+                <img src="/blanchard/img/gallery/gallery-picture-9.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-10.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-10.png">
+                <img src="/blanchard/img/gallery/gallery-picture-10.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-11.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-11.png">
+                <img src="/blanchard/img/gallery/gallery-picture-11.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-12.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-12.png">
+                <img src="/blanchard/img/gallery/gallery-picture-12.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-13.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-13.png">
+                <img src="/blanchard/img/gallery/gallery-picture-13.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-14.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-14.png">
+                <img src="/blanchard/img/gallery/gallery-picture-14.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-15.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-15.png">
+                <img src="/blanchard/img/gallery/gallery-picture-15.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-16.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-16.png">
+                <img src="/blanchard/img/gallery/gallery-picture-16.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-17.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-17.png">
+                <img src="/blanchard/img/gallery/gallery-picture-17.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
             <div class="gallery__swiper-slide swiper-slide">
-              <img src="/blanchard/img/gallery/gallery-picture-18.jpg" alt="" class="gallery__swiper-img">
+              <picture>
+                <source media="(max-width: 500px)" srcset="/blanchard/img/gallery/gallery-picture-18.png">
+                <img src="/blanchard/img/gallery/gallery-picture-18.jpg" alt="" class="gallery__swiper-img">
+              </picture>
             </div>
           </div>
         </div>
@@ -632,43 +690,58 @@
     </section>
 
     <section id="events-section" class="events">
-      <div class="container events__container">
+      <div class="container events__container swiper-container-events swiper-container">
         <h2 class="events__header section-header">События</h2>
-        <div class="events__card-list">
-          <div class="events__card events__visible-at-1920">
-            <img src="/blanchard/img/events/events-pic-1.jpg" alt="" class="events__card-img">
+        <div class="events__card-list swiper-wrapper">
+          <div class="events__card events__visible-at-1920 events__visible-at-768 swiper-slide">
+            <picture>
+              <source media="(max-width: 1500px)" srcset="/blanchard/img/events/events-pic-1.png">
+              <img src="/blanchard/img/events/events-pic-1.jpg" alt="" class="events__card-img">
+            </picture>
             <p class="events__card-place">Музей им. Щусева</p>
             <p class="events__card-date">с 20 марта по 30 апреля</p>
             <h3 class="events__card-header">Книжная гравюра в живом восприятии</h3>
             <p class="events__card-desc">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо.</p>
             <a href="" class="events__card-link">Подробнее</a>
           </div>
-          <div class="events__card events__visible-at-1920">
-            <img src="/blanchard/img/events/events-pic-2.jpg" alt="" class="events__card-img">
+          <div class="events__card events__visible-at-1920 events__visible-at-768 swiper-slide">
+            <picture>
+              <source media="(max-width: 1500px)" srcset="/blanchard/img/events/events-pic-2.png">
+              <img src="/blanchard/img/events/events-pic-2.jpg" alt="" class="events__card-img">
+            </picture>
             <p class="events__card-place">ММОМА</p>
             <p class="events__card-date">24 марта 19:00</p>
             <h3 class="events__card-header">«Открытая дискуссия». Дмитрий Петров и Сергей Ильин.</h3>
             <p class="events__card-desc">Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта.</p>
             <a href="" class="events__card-link">Подробнее</a>
           </div>
-          <div class="events__card events__visible-at-1920">
-            <img src="/blanchard/img/events/events-pic-3.jpg" alt="" class="events__card-img">
+          <div class="events__card events__visible-at-1920 swiper-slide">
+            <picture>
+              <source media="(max-width: 1500px)" srcset="/blanchard/img/events/events-pic-3.png">
+              <img src="/blanchard/img/events/events-pic-3.jpg" alt="" class="events__card-img">
+            </picture>
             <p class="events__card-place">Еврейский музей</p>
             <p class="events__card-date">с 31 марта по 21 апреля</p>
             <h3 class="events__card-header">Выставка «Формация 2020»</h3>
             <p class="events__card-desc">Идейные соображения высшего порядка, а также современная методология разработки играет важную роль в формировании глубокомысленных рассуждений.</p>
             <a href="" class="events__card-link">Подробнее</a>
           </div>
-          <div class="events__card">
-            <img src="/blanchard/img/events/events-pic-4.jpg" alt="" class="events__card-img">
+          <div class="events__card swiper-slide">
+            <picture>
+              <source media="(max-width: 1500px)" srcset="/blanchard/img/events/events-pic-4.png">
+              <img src="/blanchard/img/events/events-pic-4.jpg" alt="" class="events__card-img">
+            </picture>
             <p class="events__card-place">Третьяковка на Крымском валу</p>
             <p class="events__card-date">с 30 марта по 30 апреля</p>
             <h3 class="events__card-header">XXIV Международная биеннале молодого искусства</h3>
             <p class="events__card-desc">Внезапно, реплицированные с зарубежных источников, современные исследования.</p>
             <a href="" class="events__card-link">Подробнее</a>
           </div>
-          <div class="events__card">
-            <img src="/blanchard/img/events/events-pic-5.jpg" alt="" class="events__card-img">
+          <div class="events__card swiper-slide">
+            <picture>
+              <source media="(max-width: 1500px)" srcset="/blanchard/img/events/events-pic-5.png">
+              <img src="/blanchard/img/events/events-pic-5.jpg" alt="" class="events__card-img">
+            </picture>
             <p class="events__card-place">ММАМ</p>
             <p class="events__card-date">с 8 апреля по 20 мая</p>
             <h3 class="events__card-header">Джон Винзор. Фотографии из серии «Метафора серебра»</h3>
@@ -685,6 +758,9 @@
           </div>
         </div>
         <button onclick="opencards()" class="button events__more-button">Все события</button>
+        <div class="events__swiper-nav">
+          <div class="events__swiper-pagination swiper-pagination"></div>
+        </div>
       </div>
     </section>
 
@@ -693,54 +769,68 @@
         <div class="books__filters-col">
           <h2 class="books__header section-header">Издания</h2>
           <p class="books__cat-filter">Категории</p>
-          <label tabindex="0" class="books__cat-filter-label">
-            <input type="checkbox" name="" class="books__cat-filter-item">
-            <span class="books__cat-filter-desc">Бестселлеры</span>
-          </label>
-          <label tabindex="0" class="books__cat-filter-label">
-            <input type="checkbox" name="" class="books__cat-filter-item">
-            <span class="books__cat-filter-desc">Искусство</span>
-          </label>
-          <label tabindex="0" class="books__cat-filter-label">
-            <input type="checkbox" name="" class="books__cat-filter-item">
-            <span class="books__cat-filter-desc">Архитектура</span>
-          </label>
-          <label tabindex="0" class="books__cat-filter-label">
-            <input type="checkbox" name="" checked class="books__cat-filter-item">
-            <span class="books__cat-filter-desc">Дизайн</span>
-          </label>
-          <label tabindex="0" class="books__cat-filter-label">
-            <input type="checkbox" name="" class="books__cat-filter-item">
-            <span class="books__cat-filter-desc">Мода</span>
-          </label>
-          <label tabindex="0" class="books__cat-filter-label">
-            <input type="checkbox" name="" class="books__cat-filter-item">
-            <span class="books__cat-filter-desc">Детям</span>
-          </label>
-          <label tabindex="0" class="books__cat-filter-label">
-            <input type="checkbox" name="" class="books__cat-filter-item">
-            <span class="books__cat-filter-desc">Художественная литература</span>
-          </label>
-          <label tabindex="0" class="books__cat-filter-label">
-            <input type="checkbox" name="" class="books__cat-filter-item">
-            <span class="books__cat-filter-desc">Публицистика</span>
-          </label>
-          <label tabindex="0" class="books__cat-filter-label">
-            <input type="checkbox" name="" class="books__cat-filter-item">
-            <span class="books__cat-filter-desc">Путеводители</span>
-          </label>
-          <label tabindex="0" class="books__cat-filter-label">
-            <input type="checkbox" name="" class="books__cat-filter-item">
-            <span class="books__cat-filter-desc">Философия</span>
-          </label>
-          <label tabindex="0" class="books__cat-filter-label">
-            <input type="checkbox" name="" class="books__cat-filter-item">
-            <span class="books__cat-filter-desc">Учебная литература</span>
-          </label>
-          <label tabindex="0" class="books__cat-filter-label">
-            <input type="checkbox" name="" class="books__cat-filter-item">
-            <span class="books__cat-filter-desc">Журналы и газеты</span>
-          </label>
+          <div class="books__filters">
+            <label tabindex="0" class="books__cat-filter-label">
+              <input type="checkbox" name="" class="books__cat-filter-item">
+              <span class="books__cat-filter-desc">Бестселлеры</span>
+              <button class="books__unselect-button button"></button>
+            </label>
+            <label tabindex="0" class="books__cat-filter-label">
+              <input type="checkbox" name="" class="books__cat-filter-item">
+              <span class="books__cat-filter-desc">Искусство</span>
+              <button class="books__unselect-button button"></button>
+            </label>
+            <label tabindex="0" class="books__cat-filter-label">
+              <input type="checkbox" name="" class="books__cat-filter-item">
+              <span class="books__cat-filter-desc">Архитектура</span>
+              <button class="books__unselect-button button"></button>
+            </label>
+            <label tabindex="0" class="books__cat-filter-label books__cat-filter-label-visible-always">
+              <input type="checkbox" name="" checked class="books__cat-filter-item">
+              <span class="books__cat-filter-desc">Дизайн</span>
+              <button class="books__unselect-button button"></button>
+            </label>
+            <label tabindex="0" class="books__cat-filter-label">
+              <input type="checkbox" name="" class="books__cat-filter-item">
+              <span class="books__cat-filter-desc">Мода</span>
+              <button class="books__unselect-button button"></button>
+            </label>
+            <label tabindex="0" class="books__cat-filter-label">
+              <input type="checkbox" name="" class="books__cat-filter-item">
+              <span class="books__cat-filter-desc">Детям</span>
+              <button class="books__unselect-button button"></button>
+            </label>
+            <label tabindex="0" class="books__cat-filter-label">
+              <input type="checkbox" name="" class="books__cat-filter-item">
+              <span class="books__cat-filter-desc">Художественная литература</span>
+              <button class="books__unselect-button button"></button>
+            </label>
+            <label tabindex="0" class="books__cat-filter-label">
+              <input type="checkbox" name="" class="books__cat-filter-item">
+              <span class="books__cat-filter-desc">Публицистика</span>
+              <button class="books__unselect-button button"></button>
+            </label>
+            <label tabindex="0" class="books__cat-filter-label">
+              <input type="checkbox" name="" class="books__cat-filter-item">
+              <span class="books__cat-filter-desc">Путеводители</span>
+              <button class="books__unselect-button button"></button>
+            </label>
+            <label tabindex="0" class="books__cat-filter-label">
+              <input type="checkbox" name="" class="books__cat-filter-item">
+              <span class="books__cat-filter-desc">Философия</span>
+              <button class="books__unselect-button button"></button>
+            </label>
+            <label tabindex="0" class="books__cat-filter-label">
+              <input type="checkbox" name="" class="books__cat-filter-item">
+              <span class="books__cat-filter-desc">Учебная литература</span>
+              <button class="books__unselect-button button"></button>
+            </label>
+            <label tabindex="0" class="books__cat-filter-label">
+              <input type="checkbox" name="" class="books__cat-filter-item">
+              <span class="books__cat-filter-desc">Журналы и газеты</span>
+              <button class="books__unselect-button button"></button>
+            </label>
+          </div>
           <p class="books__cost-filter-text">Цена</p>
           <div class="books__cost-filter">
             <span class="books__cost-filter-from">От</span>
@@ -805,7 +895,7 @@
               <img src="/blanchard/img/books/books-picture-5.jpg" alt="" class="books__book-img">
               <div class="books__book-info">
                 <div class="books__book-main-info">
-                  <p class="books__book-name">Модульные сетки в граф...</p>
+                  <p class="books__book-name">Модульные сетки в графическом дизайне</p>
                   <p class="books__book-author">Мюллер-Брокманн, Йозеф</p>
                 </div>
                 <p class="books__book-cost">1 450 руб</p>
@@ -816,7 +906,7 @@
               <img src="/blanchard/img/books/books-picture-6.jpg" alt="" class="books__book-img">
               <div class="books__book-info">
                 <div class="books__book-main-info">
-                  <p class="books__book-name">Эволюция графических ст...</p>
+                  <p class="books__book-name">Эволюция графических стилей</p>
                   <p class="books__book-author">Хеллер, Чваст</p>
                 </div>
                 <p class="books__book-cost">3 200 руб</p>
@@ -827,7 +917,7 @@
               <img src="/blanchard/img/books/books-picture-7.jpg" alt="" class="books__book-img">
               <div class="books__book-info">
                 <div class="books__book-main-info">
-                  <p class="books__book-name">Искусство и визуальное в...</p>
+                  <p class="books__book-name">Искусство и визуальное восприятие</p>
                   <p class="books__book-author">Арнхейм, Рудольф</p>
                 </div>
                 <p class="books__book-cost">2 200 руб</p>
@@ -844,14 +934,14 @@
         <h2 class="projects__header section-header">Проекты</h2>
         <div class="projects__text-container">
           <div class="projects__text">
-            Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи. А ещё независимые государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. Прежде всего, постоянное информационно&#8288;-&#8288;пропагандистское
+            Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи. А ещё независимые государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. Прежде всего, постоянное информационно&#8288;-пропагандистское
             <div class="projects__i-tooltip">
               <span class="projects__tooltip-icon">i</span>
               <p class="projects__tooltip-text">Пример современных тенденций - современная методология разработки</p>
             </div>
             обеспечение нашей деятельности однозначно фиксирует необходимость экономической целесообразности принимаемых решений. И нет сомнений, что действия представителей оппозиции могут быть рассмотрены
             <div class="projects__i-tooltip">
-              <span class="projects__tooltip-icon">i</span>
+              <span class="projects__tooltip-icon"> i </span>
               <p class="projects__tooltip-text">Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции</p>
             </div>
             исключительно в разрезе маркетинговых и финансовых
@@ -860,7 +950,7 @@
               <p class="projects__tooltip-text">В стремлении повысить качество</p>
             </div>
             предпосылок. Банальные, но неопровержимые выводы, а также представители современных социальных резервов призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не уникальными данными до степени совершенной неузнаваемости.
-            Подробнее: <a href="" class="projects__link">blanchard-art.ru/projects/about</a>
+            Подробнее: <a href="" class="projects__link">blanchard&#8288-&#8288art.ru/projects/about</a>
           </div>
         </div>
         <h3 class="projects__partners">Партнёры проектов:</h3>
@@ -973,8 +1063,8 @@
 
   <script src="/blanchard/js/Swiper/swiper-bundle.min.js"></script>
   <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src='//code.jquery.com/jquery-1.12.4.js'></script>
+  <script src='//code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
   <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
   <script src="/blanchard/js/Inputmask-5.x/dist/inputmask.min.js"></script>
   <script src="/blanchard/js/Choices (custom-select)/public/assets/scripts/choices.min.js"></script>

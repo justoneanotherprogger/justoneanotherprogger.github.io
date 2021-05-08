@@ -24,6 +24,31 @@ $(document).ready(function(){
   })
 });
 
+$(document).ready(function(){
+  document.querySelector('.books__cat-filter').addEventListener('click', function (event) {
+    event.currentTarget.classList.toggle('books__cat-filter-opened');
+    document.querySelectorAll('.books__cat-filter-label').forEach(function (elem) {
+      elem.classList.toggle('books__cat-filter-label-visible');
+    });
+  });
+});
+
+$(document).ready(function(){
+  document.querySelectorAll('.books__cat-filter-item').forEach(function (elem) {
+    elem.addEventListener('change', function (event) {
+      elem.closest('.books__cat-filter-label').classList.toggle('books__cat-filter-label-visible-always')
+    })
+  });
+});
+
+$(document).ready(function(){
+  document.querySelectorAll('.books__unselect-button').forEach(function (elem) {
+    elem.addEventListener('click', function (event) {
+      elem.closest('.books__cat-filter-label').click()
+    })
+  });
+});
+
 $( ".catalogue__accordion-active" ).accordion({autoHeight: false});
 
 $(document).ready(function(){
@@ -41,7 +66,7 @@ $(document).ready(function(){
       })
       document.querySelector(`[data-accord="${country}"]`).classList.add('catalogue__accordion-active')
 
-      $( ".catalogue__accordion-active" ).accordion({autoHeight: false});
+      $( ".catalogue__accordion-active" ).accordion();
 
       document.querySelectorAll('.catalogue__accordion-list-item').forEach(function (listitem) {
         listitem.classList.remove('catalogue__accordion-list-item-active')
@@ -65,6 +90,8 @@ $(document).ready(function(){
         artistpage.classList.remove('catalogue__artist-page-active')
       })
       document.querySelector(`[data-artistpage="${number}"]`).classList.add('catalogue__artist-page-active')
+
+      $('body,html').animate({scrollTop: top = $(".catalogue__artist-page-place").offset().top}, 1000);
     })
   })
 });
@@ -79,121 +106,239 @@ const swiper_hero = new Swiper('.swiper-container-hero', {
   },
 });
 
-var screen1500 = window.matchMedia('(max-width: 1500px)');
-var screen1501 = window.matchMedia('(min-width: 1501px)');
+function screen500match () {
+  const swiper_gallery = new Swiper('.swiper-container-gallery', {
+    speed: 500,
+    spaceBetween: 5,
+    allowTouchMove: true,
+    effect: 'slide',
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    slidesPerColumn: 1,
+    navigation: {
+      nextEl: '.gallery__swiper-button-next',
+      prevEl: '.gallery__swiper-button-prev',
+    },
+    pagination: {
+      el: '.gallery__swiper-pagination',
+      type: 'fraction',
+    },
+  });
 
-function screen1500match (scr) {
-  if (scr.matches) {
-    var swiper_gallery = new Swiper('.swiper-container-gallery', {
-      speed: 500,
-      spaceBetween: 35,
-      allowTouchMove: true,
-      effect: 'slide',
-      slidesPerView: 2,
-      slidesPerGroup: 2,
-      slidesPerColumn: 2,
-      navigation: {
-        nextEl: '.gallery__swiper-button-next',
-        prevEl: '.gallery__swiper-button-prev',
-      },
-      pagination: {
-        el: '.gallery__swiper-pagination',
-        type: 'fraction',
-      },
-    });
+  const swiper_events = new Swiper('.swiper-container-events', {
+    speed: 500,
+    spaceBetween: 15,
+    allowTouchMove: true,
+    effect: 'slide',
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    slidesPerColumn: 1,
+    pagination: {
+      el: '.events__swiper-pagination',
+      type: 'bullets',
+    },
+  })
 
-    var swiper_books = new Swiper('.swiper-container-books', {
-      speed: 500,
-      spaceBetween: 48,
-      allowTouchMove: true,
-      effect: 'slide',
-      slidesPerView: 2,
-      slidesPerGroup: 2,
-      navigation: {
-        nextEl: '.books__swiper-button-next',
-        prevEl: '.books__swiper-button-prev',
-      },
-      pagination: {
-        el: '.books__swiper-pagination',
-        type: 'fraction',
-      },
-    });
-
-    var swiper_projects = new Swiper('.swiper-container-projects', {
-      speed: 500,
-      spaceBetween: 50,
-      allowTouchMove: true,
-      loop: true,
-      effect: 'slide',
-      slidesPerView: 2,
-      navigation: {
-        nextEl: '.projects__swiper-button-next',
-        prevEl: '.projects__swiper-button-prev',
-      },
-    });
-  }
+  const swiper_projects = new Swiper('.swiper-container-projects', {
+    speed: 500,
+    spaceBetween: 15,
+    allowTouchMove: true,
+    loop: true,
+    effect: 'slide',
+    slidesPerView: 1,
+    navigation: {
+      nextEl: '.projects__swiper-button-next',
+      prevEl: '.projects__swiper-button-prev',
+    },
+  });
 }
 
-function screen1501match (scr) {
-  if (scr.matches) {
-    var swiper_gallery = new Swiper('.swiper-container-gallery', {
-      speed: 500,
-      spaceBetween: 50,
-      allowTouchMove: false,
-      effect: 'slide',
-      slidesPerView: 3,
-      slidesPerGroup: 3,
-      slidesPerColumn: 2,
-      navigation: {
-        nextEl: '.gallery__swiper-button-next',
-        prevEl: '.gallery__swiper-button-prev',
-      },
-      pagination: {
-        el: '.gallery__swiper-pagination',
-        type: 'fraction',
-      },
-    });
+function screen800match () {
+  const swiper_gallery = new Swiper('.swiper-container-gallery', {
+    speed: 500,
+    spaceBetween: 35,
+    allowTouchMove: true,
+    effect: 'slide',
+    slidesPerView: 2,
+    slidesPerGroup: 2,
+    slidesPerColumn: 2,
+    navigation: {
+      nextEl: '.gallery__swiper-button-next',
+      prevEl: '.gallery__swiper-button-prev',
+    },
+    pagination: {
+      el: '.gallery__swiper-pagination',
+      type: 'fraction',
+    },
+  });
 
-    var swiper_books = new Swiper('.swiper-container-books', {
-      speed: 500,
-      spaceBetween: 48,
-      allowTouchMove: false,
-      effect: 'slide',
-      slidesPerView: 3,
-      slidesPerGroup: 3,
-      navigation: {
-        nextEl: '.books__swiper-button-next',
-        prevEl: '.books__swiper-button-prev',
-      },
-      pagination: {
-        el: '.books__swiper-pagination',
-        type: 'fraction',
-      },
-    });
+  const swiper_books = new Swiper('.swiper-container-books', {
+    speed: 500,
+    spaceBetween: 33,
+    allowTouchMove: true,
+    effect: 'slide',
+    slidesPerView: 2,
+    slidesPerGroup: 2,
+    navigation: {
+      nextEl: '.books__swiper-button-next',
+      prevEl: '.books__swiper-button-prev',
+    },
+    pagination: {
+      el: '.books__swiper-pagination',
+      type: 'fraction',
+    },
+  });
 
-    var swiper_projects = new Swiper('.swiper-container-projects', {
-      speed: 500,
-      spaceBetween: 50,
-      allowTouchMove: false,
-      loop: true,
-      effect: 'slide',
-      slidesPerView: 3,
-      navigation: {
-        nextEl: '.projects__swiper-button-next',
-        prevEl: '.projects__swiper-button-prev',
-      },
-    });
-  }
+  const swiper_projects = new Swiper('.swiper-container-projects', {
+    speed: 500,
+    spaceBetween: 35,
+    allowTouchMove: true,
+    loop: true,
+    effect: 'slide',
+    slidesPerView: 2,
+    navigation: {
+      nextEl: '.projects__swiper-button-next',
+      prevEl: '.projects__swiper-button-prev',
+    },
+  });
 }
 
-screen1500.addEventListener("change", screen1500match(screen1500));
-screen1501.addEventListener("change", screen1501match(screen1501));
+function screen1500match () {
+  const swiper_gallery = new Swiper('.swiper-container-gallery', {
+    speed: 500,
+    spaceBetween: 35,
+    allowTouchMove: true,
+    effect: 'slide',
+    slidesPerView: 2,
+    slidesPerGroup: 2,
+    slidesPerColumn: 2,
+    navigation: {
+      nextEl: '.gallery__swiper-button-next',
+      prevEl: '.gallery__swiper-button-prev',
+    },
+    pagination: {
+      el: '.gallery__swiper-pagination',
+      type: 'fraction',
+    },
+  });
+
+  const swiper_books = new Swiper('.swiper-container-books', {
+    speed: 500,
+    spaceBetween: 48,
+    allowTouchMove: true,
+    effect: 'slide',
+    slidesPerView: 2,
+    slidesPerGroup: 2,
+    navigation: {
+      nextEl: '.books__swiper-button-next',
+      prevEl: '.books__swiper-button-prev',
+    },
+    pagination: {
+      el: '.books__swiper-pagination',
+      type: 'fraction',
+    },
+  });
+
+  const swiper_projects = new Swiper('.swiper-container-projects', {
+    speed: 500,
+    spaceBetween: 50,
+    allowTouchMove: true,
+    loop: true,
+    effect: 'slide',
+    slidesPerView: 2,
+    navigation: {
+      nextEl: '.projects__swiper-button-next',
+      prevEl: '.projects__swiper-button-prev',
+    },
+  });
+}
+
+function screen1501match () {
+  const swiper_gallery = new Swiper('.swiper-container-gallery', {
+    speed: 500,
+    spaceBetween: 50,
+    allowTouchMove: false,
+    effect: 'slide',
+    slidesPerView: 3,
+    slidesPerGroup: 3,
+    slidesPerColumn: 2,
+    navigation: {
+      nextEl: '.gallery__swiper-button-next',
+      prevEl: '.gallery__swiper-button-prev',
+    },
+    pagination: {
+      el: '.gallery__swiper-pagination',
+      type: 'fraction',
+    },
+  });
+
+  const swiper_books = new Swiper('.swiper-container-books', {
+    speed: 500,
+    spaceBetween: 48,
+    allowTouchMove: false,
+    effect: 'slide',
+    slidesPerView: 3,
+    slidesPerGroup: 3,
+    navigation: {
+      nextEl: '.books__swiper-button-next',
+      prevEl: '.books__swiper-button-prev',
+    },
+    pagination: {
+      el: '.books__swiper-pagination',
+      type: 'fraction',
+    },
+  });
+
+  const swiper_projects = new Swiper('.swiper-container-projects', {
+    speed: 500,
+    spaceBetween: 50,
+    allowTouchMove: false,
+    loop: true,
+    effect: 'slide',
+    slidesPerView: 3,
+    navigation: {
+      nextEl: '.projects__swiper-button-next',
+      prevEl: '.projects__swiper-button-prev',
+    },
+  });
+}
+
 window.onresize = function () {
-  screen1500match(screen1500);
-  screen1501match(screen1501);
+  if (window.matchMedia("(min-width: 1501px)").matches) {
+    screen1501match();
+  }
+  else {
+    if (window.matchMedia("(min-width: 801px)").matches) {
+      screen1500match();
+    }
+    else {
+      if (window.matchMedia("(min-width: 501px)").matches) {
+        screen800match();
+      }
+      else {
+        screen500match();
+      }
+    }
+  }
 };
 
-ymaps.ready(init);
+
+if (window.matchMedia("(min-width: 1501px)").matches) {
+  screen1501match();
+}
+else {
+  if (window.matchMedia("(min-width: 801px)").matches) {
+    screen1500match();
+  }
+  else {
+    if (window.matchMedia("(min-width: 501px)").matches) {
+      screen800match();
+    }
+    else {
+      screen500match();
+    }
+  }
+}
 
 function init () {
     myMap = new ymaps.Map('map', {
@@ -212,6 +357,8 @@ function init () {
     myMap.geoObjects.add(myPlacemark);
 };
 
+ymaps.ready(init);
+
 function opencards () {
   document.querySelectorAll('.events__card').forEach(function(card) {
     card.classList.add('events__card-visible');
@@ -221,7 +368,12 @@ function opencards () {
 };
 
 function inputfocus () {
-  $(".header__search").focus()
+  $(".header__search").focus();
+  document.querySelector(".header__search-field").classList.add('header__search-visible');
+}
+
+function searchclose() {
+  document.querySelector(".header__search-visible").classList.remove('header__search-visible');
 }
 
 function slidetomap () {
@@ -238,7 +390,7 @@ var selector1 = document.querySelector(".phone-input");
 var im1 = new Inputmask("+7(999) 999-99-99");
 im1.mask(selector1);
 
-const choices = new Choices('.gallery__filters', {
+const choices_gallery = new Choices('.gallery__filters', {
   shouldSort: false,
   itemSelectText: '',
   searchEnabled: false,

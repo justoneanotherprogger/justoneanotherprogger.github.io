@@ -16,6 +16,11 @@ address {
   font-style: normal;
 }
 
+body {
+  background-color: #dfa;
+  font-family: 'Open Sans';
+}
+
 .container {
   padding: 100px 40px;
 }
@@ -27,9 +32,20 @@ address {
 
 /* PROJECTS */
 
+.projects__header {
+  margin-bottom: 0;
+}
+
+.projects__desc {
+  margin-top: 0;
+  margin-left: 30px;
+  color: gray;
+}
+
 .projects__list {
   display: flex;
   justify-content: space-between;
+  column-gap: 20px;
 }
 
 .projects__project {
@@ -37,6 +53,11 @@ address {
   text-align: center;
 }
 
+.projects__project-link {
+  color: black;
+}
+
 .projects__projects-pic {
-  width: 90%;
+  margin-top: 10px;
+  width: 100%;
 }
