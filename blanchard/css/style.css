@@ -3002,8 +3002,9 @@ body {
 
   .gallery__swiper-nav {
     bottom: 170px;
-    left: 24%;
+    left: 50%;
     top: unset;
+    transform: translateX(-50%);
   }
 
   .catalogue {
@@ -3012,6 +3013,10 @@ body {
 
   .catalogue__header-row {
     margin-bottom: 20px;
+  }
+
+  .catalogue__header {
+    margin-right: auto;
   }
 
   .catalogue__countries {
@@ -3080,7 +3085,11 @@ body {
   }
 
   .events__container {
+    margin-left: 15px;
+    margin-right: 15px;
     padding-bottom: 67px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .events__header {
@@ -3090,6 +3099,7 @@ body {
 
   .events__card-list {
     flex-wrap: nowrap;
+    column-gap: unset;
   }
 
   .events__card {
@@ -3099,6 +3109,11 @@ body {
     opacity: 1;
     flex: unset;
     flex-shrink: 0;
+  }
+
+  .events__card-img {
+    width: 100%;
+    max-height: 200px;
   }
 
   .events__card-place,
@@ -3271,15 +3286,18 @@ body {
   .books__swiper {
     flex-wrap: wrap;
     column-gap: 29px;
-    row-gap: 50px;
+    row-gap: 10vh;
   }
 
   .books__swiper-slide {
     padding-left: 0;
-    height: 254px;
+    height: unset;
+    min-height: 254px;
+    max-height: 350px;
     width: unset;
     flex: 1 1 30%;
     max-width: 45%;
+    row-gap: 0;
   }
 
   .books__book-info {

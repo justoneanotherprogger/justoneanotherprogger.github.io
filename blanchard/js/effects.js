@@ -127,7 +127,7 @@ function screen500match () {
 
   const swiper_events = new Swiper('.swiper-container-events', {
     speed: 500,
-    spaceBetween: 15,
+    spaceBetween: 10,
     allowTouchMove: true,
     effect: 'slide',
     slidesPerView: 1,
