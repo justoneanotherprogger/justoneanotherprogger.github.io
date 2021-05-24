@@ -840,7 +840,7 @@ body {
 
 .gallery {
   height: 995px;
-  background-image: url("/img/gallery-background.jpg");
+  background-image: url("/blanchard/img/gallery-background.jpg");
   background-size: cover;
   background-position: center center;
   color: white;
@@ -1120,7 +1120,7 @@ body {
   top: 0;
   left: 0;
   display: block;
-  background-image: url("/img/gallery-hover.svg");
+  background-image: url("/blanchard/img/gallery-hover.svg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 80% 80%;
@@ -1859,7 +1859,7 @@ body {
 
 .books {
   margin-top: 80px;
-  background-image: url("/img/books-background.jpg");
+  background-image: url("/blanchard/img/books-background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -2735,11 +2735,11 @@ body {
 }
 
 .contacts__wa-link {
-  background-image: url("/img/Whatsapp-Icon.svg");
+  background-image: url("/blanchard/img/Whatsapp-Icon.svg");
 }
 
 .contacts__tg-link {
-  background-image: url("/img/Telegram-Icon.svg");
+  background-image: url("/blanchard/img/Telegram-Icon.svg");
 }
 
 .contacts__map {
@@ -2809,15 +2809,15 @@ body {
 }
 
 .footer__vk-link {
-  background-image: url("/img/vk.svg");
+  background-image: url("/blanchard/img/vk.svg");
 }
 
 .footer__inst-link {
-  background-image: url("/img/instagram.svg");
+  background-image: url("/blanchard/img/instagram.svg");
 }
 
 .footer__facebook-link {
-  background-image: url("/img/fb.svg");
+  background-image: url("/blanchard/img/fb.svg");
 }
 
 /* ADAPTABLES */
@@ -3345,7 +3345,7 @@ body {
 
   .books {
     margin-top: 85px;
-    background-image: url("/img/gallery-background-768p.jpg");
+    background-image: url("/blanchard/img/gallery-background-768p.jpg");
   }
 
   .books__container {
