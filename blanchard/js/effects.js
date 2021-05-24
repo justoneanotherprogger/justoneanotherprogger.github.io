@@ -25,6 +25,25 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
+  document.querySelectorAll('.gallery__swiper-slide').forEach(function (elem) {
+    elem.addEventListener('click', function (event) {
+      const img = event.currentTarget.dataset.img
+      const author = event.currentTarget.dataset.author
+      const name = event.currentTarget.dataset.name
+      const dates = event.currentTarget.dataset.dates
+      const desc = event.currentTarget.dataset.desc
+
+      document.querySelector('.gallery__modal-picture').setAttribute('src', img)
+      document.querySelector('.gallery__modal-text-author').textContent = author
+      document.querySelector('.gallery__modal-text-name').textContent = name
+      document.querySelector('.gallery__modal-text-dates').textContent = dates
+      document.querySelector('.gallery__modal-text-desc').textContent = desc
+      document.querySelector('.gallery__modal-window').classList.add('gallery__modal-window-active')
+    })
+  })
+});
+
+$(document).ready(function(){
   document.querySelector('.books__cat-filter').addEventListener('click', function (event) {
     event.currentTarget.classList.toggle('books__cat-filter-opened');
     document.querySelectorAll('.books__cat-filter-label').forEach(function (elem) {
@@ -44,12 +63,14 @@ $(document).ready(function(){
 $(document).ready(function(){
   document.querySelectorAll('.books__unselect-button').forEach(function (elem) {
     elem.addEventListener('click', function (event) {
-      elem.closest('.books__cat-filter-label').click()
+      elem.closest('.books__cat-filter-label').classList.toggle('books__cat-filter-label-visible-always')
     })
   });
 });
 
-$( ".catalogue__accordion-active" ).accordion({autoHeight: false});
+$( ".catalogue__accordion-active" ).accordion({
+  heightStyle: "content"
+});
 
 $(document).ready(function(){
   document.querySelectorAll('.catalogue__country-button').forEach(function (elem) {
@@ -66,7 +87,9 @@ $(document).ready(function(){
       })
       document.querySelector(`[data-accord="${country}"]`).classList.add('catalogue__accordion-active')
 
-      $( ".catalogue__accordion-active" ).accordion();
+      $( ".catalogue__accordion-active" ).accordion({
+        heightStyle: "content"
+      });
 
       document.querySelectorAll('.catalogue__accordion-list-item').forEach(function (listitem) {
         listitem.classList.remove('catalogue__accordion-list-item-active')
@@ -136,6 +159,7 @@ function screen500match () {
     pagination: {
       el: '.events__swiper-pagination',
       type: 'bullets',
+      clickable: true,
     },
   })
 
@@ -312,7 +336,7 @@ window.onresize = function () {
       screen1500match();
     }
     else {
-      if (window.matchMedia("(min-width: 501px)").matches) {
+      if (window.matchMedia("(min-width: 577px)").matches) {
         screen800match();
       }
       else {
@@ -331,7 +355,7 @@ else {
     screen1500match();
   }
   else {
-    if (window.matchMedia("(min-width: 501px)").matches) {
+    if (window.matchMedia("(min-width: 577px)").matches) {
       screen800match();
     }
     else {
@@ -350,7 +374,7 @@ function init () {
     });
     var myPlacemark = new ymaps.Placemark([55.758458,37.600995], {}, {
       iconLayout: 'default#image',
-      iconImageHref: '/blanchard/img/map-pin.svg',
+      iconImageHref: '/img/map-pin.svg',
       iconImageSize: [20, 20],
       iconImageOffset: [-10, -10]
     });
@@ -374,6 +398,10 @@ function inputfocus () {
 
 function searchclose() {
   document.querySelector(".header__search-visible").classList.remove('header__search-visible');
+}
+
+function closemodal() {
+  document.querySelector(".gallery__modal-window-active").classList.remove('gallery__modal-window-active');
 }
 
 function slidetomap () {
