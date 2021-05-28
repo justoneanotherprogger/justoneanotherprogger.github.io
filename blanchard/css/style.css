@@ -701,19 +701,21 @@ body {
 /* HERO */
 
 .hero {
+  position: relative;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
 
 .hero__text-block {
-  margin-top: 240px;
+  padding-top: 240px;
+  padding-bottom: 120px;
   width: 46%;
   color: white;
 }
 
 .hero__text-header {
-  margin-top: 70px;
+  margin-top: 0;
   margin-left: -5px;
   margin-bottom: 10px;
   font-size: 72px;
@@ -776,7 +778,11 @@ body {
 }
 
 .hero__container {
-  margin-top: -680px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
   z-index: -1;
 }
 
@@ -2823,9 +2829,24 @@ body {
 /* ADAPTABLES */
 
 @media (min-width: 2100px) {
+  .container {
+    padding-left: calc(50% - 800px);
+    padding-right: calc(50% - 800px);
+  }
+
+  .hero__text-block {
+    width: 100%;
+    padding-right: calc(80% - 800px);
+  }
+
   .hero__swiper-img {
     -o-object-fit: cover;
        object-fit: cover;
+  }
+
+  .contacts__container {
+    padding-left: calc(50% - 954px);
+    padding-right: calc(50% - 954px);
   }
 }
 
@@ -2938,7 +2959,8 @@ body {
   }
 
   .hero__text-block {
-    margin-top: 215px;
+    padding-top: 212px;
+    padding-bottom: 115px;
     width: 80%;
   }
 
@@ -2948,10 +2970,6 @@ body {
 
   .hero__subscribe-button {
     margin-top: 115px;
-  }
-
-  .hero__container {
-    margin-top: -660px;
   }
 
   .hero__swiper-img {
@@ -3152,6 +3170,10 @@ body {
     z-index: 3;
   }
 
+  .header__burger-button {
+    left: 50px;
+  }
+
   .header__nav {
     z-index: 15;
   }
@@ -3217,9 +3239,9 @@ body {
   }
 
   .header__logo-img {
-    -webkit-transform: scale(1.1) translateX(4px);
-        -ms-transform: scale(1.1) translateX(4px);
-            transform: scale(1.1) translateX(4px);
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
   }
 
   .hero__text-block {
@@ -3585,13 +3607,9 @@ body {
             transform: scale(0.6);
   }
 
-  .hero__container {
-    margin-top: -312px;
-    width: 100%;
-  }
-
   .hero__text-block {
-    margin-top: 48px;
+    padding-top: 80px;
+    padding-bottom: 45px;
     padding-left: 25px;
     padding-right: 25px;
     text-align: center;
@@ -3599,13 +3617,11 @@ body {
 
   .hero__text-header {
     margin-left: 0;
-    margin-top: 77px;
     font-size: 32px;
     line-height: 37px;
   }
 
   .hero__text {
-    margin-top: 14px;
     margin-left: 2px;
     font-size: 12px;
     font-weight: 400;
