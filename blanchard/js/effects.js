@@ -374,7 +374,7 @@ function init () {
     });
     var myPlacemark = new ymaps.Placemark([55.758458,37.600995], {}, {
       iconLayout: 'default#image',
-      iconImageHref: '/blanchard/img/map-pin.svg',
+      iconImageHref: "/blanchard/img/map-pin.svg",
       iconImageSize: [20, 20],
       iconImageOffset: [-10, -10]
     });
@@ -450,5 +450,23 @@ new window.JustValidate('.contacts__form', {
       minLength: 'Слишком коротко',
       maxLength: 'Слишком длинное',
     }
+  },
+  focusWrongField: true,
+  submitHandler: function (form, values, ajax) {
+    ajax({
+        url: "/blanchard/form.php",
+        method: 'POST',
+        data: values,
+        async: true,
+        callback: function (response) {
+            alert('AJAX submit successful! \nResponse from server:' + response)
+        },
+        error: function (response) {
+            alert('AJAX submit error! \nResponse from server:' + response)
+        }
+    });
+  },
+  invalidFormCallback: function (errors) {
+      console.log(errors);
   },
 });
