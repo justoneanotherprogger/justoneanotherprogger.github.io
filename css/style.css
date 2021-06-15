@@ -57,7 +57,7 @@ body {
 }
 
 .header__nav-link:hover {
-  text-shadow: 1px 1px 2px white;
+  text-shadow: 1px 1px 2px var(--secondary-color);
 }
 
 /* PROJECTS-ICONS */
@@ -226,8 +226,8 @@ body {
 }
 
 .footer__social-link:hover {
-  box-shadow: 0 0 10px 1px white;
-  text-shadow: 0 0 1px white;
+  box-shadow: 0 0 10px 1px var(--secondary-color);
+  text-shadow: 0 0 1px var(--secondary-color);
 }
 
 /* ADAPTABLES */
