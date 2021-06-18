@@ -144,6 +144,7 @@ body {
 
 .projects__header {
   margin-bottom: 0;
+  pointer-events: none;
 }
 
 .projects__desc {
@@ -152,6 +153,7 @@ body {
   width: fit-content;
   color: var(--secondary-color);
   background-color: var(--text-color);
+  pointer-events: none;
 }
 
 .projects__list {
@@ -186,10 +188,6 @@ body {
   font-size: 20px;
 }
 
-.projects__project-name-text {
-  flex: 0 0 100%;
-}
-
 .projects__projects-pic {
   width: 100%;
   filter: grayscale(100%) brightness(0.9) contrast(0.8);
@@ -215,6 +213,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.footer__copyright-text {
+  pointer-events: none;
 }
 
 .footer__social-link {
