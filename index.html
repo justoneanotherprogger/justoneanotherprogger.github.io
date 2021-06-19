@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/fonts/opensans/opensans.css">
+  <link rel="stylesheet" href="/fonts/fonts.css">
 
   <link rel="stylesheet" href="/css/style.css">
 
@@ -15,14 +16,15 @@
 
   <header class="header">
     <div class="container header__container">
-      <img src="" alt="" class="header__logo-img">
+      <img src="/img/logo.png" alt="" class="header__logo-img">
       <nav class="header__nav-menu">
         <ul class="header__nav-list">
           <li class="header__nav-item">
-            <a href="#projects" class="header__nav-link">Проекты</a>
+            <a href="#about" class="header__nav-link">Обо мне</a>
           </li>
-          <li class="header__nav-item"></li>
-          <li class="header__nav-item"></li>
+          <li class="header__nav-item">
+            <a href="#projects" class="header__nav-link">Мои проекты</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -30,16 +32,38 @@
 
   <main class="main-content">
 
+    <section id="about" class="about__section">
+      <div class="about__container">
+        <div class="container about__top">
+          <img src="/img/photo-face.png" alt="" class="about__main-image">
+          <div class="about__main-info">
+            <h3 class="about__nickname">justoneanotherprogger</h3>
+            <h1 class="about__name">Кирилл Иващенко</h1>
+            <h3 class="about__spec">Фронтенд&#8209;девелопер (веб&#8209;вёрстка)</h3>
+          </div>
+        </div>
+        <div class="container about__bottom">
+          <div class="about__text">
+            <h3 class="about__header">Обо мне</h3>
+            <p class="about__about-text">Родился и вырос далеко на побережье Тихого Океана. После чего поступал в университет в Петербурге, но с учебой как-то не сложилось. Перебрал несколько мест работы, в итоге начал заниматься на Скиллбоксе и получил диплом по веб-вёрстке. Заниматься именно этим мне настолько понравилось, что решил связать свою дальнейшую жизнь именно с этой сферой IT.</p>
+          </div>
+          <img src="/img/diploma.png" alt="" class="about__diploma">
+        </div>
+      </div>
+    </section>
+
     <section id="projects" class="projects__section">
       <div class="container projects__container">
-        <h2 class="projects__header section-header">Мои проекты:</h2>
-        <p class="projects__desc">в хронологическом порядке</p>
+        <div class="projects__description">
+          <h2 class="projects__header section-header">Мои проекты</h2>
+          <p class="projects__desc">в хронологическом порядке</p>
+        </div>
         <ul class="projects__list">
           <li class="projects__project">
             <a href="/hotels/" class="projects__project-link">
               <span class="projects__project-name">
-                <span class="projects__project-name-text">Сайт турагенства Lagoona</span>
-                <span class="icon-no-mobile"></span>
+                <span class="projects__project-site-name">Lagoona</span>
+                <span class="projects__project-name-text">Сайт туристического агенства</span>
               </span>
               <img src="/img/site1.jpg" alt="" class="projects__projects-pic">
             </a>
@@ -47,7 +71,8 @@
           <li class="projects__project">
             <a href="/evklid/" class="projects__project-link">
               <span class="projects__project-name">
-                <span class="projects__project-name-text">Сайт инженерной компании Евклид</span>
+                <span class="projects__project-site-name">Евклид</span>
+                <span class="projects__project-name-text">Сайт инженерной компании</span>
               </span>
               <img src="/img/site2.jpg" alt="" class="projects__projects-pic">
             </a>
@@ -55,7 +80,8 @@
           <li class="projects__project">
             <a href="/blanchard/" class="projects__project-link">
               <span class="projects__project-name">
-                <span class="projects__project-name-text">Сайт картинной галереи Blanchard</span>
+                <span class="projects__project-site-name">Blanchard</span>
+                <span class="projects__project-name-text">Сайт картинной галереи</span>
               </span>
               <img src="/img/site3.jpg" alt="" class="projects__projects-pic">
             </a>
@@ -64,19 +90,20 @@
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="container footer__container">
-        <p class="footer__copyright-text">Сайт полностью написан мной самим в 2021 году и является моей интеллектуальной собственностью :Р<br><br>Изображения в проектах были предоставлены заказчиком</p>
-        <div class="footer__social-links">
-          <ul class="footer__socials-list">
-            <li class="footer__social-item">
-              <a target="_blank" href="https://vk.com/id16681919" class="footer__social-link vk-link">VK</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </footer>
-
   </main>
+
+  <footer class="footer">
+    <div class="container footer__container">
+      <p class="footer__copyright-text">Сайт полностью написан мной самим в 2021 году и является моей интеллектуальной собственностью :Р<br>Дизайн был разработан моей женой, за что ей огромное спасибо<br><br>Изображения в проектах были предоставлены заказчиком</p>
+      <div class="footer__social-links">
+        <ul class="footer__socials-list">
+          <li class="footer__social-item">
+            <a target="_blank" href="https://vk.com/id16681919" class="footer__social-link vk-link">VK</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
