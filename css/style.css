@@ -79,6 +79,9 @@ body {
   padding-bottom: 0;
   display: flex;
   justify-content: space-between;
+  background-image: url("/img/line.png");
+  background-repeat: repeat-y;
+  background-position: left;
 }
 
 .about__main-image {
@@ -141,6 +144,85 @@ body {
   width: 30%;
   object-fit: contain;
   cursor: pointer;
+}
+
+.about__modal-diploma {
+  visibility: hidden;
+  position: fixed;
+  top: 10vh;
+  left: 10vw;
+  height: 80vh;
+  width: 80vw;
+  background-color: var(--main-color);
+  z-index: 10;
+  box-shadow: 0 0 5px 1px var(--secondary-color);
+  transition: .3s;
+}
+
+.about__modal-diploma-background {
+  content: '';
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+.about__modal-img {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  object-fit: contain;
+  z-index: 11;
+}
+
+.about__modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 15px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  z-index: 10;
+}
+
+.about__modal-close::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  border: 2px solid var(--secondary-color);
+  background-color: var(--secondary-color);
+  transform: translateY(13px) rotate(45deg);
+}
+
+.about__modal-close::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0;
+  width: 100%;
+  border: 2px solid var(--secondary-color);
+  background-color: var(--secondary-color);
+  transform: translateY(-13px) rotate(-45deg);
+}
+
+.visible {
+  visibility: visible;
+}
+
+.not-srollable {
+  height: 100%;
+  overflow: hidden;
 }
 
 /* PROJECTS-ICONS */
@@ -280,8 +362,8 @@ body {
 
 .projects__project-link {
   display: flex;
-  row-gap: 15px;
-  column-gap: 15px;
+  row-gap: 20px;
+  column-gap: 20px;
   flex-direction: row-reverse;
   justify-content: space-between;
   color: var(--secondary-color);
@@ -351,26 +433,49 @@ body {
 /* ADAPTABLES */
 
 @media (max-width: 1600px) {
-  .projects__header {
-    font-size: 120px;
-  }
-}
-
-@media (max-width: 1400px) {
   .about__main-image {
-    width: 40%;
+    flex: 1 1 40%;
+  }
+
+  .about__nickname {
+    font-size: 35px;
+  }
+
+  .about__name {
+    font-size: 70px;
+  }
+
+  .about__spec {
+    font-size: 40px;
+  }
+
+  .projects__section {
+    margin-left: 50px;
   }
 
   .projects__container {
-    flex-direction: column;
+    padding: 20px;
+    column-gap: 30px;
   }
 
-  .projects__container::before {
-    content: none;
+  .projects__description {
+    flex: 1 1 45%;
   }
 
-  .projects__project {
-    flex: 1 1 40%;
+  .projects__header {
+    font-size: 80px;
+  }
+
+  .projects__list {
+    flex: 1 1 50%;
+  }
+
+  .projects__project-site-name {
+    font-size: 28px;
+  }
+
+  .projects__project-name-text {
+    font-size: 15px;
   }
 }
 
@@ -379,6 +484,7 @@ body {
     padding: 40px;
     align-items: center;
     text-align: center;
+    background-image: unset;
   }
 
   .about__main-info {
@@ -388,6 +494,19 @@ body {
 
   .about__main-image {
     display: none;
+  }
+
+  .projects__section {
+    margin-left: 0;
+    border-left: unset;
+  }
+
+  .projects__container {
+    flex-direction: column;
+  }
+
+  .projects__container::before {
+    content: unset;
   }
 }
 
@@ -434,8 +553,17 @@ body {
     font-size: 20px;
   }
 
+  .about__text {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
   .about__about-text {
     font-size: 14px;
+  }
+
+  .about__diploma {
+    display: none;
   }
 
   .icon-no-mobile,
@@ -453,10 +581,6 @@ body {
     content: none;
   }
 
-  .projects__section {
-    margin-left: 20px;
-  }
-
   .projects__desc {
     font-size: 12px;
   }
@@ -466,7 +590,11 @@ body {
   }
 
   .projects__project-site-name {
-    font-size: 20px;
+    font-size: 15px;
+  }
+
+  .projects__project-name-text {
+    font-size: 10px;
   }
 
   .projects__project-link:hover > .projects__projects-pic {

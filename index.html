@@ -17,7 +17,7 @@
   <header class="header">
     <div class="container header__container">
       <img src="/img/logo.png" alt="" class="header__logo-img">
-      <nav class="header__nav-menu">
+      <nav id="header-nav-menu" class="header__nav-menu">
         <ul class="header__nav-list">
           <li class="header__nav-item">
             <a href="#about" class="header__nav-link">Обо мне</a>
@@ -48,6 +48,11 @@
             <p class="about__about-text">Родился и вырос далеко на побережье Тихого Океана. После чего поступал в университет в Петербурге, но с учебой как-то не сложилось. Перебрал несколько мест работы, в итоге начал заниматься на Скиллбоксе и получил диплом по веб-вёрстке. Заниматься именно этим мне настолько понравилось, что решил связать свою дальнейшую жизнь именно с этой сферой IT.</p>
           </div>
           <img src="/img/diploma.png" alt="" class="about__diploma">
+          <div class="about__modal-diploma">
+            <div class="about__modal-diploma-background"></div>
+            <img src="/img/diploma.png" alt="" class="about__modal-img">
+            <button class="about__modal-close"></button>
+          </div>
         </div>
       </div>
     </section>
@@ -60,7 +65,7 @@
         </div>
         <ul class="projects__list">
           <li class="projects__project">
-            <a href="/hotels/" class="projects__project-link">
+            <a href="/hotels/" class="projects__project-link" target="_blank">
               <span class="projects__project-name">
                 <span class="projects__project-site-name">Lagoona</span>
                 <span class="projects__project-name-text">Сайт туристического агенства</span>
@@ -69,7 +74,7 @@
             </a>
           </li>
           <li class="projects__project">
-            <a href="/evklid/" class="projects__project-link">
+            <a href="/evklid/" class="projects__project-link" target="_blank">
               <span class="projects__project-name">
                 <span class="projects__project-site-name">Евклид</span>
                 <span class="projects__project-name-text">Сайт инженерной компании</span>
@@ -78,7 +83,7 @@
             </a>
           </li>
           <li class="projects__project">
-            <a href="/blanchard/" class="projects__project-link">
+            <a href="/blanchard/" class="projects__project-link" target="_blank">
               <span class="projects__project-name">
                 <span class="projects__project-site-name">Blanchard</span>
                 <span class="projects__project-name-text">Сайт картинной галереи</span>
@@ -104,6 +109,10 @@
       </div>
     </div>
   </footer>
+
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+
+  <script src="/js/effects.js"></script>
 
 </body>
 </html>
