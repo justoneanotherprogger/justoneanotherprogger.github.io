@@ -16,7 +16,9 @@
 
   <header class="header">
     <div class="container header__container">
-      <img src="/img/logo.png" alt="" class="header__logo-img">
+      <div class="header__logo-container">
+        <img src="/img/logo.png" alt="" class="header__logo-img">
+      </div>
       <nav id="header-nav-menu" class="header__nav-menu">
         <ul class="header__nav-list">
           <li class="header__nav-item">
@@ -32,20 +34,20 @@
 
   <main class="main-content">
 
-    <section id="about" class="about__section">
+    <section id="about-start" class="about__section">
       <div class="about__container">
         <div class="container about__top">
           <img src="/img/photo-face.png" alt="" class="about__main-image">
           <div class="about__main-info">
             <h3 class="about__nickname">justoneanotherprogger</h3>
             <h1 class="about__name">Кирилл Иващенко</h1>
-            <h3 class="about__spec">Фронтенд&#8209;девелопер (веб&#8209;вёрстка)</h3>
+            <h3 class="about__spec">Фронтенд&#8209;девелопер (веб&#8209;вёрстка) / QA&#8209;инженер (тестирование)</h3>
           </div>
         </div>
-        <div class="container about__bottom">
+        <div id="about" class="container about__bottom">
           <div class="about__text">
             <h3 class="about__header">Обо мне</h3>
-            <p class="about__about-text">Родился и вырос далеко на побережье Тихого Океана. После чего поступал в университет в Петербурге, но с учебой как-то не сложилось. Перебрал несколько мест работы, в итоге начал заниматься на Скиллбоксе и получил диплом по веб-вёрстке. Заниматься именно этим мне настолько понравилось, что решил связать свою дальнейшую жизнь именно с этой сферой IT.</p>
+            <p class="about__about-text">Родился и вырос далеко на побережье Тихого Океана. После чего поступал в университет в Петербурге, но с учебой как-то не сложилось. Перебрал несколько мест работы, в итоге начал заниматься на Скиллбоксе и получил диплом по веб-вёрстке в рамках обучения на тестировщика.</p>
           </div>
           <img src="/img/diploma.png" alt="" class="about__diploma">
           <div class="about__modal-diploma">
@@ -69,6 +71,7 @@
               <span class="projects__project-name">
                 <span class="projects__project-site-name">Lagoona</span>
                 <span class="projects__project-name-text">Сайт туристического агенства</span>
+                <span class="projects__project-name-desc">Домашнее задание на курсе Вёрстки (еще без адаптивности)</span>
               </span>
               <img src="/img/site1.jpg" alt="" class="projects__projects-pic">
             </a>
@@ -78,6 +81,7 @@
               <span class="projects__project-name">
                 <span class="projects__project-site-name">Евклид</span>
                 <span class="projects__project-name-text">Сайт инженерной компании</span>
+                <span class="projects__project-name-desc">Домашнее задание на курсе Вёрстки (уже с адаптивностью)</span>
               </span>
               <img src="/img/site2.jpg" alt="" class="projects__projects-pic">
             </a>
@@ -87,6 +91,7 @@
               <span class="projects__project-name">
                 <span class="projects__project-site-name">Blanchard</span>
                 <span class="projects__project-name-text">Сайт картинной галереи</span>
+                <span class="projects__project-name-desc">Дипломная работа на курсе Вёрстки</span>
               </span>
               <img src="/img/site3.jpg" alt="" class="projects__projects-pic">
             </a>
@@ -99,11 +104,14 @@
 
   <footer class="footer">
     <div class="container footer__container">
-      <p class="footer__copyright-text">Сайт полностью написан мной самим в 2021 году и является моей интеллектуальной собственностью :Р<br>Дизайн был разработан моей женой, за что ей огромное спасибо<br><br>Изображения в проектах были предоставлены заказчиком</p>
+      <p class="footer__copyright-text">Сайт полностью написан мной самим в 2021 году и является моей интеллектуальной собственностью :Р<br><br>Изображения в проектах были предоставлены заказчиком</p>
       <div class="footer__social-links">
         <ul class="footer__socials-list">
           <li class="footer__social-item">
             <a target="_blank" href="https://vk.com/id16681919" class="footer__social-link vk-link">VK</a>
+          </li>
+          <li class="footer__social-item">
+            <a target="_blank" href="mailto:strategovich@gmail.com" class="footer__social-link mail-link">&#9993;</a>
           </li>
         </ul>
       </div>
