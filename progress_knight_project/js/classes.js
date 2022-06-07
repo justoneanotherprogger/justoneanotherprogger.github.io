@@ -3,7 +3,7 @@ class Task {
         this.baseData = baseData
         this.name = baseData.name
         this.level = 0
-        this.maxLevel = 0 
+        this.maxLevel = 0
         this.xp = 0
 
         this.xpMultipliers = [
@@ -43,7 +43,7 @@ class Task {
 
 class Job extends Task {
     constructor(baseData) {
-        super(baseData)   
+        super(baseData)
         this.incomeMultipliers = [
         ]
     }
@@ -52,9 +52,9 @@ class Job extends Task {
         var levelMultiplier = 1 + Math.log10(this.level + 1)
         return levelMultiplier
     }
-    
+
     getIncome() {
-        return applyMultipliers(this.baseData.income, this.incomeMultipliers) 
+        return applyMultipliers(this.baseData.income, this.incomeMultipliers)
     }
 }
 
@@ -64,23 +64,23 @@ class Skill extends Task {
     }
 
     getEffect() {
-        var effect = 1 + this.baseData.effect * this.level
+        var effect = 1 + this.baseData.effect * this.baseData.effect * this.level * this.level
         return effect
     }
 
     getEffectDescription() {
         var description = this.baseData.description
-        var text = "x" + String(this.getEffect().toFixed(2)) + " " + description
+        var text = "x" + String(this.getEffect().toFixed(3)) + " " + description
         return text
     }
 }
 
 class Item {
-    constructor(baseData) {  
+    constructor(baseData) {
         this.baseData = baseData
         this.name = baseData.name
         this.expenseMultipliers = [
-         
+
         ]
     }
 
@@ -162,7 +162,7 @@ class EvilRequirement extends Requirement {
 
     getCondition(requirement) {
         return gameData.evil >= requirement.requirement
-    }    
+    }
 }
 
 class EssenceRequirement extends Requirement {
@@ -173,5 +173,5 @@ class EssenceRequirement extends Requirement {
 
     getCondition(requirement) {
         return gameData.essence >= requirement.requirement
-    }    
+    }
 }
