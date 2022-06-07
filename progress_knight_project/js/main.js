@@ -39,8 +39,10 @@ const baseGameSpeed = 4
 const permanentUnlocks = ["Scheduling", "Shop", "Automation", "Quick task display"]
 
 const jobBaseData = {
-  "Beggar": {name: "Beggar", maxXp: 50, income: 5},
-  "Farmer": {name: "Farmer", maxXp: 100, income: 9},
+  "Slacker": {name: "Slacker", maxXp: 20, income: 1},
+
+  "Cleaner": {name: "Cleaner", maxXp: 40, income: 3},
+  "Shop-boy": {name: "Shop-boy", maxXp: 120, income: 10},
   "Fisherman": {name: "Fisherman", maxXp: 200, income: 15},
   "Miner": {name: "Miner", maxXp: 400, income: 40},
   "Blacksmith": {name: "Blacksmith", maxXp: 800, income: 80},
@@ -81,12 +83,14 @@ const jobBaseData = {
 }
 
 const skillBaseData = {
-  "Concentration": {name: "Concentration", maxXp: 100, effect: 0.01, description: "Ability XP"},
-  "Productivity": {name: "Productivity", maxXp: 100, effect: 0.01, description: "Class XP"},
+  "Slacking": {name: "Slacking", maxXp: 100, effect: 0.01, description: "All XP"},
+
+  "Intellect": {name: "Intellect", maxXp: 100, effect: 0.01, description: "Ability XP"},
+  "Stamina": {name: "Stamina", maxXp: 100, effect: 0.01, description: "Position XP"},
   "Bargaining": {name: "Bargaining", maxXp: 100, effect: -0.01, description: "Reduced Expenses"},
   "Meditation": {name: "Meditation", maxXp: 100, effect: 0.01, description: "Happiness"},
-
   "Strength": {name: "Strength", maxXp: 100, effect: 0.01, description: "Military Pay"},
+
   "Battle Tactics": {name: "Battle Tactics", maxXp: 100, effect: 0.01, description: "Military XP"},
   "Muscle Memory": {name: "Muscle Memory", maxXp: 100, effect: 0.01, description: "Strength XP"},
 
@@ -129,7 +133,7 @@ const skillBaseData = {
 }
 
 const itemBaseData = {
-  "Homeless": {name: "Homeless", expense: 0, effect: 1},
+  "Parents house": {name: "Parents house", expense: 0, effect: 1},
   "Tent": {name: "Tent", expense: 15, effect: 1.4},
   "Wooden Hut": {name: "Wooden Hut", expense: 100, effect: 2},
   "Cottage": {name: "Cottage", expense: 750, effect: 3.5},
@@ -155,7 +159,7 @@ const itemBaseData = {
   "Study Desk": {name: "Study Desk", expense: 1000000, effect: 2, description: "Ability XP"},
   "Library": {name: "Library", expense: 10000000, effect: 2, description: "Ability XP"},
   "Observatory": {name: "Observatory", expense: 140000000, effect: 5, description: "Magic XP"},
-  "Mind's Eye": {name: "Mind's Eye", expense: 3250000000, effect: 10, description: "Fundamentals XP"},
+  "Mind's Eye": {name: "Mind's Eye", expense: 3250000000, effect: 10, description: "Base stats XP"},
   "Void Necklace": {name: "Void Necklace", expense: 28050000000, effect: 3, description: "Void Manipulation XP"},
   "Void Armor": {name: "Void Armor", expense: 197050000000, effect: 3, description: "The Void XP"},
   "Void Blade": {name: "Void Blade", expense: 502050000000, effect: 3, description: "Ability XP"},
@@ -167,7 +171,8 @@ const itemBaseData = {
 }
 
 const jobCategories = {
-  "Common work"            : ["Beggar", "Farmer", "Fisherman", "Miner", "Blacksmith", "Merchant"],
+  "No category"            : ["Slacker"],
+  "Service"                : ["Cleaner", "Shop-boy", "Fisherman", "Miner", "Blacksmith", "Merchant"],
   "Military"               : ["Squire", "Footman", "Veteran footman", "Centenary", "Knight", "Veteran Knight", "Holy Knight", "Lieutenant General"],
   "The Arcane Association" : ["Student", "Apprentice Mage", "Adept Mage", "Master Wizard", "Archmage", "Chronomancer", "Chairman", "Imperator"],
   "The Void"               : ["Corrupted", "Void Slave", "Void Fiend", "Abyss Anomaly", "Void Wraith", "Void Reaver", "Void Lord", "Abyss God"],
@@ -175,8 +180,9 @@ const jobCategories = {
 }
 
 const skillCategories = {
-  "Fundamentals"           : ["Concentration", "Productivity", "Bargaining", "Meditation"],
-  "Combat"                 : ["Strength", "Battle Tactics", "Muscle Memory"],
+  "Idle"                   : ["Slacking"],
+  "Base stats"             : ["Intellect", "Stamina", "Bargaining", "Meditation", "Strength"],
+  "Combat"                 : ["Battle Tactics", "Muscle Memory"],
   "Magic"                  : ["Mana Control", "Life Essence", "Time Warping", "Astral Body", "Temporal Dimension", "All Seeing Eye", "Brainwashing"],
   "Dark Magic"             : ["Dark Influence", "Evil Control", "Intimidation", "Demon Training", "Blood Meditation", "Demon's Wealth", "Dark Knowledge", "Void Influence", "Time Loop", "Evil Incarnate"],
   "Void Manipulation"      : ["Absolute Wish", "Void Amplification", "Mind Seize", "Ceaseless Abyss", "Void Symbiosis", "Void Embodiment", "Abyss Manipulation"],
@@ -185,17 +191,19 @@ const skillCategories = {
 }
 
 const itemCategories = {
-  "Properties"             : ["Homeless", "Tent", "Wooden Hut", "Cottage", "House", "Large House", "Small Palace", "Grand Palace", "Town Ruler", "City Ruler", "Nation Ruler", "Pocket Dimension", "Void Realm", "Void Universe", "Astral Realm", "Galactic Throne"],
+  "Properties"             : ["Parents house", "Tent", "Wooden Hut", "Cottage", "House", "Large House", "Small Palace", "Grand Palace", "Town Ruler", "City Ruler", "Nation Ruler", "Pocket Dimension", "Void Realm", "Void Universe", "Astral Realm", "Galactic Throne"],
   "Misc"                   : ["Book", "Dumbbells", "Personal Squire", "Steel Longsword", "Butler", "Sapphire Charm", "Study Desk", "Library", "Observatory", "Mind's Eye", "Void Necklace", "Void Armor", "Void Blade", "Void Orb", "Void Dust", "Celestial Robe", "Universe Fragment", "Multiverse Fragment"]
 }
 
 const headerRowColors = {
-  "Common work": "#55a630",
+  "No category": "#8D8D8D",
+  "Idle": "#8D8D8D",
+  "Service": "#55a630",
   "Military": "#e63946",
   "The Arcane Association": "#C71585",
   "The Void": "#762B91",
   "Galactic Council": "#D5C010",
-  "Fundamentals": "#55a630",
+  "Base stats": "#55a630",
   "Combat": "#e63946",
   "Magic": "#C71585",
   "Dark Magic": "#73000f",
@@ -207,9 +215,11 @@ const headerRowColors = {
 }
 
 const tooltips = {
-	//Common work
-  "Beggar": "Struggle day and night for a couple of copper coins. It feels like you are at the brink of death each day.",
-  "Farmer": "Plow the fields and grow the crops. It's not much but it's honest work.",
+  "Slacker": "Do nothing all days along, rarily acquiring gifts from parents or friends",
+
+	//Service
+  "Cleaner": "Clean anything your manager says you to clean without questions",
+  "Shop-boy": "Plow the fields and grow the crops. It's not much but it's honest work.",
   "Fisherman": "Reel in various fish and sell them for a handful of coins. A relaxing but still a poor paying job.",
   "Miner": "Delve into dangerous caverns and mine valuable ores. The pay is quite meager compared to the risk involved.",
   "Blacksmith": "Smelt ores and carefully forge weapons for the military. A respectable and OK paying commoner job.",
@@ -252,15 +262,16 @@ const tooltips = {
   "Acallaris": "Primordial being that predate the universe, involved with the creation of life and powerful beyond mortal comprehension, existing as myths to the oldest species in the universe.",
   "One Above All": "Creator of everything.",
 
+  "Slacking": "Doing nothing requires a skill too",
 
-  //Fundamentals
-  "Concentration": "Improve your learning speed through practising intense concentration activities.",
-  "Productivity": "Learn to procrastinate less at work and receive more job experience per day.",
+  //Base stats
+  "Intellect": "Improve your learning speed through practising intense concentration activities.",
+  "Stamina": "Endure your body through exhausting training",
   "Bargaining": "Study the tricks of the trade and persuasive skills to lower any type of expense.",
   "Meditation": "Fill your mind with peace and tranquility to tap into greater happiness from within.",
+  "Strength": "Condition your body and strength through harsh training. Stronger individuals are paid more in the military.",
 
   //Combat
-  "Strength": "Condition your body and strength through harsh training. Stronger individuals are paid more in the military.",
   "Battle Tactics": "Create and revise battle strategies, improving experience gained in the military.",
   "Muscle Memory": "Strengthen your neurons through habit and repetition, improving strength gains throughout the body.",
 
@@ -273,7 +284,7 @@ const tooltips = {
   "All Seeing Eye": "As the highest rank of T.A.A, all funds go directly to you.",
   "Brainwashing": "A technique designed to manipulate human thought and action against their desire.",
 
-    //Dark magic - Evil Required
+  //Dark magic - Evil Required
   "Dark Influence": "Encompass yourself with formidable power bestowed upon you by evil, allowing you to pick up and absorb any job or skill with ease.",
   "Evil Control": "Tame the raging and growing evil within you, improving evil gain in-between rebirths.",
   "Intimidation": "Learn to emit a devilish aura which strikes extreme fear into other merchants, forcing them to give you heavy discounts.",
@@ -307,7 +318,7 @@ const tooltips = {
   "Epiphany": "You become one with everything.",
 
   //Properties
-  "Homeless": "Sleep on the uncomfortable, filthy streets while almost freezing to death every night. It cannot get any worse than this.",
+  "Parents house": "Living with your parents may be uncomfortable, but it's free at any day",
   "Tent": "A thin sheet of tattered cloth held up by a couple of feeble, wooden sticks. Horrible living conditions but at least you have a roof over your head.",
   "Wooden Hut": "Shabby logs and dirty hay glued together with horse manure. Much more sturdy than a tent, however, the stench isn't very pleasant.",
   "Cottage": "Structured with a timber frame and a thatched roof. Provides decent living conditions for a fair price.",
@@ -372,6 +383,7 @@ function addMultipliers() {
 
     task.xpMultipliers.push(task.getMaxLevelMultiplier.bind(task))
     task.xpMultipliers.push(getHappiness)
+    task.xpMultipliers.push(getBindedTaskEffect("Slacking"))
     task.xpMultipliers.push(getBindedTaskEffect("Dark Influence"))
     task.xpMultipliers.push(getBindedTaskEffect("Demon Training"))
     task.xpMultipliers.push(getBindedTaskEffect("Void Influence"))
@@ -380,11 +392,11 @@ function addMultipliers() {
     if (task instanceof Job) {
         task.incomeMultipliers.push(task.getLevelMultiplier.bind(task))
         task.incomeMultipliers.push(getBindedTaskEffect("Demon's Wealth"))
-        task.xpMultipliers.push(getBindedTaskEffect("Productivity"))
+        task.xpMultipliers.push(getBindedTaskEffect("Stamina"))
         task.xpMultipliers.push(getBindedTaskEffect("Dark Knowledge"))
         task.xpMultipliers.push(getBindedItemEffect("Personal Squire"))
     } else if (task instanceof Skill) {
-        task.xpMultipliers.push(getBindedTaskEffect("Concentration"))
+        task.xpMultipliers.push(getBindedTaskEffect("Intellect"))
         task.xpMultipliers.push(getBindedItemEffect("Book"))
         task.xpMultipliers.push(getBindedItemEffect("Study Desk"))
         task.xpMultipliers.push(getBindedItemEffect("Library"))
@@ -421,7 +433,7 @@ function addMultipliers() {
         task.xpMultipliers.push(getEvil)
     } else if (skillCategories["Almightiness"].includes(task.name)) {
         task.xpMultipliers.push(getEssence)
-    } else if (skillCategories["Fundamentals"].includes(task.name)) {
+    } else if (skillCategories["Base stats"].includes(task.name)) {
         task.xpMultipliers.push(getBindedItemEffect("Mind's Eye"))
     }
   }
@@ -571,7 +583,7 @@ function getExpense() {
 
 function goBankrupt() {
   gameData.coins = 0
-  gameData.currentProperty = gameData.itemData["Homeless"]
+  gameData.currentProperty = gameData.itemData["Parents house"]
   gameData.currentMisc = []
 }
 
@@ -971,24 +983,9 @@ function setSkillWithLowestMaxXp() {
   for (skillName in gameData.taskData) {
     var skill = gameData.taskData[skillName]
     var requirement = gameData.requirements[skillName]
-    /*
-    Getting an autolearn error, and the dev console says there is an uncaught
-    TypeError at this line of code below during the requirement.isCompleted() call.
-    I think the error is saying that when calling requirement.isCompleted, requirement is undefined.
-    This would make sense if I have a skill that doesn't have any unlock requirements, which I think
-    is true of Novel Knowledge for table rendering reasons. So the game logic assumes each skill has a requirement
-    without actually checking if requirement is non-null.
-    */
     if (skill instanceof Skill) {
-      //This check on the requirement variable is here to handle the case of a skill
-      //having no requirements. By setting requirement equal to Concentration's requirements,
-      //we prevent unchecked TypeErrors that have been breaking the auto learn feature.
-
-      // NOTE : FRAGILE FIX
-      // This fix will break if the Concentration skill is either removed from the game, renamed, or the requirement is no
-      // longer immediately satisfied upon starting a new game.
       if(requirement == null) {
-        requirement = gameData.requirements["Concentration"];
+        requirement = gameData.requirements["Slacking"];
       }
       if (requirement.isCompleted() && !checkSkillSkipped(skill)) {
         enabledSkills.push(skill)
@@ -997,7 +994,7 @@ function setSkillWithLowestMaxXp() {
   }
 
   if (enabledSkills.length == 0) {
-    skillWithLowestMaxXp = gameData.taskData["Concentration"]
+    skillWithLowestMaxXp = gameData.taskData["Slacking"]
     return
   }
 
@@ -1066,13 +1063,13 @@ function formatCoins(coins, element) {
     "s": "#a8a8a8",
     "c": "#a15c2f"
   }
-  var i = 0
-  for (var i = 0; i < tiers.length; i++) {
-    if (coins > 1000 * i) {
-      element.children[0].style.color = colors[tiers[i]]
+  for (var i = 0 ; i < tiers.length ; i++) {
+    var tier = tiers[i]
+    if (coins >= Math.pow(1000, i)) {
+      element.children[0].style.color = colors[tier]
     }
   }
-  element.children[0].textContent = format(String(x),4) + " $"
+  element.children[0].textContent = format(String(coins),1) + " $"
 }
 
 function getTaskElement(taskName) {
@@ -1137,9 +1134,9 @@ function rebirthReset() {
   setTab(jobTabButton, "jobs")
   gameData.coins = 0
   gameData.days = 365 * 15
-  gameData.currentJob = gameData.taskData["Beggar"]
-  gameData.currentSkill = gameData.taskData["Concentration"]
-  gameData.currentProperty = gameData.itemData["Homeless"]
+  gameData.currentJob = gameData.taskData["Slacker"]
+  gameData.currentSkill = gameData.taskData["Slacking"]
+  gameData.currentProperty = gameData.itemData["Parents house"]
   gameData.currentMisc = []
   for (taskName in gameData.taskData) {
     var task = gameData.taskData[taskName]
@@ -1366,24 +1363,8 @@ window.addEventListener('keydown', function(e) {
 });
 
 (function() {
-  let span = document.createElement('span');
-  let div = document.createElement('div');
-  div.classList.add('inline');
-  div.textContent = 'Auto-pause(Void)';
-  span.append(div);
-  let checkbox = document.createElement('input');
-  checkbox.type = 'checkbox';
-  checkbox.classList.add('inline');
-  checkbox.id = 'autoPause';
-  span.append(checkbox);
-  document.querySelector('span#automation').prepend(document.createElement('br'));
-  document.querySelector('span#automation').prepend(span);
   increaseDays = () => {
       var increase = applySpeed(1)
-      var autoPause = document.getElementById("autoPause").checked;
-      if (gameData.days < 365000 && gameData.days + increase > 365000 && autoPause){
-          gameData.paused = true;
-      }
       gameData.days += increase
   }
 })()
@@ -1398,14 +1379,14 @@ createData(gameData.taskData, jobBaseData)
 createData(gameData.taskData, skillBaseData)
 createData(gameData.itemData, itemBaseData)
 
-gameData.currentJob = gameData.taskData["Beggar"]
-gameData.currentSkill = gameData.taskData["Concentration"]
-gameData.currentProperty = gameData.itemData["Homeless"]
+gameData.currentJob = gameData.taskData["Slacker"]
+gameData.currentSkill = gameData.taskData["Slacking"]
+gameData.currentProperty = gameData.itemData["Parents house"]
 gameData.currentMisc = []
 
 gameData.requirements = {
   //Other
-  "The Arcane Association": new TaskRequirement(getElementsByClass("The Arcane Association"), [{task: "Concentration", requirement: 200}, {task: "Meditation", requirement: 200}]),
+  "The Arcane Association": new TaskRequirement(getElementsByClass("The Arcane Association"), [{task: "Intellect", requirement: 200}, {task: "Meditation", requirement: 200}]),
   "Galactic Council": new AgeRequirement(getElementsByClass("Galactic Council"), [{requirement: 10000}]),
   "The Void": new AgeRequirement(getElementsByClass("The Void"), [{requirement: 1000}]),
   "Void Manipulation": new AgeRequirement(getElementsByClass("Void Manipulation"), [{requirement: 1000}]),
@@ -1428,10 +1409,12 @@ gameData.requirements = {
   "Automation": new AgeRequirement([document.getElementById("automation")], [{requirement: 20}]),
   "Quick task display": new AgeRequirement([document.getElementById("quickTaskDisplay")], [{requirement: 20}]),
 
-  //Common work
-  "Beggar": new TaskRequirement([getTaskElement("Beggar")], []),
-  "Farmer": new TaskRequirement([getTaskElement("Farmer")], [{task: "Beggar", requirement: 10}]),
-  "Fisherman": new TaskRequirement([getTaskElement("Fisherman")], [{task: "Farmer", requirement: 10}]),
+  "Slacker": new TaskRequirement([getTaskElement("Slacker")], []),
+
+  //Service
+  "Cleaner": new TaskRequirement([getTaskElement("Cleaner")], []),
+  "Shop-boy": new TaskRequirement([getTaskElement("Shop-boy")], [{task: "Cleaner", requirement: 50}]),
+  "Fisherman": new TaskRequirement([getTaskElement("Fisherman")], [{task: "Shop-boy", requirement: 50}]),
   "Miner": new TaskRequirement([getTaskElement("Miner")], [{task: "Strength", requirement: 10}, {task: "Fisherman", requirement: 10}]),
   "Blacksmith": new TaskRequirement([getTaskElement("Blacksmith")], [{task: "Strength", requirement: 30}, {task: "Miner", requirement: 10}]),
   "Merchant": new TaskRequirement([getTaskElement("Merchant")], [{task: "Bargaining", requirement: 50}, {task: "Blacksmith", requirement: 10}]),
@@ -1448,14 +1431,14 @@ gameData.requirements = {
 
 
   //The Arcane Association
-  "Student": new TaskRequirement([getTaskElement("Student")], [{task: "Concentration", requirement: 200}, {task: "Meditation", requirement: 200}]),
+  "Student": new TaskRequirement([getTaskElement("Student")], [{task: "Intellect", requirement: 200}, {task: "Meditation", requirement: 200}]),
   "Apprentice Mage": new TaskRequirement([getTaskElement("Apprentice Mage")], [{task: "Mana Control", requirement: 400}, {task: "Student", requirement: 10}]),
   "Adept Mage": new TaskRequirement([getTaskElement("Adept Mage")], [{task: "Mana Control", requirement: 700}, {task: "Apprentice Mage", requirement: 10}]),
   "Master Wizard": new TaskRequirement([getTaskElement("Master Wizard")], [{task: "Mana Control", requirement: 1000}, {task: "Adept Mage", requirement: 10}]),
   "Archmage": new TaskRequirement([getTaskElement("Archmage")], [{task: "Mana Control", requirement: 1200}, {task: "Master Wizard", requirement: 10}]),
   "Chronomancer": new TaskRequirement([getTaskElement("Chronomancer")], [{task: "Mana Control", requirement: 1500}, {task: "Meditation", requirement: 1500}, {task: "Archmage", requirement: 25}]),
-  "Chairman": new TaskRequirement([getTaskElement("Chairman")], [{task: "Mana Control", requirement: 2000}, {task: "Productivity", requirement: 2000}, {task: "Chronomancer", requirement: 50}]),
-  "Imperator": new TaskRequirement([getTaskElement("Imperator")], [{task: "All Seeing Eye", requirement: 3000}, {task: "Concentration", requirement: 3000},  {task: "Chairman", requirement: 666}]),
+  "Chairman": new TaskRequirement([getTaskElement("Chairman")], [{task: "Mana Control", requirement: 2000}, {task: "Stamina", requirement: 2000}, {task: "Chronomancer", requirement: 50}]),
+  "Imperator": new TaskRequirement([getTaskElement("Imperator")], [{task: "All Seeing Eye", requirement: 3000}, {task: "Intellect", requirement: 3000},  {task: "Chairman", requirement: 666}]),
 
   //The Void
   "Corrupted": new AgeRequirement([getTaskElement("Corrupted")], [{task: "Squire", requirement: 1000}]),
@@ -1475,21 +1458,21 @@ gameData.requirements = {
   "Acallaris": new TaskRequirement([getTaskElement("Acallaris")], [{task: "Galactic Command", requirement: 5000}, {task: "Sigma Proioxis", requirement: 1000}]),
   "One Above All": new TaskRequirement([getTaskElement("One Above All")], [{task: "Meditation", requirement: 6300}, {task: "Acallaris", requirement: 1400}]),
 
+  "Slacking": new TaskRequirement([getTaskElement("Slacking")], []),
 
-
-  //Fundamentals
-  "Concentration": new TaskRequirement([getTaskElement("Concentration")], []),
-  "Productivity": new TaskRequirement([getTaskElement("Productivity")], [{task: "Concentration", requirement: 5}]),
-  "Bargaining": new TaskRequirement([getTaskElement("Bargaining")], [{task: "Concentration", requirement: 20}]),
-  "Meditation": new TaskRequirement([getTaskElement("Meditation")], [{task: "Concentration", requirement: 30}, {task: "Productivity", requirement: 20}]),
+  //Base stats
+  "Intellect": new TaskRequirement([getTaskElement("Intellect")], []),
+  "Stamina": new TaskRequirement([getTaskElement("Stamina")], []),
+  "Bargaining": new TaskRequirement([getTaskElement("Bargaining")], [{task: "Intellect", requirement: 20}]),
+  "Meditation": new TaskRequirement([getTaskElement("Meditation")], [{task: "Intellect", requirement: 30}, {task: "Stamina", requirement: 20}]),
+  "Strength": new TaskRequirement([getTaskElement("Strength")], []),
 
   //Combat
-  "Strength": new TaskRequirement([getTaskElement("Strength")], []),
-  "Battle Tactics": new TaskRequirement([getTaskElement("Battle Tactics")], [{task: "Concentration", requirement: 20}]),
-  "Muscle Memory": new TaskRequirement([getTaskElement("Muscle Memory")], [{task: "Concentration", requirement: 30}, {task: "Strength", requirement: 30}]),
+  "Battle Tactics": new TaskRequirement([getTaskElement("Battle Tactics")], [{task: "Intellect", requirement: 20}]),
+  "Muscle Memory": new TaskRequirement([getTaskElement("Muscle Memory")], [{task: "Intellect", requirement: 30}, {task: "Strength", requirement: 30}]),
 
   //Magic
-  "Mana Control": new TaskRequirement([getTaskElement("Mana Control")], [{task: "Concentration", requirement: 200}, {task: "Meditation", requirement: 200}]),
+  "Mana Control": new TaskRequirement([getTaskElement("Mana Control")], [{task: "Intellect", requirement: 200}, {task: "Meditation", requirement: 200}]),
   "Life Essence": new TaskRequirement([getTaskElement("Life Essence")], [{task: "Apprentice Mage", requirement: 10}]),
   "Time Warping": new TaskRequirement([getTaskElement("Time Warping")], [{task: "Adept Mage", requirement: 10}]),
   "Astral Body": new TaskRequirement([getTaskElement("Astral Body")], [{task: "Archmage", requirement: 10}]),
@@ -1534,7 +1517,7 @@ gameData.requirements = {
 
 
   //Properties
-  "Homeless": new CoinRequirement([getItemElement("Homeless")], [{requirement: 0}]),
+  "Parents house": new CoinRequirement([getItemElement("Parents house")], [{requirement: 0}]),
   "Tent": new CoinRequirement([getItemElement("Tent")], [{requirement: 0}]),
   "Wooden Hut": new CoinRequirement([getItemElement("Wooden Hut")], [{requirement: gameData.itemData["Wooden Hut"].getExpense() * 100}]),
   "Cottage": new CoinRequirement([getItemElement("Cottage")], [{requirement: gameData.itemData["Cottage"].getExpense() * 100}]),

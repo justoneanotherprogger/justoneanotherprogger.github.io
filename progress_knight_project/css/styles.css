@@ -3,7 +3,7 @@ body {
 }
 
 .w3-bar-item {
-    width: 100px;
+    width: 140px;
     height: 40px;
     text-align: center;
 }
@@ -73,7 +73,7 @@ button:focus {
     position: relative;
     display: inline-block;
 }
-  
+
 .tooltip .tooltipText {
     visibility: hidden;
     width: 240px;
@@ -92,7 +92,7 @@ button:focus {
     opacity: 0;
     transition: opacity 0.5s;
 }
-  
+
 .tooltip:hover .tooltipText {
     visibility: visible;
     opacity: 0.8;

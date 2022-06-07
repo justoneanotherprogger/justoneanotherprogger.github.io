@@ -15,11 +15,11 @@
           <img src="img/logos.png" alt="logos" />
           <h1>Progress Knight Rework: Our Days</h1>
         </div>
-        <div class="row" style="width: 1220px;">
+        <div class="row" style="min-width: 1500px;">
                 <div id="info" class="panel w3-padding" style="width: 300px; top: 0;">
                     <span id="deathText">
                         <div style="font-size: large; color: red">Age has caught up to you</div>
-                        <div class="sidebar-element" style="color: gray">Your age has met your lifespan, use the amulet to rebirth before you pass away</div>
+                        <div class="sidebar-element" style="color: gray">Your age has met your lifespan, use the strange phone from "Reincarnation" tab to rebirth before you pass away</div>
                     </span>
 
                     <div class="" style="font-size: large">Age <span id="ageDisplay">14</span> Day <span id="dayDisplay">0</span></div>
@@ -120,14 +120,14 @@
                     </span>
                 </div>
                 <div class="column">
-                    <div class="panel w3-margin-left" style="width: 900px; height: 40px;">
-                        <div class="w3-button w3-bar-item tabButton" id="jobTabButton" onClick="setTab(this, 'jobs')">Classes</div>
+                    <div class="panel w3-margin-left" style="min-width: 1200px; height: 40px;">
+                        <div class="w3-button w3-bar-item tabButton" id="jobTabButton" onClick="setTab(this, 'jobs')">Positions</div>
                         <div class="w3-button w3-bar-item tabButton" onClick="setTab(this, 'skills')">Abilities</div>
                         <div class="w3-button w3-bar-item tabButton" id="shopTabButton" onClick="setTab(this, 'shop')">Shop</div>
-                        <div class="w3-button w3-bar-item tabButton" id="rebirthTabButton" onClick="setTab(this, 'rebirth')">Amulet</div>
+                        <div class="w3-button w3-bar-item tabButton" id="rebirthTabButton" onClick="setTab(this, 'rebirth')">Reincarnation</div>
                         <div class="w3-button w3-bar-item tabButton" onClick="setTab(this, 'settings')" style="float: right">Settings</div>
                     </div>
-                    <div class="panel w3-margin-left w3-margin-top w3-padding" style="width: 900px; height: auto; float: right">
+                    <div class="panel w3-margin-left w3-margin-top w3-padding" style="min-width: 1200px; height: auto; float: right">
                         <template class="headerRowTaskTemplate">
                             <tr>
                                 <th class="category" style="width: 250px">Job</th>
@@ -238,38 +238,25 @@
                         <div class="tab" id="rebirth">
                             <ul>
                                 <li style="margin: 8px;">
-                                    You stumble across a strange looking amulet on your 25th birthday. It does not look like
-                                    it has any worth on the market given that it's made from cheap-looking copper. However, you
-                                    feel a weird urge to keep the amulet, so you slip it into your pocket for safekeeping.
-
+                                  You stumble upon a strange smartphone on your 25th birthday. You do not know anything about its manufacturer and the device does not respond to your actions. However, you feel a strange desire to keep the device, so you put it in your pocket just in case.
                                 </li>
                                 <li style="margin: 8px;" id="rebirthNote1">
-                                    On your 45th birthday, you feel the amulet shiver uncontrollably in your pocket. You take it
-                                    out and the constant shivering suddenly stops. More to your bizarre surprise, you notice
-                                    a strange etching on the centre of the amulet.
+                                  On your 45th birthday, you feel your phone trembling uncontrollably in your pocket. You take it out and the constant trembling suddenly stops. To your strange surprise, you find the inscription "Loading" in the center of the screen.
                                 </li>
                                 <li style="margin: 8px;" id="rebirthNote2">
                                     <div style="margin-bottom: 8px">
-                                        On your 65th birthday, you once again encounter the strange, unexplained shivering from your
-                                        amulet. But this time, a living eyeball emerges from the centre. Although terribly frightened,
-                                        you realise you do not have many years to live left anyway so you consider touching the eye
-                                        to see what happens.
+                                      On your 65th birthday, you are again faced with a strange, inexplicable shake from your strange smartphone. But this time, a window with a green button appears on the screen. Although you don't understand the language of this window and the button, you realize that you still don't have many years left to live, so you decide to press the button to see what happens.
                                     </div>
                                     <i style="color: grey">
-                                        By touching the eyeball, you will be reborn and have to restart life again, losing all your levels and coins.
-                                        However, you will gain <b>xp multipliers</b> for your classes and abilities equivalent to: <b>1 + the max level of the class or ability / 10.</b>
-                                        This means you will learn everything again much more quickly than you did in your previous life. <span style="color: rgb(200, 0, 0)">
-                                        Something tells you that the amulet might evolve after living for <b>2 whole centuries</b> and transform even further after living for
-                                        a <b>millennium</b> and reach its final form after <b>ten millenia</b>...
-                                        </span>
+                                      By pressing the green button, you will be reborn and you will have to start life anew, having lost all your levels and money. However, you will receive <b>experience multipliers</b> for your positions and abilities, equivalent to: <b>(1 + max position or ability level / 10)<sup>2</sup></b>. This means that you will learn everything again much faster than in a past life.<br><span style="color: rgb(200, 0, 0)">Something suggests that the window on the screen may change if you wait another <b>hundred and fifty years</b>...</span>
                                     </i>
                                     </br>
-                                    <button class="w3-button button" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthOne()">Touch the eye</button>
+                                    <button class="w3-button button" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthOne()">Press green button</button>
                                     </br>
                                 </li>
                                 <li style="margin: 8px;" id="rebirthNote3">
                                     <div style="margin-bottom: 8px;">
-                                        Your gut instinct was right. The moment you hit the grand age of 200, you hear an ominous hum coming from the amulet.
+                                        Your gut instinct was right. The moment you hit the grand age of 200, you hear an ominous hum coming from the phone.
                                         A mouth emerges from its surface and begins to cackle, and proceeds to say: "So you've made it this far... Are you ready to embrace evil?"
                                     </div>
                                     <i style="color: rgb(200, 0, 0)">

@@ -20,7 +20,7 @@ class Task {
     }
 
     getMaxLevelMultiplier() {
-        var maxLevelMultiplier = 1 + this.maxLevel / 10
+        var maxLevelMultiplier = (1 + this.maxLevel / 10) * (1 + this.maxLevel / 10)
         return maxLevelMultiplier
     }
 
@@ -64,7 +64,7 @@ class Skill extends Task {
     }
 
     getEffect() {
-        var effect = 1 + this.baseData.effect * this.baseData.effect * this.level * this.level
+        var effect = (1 + this.baseData.effect * this.level) * (1 + this.baseData.effect * this.level)
         return effect
     }
 
