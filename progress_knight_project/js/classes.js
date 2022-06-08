@@ -20,7 +20,7 @@ class Task {
     }
 
     getMaxLevelMultiplier() {
-        var maxLevelMultiplier = (1 + this.maxLevel / 10) * (1 + this.maxLevel / 10)
+        var maxLevelMultiplier = Math.pow(1 + this.maxLevel / 10, 1.1)
         return maxLevelMultiplier
     }
 
@@ -64,7 +64,7 @@ class Skill extends Task {
     }
 
     getEffect() {
-        var effect = (1 + this.baseData.effect * this.level) * (1 + this.baseData.effect * this.level)
+        var effect = Math.pow(1 + this.baseData.effect * this.level, 1.1)
         return effect
     }
 
@@ -154,14 +154,14 @@ class AgeRequirement extends Requirement {
     }
 }
 
-class EvilRequirement extends Requirement {
+class CorruptionRequirement extends Requirement {
     constructor(elements, requirements) {
         super(elements, requirements)
-        this.type = "evil"
+        this.type = "corruption"
     }
 
     getCondition(requirement) {
-        return gameData.evil >= requirement.requirement
+        return gameData.corruption >= requirement.requirement
     }
 }
 

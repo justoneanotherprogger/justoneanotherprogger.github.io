@@ -89,8 +89,8 @@
                     <div style="font-size: large"><span style="color: rgb(15, 105, 207)">Happiness: </span><span id="happinessDisplay"></span></div>
                     <div style="color: gray" class="sidebar-element">Affects all XP gain</div>
 
-                    <span id="evilInfo">
-                        <div style="font-size: large"><span style="color: rgb(200, 0, 0)">Evil: </span><span id="evilDisplay"></span></div>
+                    <span id="corruptionInfo">
+                        <div style="font-size: large"><span style="color: rgb(200, 0, 0)">Corruption: </span><span id="corruptionDisplay"></span></div>
                         <div style="color: gray" class="sidebar-element">Affects dark magic XP gain</div>
                     </span>
 
@@ -214,7 +214,7 @@
                                         <span></span>
 
                                     </span>
-                                    <span style="color: rgb(200, 0, 0)" class="evil"></span>
+                                    <span style="color: rgb(200, 0, 0)" class="corruption"></span>
                                     <span style="color: rgb(24, 210, 217)" class="essence"></span>
                                 </span>
                             </td>
@@ -248,7 +248,7 @@
                                       On your 65th birthday, you are again faced with a strange, inexplicable shake from your strange smartphone. But this time, a window with a green button appears on the screen. Although you don't understand the language of this window and the button, you realize that you still don't have many years left to live, so you decide to press the button to see what happens.
                                     </div>
                                     <i style="color: grey">
-                                      By pressing the green button, you will be reborn and you will have to start life anew, having lost all your levels and money. However, you will receive <b>experience multipliers</b> for your positions and abilities, equivalent to: <b>(1 + max position or ability level / 10)<sup>2</sup></b>. This means that you will learn everything again much faster than in a past life.<br><span style="color: rgb(200, 0, 0)">Something suggests that the window on the screen may change if you wait another <b>hundred and fifty years</b>...</span>
+                                      By pressing the green button, you will be reborn and you will have to start life anew, having lost all your levels and money. However, you will receive <b>experience multipliers</b> for your positions and abilities, equivalent to: <b>(1 + max position or ability level / 10)<sup>1.1</sup></b>. This means that you will learn everything again much faster than in a past life.<br><span style="color: rgb(200, 0, 0)">Something suggests that the window on the screen may change if you wait another <b>hundred and fifty years</b>...</span>
                                     </i>
                                     </br>
                                     <button class="w3-button button" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthOne()">Press green button</button>
@@ -256,16 +256,15 @@
                                 </li>
                                 <li style="margin: 8px;" id="rebirthNote3">
                                     <div style="margin-bottom: 8px;">
-                                        Your gut instinct was right. The moment you hit the grand age of 200, you hear an ominous hum coming from the phone.
-                                        A mouth emerges from its surface and begins to cackle, and proceeds to say: "So you've made it this far... Are you ready to embrace evil?"
+                                      Your gut instinct was correct. The moment you turn 200, you hear an ominous buzz coming from your phone. The image on the screen shakes and distorts, and then you hear a whisper: "So, you've come this far ... Are you ready to accept corruption?". After that, a yellow button appears on the screen.
                                     </div>
                                     <i style="color: rgb(200, 0, 0)">
-                                        If you decide to embrace evil, all of your levels, coins and even max levels will be reset.
+                                        If you decide to push the yellow button, all of your levels, coins and even max levels will be reset.
                                         You will be reborn as a fresh slate. However, you will unlock a new line of skills and gain
-                                        <b><span id="evilGainDisplay"></span> evil</b>, and which will heavily impact your future lives.
+                                        <b><span id="corruptionGainDisplay"></span> corruption</b>, and which will heavily impact your future lives.
                                     </i>
                                     </br>
-                                        <button class="w3-button button" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthTwo()">Embrace evil</button>
+                                        <button class="w3-button button" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthTwo()">Press yellow button</button>
                                     </br>
                                 </li>
                                 <li style="margin: 8px;" id="rebirthNote4">
@@ -288,7 +287,7 @@
                                         You have unlocked <b>"Galactic Council"</b> class category along with <b>"Celestial Powers"</b> abilities.
                                         <i style="color: grey">
                                         </br>
-                                        By clicking on <b>Transcend</b>, you will be reborn once again, losing all your coins, <b>evil</b> and current levels.
+                                        By clicking on <b>Transcend</b>, you will be reborn once again, losing all your coins, <b>corruption</b> and current levels.
                                         However your max level won't be erased but multiplied with <b>Cosmic Recollection</b> ability and you will gain
                                         <i style="color: rgb(24, 210, 217)">
                                         <b><span id="essenceGainDisplay"></span> essence</b>,
