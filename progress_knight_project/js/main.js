@@ -32,7 +32,7 @@ const autoLearnElement = document.getElementById("autoLearn")
 
 const updateSpeed = 20
 
-const baseLifespan = 365 * 75
+const baseLifespan = 365 * 70
 
 const baseGameSpeed = 4
 
@@ -45,57 +45,77 @@ const jobBaseData = {
 
   "Cleaner": {name: "Cleaner", maxXp: 100, income: 10},
   "Shop boy": {name: "Shop boy", maxXp: 150, income: 25},
+  "Department manager": {name: "Department manager", maxXp: 250, income: 50},
 
   "Background actor": {name: "Background actor", maxXp: 100, income: 15},
   "Streamer": {name: "Streamer", maxXp: 150, income: 30},
 
   "Support 1st line": {name: "Support 1st line", maxXp: 100, income: 18},
   "Support 2nd line": {name: "Support 2nd line", maxXp: 150, income: 25},
+  "Support manager": {name: "Support manager", maxXp: 250, income: 55},
 
   "Nurse": {name: "Nurse", maxXp: 100, income: 12},
   "General doctor": {name: "General doctor", maxXp: 150, income: 20},
+  "Therapist": {name: "Therapist", maxXp: 250, income: 45},
+  "Surgeon": {name: "Surgeon", maxXp: 600, income: 70},
+  "Head of department": {name: "Head of department", maxXp: 1000, income: 100},
+  "Head physician": {name: "Head physician", maxXp: 2000, income: 170},
 
   "Student": {name: "Student", maxXp: 100, income: 10},
   "Graduate": {name: "Graduate", maxXp: 150, income: 15},
 
   "Rookie": {name: "Rookie", maxXp: 150, income: 25},
-  "Experienced soldier": {name: "Experienced soldier", maxXp: 300, income: 60}
+  "Experienced soldier": {name: "Experienced soldier", maxXp: 300, income: 60},
+  "Infantry officer": {name: "Infantry officer", maxXp: 700, income: 150},
 }
 
 const skillBaseData = {
-  "Slacking": {name: "Slacking", maxXp: 50, effect: 0.01, description: "All XP"},
-  "Waiting": {name: "Waiting", maxXp: 150, effect: 0.01, description: "Gamespeed"},
+  "Slacking": {name: "Slacking", maxXp: 50, effect: 0.001, description: "All XP"},
+  "Waiting": {name: "Waiting", maxXp: 1500, effect: 0.01, description: "Gamespeed"},
 
-  "Strength": {name: "Strength", maxXp: 100, effect: 0.01, description: "Strength abilities XP"},
-  "Perception": {name: "Perception", maxXp: 100, effect: 0.01, description: "Perception abilities XP"},
-  "Endurance": {name: "Endurance", maxXp: 100, effect: 0.01, description: "Endurance abilities XP"},
+  "Strength": {name: "Strength", maxXp: 400, effect: 0.01, description: "Strength abilities XP"},
+  "Perception": {name: "Perception", maxXp: 400, effect: 0.01, description: "Perception abilities XP"},
+  "Endurance": {name: "Endurance", maxXp: 400, effect: 0.01, description: "Endurance abilities XP"},
 
-  "Communicability": {name: "Communicability", maxXp: 100, effect: 0.01, description: "Communicability abilities XP"},
-  "Intelligence": {name: "Intelligence", maxXp: 100, effect: 0.01, description: "Intelligence abilities XP"},
-  "Aptitude": {name: "Aptitude", maxXp: 100, effect: 0.01, description: "Aptitude abilities XP"},
-  "Luckiness": {name: "Luckiness", maxXp: 100, effect: 0.01, description: "Luckiness abilities XP"},
+  "Communicability": {name: "Communicability", maxXp: 400, effect: 0.01, description: "Communicability abilities XP"},
+  "Intelligence": {name: "Intelligence", maxXp: 400, effect: 0.01, description: "Intelligence abilities XP"},
+  "Aptitude": {name: "Aptitude", maxXp: 400, effect: 0.01, description: "Aptitude abilities XP"},
+  "Luckiness": {name: "Luckiness", maxXp: 400, effect: 0.01, description: "Luckiness abilities XP"},
 
-  "Muscle memory": {name: "Muscle memory", maxXp: 100, effect: 0.01, description: "Body XP"},
-  "Muscle mass": {name: "Muscle mass", maxXp: 100, effect: 0.01, description: "Military payment"},
+  "Muscle memory": {name: "Muscle memory", maxXp: 400, effect: 0.005, description: "Body XP"},
+  "Muscle mass": {name: "Muscle mass", maxXp: 400, effect: 0.001, description: "Military payment"},
+  "Speed": {name: "Speed", maxXp: 400, effect: 0.005, description: "Military XP"},
+  "Flexity": {name: "Flexity", maxXp: 400, effect: 0.005, description: "Service payment"},
 
-  "Concentration": {name: "Concentration", maxXp: 100, effect: 0.01, description: "Mind XP"},
-  "Stealth": {name: "Stealth", maxXp: 100, effect: -0.01, description: "Reduced Expenses"},
+  "Concentration": {name: "Concentration", maxXp: 400, effect: 0.005, description: "Mind XP"},
+  "Stealth": {name: "Stealth", maxXp: 400, effect: -0.01, description: "Reduced Expenses"},
+  "Sharp sight": {name: "Sharp sight", maxXp: 400, effect: 0.001, description: "Medical science payment"},
+  "Foreboding": {name: "Foreboding", maxXp: 400, effect: 0.005, description: "Military payment"},
 
-  "Walking": {name: "Walking", maxXp: 100, effect: 0.01, description: "Positions XP"},
-  "Strong stomach": {name: "Strong stomach", maxXp: 100, effect: 0.01, description: "Medical science XP"},
+  "Walking": {name: "Walking", maxXp: 400, effect: 0.005, description: "Positions XP"},
+  "Strong stomach": {name: "Strong stomach", maxXp: 400, effect: 0.005, description: "Medical science XP"},
+  "Running": {name: "Running", maxXp: 400, effect: 0.005, description: "Body XP"},
+  "Hardening": {name: "Hardening", maxXp: 400, effect: 0.005, description: "Lifespan"},
 
-  "Bargaining": {name: "Bargaining", maxXp: 100, effect: -0.01, description: "Reduced Expenses"},
-  "Artistry": {name: "Artistry", maxXp: 100, effect: 0.01, description: "Media payment"},
+  "Bargaining": {name: "Bargaining", maxXp: 400, effect: -0.01, description: "Reduced Expenses"},
+  "Artistry": {name: "Artistry", maxXp: 400, effect: 0.001, description: "Media payment"},
+  "Lang understanding": {name: "Lang understanding", maxXp: 400, effect: 0.005, description: "Abilities XP"},
+  "Leadership": {name: "Leadership", maxXp: 400, effect: 0.005, description: "IT payment"},
 
-  "Tactics": {name: "Tactics", maxXp: 100, effect: 0.01, description: "Military XP"},
-  "Meditation": {name: "Meditation", maxXp: 100, effect: 0.01, description: "Happiness"},
-  "Programming": {name: "Programming", maxXp: 100, effect: 0.01, description: "IT payment"},
+  "Programming": {name: "Programming", maxXp: 400, effect: 0.001, description: "IT payment"},
+  "Tactics": {name: "Tactics", maxXp: 400, effect: 0.005, description: "Military XP"},
+  "Meditation": {name: "Meditation", maxXp: 400, effect: 0.005, description: "Happiness"},
+  "Curiosity": {name: "Curiosity", maxXp: 400, effect: 0.005, description: "Science payment"},
 
-  "Productivity": {name: "Productivity", maxXp: 100, effect: 0.01, description: "Service payment"},
-  "Tech understanding": {name: "Tech understanding", maxXp: 100, effect: 0.01, description: "IT & Science XP"},
+  "Productivity": {name: "Productivity", maxXp: 400, effect: 0.001, description: "Service payment"},
+  "Tech understanding": {name: "Tech understanding", maxXp: 400, effect: 0.005, description: "IT & Science XP"},
+  "Accounting": {name: "Accounting", maxXp: 400, effect: 0.005, description: "Mind XP"},
+  "Skillful fingers": {name: "Skillful fingers", maxXp: 400, effect: 0.005, description: "Medical science payment"},
 
-  "Right in time": {name: "Right in time", maxXp: 100, effect: 0.01, description: "Positions payment"},
-  "Phenomenal agility": {name: "Phenomenal agility", maxXp: 100, effect: 0.01, description: "Happiness"},
+  "Right in time": {name: "Right in time", maxXp: 400, effect: 0.001, description: "Positions payment"},
+  "Phenomenal agility": {name: "Phenomenal agility", maxXp: 400, effect: 0.005, description: "Happiness"},
+  "A duck's back": {name: "A duck's back", maxXp: 400, effect: 0.005, description: "Lifespan"},
+  "Fate": {name: "Fate", maxXp: 400, effect: 0.005, description: "Media payment"},
 }
 
 const itemBaseData = {
@@ -108,55 +128,57 @@ const itemBaseData = {
 
   "Library card": {name: "Library card", expense: 2, effect: 2, description: "Mind XP"},
   "Gym membership": {name: "Gym membership", expense: 5, effect: 2, description: "Body XP"},
+  "Laptop": {name: "Laptop", expense: 10, effect: 2, description: "Happiness"},
+  "Car": {name: "Car", expense: 25, effect: 2, description: "Service & Media XP"},
 }
 
 const jobCategories = {
   "No category": ["Slacker", "Mail boy", "Sweeper"],
-  "Service": ["Cleaner", "Shop boy"],
+  "Service": ["Cleaner", "Shop boy", "Department manager"],
   "Media": ["Background actor", "Streamer"],
-  "IT": ["Support 1st line", "Support 2nd line"],
-  "Medical science": ["Nurse", "General doctor"],
+  "IT": ["Support 1st line", "Support 2nd line", "Support manager"],
+  "Medical science": ["Nurse", "General doctor", "Therapist", "Surgeon", "Head of department", "Head physician"],
   "Science": ["Student", "Graduate"],
-  "Military": ["Rookie", "Experienced soldier"]
+  "Military": ["Rookie", "Experienced soldier", "Infantry officer"]
 }
 
 const skillCategories = {
   "Idle": ["Slacking", "Waiting"],
   "Body": ["Strength", "Perception", "Endurance"],
   "Mind": ["Communicability", "Intelligence", "Aptitude", "Luckiness"],
-  "Strength": ["Muscle memory", "Muscle mass"],
-  "Perception": ["Concentration", "Stealth"],
-  "Endurance": ["Walking", "Strong stomach"],
-  "Communicability": ["Bargaining", "Artistry"],
-  "Intelligence": ["Programming", "Tactics", "Meditation"],
-  "Aptitude": ["Productivity", "Tech understanding"],
-  "Luckiness": ["Right in time", "Phenomenal agility"]
+  "Strength": ["Muscle memory", "Muscle mass", "Speed", "Flexity"],
+  "Perception": ["Concentration", "Stealth", "Sharp sight", "Foreboding"],
+  "Endurance": ["Walking", "Strong stomach", "Running", "Hardening"],
+  "Communicability": ["Bargaining", "Artistry", "Lang understanding", "Leadership"],
+  "Intelligence": ["Programming", "Tactics", "Meditation", "Curiosity"],
+  "Aptitude": ["Productivity", "Tech understanding", "Accounting", "Skillful fingers"],
+  "Luckiness": ["Right in time", "Phenomenal agility", "A duck's back", "Fate"]
 }
 
 const itemCategories = {
   "Properties": ["Parents house", "Hostel", "3-star hotel room", "5-star hotel room", "Small apartment", "Apartment"],
-  "Misc": ["Library card", "Gym membership"]
+  "Misc": ["Library card", "Gym membership", "Laptop", "Car"]
 }
 
 const headerRowColors = {
-  "No category": "#8D8D8D",
-  "Service": "#55a630",
-  "Military": "#e63946",
-  "Media": "#55a630",
-  "IT": "#55a630",
-  "Science": "#55a630",
-  "Medical science": "#e63946",
+  "No category": "#8d8d8d",
+  "Service": "#a246ff",
+  "Military": "#ff0000",
+  "Media": "#ff5900",
+  "IT": "#3972fe",
+  "Science": "#ffca00",
+  "Medical science": "#2dd700",
 
-  "Idle": "#8D8D8D",
-  "Body": "#e63946",
-  "Mind": "#C71585",
-  "Strength": "#e63946",
-  "Perception": "#e63946",
-  "Endurance": "#e63946",
-  "Communicability": "#e63946",
-  "Intelligence": "#e63946",
-  "Aptitude": "#e63946",
-  "Luckiness": "#e63946",
+  "Idle": "#8d8d8d",
+  "Body": "#db092b",
+  "Mind": "#0047a9",
+  "Strength": "#ff0000",
+  "Perception": "#ff5900",
+  "Endurance": "#dc0055",
+  "Communicability": "#2dd700",
+  "Intelligence": "#3972fe",
+  "Aptitude": "#a246ff",
+  "Luckiness": "#ffca00",
 
   "Properties": "#219ebc",
   "Misc": "#b56576",
@@ -171,10 +193,12 @@ const tooltips = {
 	//Service
   "Cleaner": "Clean anything your manager says you to clean without questions",
   "Shop boy": "Shop boy",
+  "Department manager": "Department manager",
 
   //Military
   "Rookie": "Rookie",
   "Experienced soldier": "Experienced soldier",
+  "Infantry officer": "Infantry officer",
 
   // Media
   "Background actor": "Background actor",
@@ -183,10 +207,15 @@ const tooltips = {
   // IT
   "Support 1st line": "Support 1st line",
   "Support 2nd line": "Support 2nd line",
+  "Support manager": "Support manager",
 
   // Medical science
   "Nurse": "Nurse",
   "General doctor": "General doctor",
+  "Therapist": "Therapist",
+  "Surgeon": "Surgeon",
+  "Head of department": "Head of department",
+  "Head physician": "Head physician",
 
   // Science
   "Student": "Student",
@@ -210,31 +239,44 @@ const tooltips = {
   //Strength
   "Muscle memory": "Muscle memory",
   "Muscle mass": "Muscle mass",
+  "Speed": "Speed",
+  "Flexity": "Flexity",
 
   // Perception
   "Concentration": "Concentration",
   "Stealth": "Stealth",
+  "Sharp sight": "Sharp sight",
+  "Foreboding": "Foreboding",
 
   // Endurance
   "Walking": "Walking",
   "Strong stomach": "Strong stomach",
+  "Running": "Running",
+  "Hardening": "Hardening",
 
   // Communicability
   "Bargaining": "Study the tricks of the trade and persuasive skills to lower any type of expense",
   "Artistry": "Artistry",
+  "Lang understanding": "Lang understanding",
+  "Leadership": "Leadership",
 
   // Intelligence
+  "Programming": "Programming",
   "Meditation": "Fill your mind with peace and tranquility to tap into greater happiness from within",
   "Tactics": "Create and revise battle strategies, improving experience gained in the military",
-  "Programming": "Programming",
+  "Curiosity": "Curiosity",
 
   // Aptitude
   "Productivity": "Productivity",
   "Tech understanding": "Tech understanding",
+  "Accounting": "Accounting",
+  "Skillful fingers": "Skillful fingers",
 
   // Luckiness
   "Right in time": "Right in time",
   "Phenomenal agility": "Phenomenal agility",
+  "A duck's back": "A duck's back",
+  "Fate": "Fate",
 
   //Properties
   "Parents house": "Living with your parents may be uncomfortable, but it's free at any day",
@@ -246,7 +288,9 @@ const tooltips = {
 
   //Misc
   "Library card": "Library card",
-  "Gym membership": "Gym membership"
+  "Gym membership": "Gym membership",
+  "Laptop": "Laptop",
+  "Car": "Car",
 }
 
 const units = ["", "k", "M", "B", "T", "q", "Q", "Sx", "Sp", "Oc", "Nv", "Vg", "Uv", "Dv", "Tv", "Qt", "Qv", "Sv", "Oc", "Nd", "Tg", "OMG"];
@@ -279,32 +323,44 @@ function addMultipliers() {
     task.xpMultipliers.push(getBindedTaskEffect("Slacking"))
 
     if (task instanceof Job) {
-        task.incomeMultipliers.push(task.getLevelMultiplier.bind(task))
-        task.incomeMultipliers.push(getBindedTaskEffect("Right in time"))
-        task.xpMultipliers.push(getBindedTaskEffect("Walking"))
+      task.incomeMultipliers.push(task.getLevelMultiplier.bind(task))
+      task.incomeMultipliers.push(getBindedTaskEffect("Right in time"))
+      task.xpMultipliers.push(getBindedTaskEffect("Walking"))
     } else if (task instanceof Skill) {
-        // task.xpMultipliers.push(getBindedTaskEffect("Intelligence"))
+      task.xpMultipliers.push(getBindedTaskEffect("Lang understanding"))
     }
 
     if (jobCategories["Military"].includes(task.name)) {
-        task.xpMultipliers.push(getBindedTaskEffect("Tactics"))
-        task.incomeMultipliers.push(getBindedTaskEffect("Muscle mass"))
+      task.xpMultipliers.push(getBindedTaskEffect("Tactics"))
+      task.xpMultipliers.push(getBindedTaskEffect("Speed"))
+      task.incomeMultipliers.push(getBindedTaskEffect("Muscle mass"))
+      task.incomeMultipliers.push(getBindedTaskEffect("Foreboding"))
     } else if (jobCategories["Service"].includes(task.name)) {
       task.incomeMultipliers.push(getBindedTaskEffect("Productivity"))
+      task.xpMultipliers.push(getBindedItemEffect("Car"))
+      task.incomeMultipliers.push(getBindedTaskEffect("Flexity"))
     } else if (jobCategories["Media"].includes(task.name)) {
+      task.xpMultipliers.push(getBindedItemEffect("Car"))
       task.incomeMultipliers.push(getBindedTaskEffect("Artistry"))
+      task.incomeMultipliers.push(getBindedTaskEffect("Fate"))
     } else if (jobCategories["IT"].includes(task.name)) {
       task.incomeMultipliers.push(getBindedTaskEffect("Programming"))
+      task.incomeMultipliers.push(getBindedTaskEffect("Leadership"))
       task.xpMultipliers.push(getBindedTaskEffect("Tech understanding"))
     } else if (jobCategories["Science"].includes(task.name)) {
+      task.incomeMultipliers.push(getBindedTaskEffect("Curiosity"))
       task.xpMultipliers.push(getBindedTaskEffect("Tech understanding"))
     } else if (jobCategories["Medical science"].includes(task.name)) {
-      task.incomeMultipliers.push(getBindedTaskEffect("Strong stomach"))
+      task.xpMultipliers.push(getBindedTaskEffect("Strong stomach"))
+      task.incomeMultipliers.push(getBindedTaskEffect("Sharp sight"))
+      task.incomeMultipliers.push(getBindedTaskEffect("Skillful fingers"))
     } else if (skillCategories["Body"].includes(task.name)) {
-        task.xpMultipliers.push(getBindedTaskEffect("Muscle memory"))
-        task.xpMultipliers.push(getBindedItemEffect("Gym membership"))
+      task.xpMultipliers.push(getBindedTaskEffect("Muscle memory"))
+      task.xpMultipliers.push(getBindedTaskEffect("Running"))
+      task.xpMultipliers.push(getBindedItemEffect("Gym membership"))
     } else if (skillCategories["Mind"].includes(task.name)) {
       task.xpMultipliers.push(getBindedTaskEffect("Concentration"))
+      task.xpMultipliers.push(getBindedTaskEffect("Accounting"))
       task.xpMultipliers.push(getBindedItemEffect("Library card"))
     } else if (skillCategories["Strength"].includes(task.name)) {
       task.xpMultipliers.push(getBindedTaskEffect("Strength"))
@@ -334,42 +390,42 @@ function addMultipliers() {
 function setCustomEffects() {
   var bargaining = gameData.taskData["Bargaining"]
   bargaining.getEffect = function() {
-    var multiplier = 1 - getBaseLog(7, bargaining.level + 1) / 10
+    var multiplier = 1 - getBaseLog(25, bargaining.level + 1) / 10
     if (multiplier < 0.1) {multiplier = 0.1}
     return multiplier
   }
 
   var stealth = gameData.taskData["Stealth"]
   stealth.getEffect = function() {
-    var multiplier = 1 - getBaseLog(7, stealth.level + 1) / 10
+    var multiplier = 1 - getBaseLog(26, stealth.level + 1) / 10
     if (multiplier < 0.1) {multiplier = 0.1}
     return multiplier
   }
 
   var waiting = gameData.taskData["Waiting"]
   waiting.getEffect = function() {
-    var multiplier = 1 + getBaseLog(15, waiting.level + 1)
+    var multiplier = 1 + getBaseLog(100, waiting.level + 1)
     return multiplier
   }
 
-  // var immortality = gameData.taskData["Life Essence"]
-  // immortality.getEffect = function() {
-  //   var multiplier = 1 + getBaseLog(33, immortality.level + 1)
-  //   return multiplier
-  // }
+  var duckBack = gameData.taskData["A duck's back"]
+  duckBack.getEffect = function() {
+    var multiplier = 1 + getBaseLog(100, duckBack.level + 1) / 10
+    return multiplier
+  }
 
-  // var unholyRecall = gameData.taskData["Cosmic Recollection"];
-  // unholyRecall.getEffect = function() {
-  //   var multiplier = unholyRecall.level * 0.00065;
-  //   return multiplier;
-  // }
+  var hardening = gameData.taskData["Hardening"]
+  hardening.getEffect = function() {
+    var multiplier = 1 + getBaseLog(90, hardening.level + 1) / 10
+    return multiplier
+  }
 }
 
 function getHappiness() {
   var meditationEffect = getBindedTaskEffect("Meditation")
   var agilityEffect = getBindedTaskEffect("Phenomenal agility")
-  // var butlerEffect = getBindedItemEffect("Butler")
-  var happiness = meditationEffect() * agilityEffect() * gameData.currentProperty.getEffect()
+  var laptopEffect = getBindedItemEffect("Laptop")
+  var happiness = meditationEffect() * agilityEffect() * laptopEffect() * gameData.currentProperty.getEffect()
   return happiness
 }
 
@@ -521,7 +577,7 @@ function createHeaderRow(templates, categoryType, categoryName) {
   }
 
   headerRow.style.backgroundColor = headerRowColors[categoryName]
-  headerRow.style.color = "#ffffff"
+  headerRow.style.color = "#333333"
   headerRow.classList.add(removeSpaces(categoryName))
   headerRow.classList.add("headerRow")
 
@@ -731,7 +787,7 @@ function updateText() {
   document.getElementById("essenceDisplay").textContent = gameData.essence.toFixed(1)
   document.getElementById("essenceGainDisplay").textContent = getEssenceGain().toFixed(1)
 
-  document.getElementById("timeWarpingDisplay").textContent = "x" + (1).toFixed(1) //gameData.taskData["Time Warping"].getEffect() * gameData.taskData["Temporal Dimension"].getEffect() * gameData.taskData["Time Loop"].getEffect()
+  document.getElementById("timeWarpingDisplay").textContent = "x" + (gameData.taskData["Waiting"].getEffect()).toFixed(1)
   document.getElementById("timeWarpingButton").textContent = gameData.timeWarpingEnabled ? "Disable warp" : "Enable warp"
 }
 
@@ -1005,14 +1061,11 @@ function rebirthReset() {
 }
 
 function getLifespan() {
-  // var immortality = gameData.taskData["Life Essence"]
-  // var superImmortality = gameData.taskData["Astral Body"]
-  // var higherDimensions = gameData.taskData["Higher Dimensions"]
-  // var abyss = gameData.taskData["Ceaseless Abyss"]
-  // var cosmicLongevity = gameData.taskData["Cosmic Longevity"]
+  var duckBack = gameData.taskData["A duck's back"]
+  var hardening = gameData.taskData["Hardening"]
   var coinPile = 20 * getBaseLog(10, gameData.coins + 1)
   var corruptionProlongation = 25 * getBaseLog(30, gameData.corruption + 1)
-  var lifespan = baseLifespan + coinPile + corruptionProlongation //* immortality.getEffect() * superImmortality.getEffect() * abyss.getEffect() * cosmicLongevity.getEffect() * higherDimensions.getEffect()
+  var lifespan = (baseLifespan + coinPile + corruptionProlongation) * duckBack.getEffect() * hardening.getEffect()
   return lifespan
 }
 
@@ -1234,11 +1287,6 @@ gameData.currentMisc = []
 
 gameData.requirements = {
   //Other
-  // "The Arcane Association": new TaskRequirement(getElementsByClass("The Arcane Association"), [{task: "Intelligence", requirement: 200}, {task: "Meditation", requirement: 200}]),
-  // "Galactic Council": new AgeRequirement(getElementsByClass("Galactic Council"), [{requirement: 10000}]),
-  // "The Void": new AgeRequirement(getElementsByClass("The Void"), [{requirement: 1000}]),
-  // "Void Manipulation": new AgeRequirement(getElementsByClass("Void Manipulation"), [{requirement: 1000}]),
-  // "Celestial Powers": new AgeRequirement(getElementsByClass("Celestial Powers"), [{requirement: 10000}]),
   // "Dark Magic": new CorruptionRequirement(getElementsByClass("Dark Magic"), [{requirement: 1}]),
   // "Almightiness": new EssenceRequirement(getElementsByClass("Almightiness"), [{requirement: 1}]),
   "Service": new TaskRequirement(getElementsByClass("Service"), [{task: "Slacker", requirement: 10}, {task: "Endurance", requirement: 5}]),
@@ -1260,7 +1308,7 @@ gameData.requirements = {
   "Rebirth tab": new AgeRequirement([document.getElementById("rebirthTabButton")], [{requirement: 25}]),
   "Rebirth note 1": new AgeRequirement([document.getElementById("rebirthNote1")], [{requirement: 45}]),
   "Rebirth note 2": new AgeRequirement([document.getElementById("rebirthNote2")], [{requirement: 65}]),
-  "Rebirth note 3": new AgeRequirement([document.getElementById("rebirthNote3")], [{requirement: 200}]),
+  "Rebirth note 3": new AgeRequirement([document.getElementById("rebirthNote3")], [{requirement: 250}]),
   "Rebirth note 4": new AgeRequirement([document.getElementById("rebirthNote4")], [{requirement: 1000}]),
   "Rebirth note 4": new AgeRequirement([document.getElementById("rebirthNote4")], [{requirement: 1000}]),
   "Rebirth note 5": new AgeRequirement([document.getElementById("rebirthNote5")], [{requirement: 10000}]),
@@ -1278,27 +1326,34 @@ gameData.requirements = {
   "Sweeper": new TaskRequirement([getTaskElement("Sweeper")], [{task: "Mail boy", requirement: 20}]),
 
   //Service
-  "Cleaner": new TaskRequirement([getTaskElement("Cleaner")], [{task: "Slacker", requirement: 10}, {task: "Endurance", requirement: 10}]),
+  "Cleaner": new TaskRequirement([getTaskElement("Cleaner")], [{task: "Endurance", requirement: 10}]),
   "Shop boy": new TaskRequirement([getTaskElement("Shop boy")], [{task: "Cleaner", requirement: 30}, {task: "Endurance", requirement: 30}]),
+  "Department manager": new TaskRequirement([getTaskElement("Department manager")], [{task: "Shop boy", requirement: 30}, {task: "Communicability", requirement: 50}]),
 
   //Military
-  "Rookie": new TaskRequirement([getTaskElement("Rookie")], [{task: "Slacker", requirement: 30}, {task: "Strength", requirement: 30}]),
+  "Rookie": new TaskRequirement([getTaskElement("Rookie")], [{task: "Strength", requirement: 30}]),
   "Experienced soldier": new TaskRequirement([getTaskElement("Experienced soldier")], [{task: "Rookie", requirement: 30}, {task: "Strength", requirement: 50}]),
+  "Infantry officer": new TaskRequirement([getTaskElement("Infantry officer")], [{task: "Experienced soldier", requirement: 30}, {task: "Strength", requirement: 80}, {task: "Tactics", requirement: 50}]),
 
   //Media
-  "Background actor": new TaskRequirement([getTaskElement("Background actor")], [{task: "Slacker", requirement: 20}, {task: "Communicability", requirement: 20}]),
+  "Background actor": new TaskRequirement([getTaskElement("Background actor")], [{task: "Communicability", requirement: 20}]),
   "Streamer": new TaskRequirement([getTaskElement("Streamer")], [{task: "Background actor", requirement: 30}, {task: "Communicability", requirement: 30}, {task: "Artistry", requirement: 20}]),
 
   //IT
-  "Support 1st line": new TaskRequirement([getTaskElement("Support 1st line")], [{task: "Slacker", requirement: 20}, {task: "Intelligence", requirement: 20}]),
+  "Support 1st line": new TaskRequirement([getTaskElement("Support 1st line")], [{task: "Intelligence", requirement: 20}]),
   "Support 2nd line": new TaskRequirement([getTaskElement("Support 2nd line")], [{task: "Support 1st line", requirement: 30}, {task: "Intelligence", requirement: 30}, {task: "Tech understanding", requirement: 20}]),
+  "Support manager": new TaskRequirement([getTaskElement("Support manager")], [{task: "Support 2nd line", requirement: 30}, {task: "Communicability", requirement: 50}]),
 
   // Medical science
-  "Nurse": new TaskRequirement([getTaskElement("Nurse")], [{task: "Slacker", requirement: 10}, {task: "Perception", requirement: 10}]),
+  "Nurse": new TaskRequirement([getTaskElement("Nurse")], [{task: "Perception", requirement: 10}]),
   "General doctor": new TaskRequirement([getTaskElement("General doctor")], [{task: "Nurse", requirement: 30}, {task: "Perception", requirement: 30}, {task: "Intelligence", requirement: 30}]),
+  "Therapist": new TaskRequirement([getTaskElement("Therapist")], [{task: "General doctor", requirement: 30}, {task: "Intelligence", requirement: 50}]),
+  "Surgeon": new TaskRequirement([getTaskElement("Surgeon")], [{task: "Therapist", requirement: 30}, {task: "Intelligence", requirement: 80}, {task: "Phenomenal agility", requirement: 10}]),
+  "Head of department": new TaskRequirement([getTaskElement("Head of department")], [{task: "Surgeon", requirement: 30}, {task: "Aptitude", requirement: 150}, {task: "Accounting", requirement: 100}]),
+  "Head physician": new TaskRequirement([getTaskElement("Head physician")], [{task: "Head of department", requirement: 30}, {task: "Aptitude", requirement: 250}, {task: "Leadership", requirement: 100}]),
 
   // Science
-  "Student": new TaskRequirement([getTaskElement("Student")], [{task: "Slacker", requirement: 10}, {task: "Intelligence", requirement: 10}]),
+  "Student": new TaskRequirement([getTaskElement("Student")], [{task: "Intelligence", requirement: 10}]),
   "Graduate": new TaskRequirement([getTaskElement("Graduate")], [{task: "Student", requirement: 30}, {task: "Intelligence", requirement: 30}, {task: "Communicability", requirement: 30}]),
 
   // Skills
@@ -1319,31 +1374,44 @@ gameData.requirements = {
   //Strength
   "Muscle memory": new TaskRequirement([getTaskElement("Muscle memory")], [{task: "Strength", requirement: 10}]),
   "Muscle mass": new TaskRequirement([getTaskElement("Muscle mass")], [{task: "Strength", requirement: 30}, {task: "Endurance", requirement: 30}]),
+  "Speed": new TaskRequirement([getTaskElement("Speed")], [{task: "Strength", requirement: 60}, {task: "Walking", requirement: 60}]),
+  "Flexity": new TaskRequirement([getTaskElement("Flexity")], [{task: "Strength", requirement: 100}, {task: "Speed", requirement: 50}]),
 
   // Perception
   "Concentration": new TaskRequirement([getTaskElement("Concentration")], [{task: "Perception", requirement: 10}]),
   "Stealth": new TaskRequirement([getTaskElement("Stealth")], [{task: "Perception", requirement: 30}, {task: "Luckiness", requirement: 30}]),
+  "Sharp sight": new TaskRequirement([getTaskElement("Sharp sight")], [{task: "Perception", requirement: 60}, {task: "Concentration", requirement: 60}]),
+  "Foreboding": new TaskRequirement([getTaskElement("Foreboding")], [{task: "Perception", requirement: 100}, {task: "Sharp sight", requirement: 50}]),
 
   // Endurance
   "Walking": new TaskRequirement([getTaskElement("Walking")], [{task: "Endurance", requirement: 10}]),
   "Strong stomach": new TaskRequirement([getTaskElement("Strong stomach")], [{task: "Endurance", requirement: 30}, {task: "Strength", requirement: 30}]),
+  "Running": new TaskRequirement([getTaskElement("Running")], [{task: "Endurance", requirement: 60}, {task: "Muscle memory", requirement: 60}]),
+  "Hardening": new TaskRequirement([getTaskElement("Hardening")], [{task: "Endurance", requirement: 100}, {task: "Running", requirement: 50}]),
 
   // Communicability
   "Bargaining": new TaskRequirement([getTaskElement("Bargaining")], [{task: "Communicability", requirement: 10}]),
   "Artistry": new TaskRequirement([getTaskElement("Artistry")], [{task: "Communicability", requirement: 30}, {task: "Perception", requirement: 30}]),
+  "Lang understanding": new TaskRequirement([getTaskElement("Lang understanding")], [{task: "Communicability", requirement: 60}, {task: "Productivity", requirement: 60}]),
+  "Leadership": new TaskRequirement([getTaskElement("Leadership")], [{task: "Communicability", requirement: 100}, {task: "Lang understanding", requirement: 50}]),
 
   // Intelligence
   "Programming": new TaskRequirement([getTaskElement("Programming")], [{task: "Intelligence", requirement: 10}]),
   "Tactics": new TaskRequirement([getTaskElement("Tactics")], [{task: "Intelligence", requirement: 30}, {task: "Strength", requirement: 30}]),
   "Meditation": new TaskRequirement([getTaskElement("Meditation")], [{task: "Intelligence", requirement: 60}, {task: "Concentration", requirement: 60}]),
+  "Curiosity": new TaskRequirement([getTaskElement("Curiosity")], [{task: "Intelligence", requirement: 100}, {task: "Meditation", requirement: 50}]),
 
   // Aptitude
   "Productivity": new TaskRequirement([getTaskElement("Productivity")], [{task: "Aptitude", requirement: 10}]),
   "Tech understanding": new TaskRequirement([getTaskElement("Tech understanding")], [{task: "Aptitude", requirement: 30}, {task: "Intelligence", requirement: 30}]),
+  "Accounting": new TaskRequirement([getTaskElement("Accounting")], [{task: "Aptitude", requirement: 60}, {task: "Bargaining", requirement: 60}]),
+  "Skillful fingers": new TaskRequirement([getTaskElement("Skillful fingers")], [{task: "Aptitude", requirement: 100}, {task: "Accounting", requirement: 50}]),
 
   // Luckiness
   "Right in time": new TaskRequirement([getTaskElement("Right in time")], [{task: "Luckiness", requirement: 10}]),
-  "Phenomenal agility": new TaskRequirement([getTaskElement("Phenomenal agility")], [{task: "Luckiness", requirement: 30}, {task: "Perception", requirement: 30}]),
+  "A duck's back": new TaskRequirement([getTaskElement("A duck's back")], [{task: "Luckiness", requirement: 30}, {task: "Endurance", requirement: 30}]),
+  "Phenomenal agility": new TaskRequirement([getTaskElement("Phenomenal agility")], [{task: "Luckiness", requirement: 60}, {task: "Perception", requirement: 60}]),
+  "Fate": new TaskRequirement([getTaskElement("Fate")], [{task: "Luckiness", requirement: 100}, {task: "Speed", requirement: 50}]),
 
   //Properties
   "Parents house": new CoinRequirement([getItemElement("Parents house")], [{requirement: 0}]),
@@ -1356,6 +1424,8 @@ gameData.requirements = {
   //Misc
   "Library card": new CoinRequirement([getItemElement("Library card")], [{requirement: 0}]),
   "Gym membership": new CoinRequirement([getItemElement("Gym membership")], [{requirement: gameData.itemData["Gym membership"].getExpense() * 100}]),
+  "Laptop": new CoinRequirement([getItemElement("Laptop")], [{requirement: gameData.itemData["Gym membership"].getExpense() * 100}]),
+  "Car": new CoinRequirement([getItemElement("Car")], [{requirement: gameData.itemData["Gym membership"].getExpense() * 100}]),
 }
 
 tempData["requirements"] = {}

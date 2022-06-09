@@ -20,7 +20,7 @@ class Task {
     }
 
     getMaxLevelMultiplier() {
-        var maxLevelMultiplier = Math.pow(1 + this.maxLevel / 10, 1.1)
+        var maxLevelMultiplier = Math.pow(1 + this.maxLevel / 10, 1.01)
         return maxLevelMultiplier
     }
 
@@ -49,7 +49,7 @@ class Job extends Task {
     }
 
     getLevelMultiplier() {
-        var levelMultiplier = 1 + Math.log10(this.level + 1)
+        var levelMultiplier = 1 + Math.log10(this.level + 1) / 3
         return levelMultiplier
     }
 
@@ -64,7 +64,7 @@ class Skill extends Task {
     }
 
     getEffect() {
-        var effect = Math.pow(1 + this.baseData.effect * this.level, 1.1)
+        var effect = Math.pow(1 + this.baseData.effect * this.level, 1.01)
         return effect
     }
 

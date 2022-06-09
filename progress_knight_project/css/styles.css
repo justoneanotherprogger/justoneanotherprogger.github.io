@@ -178,3 +178,12 @@ button:focus {
     display: flex;
     flex-direction: column;
 }
+
+.skipSkill .checkbox {
+  margin: auto;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+}
