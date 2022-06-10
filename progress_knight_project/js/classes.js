@@ -165,13 +165,13 @@ class CorruptionRequirement extends Requirement {
     }
 }
 
-class EssenceRequirement extends Requirement {
+class InnerExpRequirement extends Requirement {
     constructor(elements, requirements) {
         super(elements, requirements)
-        this.type = "essence"
+        this.type = "innerExp"
     }
 
     getCondition(requirement) {
-        return gameData.essence >= requirement.requirement
+        return gameData.innerExp >= requirement.requirement
     }
 }

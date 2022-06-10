@@ -94,8 +94,8 @@
                         <div style="color: gray" class="sidebar-element">Affects dark magic XP gain</div>
                     </span>
 
-                    <span id="essenceInfo">
-                        <div style="font-size: large"><span style="color: rgb(24, 210, 217)">Essence: </span><span id="essenceDisplay"></span></div>
+                    <span id="innerExpInfo">
+                        <div style="font-size: large"><span style="color: rgb(24, 210, 217)">Inner Experience: </span><span id="innerExpDisplay"></span></div>
                         <div style="color: gray" class="sidebar-element">Affects Almightiness XP gain</div>
                     </span>
 
@@ -215,7 +215,7 @@
 
                                     </span>
                                     <span style="color: rgb(200, 0, 0)" class="corruption"></span>
-                                    <span style="color: rgb(24, 210, 217)" class="essence"></span>
+                                    <span style="color: rgb(24, 210, 217)" class="innerExp"></span>
                                 </span>
                             </td>
                         </template>
@@ -238,17 +238,25 @@
                         <div class="tab" id="rebirth">
                             <ul>
                                 <li style="margin: 8px;">
-                                  You stumble upon a strange smartphone on your 25th birthday. You do not know anything about its manufacturer and the device does not respond to your actions. However, you feel a strange desire to keep the device, so you put it in your pocket just in case.
+                                  You stumble upon a strange smartphone on your 25th birthday. You do not know anything about its manufacturer and the device does not respond to your actions.
+                                  However, you feel a strange desire to keep the phone, so you put it in your pocket just in case.
                                 </li>
                                 <li style="margin: 8px;" id="rebirthNote1">
-                                  On your 45th birthday, you feel your phone trembling uncontrollably in your pocket. You take it out and the constant trembling suddenly stops. To your strange surprise, you find the inscription "Loading" in the center of the screen.
+                                  On your 45th birthday, you feel your phone trembling uncontrollably in your pocket. You take it out and the constant trembling suddenly stops.
+                                  To your strange surprise, you find the inscription "Loading" in the center of the screen.
                                 </li>
                                 <li style="margin: 8px;" id="rebirthNote2">
                                     <div style="margin-bottom: 8px">
-                                      On your 65th birthday, you are again faced with a strange, inexplicable shake from your strange smartphone. But this time, a window with a green button appears on the screen. Although you don't understand the language of this window and the button, you realize that you still don't have many years left to live, so you decide to press the button to see what happens.
+                                      On your 65th birthday, you are again faced with a strange, inexplicable shake from your strange smartphone.
+                                      But this time, a window with a green button appears on the screen.
+                                      Although you don't understand the language of this window and the button, you realize that you still don't have many years left to live,
+                                      so you decide to press the button to see what happens.
                                     </div>
                                     <i style="color: grey">
-                                      By pressing the green button, you will be reborn and you will have to start life anew, having lost all your levels and money. However, you will receive <b>experience multipliers</b> for your positions and abilities, equivalent to: <b>(1 + max position or ability level / 10)<sup>1.01</sup></b>. This means that you will learn everything again much faster than in a past life.<br><span style="color: rgb(200, 0, 0)">Something suggests that the window on the screen may change if you wait another <b>about two hundred years</b>...</span>
+                                      By pressing the green button, you will be reborn and you will have to start life anew, having lost all your levels and money.
+                                      However, you will receive <b>experience multipliers</b> for your positions and abilities, equivalent to: <b>(1 + max position or ability level / 10)<sup>1.01</sup></b>.
+                                      This means that you will learn everything again much faster than in a past life.
+                                      <br><span style="color: rgb(200, 0, 0)">Something suggests that the window on the screen may change if you wait another <b>about two hundred years</b>...</span>
                                     </i>
                                     </br>
                                     <button class="w3-button button" style="margin-bottom: 8px; margin-top: 8px" onClick="rebirthOne()">Press green button</button>
@@ -256,7 +264,9 @@
                                 </li>
                                 <li style="margin: 8px;" id="rebirthNote3">
                                     <div style="margin-bottom: 8px;">
-                                      Your gut instinct was correct. The moment you turn 200, you hear an ominous buzz coming from your phone. The image on the screen shakes and distorts, and then you hear a whisper: "So, you've come this far ... Are you ready to accept corruption?". After that, a yellow button appears on the screen.
+                                      Your gut instinct was correct. The moment you turn 200, you hear an ominous buzz coming from your phone.
+                                      The image on the screen shakes and distorts, and then you hear a whisper: "So, you've come this far ... You achieve significant power, I see ... Are you ready to go further?".
+                                      After that, a yellow button appears on the screen.
                                     </div>
                                     <i style="color: rgb(160, 0, 200)">
                                         If you decide to push the yellow button, all of your levels, money and even max levels will be reset.
@@ -290,7 +300,7 @@
                                         By clicking on <b>Transcend</b>, you will be reborn once again, losing all your coins, <b>corruption</b> and current levels.
                                         However your max level won't be erased but multiplied with <b>Cosmic Recollection</b> ability and you will gain
                                         <i style="color: rgb(24, 210, 217)">
-                                        <b><span id="essenceGainDisplay"></span> essence</b>,
+                                        <b><span id="innerExpGainDisplay"></span> Inner Experience</b>,
                                         </i>
                                         new ability that will boost you even further in your journey.
 
