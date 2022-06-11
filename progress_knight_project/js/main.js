@@ -3,7 +3,7 @@ var gameData = {
   itemData: {},
 
   coins: 0,
-  days: 365 * 15,
+  days: 365 * 18,
   corruption: 0,
   innerExp: 0,
   eternalKnowledge: 0,
@@ -40,45 +40,60 @@ const baseGameSpeed = 4
 const permanentUnlocks = ["Shop", "Automation", "Quick task display"]
 
 const jobBaseData = {
-  "Slacker": {name: "Slacker", maxXp: 10, income: 0.1},
+  "Slacker": {name: "Slacker", maxXp: 25, income: 0.1},
   "Mail boy": {name: "Mail boy", maxXp: 50, income: 2},
   "Sweeper": {name: "Sweeper", maxXp: 100, income: 10},
 
   "Cleaner": {name: "Cleaner", maxXp: 100, income: 11},
-  "Shop boy": {name: "Shop boy", maxXp: 150, income: 25},
-  "Department manager": {name: "Department manager", maxXp: 250, income: 62},
+  "Shop boy": {name: "Shop boy", maxXp: 200, income: 25},
+  "Department manager": {name: "Department manager", maxXp: 450, income: 62},
+  "Store headmaster": {name: "Store headmaster", maxXp: 1000, income: 143},
+  "Head of a chain of stores": {name: "Head of a chain of stores", maxXp: 2500, income: 370},
+  "Franchise owner": {name: "Franchise owner", maxXp: 5500, income: 760},
+  "Brands overlord": {name: "Brands overlord", maxXp: 12000, income: 1345},
+  "Minister of Finance": {name: "Minister of Finance", maxXp: 25000, income: 3999},
 
   "Background actor": {name: "Background actor", maxXp: 100, income: 14},
-  "Streamer": {name: "Streamer", maxXp: 150, income: 24},
+  "Streamer": {name: "Streamer", maxXp: 200, income: 24},
+  "Experienced influencer": {name: "Experienced influencer", maxXp: 450, income: 60},
+  "Well known blogger": {name: "Well known blogger", maxXp: 1000, income: 135},
+  "Movie star": {name: "Movie star", maxXp: 2500, income: 381},
+  "Person of the Year": {name: "Person of the Year", maxXp: 5500, income: 740},
+  "Diplomat": {name: "Diplomat", maxXp: 12000, income: 1450},
+  "Minister of Public Relations": {name: "Minister of Public Relations", maxXp: 25000, income: 3700},
 
   "Support 1st line": {name: "Support 1st line", maxXp: 100, income: 13},
-  "Support 2nd line": {name: "Support 2nd line", maxXp: 150, income: 25},
-  "Support manager": {name: "Support manager", maxXp: 250, income: 63},
-  "Sysadmin": {name: "Sysadmin", maxXp: 600, income: 140},
-  "Senior programmer": {name: "Senior programmer", maxXp: 1000, income: 380},
-  "Main teamlead": {name: "Main teamlead", maxXp: 2000, income: 750},
-  "Successful startuper": {name: "Successful startuper", maxXp: 5000, income: 1333},
-  "Minister of Technology": {name: "Minister of Technology", maxXp: 15000, income: 3500},
+  "Support 2nd line": {name: "Support 2nd line", maxXp: 200, income: 25},
+  "Support manager": {name: "Support manager", maxXp: 450, income: 63},
+  "Sysadmin": {name: "Sysadmin", maxXp: 1000, income: 140},
+  "Senior programmer": {name: "Senior programmer", maxXp: 2500, income: 380},
+  "Main teamlead": {name: "Main teamlead", maxXp: 5500, income: 750},
+  "Successful startuper": {name: "Successful startuper", maxXp: 12000, income: 1333},
+  "Minister of Technology": {name: "Minister of Technology", maxXp: 25000, income: 3500},
 
   "Nurse": {name: "Nurse", maxXp: 100, income: 12},
-  "General doctor": {name: "General doctor", maxXp: 150, income: 26},
-  "Therapist": {name: "Therapist", maxXp: 250, income: 65},
-  "Surgeon": {name: "Surgeon", maxXp: 600, income: 120},
-  "Head of department": {name: "Head of department", maxXp: 1000, income: 350},
-  "Head physician": {name: "Head physician", maxXp: 2000, income: 702},
-  "Doctor of Medical Sciences": {name: "Doctor of Medical Sciences", maxXp: 5000, income: 1111},
-  "Minister of Health": {name: "Minister of Health", maxXp: 15000, income: 3250},
+  "General doctor": {name: "General doctor", maxXp: 200, income: 26},
+  "Therapist": {name: "Therapist", maxXp: 450, income: 65},
+  "Surgeon": {name: "Surgeon", maxXp: 1000, income: 120},
+  "Head of department": {name: "Head of department", maxXp: 2500, income: 350},
+  "Head physician": {name: "Head physician", maxXp: 5500, income: 702},
+  "Doctor of Medical Sciences": {name: "Doctor of Medical Sciences", maxXp: 12000, income: 1111},
+  "Minister of Health": {name: "Minister of Health", maxXp: 25000, income: 3250},
 
   "Student": {name: "Student", maxXp: 100, income: 10},
-  "Graduate": {name: "Graduate", maxXp: 150, income: 20},
-  "Professor's assistant": {name: "Professor's assistant", maxXp: 250, income: 50},
+  "Graduate": {name: "Graduate", maxXp: 200, income: 20},
+  "Professor's assistant": {name: "Professor's assistant", maxXp: 450, income: 50},
+  "Chief laboratory assistant": {name: "Chief laboratory assistant", maxXp: 1000, income: 110},
+  "Important scientist": {name: "Important scientist", maxXp: 5500, income: 760},
+  "Head of the Academy": {name: "Head of the Academy", maxXp: 12000, income: 1300},
+  "Science Minister": {name: "Science Minister", maxXp: 25000, income: 3400},
 
-  "Rookie": {name: "Rookie", maxXp: 150, income: 30},
-  "Experienced soldier": {name: "Experienced soldier", maxXp: 600, income: 150},
-  "Infantry officer": {name: "Infantry officer", maxXp: 1000, income: 400},
-  "Spec-ops soldier": {name: "Spec-ops soldier", maxXp: 2000, income: 800},
-  "Spec-ops coordinator": {name: "Spec-ops coordinator", maxXp: 5000, income: 1500},
-  "Warlord": {name: "Warlord", maxXp: 15000, income: 4000},
+  "Rookie": {name: "Rookie", maxXp: 200, income: 30},
+  "Experienced soldier": {name: "Experienced soldier", maxXp: 1000, income: 150},
+  "Infantry officer": {name: "Infantry officer", maxXp: 2500, income: 400},
+  "Spec-ops soldier": {name: "Spec-ops soldier", maxXp: 5500, income: 800},
+  "Spec-ops coordinator": {name: "Spec-ops coordinator", maxXp: 12000, income: 1500},
+  "Warlord": {name: "Warlord", maxXp: 25000, income: 4000},
 }
 
 const skillBaseData = {
@@ -147,11 +162,11 @@ const itemBaseData = {
 
 const jobCategories = {
   "No category": ["Slacker", "Mail boy", "Sweeper"],
-  "Service": ["Cleaner", "Shop boy", "Department manager"],
-  "Media": ["Background actor", "Streamer"],
+  "Service": ["Cleaner", "Shop boy", "Department manager", "Store headmaster", "Head of a chain of stores", "Franchise owner", "Brands overlord", "Minister of Finance"],
+  "Media": ["Background actor", "Streamer", "Experienced influencer", "Well known blogger", "Movie star", "Person of the Year", "Diplomat", "Minister of Public Relations"],
   "IT": ["Support 1st line", "Support 2nd line", "Support manager", "Sysadmin", "Senior programmer", "Main teamlead", "Successful startuper", "Minister of Technology"],
   "Medical science": ["Nurse", "General doctor", "Therapist", "Surgeon", "Head of department", "Head physician", "Doctor of Medical Sciences", "Minister of Health"],
-  "Science": ["Student", "Graduate", "Professor's assistant"],
+  "Science": ["Student", "Graduate", "Professor's assistant", "Chief laboratory assistant", "Important scientist", "Head of the Academy", "Science Minister"],
   "Military": ["Rookie", "Experienced soldier", "Infantry officer", "Spec-ops soldier", "Spec-ops coordinator", "Warlord"]
 }
 
@@ -207,6 +222,11 @@ const tooltips = {
   "Cleaner": "T1: Clean anything your manager says you to clean without questions",
   "Shop boy": "T2: Shop boy",
   "Department manager": "T3: Department manager",
+  "Store headmaster": "T4: Store headmaster",
+  "Head of a chain of stores": "T5: Head of a chain of stores",
+  "Franchise owner": "T6: Franchise owner",
+  "Brands overlord": "T7: Brands overlord",
+  "Minister of Finance": "T8: Minister of Finance",
 
   //Military
   "Rookie": "T2: Rookie",
@@ -219,6 +239,12 @@ const tooltips = {
   // Media
   "Background actor": "T1: Background actor",
   "Streamer": "T2: Streamer",
+  "Experienced influencer": "T3: Experienced influencer",
+  "Well known blogger": "T4: Well known blogger",
+  "Movie star": "T5: Movie star",
+  "Person of the Year": "T6: Person of the Year",
+  "Diplomat": "T7: Diplomat",
+  "Minister of Public Relations": "T8: Minister of Public Relations",
 
   // IT
   "Support 1st line": "T1: Support 1st line",
@@ -244,6 +270,10 @@ const tooltips = {
   "Student": "T1: Student",
   "Graduate": "T2: Graduate",
   "Professor's assistant": "T3: Professor's assistant",
+  "Chief laboratory assistant": "T4: Chief laboratory assistant",
+  "Important scientist": "T6: Important scientist",
+  "Head of the Academy": "T7: Head of the Academy",
+  "Science Minister": "T8: Science Minister",
 
   // Idle
   "Slacking": "T0: Doing nothing requires a skill too",
@@ -1073,7 +1103,7 @@ function rebirthThree() {
 function rebirthReset() {
   setTab(jobTabButton, "jobs")
   gameData.coins = 0
-  gameData.days = 365 * 15
+  gameData.days = 365 * 18
   gameData.currentJob = gameData.taskData["Slacker"]
   gameData.currentSkill = gameData.taskData["Slacking"]
   gameData.currentProperty = gameData.itemData["Parents house"]
@@ -1358,18 +1388,29 @@ gameData.requirements = {
   "Cleaner": new TaskRequirement([getTaskElement("Cleaner")], [{task: "Endurance", requirement: 10}]),
   "Shop boy": new TaskRequirement([getTaskElement("Shop boy")], [{task: "Cleaner", requirement: 10}, {task: "Endurance", requirement: 20}, {task: "Productivity", requirement: 10}]),
   "Department manager": new TaskRequirement([getTaskElement("Department manager")], [{task: "Shop boy", requirement: 10}, {task: "Communicability", requirement: 50}]),
+  "Store headmaster": new TaskRequirement([getTaskElement("Store headmaster")], [{task: "Department manager", requirement: 10}, {task: "Communicability", requirement: 80}, {task: "Accounting", requirement: 10}]),
+  "Head of a chain of stores": new TaskRequirement([getTaskElement("Head of a chain of stores")], [{task: "Store headmaster", requirement: 10}, {task: "Aptitude", requirement: 150}, {task: "Bargaining", requirement: 120}]),
+  "Franchise owner": new TaskRequirement([getTaskElement("Franchise owner")], [{task: "Head of a chain of stores", requirement: 10}, {task: "Aptitude", requirement: 250}]),
+  "Brands overlord": new TaskRequirement([getTaskElement("Brands overlord")], [{task: "Franchise owner", requirement: 10}, {task: "Aptitude", requirement: 500}]),
+  "Minister of Finance": new TaskRequirement([getTaskElement("Minister of Finance")], [{task: "Brands overlord", requirement: 10}, {task: "Aptitude", requirement: 1000}]),
 
   //Military
   "Rookie": new TaskRequirement([getTaskElement("Rookie")], [{task: "Strength", requirement: 20}]),
   "Experienced soldier": new TaskRequirement([getTaskElement("Experienced soldier")], [{task: "Rookie", requirement: 10}, {task: "Strength", requirement: 80}]),
   "Infantry officer": new TaskRequirement([getTaskElement("Infantry officer")], [{task: "Experienced soldier", requirement: 10}, {task: "Strength", requirement: 150}, {task: "Tactics", requirement: 70}]),
   "Spec-ops soldier": new TaskRequirement([getTaskElement("Spec-ops soldier")], [{task: "Infantry officer", requirement: 10}, {task: "Strength", requirement: 250}, {task: "Stealth", requirement: 100}]),
-  "Spec-ops coordinator": new TaskRequirement([getTaskElement("Spec-ops coordinator")], [{task: "Spec-ops soldier", requirement: 10}, {task: "Strength", requirement: 500}, {task: "Leadership", requirement: 200}]),
+  "Spec-ops coordinator": new TaskRequirement([getTaskElement("Spec-ops coordinator")], [{task: "Spec-ops soldier", requirement: 10}, {task: "Strength", requirement: 500}, {task: "Leadership", requirement: 150}]),
   "Warlord": new TaskRequirement([getTaskElement("Warlord")], [{task: "Spec-ops coordinator", requirement: 10}, {task: "Strength", requirement: 1000}]),
 
   //Media
   "Background actor": new TaskRequirement([getTaskElement("Background actor")], [{task: "Communicability", requirement: 10}]),
   "Streamer": new TaskRequirement([getTaskElement("Streamer")], [{task: "Background actor", requirement: 10}, {task: "Communicability", requirement: 20}, {task: "Right in time", requirement: 10}]),
+  "Experienced influencer": new TaskRequirement([getTaskElement("Experienced influencer")], [{task: "Streamer", requirement: 10}, {task: "Communicability", requirement: 50}]),
+  "Well known blogger": new TaskRequirement([getTaskElement("Well known blogger")], [{task: "Experienced influencer", requirement: 10}, {task: "Communicability", requirement: 80}, {task: "Artistry", requirement: 30}]),
+  "Movie star": new TaskRequirement([getTaskElement("Movie star")], [{task: "Well known blogger", requirement: 10}, {task: "Communicability", requirement: 150}]),
+  "Person of the Year": new TaskRequirement([getTaskElement("Person of the Year")], [{task: "Movie star", requirement: 10}, {task: "Communicability", requirement: 250}, {task: "Fate", requirement: 80}]),
+  "Diplomat": new TaskRequirement([getTaskElement("Diplomat")], [{task: "Person of the Year", requirement: 10}, {task: "Communicability", requirement: 500}, {task: "Lang understanding", requirement: 150}]),
+  "Minister of Public Relations": new TaskRequirement([getTaskElement("Minister of Public Relations")], [{task: "Diplomat", requirement: 10}, {task: "Communicability", requirement: 1000}]),
 
   //IT
   "Support 1st line": new TaskRequirement([getTaskElement("Support 1st line")], [{task: "Intelligence", requirement: 10}]),
@@ -1395,6 +1436,10 @@ gameData.requirements = {
   "Student": new TaskRequirement([getTaskElement("Student")], [{task: "Intelligence", requirement: 10}]),
   "Graduate": new TaskRequirement([getTaskElement("Graduate")], [{task: "Student", requirement: 10}, {task: "Intelligence", requirement: 20}]),
   "Professor's assistant": new TaskRequirement([getTaskElement("Professor's assistant")], [{task: "Graduate", requirement: 10}, {task: "Intelligence", requirement: 50}, {task: "Concentration", requirement: 20}]),
+  "Chief laboratory assistant": new TaskRequirement([getTaskElement("Chief laboratory assistant")], [{task: "Professor's assistant", requirement: 10}, {task: "Intelligence", requirement: 80}]),
+  "Important scientist": new TaskRequirement([getTaskElement("Important scientist")], [{task: "Chief laboratory assistant", requirement: 10}, {task: "Intelligence", requirement: 250}, {task: "Curiosity", requirement: 80}]),
+  "Head of the Academy": new TaskRequirement([getTaskElement("Head of the Academy")], [{task: "Important scientist", requirement: 10}, {task: "Intelligence", requirement: 500}, {task: "Foreboding", requirement: 100}]),
+  "Science Minister": new TaskRequirement([getTaskElement("Science Minister")], [{task: "Head of the Academy", requirement: 10}, {task: "Intelligence", requirement: 1000}]),
 
   // Skills
   "Slacking": new TaskRequirement([getTaskElement("Slacking")], []),
