@@ -28,7 +28,7 @@ td {
     position: relative;
     background-color: rgb(12, 101, 173);
     cursor: pointer;
-    width: 200px;
+    width: 250px;
 }
 
 .progress-fill {
@@ -51,7 +51,7 @@ td {
 .item-button {
     background-color: white;
     text-align: center;
-    width: 200px;
+    width: 250px;
     height: 40px;
     padding: 8px;
 }
