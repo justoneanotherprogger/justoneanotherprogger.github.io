@@ -113,14 +113,14 @@ const skillBaseData = {
   "Luckiness": {name: "Luckiness", maxXp: 210, effect: 0.1, description: "Luckiness abilities XP"},
 
   "Muscle memory": {name: "Muscle memory", maxXp: 300, effect: 0.01, description: "Body XP"},
-  "Muscle mass": {name: "Muscle mass", maxXp: 310, effect: 0.01, description: "Military payment"},
+  "Muscle mass": {name: "Muscle mass", maxXp: 310, effect: 0.01, description: "Media XP"},
   "Speed": {name: "Speed", maxXp: 320, effect: 0.01, description: "Military XP"},
-  "Flexity": {name: "Flexity", maxXp: 330, effect: 0.01, description: "Service payment"},
+  "Flexity": {name: "Flexity", maxXp: 330, effect: 0.001, description: "Service payment"},
 
   "Concentration": {name: "Concentration", maxXp: 300, effect: 0.01, description: "Mind XP"},
   "Stealth": {name: "Stealth", maxXp: 310, effect: -0.01, description: "Reduced expenses"},
-  "Sharp sight": {name: "Sharp sight", maxXp: 320, effect: 0.01, description: "Medical science payment"},
-  "Foreboding": {name: "Foreboding", maxXp: 330, effect: 0.01, description: "Military payment"},
+  "Sharp sight": {name: "Sharp sight", maxXp: 320, effect: 0.01, description: "Medical science XP"},
+  "Foreboding": {name: "Foreboding", maxXp: 330, effect: 0.001, description: "Military payment"},
 
   "Walking": {name: "Walking", maxXp: 300, effect: 0.01, description: "Positions XP"},
   "Strong stomach": {name: "Strong stomach", maxXp: 310, effect: 0.01, description: "Medical science XP"},
@@ -128,26 +128,26 @@ const skillBaseData = {
   "Hardening": {name: "Hardening", maxXp: 330, effect: 0.01, description: "Lifespan"},
 
   "Bargaining": {name: "Bargaining", maxXp: 300, effect: -0.01, description: "Reduced expenses"},
-  "Artistry": {name: "Artistry", maxXp: 310, effect: 0.01, description: "Media payment"},
+  "Artistry": {name: "Artistry", maxXp: 310, effect: 0.01, description: "Media XP"},
   "Lang understanding": {name: "Lang understanding", maxXp: 320, effect: 0.01, description: "Abilities XP"},
-  "Leadership": {name: "Leadership", maxXp: 330, effect: 0.01, description: "IT payment"},
+  "Leadership": {name: "Leadership", maxXp: 330, effect: 0.001, description: "IT payment"},
 
-  "Programming": {name: "Programming", maxXp: 300, effect: 0.01, description: "IT payment"},
+  "Programming": {name: "Programming", maxXp: 300, effect: 0.01, description: "IT XP"},
   "Tactics": {name: "Tactics", maxXp: 310, effect: 0.01, description: "Military XP"},
   "Meditation": {name: "Meditation", maxXp: 320, effect: 0.01, description: "Happiness"},
-  "Curiosity": {name: "Curiosity", maxXp: 330, effect: 0.01, description: "Science payment"},
+  "Curiosity": {name: "Curiosity", maxXp: 330, effect: 0.001, description: "Science payment"},
 
-  "Productivity": {name: "Productivity", maxXp: 300, effect: 0.01, description: "Service payment"},
+  "Productivity": {name: "Productivity", maxXp: 300, effect: 0.01, description: "Service XP"},
   "Tech understanding": {name: "Tech understanding", maxXp: 310, effect: 0.01, description: "IT & Science XP"},
   "Accounting": {name: "Accounting", maxXp: 320, effect: 0.01, description: "Mind XP"},
-  "Skillful fingers": {name: "Skillful fingers", maxXp: 330, effect: 0.01, description: "Medical science payment"},
+  "Skillful fingers": {name: "Skillful fingers", maxXp: 330, effect: 0.001, description: "Medical science payment"},
 
-  "Right in time": {name: "Right in time", maxXp: 300, effect: 0.01, description: "Positions payment"},
+  "Right in time": {name: "Right in time", maxXp: 300, effect: 0.01, description: "Science XP"},
   "Unexpected agility": {name: "Unexpected agility", maxXp: 310, effect: 0.01, description: "Service XP"},
   "A duck's back": {name: "A duck's back", maxXp: 320, effect: 0.01, description: "Lifespan"},
-  "Fate": {name: "Fate", maxXp: 330, effect: 0.01, description: "Media payment"},
+  "Fate": {name: "Fate", maxXp: 330, effect: 0.001, description: "Media payment"},
 
-  "Economics": {name: "Economics", maxXp: 400, effect: 0.1, description: "Positions payment"},
+  "Economics": {name: "Economics", maxXp: 400, effect: 0.01, description: "Positions payment"},
   "Proper relations": {name: "Proper relations", maxXp: 400, effect: 0.1, description: "Positions XP"},
   "Technological advancement": {name: "Technological advancement", maxXp: 400, effect: 0.1, description: "Gamespeed"},
   "Healthcare": {name: "Healthcare", maxXp: 400, effect: 0.1, description: "Lifespan"},
@@ -177,13 +177,13 @@ const itemBaseData = {
   "Library card": {name: "Library card", expense: 1, effect: 2, description: "Mind XP"},
   "Gym membership": {name: "Gym membership", expense: 1, effect: 2, description: "Body XP"},
   "Laptop": {name: "Laptop", expense: 15, effect: 2, description: "Happiness"},
-  "Car": {name: "Car", expense: 50, effect: 2, description: "Service & Media XP"},
+  "Car": {name: "Car", expense: 50, effect: 2, description: "Positions XP"},
   "Personal assistant": {name: "Personal assistant", expense: 250, effect: 2, description: "Abilities XP"},
   "Miscplaceholder1": {name: "Miscplaceholder1", expense: 1000, effect: 3, description: "Positions XP"},
   "Miscplaceholder2": {name: "Miscplaceholder2", expense: 3500, effect: 3, description: "Happiness"},
   "Miscplaceholder3": {name: "Miscplaceholder3", expense: 8000, effect: 3, description: "Attributes XP"},
   "Miscplaceholder4": {name: "Miscplaceholder4", expense: 15000, effect: 3, description: "Idle XP"},
-  "Miscplaceholder5": {name: "Miscplaceholder5", expense: 40000, effect: 3, description: "IT, Science & Medical Science XP"},
+  "Miscplaceholder5": {name: "Miscplaceholder5", expense: 40000, effect: 3, description: "Positions XP"},
 }
 
 const jobCategories = {
@@ -411,10 +411,11 @@ function addMultipliers() {
 
     if (task instanceof Job) {
       task.incomeMultipliers.push(task.getLevelMultiplier.bind(task))
-      task.incomeMultipliers.push(getBindedTaskEffect("Right in time"))
       task.incomeMultipliers.push(getBindedTaskEffect("Economics"))
       task.xpMultipliers.push(getBindedTaskEffect("Walking"))
+      task.xpMultipliers.push(getBindedItemEffect("Car"))
       task.xpMultipliers.push(getBindedTaskEffect("Proper relations"))
+      task.xpMultipliers.push(getBindedItemEffect("Miscplaceholder5"))
       task.xpMultipliers.push(getBindedItemEffect("Miscplaceholder1"))
     } else if (task instanceof Skill) {
       task.xpMultipliers.push(getBindedTaskEffect("Lang understanding"))
@@ -424,32 +425,28 @@ function addMultipliers() {
     if (jobCategories["Military"].includes(task.name)) {
       task.xpMultipliers.push(getBindedTaskEffect("Tactics"))
       task.xpMultipliers.push(getBindedTaskEffect("Speed"))
-      task.incomeMultipliers.push(getBindedTaskEffect("Muscle mass"))
       task.incomeMultipliers.push(getBindedTaskEffect("Foreboding"))
     } else if (jobCategories["Service"].includes(task.name)) {
-      task.incomeMultipliers.push(getBindedTaskEffect("Productivity"))
+      task.xpMultipliers.push(getBindedTaskEffect("Productivity"))
       task.xpMultipliers.push(getBindedTaskEffect("Unexpected agility"))
-      task.xpMultipliers.push(getBindedItemEffect("Car"))
       task.incomeMultipliers.push(getBindedTaskEffect("Flexity"))
     } else if (jobCategories["Media"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedItemEffect("Car"))
-      task.incomeMultipliers.push(getBindedTaskEffect("Artistry"))
+      task.xpMultipliers.push(getBindedTaskEffect("Artistry"))
+      task.xpMultipliers.push(getBindedTaskEffect("Muscle mass"))
       task.incomeMultipliers.push(getBindedTaskEffect("Fate"))
     } else if (jobCategories["IT"].includes(task.name)) {
-      task.incomeMultipliers.push(getBindedTaskEffect("Programming"))
-      task.incomeMultipliers.push(getBindedTaskEffect("Leadership"))
-      task.xpMultipliers.push(getBindedItemEffect("Miscplaceholder5"))
+      task.xpMultipliers.push(getBindedTaskEffect("Programming"))
       task.xpMultipliers.push(getBindedTaskEffect("Tech understanding"))
+      task.incomeMultipliers.push(getBindedTaskEffect("Leadership"))
     } else if (jobCategories["Science"].includes(task.name)) {
       task.incomeMultipliers.push(getBindedTaskEffect("Curiosity"))
-      task.xpMultipliers.push(getBindedItemEffect("Miscplaceholder5"))
+      task.xpMultipliers.push(getBindedTaskEffect("Right in time"))
       task.xpMultipliers.push(getBindedTaskEffect("Tech understanding"))
     } else if (jobCategories["Medical science"].includes(task.name)) {
       task.xpMultipliers.push(getBindedTaskEffect("Strong stomach"))
-      task.xpMultipliers.push(getBindedItemEffect("Miscplaceholder5"))
-      task.incomeMultipliers.push(getBindedTaskEffect("Sharp sight"))
+      task.xpMultipliers.push(getBindedTaskEffect("Sharp sight"))
       task.incomeMultipliers.push(getBindedTaskEffect("Skillful fingers"))
-    } else if (jobCategories["Medical science"].includes(task.name)) {
+    } else if (jobCategories["World Government"].includes(task.name)) {
       task.incomeMultipliers.push(getBindedTaskEffect("Blessing of Asmodei"))
     } else if (skillCategories["Body"].includes(task.name)) {
       task.xpMultipliers.push(getBindedTaskEffect("Muscle memory"))
@@ -536,6 +533,12 @@ function setCustomEffects() {
   var healthcare = gameData.taskData["Healthcare"]
   healthcare.getEffect = function() {
     var multiplier = 1 + getBaseLog(10, healthcare.level + 1) / 2.5
+    return multiplier
+  }
+
+  var economics = gameData.taskData["Economics"]
+  economics.getEffect = function() {
+    var multiplier = 1 + getBaseLog(100, economics.level + 1)
     return multiplier
   }
 }
