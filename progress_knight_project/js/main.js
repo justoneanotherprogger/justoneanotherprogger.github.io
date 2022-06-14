@@ -33,351 +33,133 @@ const autoLearnElement = document.getElementById("autoLearn")
 
 const updateSpeed = 20
 
-const baseLifespan = 365 * 70
+const baseLifespan = 365 * 75
 
-const baseGameSpeed = 4
+const baseGameSpeed = 10
 
 const permanentUnlocks = ["Shop", "Automation", "Quick task display"]
 
 const jobBaseData = {
-  "Slacker": {name: "Slacker", maxXp: 25, income: 0.1},
-  "Mail boy": {name: "Mail boy", maxXp: 50, income: 2},
-  "Sweeper": {name: "Sweeper", maxXp: 100, income: 10},
+  "Cleaner": {name: "Cleaner", maxXp: 100, income: 5},
+  "Chief cleaner": {name: "Chief cleaner", maxXp: 200, income: 9},
+  "Sales intern": {name: "Sales intern", maxXp: 400, income: 17},
+  "Experienced salesman": {name: "Experienced salesman", maxXp: 800, income: 33},
+  "Manager": {name: "Manager", maxXp: 1600, income: 65},
+  "Chief manager": {name: "Chief manager", maxXp: 3200, income: 65},
+  "Store headmaster": {name: "Store headmaster", maxXp: 6400, income: 129},
 
-  "Cleaner": {name: "Cleaner", maxXp: 100, income: 11},
-  "Shop boy": {name: "Shop boy", maxXp: 200, income: 25},
-  "Department manager": {name: "Department manager", maxXp: 450, income: 62},
-  "Store headmaster": {name: "Store headmaster", maxXp: 1000, income: 143},
-  "Head of a chain of stores": {name: "Head of a chain of stores", maxXp: 2500, income: 370},
-  "Franchise owner": {name: "Franchise owner", maxXp: 5500, income: 760},
-  "Brands overlord": {name: "Brands overlord", maxXp: 12000, income: 1345},
-  "Minister of Finance": {name: "Minister of Finance", maxXp: 25000, income: 3999},
+  "Junior": {name: "Junior", maxXp: 500, income: 20},
+  "Middle": {name: "Middle", maxXp: 5000, income: 100},
+  "Middle+": {name: "Middle+", maxXp: 50000, income: 500},
+  "Senior": {name: "Senior", maxXp: 500000, income: 2500},
+  "IT supervisor": {name: "IT supervisor", maxXp: 5000000, income: 12500},
+  "Technical Director": {name: "Technical Director", maxXp: 50000000, income: 62500},
+  "Head of an IT conglomerate": {name: "Head of an IT conglomerate", maxXp: 500000000, income: 312500},
+  "World class guru": {name: "World class guru", maxXp: 5000000000, income: 1562500},
 
-  "Background actor": {name: "Background actor", maxXp: 100, income: 14},
-  "Streamer": {name: "Streamer", maxXp: 200, income: 24},
-  "Experienced influencer": {name: "Experienced influencer", maxXp: 450, income: 60},
-  "Well known blogger": {name: "Well known blogger", maxXp: 1000, income: 135},
-  "Movie star": {name: "Movie star", maxXp: 2500, income: 381},
-  "Person of the Year": {name: "Person of the Year", maxXp: 5500, income: 740},
-  "Diplomat": {name: "Diplomat", maxXp: 12000, income: 1450},
-  "Minister of Public Relations": {name: "Minister of Public Relations", maxXp: 25000, income: 3700},
-
-  "Support 1st line": {name: "Support 1st line", maxXp: 100, income: 13},
-  "Support 2nd line": {name: "Support 2nd line", maxXp: 200, income: 25},
-  "Support manager": {name: "Support manager", maxXp: 450, income: 63},
-  "Sysadmin": {name: "Sysadmin", maxXp: 1000, income: 140},
-  "Senior programmer": {name: "Senior programmer", maxXp: 2500, income: 380},
-  "Main teamlead": {name: "Main teamlead", maxXp: 5500, income: 750},
-  "Successful startuper": {name: "Successful startuper", maxXp: 12000, income: 1333},
-  "Minister of Technology": {name: "Minister of Technology", maxXp: 25000, income: 3500},
-
-  "Nurse": {name: "Nurse", maxXp: 100, income: 12},
-  "General doctor": {name: "General doctor", maxXp: 200, income: 26},
-  "Therapist": {name: "Therapist", maxXp: 450, income: 65},
-  "Surgeon": {name: "Surgeon", maxXp: 1000, income: 120},
-  "Head of department": {name: "Head of department", maxXp: 2500, income: 350},
-  "Head physician": {name: "Head physician", maxXp: 5500, income: 702},
-  "Doctor of Medical Sciences": {name: "Doctor of Medical Sciences", maxXp: 12000, income: 1111},
-  "Minister of Health": {name: "Minister of Health", maxXp: 25000, income: 3250},
-
-  "Student": {name: "Student", maxXp: 100, income: 10},
-  "Graduate": {name: "Graduate", maxXp: 200, income: 20},
-  "Professor's assistant": {name: "Professor's assistant", maxXp: 450, income: 50},
-  "Chief laboratory assistant": {name: "Chief laboratory assistant", maxXp: 1000, income: 110},
-  "Important scientist": {name: "Important scientist", maxXp: 5500, income: 760},
-  "Head of the Academy": {name: "Head of the Academy", maxXp: 12000, income: 1300},
-  "Science Minister": {name: "Science Minister", maxXp: 25000, income: 3400},
-
-  "Rookie": {name: "Rookie", maxXp: 200, income: 30},
-  "Experienced soldier": {name: "Experienced soldier", maxXp: 1000, income: 150},
-  "Infantry officer": {name: "Infantry officer", maxXp: 2500, income: 400},
-  "Spec-ops soldier": {name: "Spec-ops soldier", maxXp: 5500, income: 800},
-  "Spec-ops coordinator": {name: "Spec-ops coordinator", maxXp: 12000, income: 1500},
-  "Warlord": {name: "Warlord", maxXp: 25000, income: 4000},
-
-  "Country President": {name: "Country President", maxXp: 250000, income: 10000},
-  "Leader of country block": {name: "Leader of country block", maxXp: 2500000, income: 30000},
+  "Student": {name: "Student", maxXp: 100000, income: 100},
+  "Scientist naturalist": {name: "Scientist naturalist", maxXp: 1000000, income: 1000},
+  "Expert naturalist": {name: "Expert naturalist", maxXp: 10000000, income: 10000},
+  "Theoretical physicist": {name: "Theoretical physicist", maxXp: 100000000, income: 100000},
+  "Inventor": {name: "Inventor", maxXp: 1000000000, income: 1000000},
+  "Quantum engineer": {name: "Quantum engineer", maxXp: 10000000000, income: 10000000},
+  "Science revolutioneer": {name: "Science revolutioneer", maxXp: 100000000000, income: 100000000},
+  "Mad scientist": {name: "Mad scientist", maxXp: 1000000000000, income: 1000000000},
 }
 
 const skillBaseData = {
-  "Slacking": {name: "Slacking", maxXp: 50, effect: 0.01, description: "All XP"},
-  "Waiting": {name: "Waiting", maxXp: 1000, effect: 0.02, description: "Gamespeed"},
+  "Perception": {name: "Perception", maxXp: 100, effect: 0.01, description: "Abilities XP"},
+  "Endurance": {name: "Endurance", maxXp: 100, effect: 0.01, description: "Positions XP"},
+  "Stealth": {name: "Stealth", maxXp: 100, effect: -0.01, description: "Reduced expenses"},
+  "Hardening": {name: "Hardening", maxXp: 100, effect: 0.01, description: "Lifespan"},
 
-  "Strength": {name: "Strength", maxXp: 210, effect: 0.1, description: "Strength abilities XP"},
-  "Perception": {name: "Perception", maxXp: 200, effect: 0.1, description: "Perception abilities XP"},
-  "Endurance": {name: "Endurance", maxXp: 200, effect: 0.1, description: "Endurance abilities XP"},
+  "Programming": {name: "Programming", maxXp: 100, effect: 0.01, description: "IT payment"},
+  "Attentiveness": {name: "Attentiveness", maxXp: 100, effect: 0.01, description: "IT XP"},
+  "Lang understanding": {name: "Lang understanding", maxXp: 100, effect: 0.01, description: "Programming XP"},
+  "Luckiness": {name: "Luckiness", maxXp: 100, effect: 0.01, description: "Happiness"},
+  "Waiting skill": {name: "Waiting skill", maxXp: 100, effect: 0.01, description: "Gamespeed"},
 
-  "Communicability": {name: "Communicability", maxXp: 200, effect: 0.1, description: "Communicability abilities XP"},
-  "Intelligence": {name: "Intelligence", maxXp: 200, effect: 0.1, description: "Intelligence abilities XP"},
-  "Aptitude": {name: "Aptitude", maxXp: 200, effect: 0.1, description: "Aptitude abilities XP"},
-  "Luckiness": {name: "Luckiness", maxXp: 210, effect: 0.1, description: "Luckiness abilities XP"},
+  "Interest in knowledge": {name: "Interest in knowledge", maxXp: 100, effect: 0.01, description: "Science XP"},
+  "Time acceleration": {name: "Time acceleration", maxXp: 100, effect: 0.01, description: "Gamespeed"},
+  "Reversal of aging": {name: "Reversal of aging", maxXp: 100, effect: 0.01, description: "Lifespan"},
+  "Time machine": {name: "Time machine", maxXp: 100, effect: 0.01, description: "Gamespeed"},
+  "Deep tech understanding": {name: "Deep tech understanding", maxXp: 100, effect: 0.01, description: "Technologies effect"},
 
-  "Muscle memory": {name: "Muscle memory", maxXp: 300, effect: 0.01, description: "Body XP"},
-  "Muscle mass": {name: "Muscle mass", maxXp: 310, effect: 0.01, description: "Media XP"},
-  "Speed": {name: "Speed", maxXp: 320, effect: 0.01, description: "Military XP"},
-  "Flexity": {name: "Flexity", maxXp: 330, effect: 0.001, description: "Service payment"},
+  "Corrupted Wish": {name: "Corrupted Wish", maxXp: 100, effect: 0.01, description: "All XP"},
+  "Corrupted Body": {name: "Corrupted Body", maxXp: 100, effect: 0.01, description: "Body XP"},
+  "Corrupted Mind": {name: "Corrupted Mind", maxXp: 100, effect: 0.01, description: "Mind XP"},
+  "Corrupted Soul": {name: "Corrupted Soul", maxXp: 100, effect: 0.01, description: "Corruption gain"},
 
-  "Concentration": {name: "Concentration", maxXp: 300, effect: 0.01, description: "Mind XP"},
-  "Stealth": {name: "Stealth", maxXp: 310, effect: -0.01, description: "Reduced expenses"},
-  "Sharp sight": {name: "Sharp sight", maxXp: 320, effect: 0.01, description: "Medical science XP"},
-  "Foreboding": {name: "Foreboding", maxXp: 330, effect: 0.001, description: "Military payment"},
-
-  "Walking": {name: "Walking", maxXp: 300, effect: 0.01, description: "Positions XP"},
-  "Strong stomach": {name: "Strong stomach", maxXp: 310, effect: 0.01, description: "Medical science XP"},
-  "Running": {name: "Running", maxXp: 320, effect: 0.01, description: "Body XP"},
-  "Hardening": {name: "Hardening", maxXp: 330, effect: 0.01, description: "Lifespan"},
-
-  "Bargaining": {name: "Bargaining", maxXp: 300, effect: -0.01, description: "Reduced expenses"},
-  "Artistry": {name: "Artistry", maxXp: 310, effect: 0.01, description: "Media XP"},
-  "Lang understanding": {name: "Lang understanding", maxXp: 320, effect: 0.01, description: "Abilities XP"},
-  "Leadership": {name: "Leadership", maxXp: 330, effect: 0.001, description: "IT payment"},
-
-  "Programming": {name: "Programming", maxXp: 300, effect: 0.01, description: "IT XP"},
-  "Tactics": {name: "Tactics", maxXp: 310, effect: 0.01, description: "Military XP"},
-  "Meditation": {name: "Meditation", maxXp: 320, effect: 0.01, description: "Happiness"},
-  "Curiosity": {name: "Curiosity", maxXp: 330, effect: 0.001, description: "Science payment"},
-
-  "Productivity": {name: "Productivity", maxXp: 300, effect: 0.01, description: "Service XP"},
-  "Tech understanding": {name: "Tech understanding", maxXp: 310, effect: 0.01, description: "IT & Science XP"},
-  "Accounting": {name: "Accounting", maxXp: 320, effect: 0.01, description: "Mind XP"},
-  "Skillful fingers": {name: "Skillful fingers", maxXp: 330, effect: 0.001, description: "Medical science payment"},
-
-  "Right in time": {name: "Right in time", maxXp: 300, effect: 0.01, description: "Science XP"},
-  "Unexpected agility": {name: "Unexpected agility", maxXp: 310, effect: 0.01, description: "Service XP"},
-  "A duck's back": {name: "A duck's back", maxXp: 320, effect: 0.01, description: "Lifespan"},
-  "Fate": {name: "Fate", maxXp: 330, effect: 0.001, description: "Media payment"},
-
-  "Economics": {name: "Economics", maxXp: 400, effect: 0.01, description: "Positions payment"},
-  "Proper relations": {name: "Proper relations", maxXp: 400, effect: 0.1, description: "Positions XP"},
-  "Technological advancement": {name: "Technological advancement", maxXp: 400, effect: 0.1, description: "Gamespeed"},
-  "Healthcare": {name: "Healthcare", maxXp: 400, effect: 0.1, description: "Lifespan"},
-  "Science interest": {name: "Science interest", maxXp: 400, effect: 0.1, description: "Mind XP"},
-  "Total war": {name: "Total war", maxXp: 400, effect: 0.1, description: "Body XP"},
-
-  "Corrupted Body": {name: "Corrupted Body", maxXp: 500, effect: 0.2, description: "Body XP"},
-  "Corrupted Mind": {name: "Corrupted Mind", maxXp: 500, effect: 0.2, description: "Mind XP"},
-  "Corrupted Soul": {name: "Corrupted Soul", maxXp: 500, effect: 0.2, description: "Corruption gain"},
-  "Blessing of Asmodei": {name: "Blessing of Asmodei", maxXp: 500, effect: 0.2, description: "World Government pay"},
+  // "Meditation": {name: "Meditation", maxXp: 100, effect: 0.01, description: "Happiness"},
 }
 
 const itemBaseData = {
   "Parents house": {name: "Parents house", expense: 0, effect: 1},
-  "Hostel": {name: "Hostel", expense: 20, effect: 2},
-  "3-star hotel room": {name: "3-star hotel room", expense: 50, effect: 3},
-  "5-star hotel room": {name: "5-star hotel room", expense: 150, effect: 5},
-  "Small apartment": {name: "Small apartment", expense: 450, effect: 8},
-  "Apartment": {name: "Apartment", expense: 1300, effect: 13},
-  "Placeholder1": {name: "Placeholder1", expense: 3700, effect: 21},
-  "Placeholder2": {name: "Placeholder2", expense: 10000, effect: 34},
-  "Placeholder3": {name: "Placeholder3", expense: 30000, effect: 55},
-  "Placeholder4": {name: "Placeholder4", expense: 90000, effect: 89},
-  "Placeholder5": {name: "Placeholder5", expense: 250000, effect: 144},
-  "Placeholder6": {name: "Placeholder6", expense: 740000, effect: 233},
+  "Hostel": {name: "Hostel", expense: 30, effect: 2}, // expense =  25*{effect}^2*(log10({effect}))
+  "3-star hotel room": {name: "3-star hotel room", expense: 100, effect: 3},
+  "5-star hotel room": {name: "5-star hotel room", expense: 430, effect: 5},
+  "Small apartment": {name: "Small apartment", expense: 1400, effect: 8},
+  "Apartment": {name: "Apartment", expense: 4700, effect: 13},
+  "Placeholder1": {name: "Placeholder1", expense: 14500, effect: 21},
+  "Placeholder2": {name: "Placeholder2", expense: 44200, effect: 34},
+  "Placeholder3": {name: "Placeholder3", expense: 131600, effect: 55},
+  "Placeholder4": {name: "Placeholder4", expense: 386000, effect: 89},
+  "Placeholder5": {name: "Placeholder5", expense: 1120000, effect: 144},
+  "Placeholder6": {name: "Placeholder6", expense: 3200000, effect: 233},
 
-  "Library card": {name: "Library card", expense: 1, effect: 2, description: "Mind XP"},
-  "Gym membership": {name: "Gym membership", expense: 1, effect: 2, description: "Body XP"},
-  "Laptop": {name: "Laptop", expense: 15, effect: 2, description: "Happiness"},
-  "Car": {name: "Car", expense: 50, effect: 2, description: "Positions XP"},
-  "Personal assistant": {name: "Personal assistant", expense: 250, effect: 2, description: "Abilities XP"},
-  "Miscplaceholder1": {name: "Miscplaceholder1", expense: 1000, effect: 3, description: "Positions XP"},
-  "Miscplaceholder2": {name: "Miscplaceholder2", expense: 3500, effect: 3, description: "Happiness"},
-  "Miscplaceholder3": {name: "Miscplaceholder3", expense: 8000, effect: 3, description: "Attributes XP"},
-  "Miscplaceholder4": {name: "Miscplaceholder4", expense: 15000, effect: 3, description: "Idle XP"},
-  "Miscplaceholder5": {name: "Miscplaceholder5", expense: 40000, effect: 3, description: "Positions XP"},
+  "Gym membership": {name: "Gym membership", expense: 5, effect: 2, description: "Body XP"},
+  "Library card": {name: "Library card", expense: 15, effect: 2, description: "Mind XP"},
+  "Laptop": {name: "Laptop", expense: 40, effect: 2, description: "Happiness"},
+  "Car": {name: "Car", expense: 100, effect: 2, description: "Positions XP"},
+  "Personal assistant": {name: "Personal assistant", expense: 600, effect: 2, description: "Abilities XP"},
+  "Miscplaceholder1": {name: "Miscplaceholder1", expense: 20000, effect: 3, description: "Positions XP"},
+  "Miscplaceholder2": {name: "Miscplaceholder2", expense: 100000, effect: 3, description: "Happiness"},
+  "Miscplaceholder3": {name: "Miscplaceholder3", expense: 800000, effect: 3, description: "Technologies XP"},
+  "Miscplaceholder4": {name: "Miscplaceholder4", expense: 4000000, effect: 10, description: "Body & Mind XP"},
+  "Miscplaceholder5": {name: "Miscplaceholder5", expense: 100000000, effect: 3, description: "Positions XP"},
 }
 
 const jobCategories = {
-  "World Government": ["Country President", "Leader of country block"],
-  "No category": ["Slacker", "Mail boy", "Sweeper"],
-  "Service": ["Cleaner", "Shop boy", "Department manager", "Store headmaster", "Head of a chain of stores", "Franchise owner", "Brands overlord", "Minister of Finance"],
-  "Media": ["Background actor", "Streamer", "Experienced influencer", "Well known blogger", "Movie star", "Person of the Year", "Diplomat", "Minister of Public Relations"],
-  "IT": ["Support 1st line", "Support 2nd line", "Support manager", "Sysadmin", "Senior programmer", "Main teamlead", "Successful startuper", "Minister of Technology"],
-  "Medical science": ["Nurse", "General doctor", "Therapist", "Surgeon", "Head of department", "Head physician", "Doctor of Medical Sciences", "Minister of Health"],
-  "Science": ["Student", "Graduate", "Professor's assistant", "Chief laboratory assistant", "Important scientist", "Head of the Academy", "Science Minister"],
-  "Military": ["Rookie", "Experienced soldier", "Infantry officer", "Spec-ops soldier", "Spec-ops coordinator", "Warlord"]
+  "Service": ["Cleaner", "Chief cleaner", "Sales intern", "Experienced salesman", "Manager", "Chief manager", "Store headmaster"],
+  "IT": ["Junior", "Middle", "Middle+", "Senior", "IT supervisor", "Technical Director", "Head of an IT conglomerate", "World class guru"],
+  "Science": ["Student", "Scientist naturalist", "Expert naturalist", "Theoretical physicist", "Inventor", "Quantum engineer", "Science revolutioneer", "Mad scientist"],
 }
 
 const skillCategories = {
-  "Occultism": ["Corrupted Body", "Corrupted Mind", "Corrupted Soul", "Blessing of Asmodei"],
-  "Idle": ["Slacking", "Waiting"],
-  "Professional Skills": ["Economics", "Proper relations", "Technological advancement", "Healthcare", "Science interest", "Total war"],
-  "Body": ["Strength", "Perception", "Endurance"],
-  "Mind": ["Communicability", "Intelligence", "Aptitude", "Luckiness"],
-  "Strength": ["Muscle memory", "Muscle mass", "Speed", "Flexity"],
-  "Perception": ["Concentration", "Stealth", "Sharp sight", "Foreboding"],
-  "Endurance": ["Walking", "Strong stomach", "Running", "Hardening"],
-  "Communicability": ["Bargaining", "Artistry", "Lang understanding", "Leadership"],
-  "Intelligence": ["Programming", "Tactics", "Meditation", "Curiosity"],
-  "Aptitude": ["Productivity", "Tech understanding", "Accounting", "Skillful fingers"],
-  "Luckiness": ["Right in time", "A duck's back", "Unexpected agility", "Fate"]
+  "Occultism": ["Corrupted Wish", "Corrupted Body", "Corrupted Mind", "Corrupted Soul"],
+  "Body": ["Perception", "Endurance", "Stealth", "Hardening"],
+  "Mind": ["Programming", "Attentiveness", "Lang understanding", "Luckiness", "Waiting skill"],
+  "Technology": ["Interest in knowledge", "Time acceleration", "Reversal of aging", "Time machine", "Deep tech understanding"],
 }
 
 const itemCategories = {
   "Properties": ["Parents house", "Hostel", "3-star hotel room", "5-star hotel room", "Small apartment", "Apartment", "Placeholder1", "Placeholder2", "Placeholder3", "Placeholder4", "Placeholder5", "Placeholder6"],
-  "Misc": ["Library card", "Gym membership", "Laptop", "Car", "Personal assistant", "Miscplaceholder1", "Miscplaceholder2", "Miscplaceholder3", "Miscplaceholder4", "Miscplaceholder5"]
+  "Misc": ["Gym membership", "Library card", "Laptop", "Car", "Personal assistant", "Miscplaceholder1", "Miscplaceholder2", "Miscplaceholder3", "Miscplaceholder4", "Miscplaceholder5"]
 }
 
 const headerRowColors = {
-  "World Government": "#8d8d8d",
-  "No category": "#8d8d8d",
-  "Service": "#a246ff",
-  "Military": "#ff0000",
-  "Media": "#ff5900",
+  // "No category": "#8d8d8d",
+  "Service": "#2dd700",
+  // "Media": "#ff5900",
   "IT": "#3972fe",
   "Science": "#ffca00",
-  "Medical science": "#2dd700",
+  // "Medical science": "#2dd700",
 
-  "Idle": "#8d8d8d",
-  "Professional Skills": "#8d8d8d",
-  "Occultism": "#8d8d8d",
+  "Occultism": "#a246ff",
   "Body": "#db092b",
-  "Mind": "#0047a9",
-  "Strength": "#ff0000",
-  "Perception": "#ff5900",
-  "Endurance": "#dc0055",
-  "Communicability": "#2dd700",
-  "Intelligence": "#3972fe",
-  "Aptitude": "#a246ff",
-  "Luckiness": "#ffca00",
+  "Mind": "#3972fe",
+  // "Perception": "#ff5900",
+  // "Endurance": "#dc0055",
+  "Technology": "#2dd700",
+  // "Intelligence": "#3972fe",
+  // "Aptitude": "#a246ff",
+  // "Luckiness": "#ffca00",
 
   "Properties": "#219ebc",
   "Misc": "#b56576",
 }
 
 const tooltips = {
-  // No category
-  "Slacker": "T0: Do nothing all days along, sometimes playing videogames or something",
-  "Mail boy": "T0: Mail boy",
-  "Sweeper": "T1: Sweeper",
-
-	//Service
-  "Cleaner": "T1: Clean anything your manager says you to clean without questions",
-  "Shop boy": "T2: Shop boy",
-  "Department manager": "T3: Department manager",
-  "Store headmaster": "T4: Store headmaster",
-  "Head of a chain of stores": "T5: Head of a chain of stores",
-  "Franchise owner": "T6: Franchise owner",
-  "Brands overlord": "T7: Brands overlord",
-  "Minister of Finance": "T8: Minister of Finance",
-
-  //Military
-  "Rookie": "T2: Rookie",
-  "Experienced soldier": "T4: Experienced soldier",
-  "Infantry officer": "T5: Infantry officer",
-  "Spec-ops soldier": "T6: Spec-ops soldier",
-  "Spec-ops coordinator": "T7: Spec-ops coordinator",
-  "Warlord": "T8: Warlord",
-
-  // Media
-  "Background actor": "T1: Background actor",
-  "Streamer": "T2: Streamer",
-  "Experienced influencer": "T3: Experienced influencer",
-  "Well known blogger": "T4: Well known blogger",
-  "Movie star": "T5: Movie star",
-  "Person of the Year": "T6: Person of the Year",
-  "Diplomat": "T7: Diplomat",
-  "Minister of Public Relations": "T8: Minister of Public Relations",
-
-  // IT
-  "Support 1st line": "T1: Support 1st line",
-  "Support 2nd line": "T2: Support 2nd line",
-  "Support manager": "T3: Support manager",
-  "Sysadmin": "T4: Sysadmin",
-  "Senior programmer": "T5: Senior programmer",
-  "Main teamlead": "T6: Main teamlead",
-  "Successful startuper": "T7: Successful startuper",
-  "Minister of Technology": "T8: Minister of Technology",
-
-  // Medical science
-  "Nurse": "T1: Nurse",
-  "General doctor": "T2: General doctor",
-  "Therapist": "T3: Therapist",
-  "Surgeon": "T4: Surgeon",
-  "Head of department": "T5: Head of department",
-  "Head physician": "T6: Head physician",
-  "Doctor of Medical Sciences": "T7: Doctor of Medical Sciences",
-  "Minister of Health": "T8: Minister of Health",
-
-  // Science
-  "Student": "T1: Student",
-  "Graduate": "T2: Graduate",
-  "Professor's assistant": "T3: Professor's assistant",
-  "Chief laboratory assistant": "T4: Chief laboratory assistant",
-  "Important scientist": "T6: Important scientist",
-  "Head of the Academy": "T7: Head of the Academy",
-  "Science Minister": "T8: Science Minister",
-
-  // Idle
-  "Slacking": "T0: Doing nothing requires a skill too",
-  "Waiting": "T5: Waiting",
-
-  //Body
-  "Strength": "Attribute: Strength",
-  "Perception": "Attribute: Perception",
-  "Endurance": "Attribute: Endure your body through exhausting training",
-
-  // Mind
-  "Communicability": "Attribute: Learn how to talk most effectively",
-  "Intelligence": "Attribute: Intelligence",
-  "Aptitude": "Attribute: Aptitude",
-  "Luckiness": "Attribute: Luckiness",
-
-  //Strength
-  "Muscle memory": "T1: Muscle memory",
-  "Muscle mass": "T2: Muscle mass",
-  "Speed": "T3: Speed",
-  "Flexity": "T4: Flexity",
-
-  // Perception
-  "Concentration": "T1: Concentration",
-  "Stealth": "T2: Stealth",
-  "Sharp sight": "T3: Sharp sight",
-  "Foreboding": "T4: Foreboding",
-
-  // Endurance
-  "Walking": "T1: Walking",
-  "Strong stomach": "T2: Strong stomach",
-  "Running": "T3: Running",
-  "Hardening": "T4: Hardening",
-
-  // Communicability
-  "Bargaining": "T1: Study the tricks of the trade and persuasive skills to lower any type of expense",
-  "Artistry": "T2: Artistry",
-  "Lang understanding": "T3: Lang understanding",
-  "Leadership": "T4: Leadership",
-
-  // Intelligence
-  "Programming": "T1: Programming",
-  "Tactics": "T2: Create and revise battle strategies, improving experience gained in the military",
-  "Meditation": "T3: Fill your mind with peace and tranquility to tap into greater happiness from within",
-  "Curiosity": "T4: Curiosity",
-
-  // Aptitude
-  "Productivity": "T1: Productivity",
-  "Tech understanding": "T2: Tech understanding",
-  "Accounting": "T3: Accounting",
-  "Skillful fingers": "T4: Skillful fingers",
-
-  // Luckiness
-  "Right in time": "T1: Right in time",
-  "A duck's back": "T2: A duck's back",
-  "Unexpected agility": "T3: Unexpected agility",
-  "Fate": "T4: Fate",
-
-  //Properties
-  "Parents house": "Living with your parents may be uncomfortable, but it's free at any day",
-  "Hostel": "Hostel",
-  "3-star hotel room": "3-star hotel room",
-  "5-star hotel room": "5-star hotel room",
-  "Small apartment": "Small apartment",
-  "Apartment": "Apartment",
-
-  //Misc
-  "Library card": "Library card",
-  "Gym membership": "Gym membership",
-  "Laptop": "Laptop",
-  "Car": "Car",
-  "Personal assistant": "Personal assistant",
 }
 
 const units = ["", "k", "M", "B", "T", "q", "Q", "Sx", "Sp", "Oc", "Nv", "Vg", "Uv", "Dv", "Tv", "Qt", "Qv", "Sv", "Oc", "Nd", "Tg", "OMG"];
@@ -407,147 +189,95 @@ function addMultipliers() {
 
     task.xpMultipliers.push(task.getMaxLevelMultiplier.bind(task))
     task.xpMultipliers.push(getHappiness)
-    task.xpMultipliers.push(getBindedTaskEffect("Slacking"))
+    task.xpMultipliers.push(getBindedTaskEffect("Corrupted Wish"))
 
     if (task instanceof Job) {
       task.incomeMultipliers.push(task.getLevelMultiplier.bind(task))
-      task.incomeMultipliers.push(getBindedTaskEffect("Economics"))
-      task.xpMultipliers.push(getBindedTaskEffect("Walking"))
       task.xpMultipliers.push(getBindedItemEffect("Car"))
-      task.xpMultipliers.push(getBindedTaskEffect("Proper relations"))
+      task.xpMultipliers.push(getBindedTaskEffect("Endurance"))
       task.xpMultipliers.push(getBindedItemEffect("Miscplaceholder5"))
       task.xpMultipliers.push(getBindedItemEffect("Miscplaceholder1"))
     } else if (task instanceof Skill) {
-      task.xpMultipliers.push(getBindedTaskEffect("Lang understanding"))
+      task.xpMultipliers.push(getBindedTaskEffect("Perception"))
       task.xpMultipliers.push(getBindedItemEffect("Personal assistant"))
     }
 
-    if (jobCategories["Military"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedTaskEffect("Tactics"))
-      task.xpMultipliers.push(getBindedTaskEffect("Speed"))
-      task.incomeMultipliers.push(getBindedTaskEffect("Foreboding"))
-    } else if (jobCategories["Service"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedTaskEffect("Productivity"))
-      task.xpMultipliers.push(getBindedTaskEffect("Unexpected agility"))
-      task.incomeMultipliers.push(getBindedTaskEffect("Flexity"))
-    } else if (jobCategories["Media"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedTaskEffect("Artistry"))
-      task.xpMultipliers.push(getBindedTaskEffect("Muscle mass"))
-      task.incomeMultipliers.push(getBindedTaskEffect("Fate"))
-    } else if (jobCategories["IT"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedTaskEffect("Programming"))
-      task.xpMultipliers.push(getBindedTaskEffect("Tech understanding"))
-      task.incomeMultipliers.push(getBindedTaskEffect("Leadership"))
+    if (jobCategories["IT"].includes(task.name)) {
+      task.xpMultipliers.push(getBindedTaskEffect("Attentiveness"))
+      task.incomeMultipliers.push(getBindedTaskEffect("Programming"))
     } else if (jobCategories["Science"].includes(task.name)) {
-      task.incomeMultipliers.push(getBindedTaskEffect("Curiosity"))
-      task.xpMultipliers.push(getBindedTaskEffect("Right in time"))
-      task.xpMultipliers.push(getBindedTaskEffect("Tech understanding"))
-    } else if (jobCategories["Medical science"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedTaskEffect("Strong stomach"))
-      task.xpMultipliers.push(getBindedTaskEffect("Sharp sight"))
-      task.incomeMultipliers.push(getBindedTaskEffect("Skillful fingers"))
-    } else if (jobCategories["World Government"].includes(task.name)) {
-      task.incomeMultipliers.push(getBindedTaskEffect("Blessing of Asmodei"))
+      task.xpMultipliers.push(getBindedTaskEffect("Interest in knowledge"))
     } else if (skillCategories["Body"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedTaskEffect("Muscle memory"))
-      task.xpMultipliers.push(getBindedTaskEffect("Running"))
-      task.xpMultipliers.push(getBindedTaskEffect("Total war"))
       task.xpMultipliers.push(getBindedTaskEffect("Corrupted Body"))
       task.xpMultipliers.push(getBindedItemEffect("Gym membership"))
-      task.xpMultipliers.push(getBindedItemEffect("Miscplaceholder3"))
+      task.xpMultipliers.push(getBindedItemEffect("Miscplaceholder4"))
     } else if (skillCategories["Mind"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedTaskEffect("Concentration"))
-      task.xpMultipliers.push(getBindedTaskEffect("Accounting"))
-      task.xpMultipliers.push(getBindedTaskEffect("Science interest"))
       task.xpMultipliers.push(getBindedTaskEffect("Corrupted Mind"))
-      task.xpMultipliers.push(getBindedItemEffect("Miscplaceholder3"))
+      task.xpMultipliers.push(getBindedItemEffect("Miscplaceholder4"))
       task.xpMultipliers.push(getBindedItemEffect("Library card"))
+    } else if (skillCategories["Technology"].includes(task.name)) {
+      task.xpMultipliers.push(getBindedItemEffect("Miscplaceholder3"))
     } else if (skillCategories["Occultism"].includes(task.name)) {
       task.xpMultipliers.push(getCorruption)
-    } else if (skillCategories["Strength"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedTaskEffect("Strength"))
-    } else if (skillCategories["Perception"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedTaskEffect("Perception"))
-    } else if (skillCategories["Endurance"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedTaskEffect("Endurance"))
-    } else if (skillCategories["Communicability"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedTaskEffect("Communicability"))
-    } else if (skillCategories["Intelligence"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedTaskEffect("Intelligence"))
-    } else if (skillCategories["Aptitude"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedTaskEffect("Aptitude"))
-    } else if (skillCategories["Luckiness"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedTaskEffect("Luckiness"))
-    } else if (skillCategories["Idle"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedItemEffect("Miscplaceholder4"))
+    }
+
+    if (task.name == "Programming") {
+      task.xpMultipliers.push(getBindedTaskEffect("Lang understanding"))
     }
   }
 
   for (itemName in gameData.itemData) {
     var item = gameData.itemData[itemName]
     item.expenseMultipliers = []
-    item.expenseMultipliers.push(getBindedTaskEffect("Bargaining"))
     item.expenseMultipliers.push(getBindedTaskEffect("Stealth"))
   }
 }
 
 function setCustomEffects() {
-  var bargaining = gameData.taskData["Bargaining"]
-  bargaining.getEffect = function() {
-    var multiplier = 1 - getBaseLog(25, bargaining.level + 1) / 10
-    if (multiplier < 0.1) {multiplier = 0.1}
-    return multiplier
-  }
-
   var stealth = gameData.taskData["Stealth"]
   stealth.getEffect = function() {
-    var multiplier = 1 - getBaseLog(26, stealth.level + 1) / 10
+    var multiplier = Math.pow(1 - getBaseLog(100, stealth.level + 1) / 10, 1.001)
     if (multiplier < 0.1) {multiplier = 0.1}
     return multiplier
   }
 
-  var waiting = gameData.taskData["Waiting"]
+  var waiting = gameData.taskData["Waiting skill"]
   waiting.getEffect = function() {
-    var multiplier = 1 + getBaseLog(100, waiting.level + 1)
-    return multiplier
-  }
-
-  var technologicalAdvancement = gameData.taskData["Technological advancement"]
-  technologicalAdvancement.getEffect = function() {
-    var multiplier = 1 + getBaseLog(10, technologicalAdvancement.level + 1)
-    return multiplier
-  }
-
-  var duckBack = gameData.taskData["A duck's back"]
-  duckBack.getEffect = function() {
-    var multiplier = 1 + getBaseLog(10, duckBack.level + 1) / 10
+    var multiplier = 1 + getBaseLog(200, waiting.level + 1)
     return multiplier
   }
 
   var hardening = gameData.taskData["Hardening"]
   hardening.getEffect = function() {
-    var multiplier = 1 + getBaseLog(9, hardening.level + 1) / 10
+    var multiplier = 1 + getBaseLog(15000, (hardening.level + 2) / 2)
     return multiplier
   }
 
-  var healthcare = gameData.taskData["Healthcare"]
-  healthcare.getEffect = function() {
-    var multiplier = 1 + getBaseLog(10, healthcare.level + 1) / 2.5
+  var techUnderstanding = gameData.taskData["Deep tech understanding"]
+  var timeAcceleration = gameData.taskData["Time acceleration"]
+  timeAcceleration.getEffect = function() {
+    var multiplier = (1 + getBaseLog(20, timeAcceleration.level + 1)) * techUnderstanding.getEffect()
     return multiplier
   }
 
-  var economics = gameData.taskData["Economics"]
-  economics.getEffect = function() {
-    var multiplier = 1 + getBaseLog(100, economics.level + 1)
+  var agingReversal = gameData.taskData["Reversal of aging"]
+  agingReversal.getEffect = function() {
+    var multiplier = (1 + getBaseLog(10, agingReversal.level + 1)) * techUnderstanding.getEffect()
+    return multiplier
+  }
+
+  var timeMachine = gameData.taskData["Time machine"]
+  timeMachine.getEffect = function() {
+    var multiplier = (1 + getBaseLog(20, timeMachine.level + 1)) * techUnderstanding.getEffect()
     return multiplier
   }
 }
 
 function getHappiness() {
-  var meditationEffect = getBindedTaskEffect("Meditation")
+  var luckinessEffect = getBindedTaskEffect("Luckiness")
   var laptopEffect = getBindedItemEffect("Laptop")
   var misceffect2 = getBindedItemEffect("Miscplaceholder2")
-  var happiness = meditationEffect() * laptopEffect() * misceffect2() * gameData.currentProperty.getEffect()
+  var happiness = luckinessEffect() * laptopEffect() * misceffect2() * gameData.currentProperty.getEffect()
   return happiness
 }
 
@@ -589,13 +319,14 @@ function getInnerExpGain() {
 }
 
 function getGameSpeed(forTaskbar=0) {
-  var waiting = gameData.taskData["Waiting"]
-  var technologics = gameData.taskData["Technological advancement"]
+  var waiting = gameData.taskData["Waiting skill"]
+  var acceleration = gameData.taskData["Time acceleration"]
+  var timeMachine = gameData.taskData["Time machine"]
   if (forTaskbar) {
-    var timeWarpingSpeed = waiting.getEffect() * technologics.getEffect()
+    var timeWarpingSpeed = waiting.getEffect() * acceleration.getEffect() * timeMachine.getEffect()
     var gameSpeed = timeWarpingSpeed
   } else {
-    var timeWarpingSpeed = gameData.timeWarpingEnabled ? waiting.getEffect() * technologics.getEffect() : 1
+    var timeWarpingSpeed = gameData.timeWarpingEnabled ? waiting.getEffect() * acceleration.getEffect() * timeMachine.getEffect() : 1
     var gameSpeed = baseGameSpeed * +!gameData.paused * +isAlive() * timeWarpingSpeed
   }
   return gameSpeed
@@ -1027,7 +758,7 @@ function setSkillWithLowestMaxXp() {
     var requirement = gameData.requirements[skillName]
     if (skill instanceof Skill) {
       if(requirement == null) {
-        requirement = gameData.requirements["Slacking"];
+        requirement = gameData.requirements["Perception"];
       }
       if (requirement.isCompleted() && !checkSkillSkipped(skill)) {
         enabledSkills.push(skill)
@@ -1036,7 +767,7 @@ function setSkillWithLowestMaxXp() {
   }
 
   if (enabledSkills.length == 0) {
-    skillWithLowestMaxXp = gameData.taskData["Slacking"]
+    skillWithLowestMaxXp = gameData.taskData["Perception"]
     return
   }
 
@@ -1112,7 +843,7 @@ function formatCoins(coins, element) {
     }
   }
   var text = Math.floor(coins)
-  element.children[0].textContent = format(String(text),1) + " $"
+  element.children[0].textContent = format(String(text),1) + " ℧"
 }
 
 function getTaskElement(taskName) {
@@ -1176,8 +907,8 @@ function rebirthReset() {
   setTab(jobTabButton, "jobs")
   gameData.coins = 0
   gameData.days = 365 * 18
-  gameData.currentJob = gameData.taskData["Slacker"]
-  gameData.currentSkill = gameData.taskData["Slacking"]
+  gameData.currentJob = gameData.taskData["Cleaner"]
+  gameData.currentSkill = gameData.taskData["Perception"]
   gameData.currentProperty = gameData.itemData["Parents house"]
   gameData.currentMisc = []
   for (taskName in gameData.taskData) {
@@ -1194,12 +925,11 @@ function rebirthReset() {
 }
 
 function getLifespan() {
-  var duckBack = gameData.taskData["A duck's back"]
   var hardening = gameData.taskData["Hardening"]
-  var healthcare = gameData.taskData["Healthcare"]
-  var coinPile = 20 * getBaseLog(10, gameData.coins + 1)
-  var corruptionProlongation = 25 * getBaseLog(30, gameData.corruption + 1)
-  var lifespan = (baseLifespan + coinPile + corruptionProlongation) * duckBack.getEffect() * hardening.getEffect() * healthcare.getEffect()
+  var agingReversal = gameData.taskData["Reversal of aging"]
+  var coinPile = 50 * getBaseLog(10, gameData.coins + 1)
+  var corruptionProlongation = 100 * getBaseLog(30, gameData.corruption + 1)
+  var lifespan = (baseLifespan + coinPile + corruptionProlongation) * hardening.getEffect() * agingReversal.getEffect()
   return lifespan
 }
 
@@ -1414,30 +1144,15 @@ createData(gameData.taskData, jobBaseData)
 createData(gameData.taskData, skillBaseData)
 createData(gameData.itemData, itemBaseData)
 
-gameData.currentJob = gameData.taskData["Slacker"]
-gameData.currentSkill = gameData.taskData["Slacking"]
+gameData.currentJob = gameData.taskData["Cleaner"]
+gameData.currentSkill = gameData.taskData["Perception"]
 gameData.currentProperty = gameData.itemData["Parents house"]
 gameData.currentMisc = []
 
 gameData.requirements = {
   //Other
-  "World Government": new TaskRequirement(getElementsByClass("World Government"), [{task: "Economics", requirement: 10}, {task: "Proper relations", requirement: 10}, {task: "Technological advancement", requirement: 10}, {task: "Healthcare", requirement: 10}, {task: "Science interest", requirement: 10}, {task: "Total war", requirement: 10}]),
-  "Service": new TaskRequirement(getElementsByClass("Service"), [{task: "Endurance", requirement: 5}]),
-  "Military": new TaskRequirement(getElementsByClass("Military"), [{task: "Strength", requirement: 10}]),
-  "Media": new TaskRequirement(getElementsByClass("Media"), [{task: "Communicability", requirement: 5}]),
-  "IT": new TaskRequirement(getElementsByClass("IT"), [{task: "Intelligence", requirement: 5}]),
-  "Medical science": new TaskRequirement(getElementsByClass("Medical science"), [{task: "Perception", requirement: 5}]),
-  "Science": new TaskRequirement(getElementsByClass("Science"), [{task: "Intelligence", requirement: 5}]),
-  "Body": new TaskRequirement(getElementsByClass("Body"), [{task: "Slacking", requirement: 5}]),
-  "Mind": new TaskRequirement(getElementsByClass("Mind"), [{task: "Slacking", requirement: 5}]),
-  "Strength cat": new TaskRequirement(getElementsByClass("Strength"), [{task: "Strength", requirement: 5}]),
-  "Perception cat": new TaskRequirement(getElementsByClass("Perception"), [{task: "Perception", requirement: 5}]),
-  "Endurance cat": new TaskRequirement(getElementsByClass("Endurance"), [{task: "Endurance", requirement: 5}]),
-  "Communicability cat": new TaskRequirement(getElementsByClass("Communicability"), [{task: "Communicability", requirement: 5}]),
-  "Intelligence cat": new TaskRequirement(getElementsByClass("Intelligence"), [{task: "Intelligence", requirement: 5}]),
-  "Aptitude cat": new TaskRequirement(getElementsByClass("Aptitude"), [{task: "Aptitude", requirement: 5}]),
-  "Luckiness cat": new TaskRequirement(getElementsByClass("Luckiness"), [{task: "Luckiness", requirement: 5}]),
-  "Professional Skills": new TaskRequirement(getElementsByClass("Professional Skills"), [{task: "Strength", requirement: 1000}, {task: "Perception", requirement: 1000}, {task: "Endurance", requirement: 1000}, {task: "Communicability", requirement: 1000}, {task: "Intelligence", requirement: 1000}, {task: "Aptitude", requirement: 1000}, {task: "Luckiness", requirement: 1000}]),
+  "Science": new TaskRequirement(getElementsByClass("Science"), [{task: "Interest in knowledge", requirement: 1}]),
+  "Technology": new TaskRequirement(getElementsByClass("Technology"), [{task: "Lang understanding", requirement: 1}]),
   "Occultism": new CorruptionRequirement(getElementsByClass("Occultism"), [{requirement: 1}]),
   "Shop": new CoinRequirement([document.getElementById("shopTabButton")], [{requirement: gameData.itemData["Hostel"].getExpense() * 50}]),
   "Rebirth tab": new AgeRequirement([document.getElementById("rebirthTabButton")], [{requirement: 25}]),
@@ -1450,147 +1165,64 @@ gameData.requirements = {
   "Rebirth note 6": new TaskRequirement([document.getElementById("rebirthNote6")], [{task: "Perception", requirement: 100000}]),
   "Corruption info": new CorruptionRequirement([document.getElementById("corruptionInfo")], [{requirement: 1}]),
   "InnerExp info": new InnerExpRequirement([document.getElementById("innerExpInfo")], [{requirement: 1}]),
-  "Time warping info": new TaskRequirement([document.getElementById("timeWarping")], [{task: "Waiting", requirement: 1}]),
+  "Time warping info": new TaskRequirement([document.getElementById("timeWarping")], [{task: "Waiting skill", requirement: 1}]),
 
-  "Automation": new AgeRequirement([document.getElementById("automation")], [{requirement: 20}]),
+  "Automation": new AgeRequirement([document.getElementById("automation")], [{requirement: 25}]),
   "Quick task display": new AgeRequirement([document.getElementById("quickTaskDisplay")], [{requirement: 20}]),
 
   // Jobs
-  "Slacker": new TaskRequirement([getTaskElement("Slacker")], []),
-  "Mail boy": new TaskRequirement([getTaskElement("Mail boy")], [{task: "Slacker", requirement: 10}]),
-  "Sweeper": new TaskRequirement([getTaskElement("Sweeper")], [{task: "Mail boy", requirement: 10}]),
-
-  // Government
-  "Country President": new TaskRequirement([getTaskElement("Country President")], [{task: "Economics", requirement: 10}, {task: "Proper relations", requirement: 10}, {task: "Technological advancement", requirement: 10}, {task: "Healthcare", requirement: 10}, {task: "Science interest", requirement: 10}, {task: "Total war", requirement: 10}]),
-  "Leader of country block": new TaskRequirement([getTaskElement("Leader of country block")], [{task: "Country President", requirement: 10}]),
-
   //Service
-  "Cleaner": new TaskRequirement([getTaskElement("Cleaner")], [{task: "Endurance", requirement: 10}]),
-  "Shop boy": new TaskRequirement([getTaskElement("Shop boy")], [{task: "Cleaner", requirement: 10}, {task: "Endurance", requirement: 20}, {task: "Productivity", requirement: 10}]),
-  "Department manager": new TaskRequirement([getTaskElement("Department manager")], [{task: "Shop boy", requirement: 10}, {task: "Communicability", requirement: 50}]),
-  "Store headmaster": new TaskRequirement([getTaskElement("Store headmaster")], [{task: "Department manager", requirement: 10}, {task: "Communicability", requirement: 80}, {task: "Accounting", requirement: 10}]),
-  "Head of a chain of stores": new TaskRequirement([getTaskElement("Head of a chain of stores")], [{task: "Store headmaster", requirement: 10}, {task: "Aptitude", requirement: 150}, {task: "Bargaining", requirement: 120}]),
-  "Franchise owner": new TaskRequirement([getTaskElement("Franchise owner")], [{task: "Head of a chain of stores", requirement: 10}, {task: "Aptitude", requirement: 250}]),
-  "Brands overlord": new TaskRequirement([getTaskElement("Brands overlord")], [{task: "Franchise owner", requirement: 10}, {task: "Aptitude", requirement: 500}]),
-  "Minister of Finance": new TaskRequirement([getTaskElement("Minister of Finance")], [{task: "Brands overlord", requirement: 10}, {task: "Aptitude", requirement: 1000}]),
-
-  //Military
-  "Rookie": new TaskRequirement([getTaskElement("Rookie")], [{task: "Strength", requirement: 20}]),
-  "Experienced soldier": new TaskRequirement([getTaskElement("Experienced soldier")], [{task: "Rookie", requirement: 10}, {task: "Strength", requirement: 80}]),
-  "Infantry officer": new TaskRequirement([getTaskElement("Infantry officer")], [{task: "Experienced soldier", requirement: 10}, {task: "Strength", requirement: 150}, {task: "Tactics", requirement: 70}]),
-  "Spec-ops soldier": new TaskRequirement([getTaskElement("Spec-ops soldier")], [{task: "Infantry officer", requirement: 10}, {task: "Strength", requirement: 250}, {task: "Stealth", requirement: 100}]),
-  "Spec-ops coordinator": new TaskRequirement([getTaskElement("Spec-ops coordinator")], [{task: "Spec-ops soldier", requirement: 10}, {task: "Strength", requirement: 500}, {task: "Leadership", requirement: 150}]),
-  "Warlord": new TaskRequirement([getTaskElement("Warlord")], [{task: "Spec-ops coordinator", requirement: 10}, {task: "Strength", requirement: 1000}]),
-
-  //Media
-  "Background actor": new TaskRequirement([getTaskElement("Background actor")], [{task: "Communicability", requirement: 10}]),
-  "Streamer": new TaskRequirement([getTaskElement("Streamer")], [{task: "Background actor", requirement: 10}, {task: "Communicability", requirement: 20}, {task: "Right in time", requirement: 10}]),
-  "Experienced influencer": new TaskRequirement([getTaskElement("Experienced influencer")], [{task: "Streamer", requirement: 10}, {task: "Communicability", requirement: 50}]),
-  "Well known blogger": new TaskRequirement([getTaskElement("Well known blogger")], [{task: "Experienced influencer", requirement: 10}, {task: "Communicability", requirement: 80}, {task: "Artistry", requirement: 30}]),
-  "Movie star": new TaskRequirement([getTaskElement("Movie star")], [{task: "Well known blogger", requirement: 10}, {task: "Communicability", requirement: 150}]),
-  "Person of the Year": new TaskRequirement([getTaskElement("Person of the Year")], [{task: "Movie star", requirement: 10}, {task: "Communicability", requirement: 250}, {task: "Fate", requirement: 80}]),
-  "Diplomat": new TaskRequirement([getTaskElement("Diplomat")], [{task: "Person of the Year", requirement: 10}, {task: "Communicability", requirement: 500}, {task: "Lang understanding", requirement: 150}]),
-  "Minister of Public Relations": new TaskRequirement([getTaskElement("Minister of Public Relations")], [{task: "Diplomat", requirement: 10}, {task: "Communicability", requirement: 1000}]),
+  "Cleaner": new TaskRequirement([getTaskElement("Cleaner")], []),
+  "Chief cleaner": new TaskRequirement([getTaskElement("Chief cleaner")], [{task: "Cleaner", requirement: 10}]),
+  "Sales intern": new TaskRequirement([getTaskElement("Sales intern")], [{task: "Chief cleaner", requirement: 10}]),
+  "Experienced salesman": new TaskRequirement([getTaskElement("Experienced salesman")], [{task: "Sales intern", requirement: 10}, {task: "Endurance", requirement: 20}]),
+  "Manager": new TaskRequirement([getTaskElement("Manager")], [{task: "Experienced salesman", requirement: 10}]),
+  "Chief manager": new TaskRequirement([getTaskElement("Chief manager")], [{task: "Manager", requirement: 10}]),
+  "Store headmaster": new TaskRequirement([getTaskElement("Store headmaster")], [{task: "Chief manager", requirement: 10}, {task: "Perception", requirement: 50}]),
 
   //IT
-  "Support 1st line": new TaskRequirement([getTaskElement("Support 1st line")], [{task: "Intelligence", requirement: 10}]),
-  "Support 2nd line": new TaskRequirement([getTaskElement("Support 2nd line")], [{task: "Support 1st line", requirement: 10}, {task: "Intelligence", requirement: 20}, {task: "Programming", requirement: 10}]),
-  "Support manager": new TaskRequirement([getTaskElement("Support manager")], [{task: "Support 2nd line", requirement: 10}, {task: "Communicability", requirement: 50}]),
-  "Sysadmin": new TaskRequirement([getTaskElement("Sysadmin")], [{task: "Support manager", requirement: 10}, {task: "Intelligence", requirement: 80}, {task: "Programming", requirement: 40}]),
-  "Senior programmer": new TaskRequirement([getTaskElement("Senior programmer")], [{task: "Sysadmin", requirement: 10}, {task: "Intelligence", requirement: 150}, {task: "Lang understanding", requirement: 50}]),
-  "Main teamlead": new TaskRequirement([getTaskElement("Main teamlead")], [{task: "Senior programmer", requirement: 10}, {task: "Intelligence", requirement: 250}, {task: "Foreboding", requirement: 80}]),
-  "Successful startuper": new TaskRequirement([getTaskElement("Successful startuper")], [{task: "Main teamlead", requirement: 10}, {task: "Intelligence", requirement: 500}, {task: "Fate", requirement: 100}]),
-  "Minister of Technology": new TaskRequirement([getTaskElement("Minister of Technology")], [{task: "Successful startuper", requirement: 10}, {task: "Intelligence", requirement: 1000}]),
-
-  // Medical science
-  "Nurse": new TaskRequirement([getTaskElement("Nurse")], [{task: "Perception", requirement: 10}]),
-  "General doctor": new TaskRequirement([getTaskElement("General doctor")], [{task: "Nurse", requirement: 10}, {task: "Perception", requirement: 20}]),
-  "Therapist": new TaskRequirement([getTaskElement("Therapist")], [{task: "General doctor", requirement: 10}, {task: "Intelligence", requirement: 50}]),
-  "Surgeon": new TaskRequirement([getTaskElement("Surgeon")], [{task: "Therapist", requirement: 10}, {task: "Intelligence", requirement: 80}, {task: "Unexpected agility", requirement: 10}]),
-  "Head of department": new TaskRequirement([getTaskElement("Head of department")], [{task: "Surgeon", requirement: 10}, {task: "Aptitude", requirement: 150}, {task: "Accounting", requirement: 50}]),
-  "Head physician": new TaskRequirement([getTaskElement("Head physician")], [{task: "Head of department", requirement: 10}, {task: "Aptitude", requirement: 250}, {task: "Leadership", requirement: 80}]),
-  "Doctor of Medical Sciences": new TaskRequirement([getTaskElement("Doctor of Medical Sciences")], [{task: "Head physician", requirement: 10}, {task: "Aptitude", requirement: 500}, {task: "Curiosity", requirement: 100}]),
-  "Minister of Health": new TaskRequirement([getTaskElement("Minister of Health")], [{task: "Doctor of Medical Sciences", requirement: 10}, {task: "Aptitude", requirement: 1000}]),
+  "Junior": new TaskRequirement([getTaskElement("Junior")], [{task: "Programming", requirement: 20}]),
+  "Middle": new TaskRequirement([getTaskElement("Middle")], [{task: "Junior", requirement: 10}, {task: "Programming", requirement: 40}]),
+  "Middle+": new TaskRequirement([getTaskElement("Middle+")], [{task: "Middle", requirement: 10}, {task: "Programming", requirement: 60}]),
+  "Senior": new TaskRequirement([getTaskElement("Senior")], [{task: "Middle+", requirement: 10}, {task: "Programming", requirement: 80}, {task: "Lang understanding", requirement: 40}]),
+  "IT supervisor": new TaskRequirement([getTaskElement("IT supervisor")], [{task: "Senior", requirement: 10}, {task: "Attentiveness", requirement: 150}]),
+  "Technical Director": new TaskRequirement([getTaskElement("Technical Director")], [{task: "IT supervisor", requirement: 10}, {task: "Programming", requirement: 250}, {task: "Perception", requirement: 250}]),
+  "Head of an IT conglomerate": new TaskRequirement([getTaskElement("Head of an IT conglomerate")], [{task: "Technical Director", requirement: 10}, {task: "Interest in knowledge", requirement: 500}, {task: "Attentiveness", requirement: 400}]),
+  "World class guru": new TaskRequirement([getTaskElement("World class guru")], [{task: "Head of an IT conglomerate", requirement: 10}, {task: "Interest in knowledge", requirement: 1000}]),
 
   // Science
-  "Student": new TaskRequirement([getTaskElement("Student")], [{task: "Intelligence", requirement: 10}]),
-  "Graduate": new TaskRequirement([getTaskElement("Graduate")], [{task: "Student", requirement: 10}, {task: "Intelligence", requirement: 20}]),
-  "Professor's assistant": new TaskRequirement([getTaskElement("Professor's assistant")], [{task: "Graduate", requirement: 10}, {task: "Intelligence", requirement: 50}, {task: "Concentration", requirement: 20}]),
-  "Chief laboratory assistant": new TaskRequirement([getTaskElement("Chief laboratory assistant")], [{task: "Professor's assistant", requirement: 10}, {task: "Intelligence", requirement: 80}]),
-  "Important scientist": new TaskRequirement([getTaskElement("Important scientist")], [{task: "Chief laboratory assistant", requirement: 10}, {task: "Intelligence", requirement: 250}, {task: "Curiosity", requirement: 80}]),
-  "Head of the Academy": new TaskRequirement([getTaskElement("Head of the Academy")], [{task: "Important scientist", requirement: 10}, {task: "Intelligence", requirement: 500}, {task: "Foreboding", requirement: 100}]),
-  "Science Minister": new TaskRequirement([getTaskElement("Science Minister")], [{task: "Head of the Academy", requirement: 10}, {task: "Intelligence", requirement: 1000}]),
+  "Student": new TaskRequirement([getTaskElement("Student")], [{task: "Interest in knowledge", requirement: 1}]),
+  "Scientist naturalist": new TaskRequirement([getTaskElement("Scientist naturalist")], [{task: "Student", requirement: 10}, {task: "Interest in knowledge", requirement: 200}]),
+  "Expert naturalist": new TaskRequirement([getTaskElement("Expert naturalist")], [{task: "Scientist naturalist", requirement: 10}, {task: "Interest in knowledge", requirement: 500}, {task: "Perception", requirement: 500}]),
+  "Theoretical physicist": new TaskRequirement([getTaskElement("Theoretical physicist")], [{task: "Expert naturalist", requirement: 10}, {task: "Interest in knowledge", requirement: 800}]),
+  "Inventor": new TaskRequirement([getTaskElement("Inventor")], [{task: "Theoretical physicist", requirement: 50}, {task: "Interest in knowledge", requirement: 1200}]),
+  "Quantum engineer": new TaskRequirement([getTaskElement("Quantum engineer")], [{task: "Inventor", requirement: 100}, {task: "Interest in knowledge", requirement: 1500}]),
+  "Science revolutioneer": new TaskRequirement([getTaskElement("Science revolutioneer")], [{task: "Quantum engineer", requirement: 500}, {task: "Interest in knowledge", requirement: 2000}]),
+  "Mad scientist": new TaskRequirement([getTaskElement("Mad scientist")], [{task: "Science revolutioneer", requirement: 1000}, {task: "Interest in knowledge", requirement: 3000}]),
 
   // Skills
-  "Slacking": new TaskRequirement([getTaskElement("Slacking")], []),
-  "Waiting": new TaskRequirement([getTaskElement("Waiting")], [{task: "Slacking", requirement: 200}]),
+  "Perception": new TaskRequirement([getTaskElement("Perception")], []),
+  "Endurance": new TaskRequirement([getTaskElement("Endurance")], [{task: "Perception", requirement: 10}]),
+  "Stealth": new TaskRequirement([getTaskElement("Stealth")], [{task: "Perception", requirement: 30}]),
+  "Hardening": new TaskRequirement([getTaskElement("Hardening")], [{task: "Endurance", requirement: 300}, {task: "Scientist naturalist", requirement: 10}]),
 
-  //Body
-  "Strength": new TaskRequirement([getTaskElement("Strength")], [{task: "Slacking", requirement: 10}]),
-  "Perception": new TaskRequirement([getTaskElement("Perception")], [{task: "Slacking", requirement: 10}]),
-  "Endurance": new TaskRequirement([getTaskElement("Endurance")], [{task: "Slacking", requirement: 10}]),
+  "Programming": new TaskRequirement([getTaskElement("Programming")], [{task: "Perception", requirement: 10}]),
+  "Attentiveness": new TaskRequirement([getTaskElement("Attentiveness")], [{task: "Programming", requirement: 30}, {task: "Perception", requirement: 30}]),
+  "Lang understanding": new TaskRequirement([getTaskElement("Lang understanding")], [{task: "Programming", requirement: 50}]),
+  "Luckiness": new TaskRequirement([getTaskElement("Luckiness")], [{task: "Perception", requirement: 80}]),
+  "Waiting skill": new TaskRequirement([getTaskElement("Waiting skill")], [{task: "Perception", requirement: 200}, {task: "Endurance", requirement: 200}]),
 
-  // Mind
-  "Communicability": new TaskRequirement([getTaskElement("Communicability")], [{task: "Slacking", requirement: 10}]),
-  "Intelligence": new TaskRequirement([getTaskElement("Intelligence")], [{task: "Slacking", requirement: 10}]),
-  "Aptitude": new TaskRequirement([getTaskElement("Aptitude")], [{task: "Slacking", requirement: 10}]),
-  "Luckiness": new TaskRequirement([getTaskElement("Luckiness")], [{task: "Slacking", requirement: 10}]),
-
-  //Strength
-  "Muscle memory": new TaskRequirement([getTaskElement("Muscle memory")], [{task: "Strength", requirement: 10}]),
-  "Muscle mass": new TaskRequirement([getTaskElement("Muscle mass")], [{task: "Strength", requirement: 30}, {task: "Endurance", requirement: 30}]),
-  "Speed": new TaskRequirement([getTaskElement("Speed")], [{task: "Strength", requirement: 60}, {task: "Walking", requirement: 30}]),
-  "Flexity": new TaskRequirement([getTaskElement("Flexity")], [{task: "Strength", requirement: 100}, {task: "Speed", requirement: 30}]),
-
-  // Perception
-  "Concentration": new TaskRequirement([getTaskElement("Concentration")], [{task: "Perception", requirement: 10}]),
-  "Stealth": new TaskRequirement([getTaskElement("Stealth")], [{task: "Perception", requirement: 30}, {task: "Luckiness", requirement: 30}]),
-  "Sharp sight": new TaskRequirement([getTaskElement("Sharp sight")], [{task: "Perception", requirement: 60}, {task: "Concentration", requirement: 30}]),
-  "Foreboding": new TaskRequirement([getTaskElement("Foreboding")], [{task: "Perception", requirement: 100}, {task: "Sharp sight", requirement: 30}]),
-
-  // Endurance
-  "Walking": new TaskRequirement([getTaskElement("Walking")], [{task: "Endurance", requirement: 10}]),
-  "Strong stomach": new TaskRequirement([getTaskElement("Strong stomach")], [{task: "Endurance", requirement: 30}, {task: "Strength", requirement: 30}]),
-  "Running": new TaskRequirement([getTaskElement("Running")], [{task: "Endurance", requirement: 60}, {task: "Muscle memory", requirement: 30}]),
-  "Hardening": new TaskRequirement([getTaskElement("Hardening")], [{task: "Endurance", requirement: 100}, {task: "Running", requirement: 30}]),
-
-  // Communicability
-  "Bargaining": new TaskRequirement([getTaskElement("Bargaining")], [{task: "Communicability", requirement: 10}]),
-  "Artistry": new TaskRequirement([getTaskElement("Artistry")], [{task: "Communicability", requirement: 30}, {task: "Perception", requirement: 30}]),
-  "Lang understanding": new TaskRequirement([getTaskElement("Lang understanding")], [{task: "Communicability", requirement: 60}, {task: "Productivity", requirement: 30}]),
-  "Leadership": new TaskRequirement([getTaskElement("Leadership")], [{task: "Communicability", requirement: 100}, {task: "Lang understanding", requirement: 30}]),
-
-  // Intelligence
-  "Programming": new TaskRequirement([getTaskElement("Programming")], [{task: "Intelligence", requirement: 10}]),
-  "Tactics": new TaskRequirement([getTaskElement("Tactics")], [{task: "Intelligence", requirement: 30}, {task: "Strength", requirement: 30}]),
-  "Meditation": new TaskRequirement([getTaskElement("Meditation")], [{task: "Intelligence", requirement: 60}, {task: "Concentration", requirement: 30}]),
-  "Curiosity": new TaskRequirement([getTaskElement("Curiosity")], [{task: "Intelligence", requirement: 100}, {task: "Meditation", requirement: 30}]),
-
-  // Aptitude
-  "Productivity": new TaskRequirement([getTaskElement("Productivity")], [{task: "Aptitude", requirement: 10}]),
-  "Tech understanding": new TaskRequirement([getTaskElement("Tech understanding")], [{task: "Aptitude", requirement: 30}, {task: "Intelligence", requirement: 30}]),
-  "Accounting": new TaskRequirement([getTaskElement("Accounting")], [{task: "Aptitude", requirement: 60}, {task: "Bargaining", requirement: 30}]),
-  "Skillful fingers": new TaskRequirement([getTaskElement("Skillful fingers")], [{task: "Aptitude", requirement: 100}, {task: "Accounting", requirement: 30}]),
-
-  // Luckiness
-  "Right in time": new TaskRequirement([getTaskElement("Right in time")], [{task: "Luckiness", requirement: 10}]),
-  "A duck's back": new TaskRequirement([getTaskElement("A duck's back")], [{task: "Luckiness", requirement: 30}, {task: "Endurance", requirement: 30}]),
-  "Unexpected agility": new TaskRequirement([getTaskElement("Unexpected agility")], [{task: "Luckiness", requirement: 60}]),
-  "Fate": new TaskRequirement([getTaskElement("Fate")], [{task: "Luckiness", requirement: 100}, {task: "Unexpected agility", requirement: 30}]),
-
-  // Professional
-  "Economics": new TaskRequirement([getTaskElement("Economics")], [{task: "Minister of Finance", requirement: 50}]),
-  "Proper relations": new TaskRequirement([getTaskElement("Proper relations")], [{task: "Minister of Public Relations", requirement: 50}]),
-  "Technological advancement": new TaskRequirement([getTaskElement("Technological advancement")], [{task: "Minister of Technology", requirement: 50}]),
-  "Healthcare": new TaskRequirement([getTaskElement("Healthcare")], [{task: "Minister of Health", requirement: 50}]),
-  "Science interest": new TaskRequirement([getTaskElement("Science interest")], [{task: "Science Minister", requirement: 50}]),
-  "Total war": new TaskRequirement([getTaskElement("Total war")], [{task: "Warlord", requirement: 50}]),
+  "Interest in knowledge": new TaskRequirement([getTaskElement("Interest in knowledge")], [{task: "Lang understanding", requirement: 250}]),
+  "Time acceleration": new TaskRequirement([getTaskElement("Time acceleration")], [{task: "Theoretical physicist", requirement: 25}]),
+  "Reversal of aging": new TaskRequirement([getTaskElement("Reversal of aging")], [{task: "Inventor", requirement: 30}]),
+  "Time machine": new TaskRequirement([getTaskElement("Time machine")], [{task: "Quantum engineer", requirement: 100}]),
+  "Deep tech understanding": new TaskRequirement([getTaskElement("Deep tech understanding")], [{task: "Mad scientist", requirement: 1000}]),
 
   // Occultism
   "Corrupted Body": new CorruptionRequirement([getTaskElement("Corrupted Body")], [{requirement: 1}]),
   "Corrupted Mind": new CorruptionRequirement([getTaskElement("Corrupted Mind")], [{requirement: 1}]),
   "Corrupted Soul": new CorruptionRequirement([getTaskElement("Corrupted Soul")], [{requirement: 1}]),
-  "Blessing of Asmodei": new CorruptionRequirement([getTaskElement("Blessing of Asmodei")], [{requirement: 1}]),
+  "Corrupted Wish": new CorruptionRequirement([getTaskElement("Corrupted Wish")], [{requirement: 1}]),
 
   //Properties
   "Parents house": new CoinRequirement([getItemElement("Parents house")], [{requirement: 0}]),
