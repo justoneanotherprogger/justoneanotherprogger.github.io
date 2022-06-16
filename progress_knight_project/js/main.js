@@ -91,6 +91,7 @@ const skillBaseData = {
   "Corrupted Mind": {name: "Corrupted Mind", maxXp: 100, effect: 0.01, description: "Mind XP"},
   "Corrupted Soul": {name: "Corrupted Soul", maxXp: 100, effect: 0.02, description: "Corruption gain"},
   "Corrupted Desire": {name: "Corrupted Desire", maxXp: 100, effect: 0.01, description: "All XP"},
+  "Corrupted Consciousness": {name: "Corrupted Consciousness", maxXp: 100, effect: 0.01, description: "Corruption gain"},
 
   // "Meditation": {name: "Meditation", maxXp: 100, effect: 0.01, description: "Happiness"},
 }
@@ -132,7 +133,7 @@ const jobCategories = {
 }
 
 const skillCategories = {
-  "Occultism": ["Corrupted Wish", "Corrupted Body", "Corrupted Mind", "Corrupted Soul", "Corrupted Desire"],
+  "Occultism": ["Corrupted Wish", "Corrupted Body", "Corrupted Mind", "Corrupted Soul", "Corrupted Desire", "Corrupted Consciousness"],
   "Body": ["Perception", "Endurance", "Stealth", "Aptitude", "Hardening"],
   "Mind": ["Programming", "Attentiveness", "Lang understanding", "Luckiness", "Waiting skill", "Interest in knowledge"],
   "Technology": ["Time acceleration", "Reversal of aging", "Time machine", "Deep tech understanding"],
@@ -319,7 +320,8 @@ function applySpeed(value) {
 
 function getCorruptionGain() {
   var corruptedSoul = gameData.taskData["Corrupted Soul"]
-  var corruption = corruptedSoul.getEffect()
+  var corruptedConsciousness = gameData.taskData["Corrupted Consciousness"]
+  var corruption = corruptedSoul.getEffect() * corruptedConsciousness.getEffect()
   return corruption
 }
 
@@ -463,6 +465,7 @@ function createRow(templates, name, categoryName, categoryType) {
     row.getElementsByClassName("progressBar")[0].onclick = function() {setTask(name)}
   } else {
     row.getElementsByClassName("button")[0].onclick = categoryName == "Properties" ? function() {setProperty(name)} : function() {setMisc(name)}
+    row.getElementsByClassName("alternate-button")[0].onclick = categoryName == "Properties" ? function() {setProperty(name)} : function() {setMisc(name)}
   }
 
   return row
@@ -1192,13 +1195,13 @@ gameData.requirements = {
   "Store headmaster": new TaskRequirement([getTaskElement("Store headmaster")], [{task: "Chief manager", requirement: 10}, {task: "Perception", requirement: 50}]),
 
   //IT
-  "Junior": new TaskRequirement([getTaskElement("Junior")], [{task: "Programming", requirement: 20}]),
+  "Junior": new TaskRequirement([getTaskElement("Junior")], [{task: "Programming", requirement: 15}]),
   "Middle": new TaskRequirement([getTaskElement("Middle")], [{task: "Junior", requirement: 10}, {task: "Programming", requirement: 60}]),
-  "Middle+": new TaskRequirement([getTaskElement("Middle+")], [{task: "Middle", requirement: 10}, {task: "Programming", requirement: 100}]),
-  "Senior": new TaskRequirement([getTaskElement("Senior")], [{task: "Middle+", requirement: 10}, {task: "Programming", requirement: 200}, {task: "Lang understanding", requirement: 40}]),
-  "IT supervisor": new TaskRequirement([getTaskElement("IT supervisor")], [{task: "Senior", requirement: 10}, {task: "Attentiveness", requirement: 250}]),
-  "Technical Director": new TaskRequirement([getTaskElement("Technical Director")], [{task: "IT supervisor", requirement: 10}, {task: "Programming", requirement: 500}, {task: "Perception", requirement: 450}]),
-  "Head of an IT conglomerate": new TaskRequirement([getTaskElement("Head of an IT conglomerate")], [{task: "Technical Director", requirement: 10}, {task: "Interest in knowledge", requirement: 500}, {task: "Attentiveness", requirement: 400}]),
+  "Middle+": new TaskRequirement([getTaskElement("Middle+")], [{task: "Middle", requirement: 10}, {task: "Programming", requirement: 150}]),
+  "Senior": new TaskRequirement([getTaskElement("Senior")], [{task: "Middle+", requirement: 10}, {task: "Programming", requirement: 300}, {task: "Lang understanding", requirement: 300}]),
+  "IT supervisor": new TaskRequirement([getTaskElement("IT supervisor")], [{task: "Senior", requirement: 10}, {task: "Attentiveness", requirement: 500}]),
+  "Technical Director": new TaskRequirement([getTaskElement("Technical Director")], [{task: "IT supervisor", requirement: 10}, {task: "Programming", requirement: 800}, {task: "Perception", requirement: 700}]),
+  "Head of an IT conglomerate": new TaskRequirement([getTaskElement("Head of an IT conglomerate")], [{task: "Technical Director", requirement: 10}, {task: "Interest in knowledge", requirement: 600}, {task: "Attentiveness", requirement: 1000}]),
   "World class guru": new TaskRequirement([getTaskElement("World class guru")], [{task: "Head of an IT conglomerate", requirement: 10}, {task: "Interest in knowledge", requirement: 1000}]),
 
   // Science
@@ -1236,6 +1239,7 @@ gameData.requirements = {
   "Corrupted Soul": new CorruptionRequirement([getTaskElement("Corrupted Soul")], [{requirement: 1}]),
   "Corrupted Wish": new CorruptionRequirement([getTaskElement("Corrupted Wish")], [{requirement: 1}]),
   "Corrupted Desire": new CorruptionRequirement([getTaskElement("Corrupted Desire")], [{requirement: 20}]),
+  "Corrupted Consciousness": new CorruptionRequirement([getTaskElement("Corrupted Consciousness")], [{requirement: 100}]),
 
   //Properties
   "Parents house": new CoinRequirement([getItemElement("Parents house")], [{requirement: 0}]),

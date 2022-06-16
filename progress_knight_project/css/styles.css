@@ -61,6 +61,10 @@ td {
     background-color: rgb(192, 192, 192);
 }
 
+.alternate-button:hover {
+  cursor: pointer;
+}
+
 button:focus {
     outline: none;
 }
