@@ -69,17 +69,17 @@ const jobBaseData = {
 
 const skillBaseData = {
   "Perception": {name: "Perception", maxXp: 100, effect: 0.01, description: "Abilities XP"},
-  "Endurance": {name: "Endurance", maxXp: 100, effect: 0.015, description: "Positions XP"},
+  "Endurance": {name: "Endurance", maxXp: 100, effect: 0.01, description: "Positions XP"},
   "Stealth": {name: "Stealth", maxXp: 100, effect: -0.01, description: "Reduced expenses"},
   "Aptitude": {name: "Aptitude", maxXp: 100, effect: 0.01, description: "Positions XP"},
   "Hardening": {name: "Hardening", maxXp: 100, effect: 0.01, description: "Lifespan"},
 
   "Programming": {name: "Programming", maxXp: 100, effect: 0.01, description: "IT payment"},
-  "Attentiveness": {name: "Attentiveness", maxXp: 100, effect: 0.02, description: "IT XP"},
-  "Lang understanding": {name: "Lang understanding", maxXp: 100, effect: 0.015, description: "Programming XP"},
+  "Attentiveness": {name: "Attentiveness", maxXp: 100, effect: 0.01, description: "IT XP"},
+  "Lang understanding": {name: "Lang understanding", maxXp: 100, effect: 0.01, description: "Programming XP"},
   "Luckiness": {name: "Luckiness", maxXp: 100, effect: 0.01, description: "Happiness"},
   "Waiting skill": {name: "Waiting skill", maxXp: 100, effect: 0.01, description: "Gamespeed"},
-  "Interest in knowledge": {name: "Interest in knowledge", maxXp: 100, effect: 0.02, description: "Science XP"},
+  "Interest in knowledge": {name: "Interest in knowledge", maxXp: 100, effect: 0.01, description: "Science XP"},
 
   "Time acceleration": {name: "Time acceleration", maxXp: 100, effect: 0.01, description: "Gamespeed"},
   "Reversal of aging": {name: "Reversal of aging", maxXp: 100, effect: 0.01, description: "Lifespan"},
@@ -89,7 +89,7 @@ const skillBaseData = {
   "Corrupted Wish": {name: "Corrupted Wish", maxXp: 100, effect: 0.01, description: "All XP"},
   "Corrupted Body": {name: "Corrupted Body", maxXp: 100, effect: 0.01, description: "Body XP"},
   "Corrupted Mind": {name: "Corrupted Mind", maxXp: 100, effect: 0.01, description: "Mind XP"},
-  "Corrupted Soul": {name: "Corrupted Soul", maxXp: 100, effect: 0.02, description: "Corruption gain"},
+  "Corrupted Soul": {name: "Corrupted Soul", maxXp: 100, effect: 0.025, description: "Corruption gain"},
   "Corrupted Desire": {name: "Corrupted Desire", maxXp: 100, effect: 0.01, description: "All XP"},
   "Corrupted Consciousness": {name: "Corrupted Consciousness", maxXp: 100, effect: 0.01, description: "Corruption gain"},
 
@@ -261,7 +261,7 @@ function setCustomEffects() {
 
   var hardening = gameData.taskData["Hardening"]
   hardening.getEffect = function() {
-    var multiplier = 1 + getBaseLog(2000, (hardening.level + 2) / 2)
+    var multiplier = 1 + getBaseLog(2, (hardening.level + 5000) / 5000)
     return multiplier
   }
 
@@ -274,7 +274,7 @@ function setCustomEffects() {
 
   var agingReversal = gameData.taskData["Reversal of aging"]
   agingReversal.getEffect = function() {
-    var multiplier = (1 + getBaseLog(1000, agingReversal.level + 1)) * techUnderstanding.getEffect()
+    var multiplier = (1 + getBaseLog(10, (agingReversal.level + 50) / 50)) * techUnderstanding.getEffect()
     return multiplier
   }
 
@@ -1200,7 +1200,7 @@ gameData.requirements = {
   "Middle+": new TaskRequirement([getTaskElement("Middle+")], [{task: "Middle", requirement: 10}, {task: "Programming", requirement: 150}]),
   "Senior": new TaskRequirement([getTaskElement("Senior")], [{task: "Middle+", requirement: 10}, {task: "Programming", requirement: 300}, {task: "Lang understanding", requirement: 200}]),
   "IT supervisor": new TaskRequirement([getTaskElement("IT supervisor")], [{task: "Senior", requirement: 10}, {task: "Attentiveness", requirement: 500}]),
-  "Technical Director": new TaskRequirement([getTaskElement("Technical Director")], [{task: "IT supervisor", requirement: 10}, {task: "Programming", requirement: 800}, {task: "Perception", requirement: 700}]),
+  "Technical Director": new TaskRequirement([getTaskElement("Technical Director")], [{task: "IT supervisor", requirement: 10}, {task: "Programming", requirement: 1000}, {task: "Perception", requirement: 700}]),
   "Head of an IT conglomerate": new TaskRequirement([getTaskElement("Head of an IT conglomerate")], [{task: "Technical Director", requirement: 10}, {task: "Interest in knowledge", requirement: 600}, {task: "Attentiveness", requirement: 1000}]),
   "World class guru": new TaskRequirement([getTaskElement("World class guru")], [{task: "Head of an IT conglomerate", requirement: 10}, {task: "Interest in knowledge", requirement: 1000}]),
 
