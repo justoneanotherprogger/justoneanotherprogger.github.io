@@ -48,6 +48,14 @@ td {
     border: 1px solid black !important;
 }
 
+.green-button {
+  background-color: green !important;
+}
+
+.yellow-button {
+  background-color: yellow !important;
+}
+
 .item-button {
     background-color: white;
     text-align: center;

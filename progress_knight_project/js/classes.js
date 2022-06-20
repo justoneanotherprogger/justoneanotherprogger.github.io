@@ -64,7 +64,7 @@ class Skill extends Task {
     }
 
     getEffect() {
-        var effect = 1 + Math.log(this.level / 10 + 1) * this.baseData.effect * 100
+        var effect = Math.pow(2, Math.log(this.level / 50 + 1) * this.baseData.effect * 100)
         return effect
     }
 
