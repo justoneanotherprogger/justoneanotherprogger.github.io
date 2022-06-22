@@ -41,15 +41,15 @@ const permanentUnlocks = ["Shop", "Automation", "Quick task display"]
 
 const jobBaseData = {
   "Cleaner": {name: "Cleaner", maxXp: 100, income: 5},
-  "Chief cleaner": {name: "Chief cleaner", maxXp: 200, income: 12},
-  "Sales intern": {name: "Sales intern", maxXp: 400, income: 30},
-  "Experienced salesman": {name: "Experienced salesman", maxXp: 800, income: 75},
-  "Manager": {name: "Manager", maxXp: 1600, income: 195},
-  "Chief manager": {name: "Chief manager", maxXp: 3200, income: 488},
-  "Store headmaster": {name: "Store headmaster", maxXp: 6400, income: 1220},
-  "Brand lord": {name: "Brand lord", maxXp: 12800, income: 3000},
+  "Chief cleaner": {name: "Chief cleaner", maxXp: 200, income: 10},
+  "Sales intern": {name: "Sales intern", maxXp: 400, income: 20},
+  "Experienced salesman": {name: "Experienced salesman", maxXp: 800, income: 40},
+  "Manager": {name: "Manager", maxXp: 1600, income: 80},
+  "Chief manager": {name: "Chief manager", maxXp: 3200, income: 160},
+  "Store headmaster": {name: "Store headmaster", maxXp: 6400, income: 320},
+  "Brand lord": {name: "Brand lord", maxXp: 12800, income: 640},
 
-  "Junior": {name: "Junior", maxXp: 500, income: 8},
+  "Junior": {name: "Junior", maxXp: 500, income: 20},
   "Middle": {name: "Middle", maxXp: 5000, income: 40},
   "Middle+": {name: "Middle+", maxXp: 50000, income: 80},
   "Senior": {name: "Senior", maxXp: 500000, income: 160},
@@ -57,6 +57,7 @@ const jobBaseData = {
   "Technical Director": {name: "Technical Director", maxXp: 50000000, income: 640},
   "Head of an IT conglomerate": {name: "Head of an IT conglomerate", maxXp: 500000000, income: 1280},
   "World class guru": {name: "World class guru", maxXp: 5000000000, income: 2560},
+  "World IT coordinator": {name: "World IT coordinator", maxXp: 50000000000, income: 5120},
 
   "Student": {name: "Student", maxXp: 100000, income: 80},
   "Scientist naturalist": {name: "Scientist naturalist", maxXp: 1000000, income: 240},
@@ -81,6 +82,7 @@ const skillBaseData = {
   "Luckiness": {name: "Luckiness", maxXp: 100, effect: 0.01, description: "Happiness"},
   "Waiting skill": {name: "Waiting skill", maxXp: 100, effect: 0.004, description: "Gamespeed"},
   "Interest in knowledge": {name: "Interest in knowledge", maxXp: 100, effect: 0.01, description: "Science XP"},
+  "Devil's tongue": {name: "Devil's tongue", maxXp: 100, effect: -0.01, description: "Expenses"},
 
   "Reversal of aging": {name: "Reversal of aging", maxXp: 100, effect: 0.004, description: "Lifespan"},
   "Time acceleration": {name: "Time acceleration", maxXp: 100, effect: 0.005, description: "Gamespeed"},
@@ -91,6 +93,7 @@ const skillBaseData = {
   "Corrupted Soul": {name: "Corrupted Soul", maxXp: 100, effect: 0.012, description: "Corruption gain"},
   "Corrupted Desire": {name: "Corrupted Desire", maxXp: 100, effect: 0.006, description: "All XP"},
   "Corrupted Consciousness": {name: "Corrupted Consciousness", maxXp: 100, effect: 0.01, description: "Corruption gain"},
+  "Corrupted Greed": {name: "Corrupted Greed", maxXp: 100, effect: 0.001, description: "All income"},
   "Corrupted Body": {name: "Corrupted Body", maxXp: 100, effect: 0.003, description: "Lifespan"},
   "Corrupted Mind": {name: "Corrupted Mind", maxXp: 100, effect: 0.004, description: "Corruption efficiency"},
 }
@@ -128,15 +131,15 @@ const itemBaseData = {
 
 const jobCategories = {
   "Service": ["Cleaner", "Chief cleaner", "Sales intern", "Experienced salesman", "Manager", "Chief manager", "Store headmaster", "Brand lord"],
-  "IT": ["Junior", "Middle", "Middle+", "Senior", "IT supervisor", "Technical Director", "Head of an IT conglomerate", "World class guru"],
+  "IT": ["Junior", "Middle", "Middle+", "Senior", "IT supervisor", "Technical Director", "Head of an IT conglomerate", "World class guru", "World IT coordinator"],
   "Science": ["Student", "Scientist naturalist", "Expert naturalist", "Theoretical physicist", "Inventor", "Quantum engineer", "Science revolutioneer", "Mad scientist"],
 }
 
 const skillCategories = {
   "Body": ["Perception", "Endurance", "Stealth", "Aptitude", "Hardening"],
-  "Mind": ["Programming", "Attentiveness", "Language understanding", "Luckiness", "Waiting skill", "Interest in knowledge"],
+  "Mind": ["Programming", "Attentiveness", "Language understanding", "Luckiness", "Waiting skill", "Interest in knowledge", "Devil's tongue"],
   "Technology": ["Reversal of aging", "Time acceleration", "Time machine", "Deep tech understanding"],
-  "Occultism": ["Corrupted Wish", "Corrupted Soul", "Corrupted Desire", "Corrupted Consciousness", "Corrupted Body", "Corrupted Mind"],
+  "Occultism": ["Corrupted Wish", "Corrupted Soul", "Corrupted Desire", "Corrupted Consciousness", "Corrupted Greed", "Corrupted Body", "Corrupted Mind"],
 }
 
 const itemCategories = {
@@ -202,6 +205,7 @@ function addMultipliers() {
 
     if (task instanceof Job) {
       task.incomeMultipliers.push(task.getLevelMultiplier.bind(task))
+      task.incomeMultipliers.push(getBindedTaskEffect("Corrupted Greed"))
       task.xpMultipliers.push(getBindedTaskEffect("Endurance"))
       task.xpMultipliers.push(getBindedTaskEffect("Aptitude"))
       task.xpMultipliers.push(getBindedItemEffect("Miscplaceholder5"))
@@ -241,13 +245,21 @@ function addMultipliers() {
     var item = gameData.itemData[itemName]
     item.expenseMultipliers = []
     item.expenseMultipliers.push(getBindedTaskEffect("Stealth"))
+    item.expenseMultipliers.push(getBindedTaskEffect("Devil's tongue"))
   }
 }
 
 function setCustomEffects() {
   var stealth = gameData.taskData["Stealth"]
   stealth.getEffect = function() {
-    var multiplier = 1 - getBaseLog(10, stealth.level + 1) / 10
+    var multiplier = 1 - getBaseLog(5, stealth.level + 1) / 20
+    if (multiplier < 0.1) {multiplier = 0.1}
+    return multiplier
+  }
+
+  var devil = gameData.taskData["Devil's tongue"]
+  devil.getEffect = function() {
+    var multiplier = 1 - getBaseLog(5, devil.level + 1) / 10
     if (multiplier < 0.1) {multiplier = 0.1}
     return multiplier
   }
@@ -840,7 +852,10 @@ function formatCoins(coins, element) {
   }
   for (var i = 0 ; i < tiers.length ; i++) {
     var tier = tiers[i]
-    if (coins >= Math.pow(1000, i)) {
+    if (coins == 0) {
+      tier = tiers[0];
+      element.children[0].style.color = colors[tier];
+    } else if (coins >= Math.pow(1000, i)) {
       element.children[0].style.color = colors[tier]
     }
   }
@@ -940,7 +955,7 @@ function getLifespan() {
 function getAgeModifier() {
   var age = gameData.days
   var lifespan = getLifespan()
-  var modifier = Math.sin((age / lifespan) * Math.PI) + 0.5
+  var modifier = getBaseLog(2, lifespan / (age + 1)) + 0.5
   return modifier
 }
 
@@ -1183,23 +1198,24 @@ gameData.requirements = {
   // Jobs
   //Service
   "Cleaner": new TaskRequirement([getTaskElement("Cleaner")], []),
-  "Chief cleaner": new TaskRequirement([getTaskElement("Chief cleaner")], [{task: "Cleaner", requirement: 10}]),
-  "Sales intern": new TaskRequirement([getTaskElement("Sales intern")], [{task: "Chief cleaner", requirement: 10}]),
+  "Chief cleaner": new TaskRequirement([getTaskElement("Chief cleaner")], [{task: "Cleaner", requirement: 10}, {task: "Endurance", requirement: 10}]),
+  "Sales intern": new TaskRequirement([getTaskElement("Sales intern")], [{task: "Chief cleaner", requirement: 10}, {task: "Endurance", requirement: 20}]),
   "Experienced salesman": new TaskRequirement([getTaskElement("Experienced salesman")], [{task: "Sales intern", requirement: 10}, {task: "Endurance", requirement: 30}]),
-  "Manager": new TaskRequirement([getTaskElement("Manager")], [{task: "Experienced salesman", requirement: 10}]),
-  "Chief manager": new TaskRequirement([getTaskElement("Chief manager")], [{task: "Manager", requirement: 10}]),
-  "Store headmaster": new TaskRequirement([getTaskElement("Store headmaster")], [{task: "Chief manager", requirement: 10}, {task: "Perception", requirement: 70}]),
-  "Brand lord": new TaskRequirement([getTaskElement("Brand lord")], [{task: "Store headmaster", requirement: 20}, {task: "Corrupted Soul", requirement: 10}]),
+  "Manager": new TaskRequirement([getTaskElement("Manager")], [{task: "Experienced salesman", requirement: 10}, {task: "Endurance", requirement: 60}]),
+  "Chief manager": new TaskRequirement([getTaskElement("Chief manager")], [{task: "Manager", requirement: 10}, {task: "Endurance", requirement: 80}]),
+  "Store headmaster": new TaskRequirement([getTaskElement("Store headmaster")], [{task: "Chief manager", requirement: 10}, {task: "Perception", requirement: 100}]),
+  "Brand lord": new TaskRequirement([getTaskElement("Brand lord")], [{task: "Store headmaster", requirement: 20}, {task: "Perception", requirement: 150}, {task: "Corrupted Soul", requirement: 10}]),
 
   //IT
   "Junior": new TaskRequirement([getTaskElement("Junior")], [{task: "Programming", requirement: 15}]),
   "Middle": new TaskRequirement([getTaskElement("Middle")], [{task: "Junior", requirement: 10}, {task: "Programming", requirement: 60}]),
-  "Middle+": new TaskRequirement([getTaskElement("Middle+")], [{task: "Middle", requirement: 10}, {task: "Programming", requirement: 150}]),
-  "Senior": new TaskRequirement([getTaskElement("Senior")], [{task: "Middle+", requirement: 10}, {task: "Programming", requirement: 300}, {task: "Language understanding", requirement: 200}]),
-  "IT supervisor": new TaskRequirement([getTaskElement("IT supervisor")], [{task: "Senior", requirement: 10}, {task: "Attentiveness", requirement: 500}]),
-  "Technical Director": new TaskRequirement([getTaskElement("Technical Director")], [{task: "IT supervisor", requirement: 10}, {task: "Programming", requirement: 1000}, {task: "Perception", requirement: 700}]),
-  "Head of an IT conglomerate": new TaskRequirement([getTaskElement("Head of an IT conglomerate")], [{task: "Technical Director", requirement: 10}, {task: "Interest in knowledge", requirement: 600}, {task: "Attentiveness", requirement: 1000}]),
-  "World class guru": new TaskRequirement([getTaskElement("World class guru")], [{task: "Head of an IT conglomerate", requirement: 10}, {task: "Interest in knowledge", requirement: 1000}]),
+  "Middle+": new TaskRequirement([getTaskElement("Middle+")], [{task: "Middle", requirement: 10}, {task: "Programming", requirement: 100}]),
+  "Senior": new TaskRequirement([getTaskElement("Senior")], [{task: "Middle+", requirement: 10}, {task: "Programming", requirement: 200}, {task: "Language understanding", requirement: 150}]),
+  "IT supervisor": new TaskRequirement([getTaskElement("IT supervisor")], [{task: "Senior", requirement: 10}, {task: "Attentiveness", requirement: 300}]),
+  "Technical Director": new TaskRequirement([getTaskElement("Technical Director")], [{task: "IT supervisor", requirement: 10}, {task: "Programming", requirement: 500}, {task: "Perception", requirement: 350}]),
+  "Head of an IT conglomerate": new TaskRequirement([getTaskElement("Head of an IT conglomerate")], [{task: "Technical Director", requirement: 10}, {task: "Interest in knowledge", requirement: 300}, {task: "Attentiveness", requirement: 700}]),
+  "World class guru": new TaskRequirement([getTaskElement("World class guru")], [{task: "Head of an IT conglomerate", requirement: 10}, {task: "Interest in knowledge", requirement: 750}]),
+  "World IT coordinator": new TaskRequirement([getTaskElement("World IT coordinator")], [{task: "World class guru", requirement: 20}, {task: "Programming", requirement: 1500}, {task: "Devil's tongue", requirement: 1200}, {task: "Corrupted Greed", requirement: 10}]),
 
   // Science
   "Student": new TaskRequirement([getTaskElement("Student")], [{task: "Interest in knowledge", requirement: 10}]),
@@ -1226,6 +1242,7 @@ gameData.requirements = {
   "Luckiness": new TaskRequirement([getTaskElement("Luckiness")], [{task: "Perception", requirement: 80}]),
   "Waiting skill": new TaskRequirement([getTaskElement("Waiting skill")], [{task: "Perception", requirement: 200}, {task: "Endurance", requirement: 200}]),
   "Interest in knowledge": new TaskRequirement([getTaskElement("Interest in knowledge")], [{task: "Language understanding", requirement: 250}, {task: "Aptitude", requirement: 250}]),
+  "Devil's tongue": new TaskRequirement([getTaskElement("Devil's tongue")], [{task: "Language understanding", requirement: 300}, {task: "Corrupted Consciousness", requirement: 10}]),
 
   // Technology
   "Reversal of aging": new TaskRequirement([getTaskElement("Reversal of aging")], [{task: "Expert naturalist", requirement: 15}]),
@@ -1237,9 +1254,10 @@ gameData.requirements = {
   "Corrupted Wish": new CorruptionRequirement([getTaskElement("Corrupted Wish")], [{requirement: 1}]),
   "Corrupted Soul": new CorruptionRequirement([getTaskElement("Corrupted Soul")], [{requirement: 1}]),
   "Corrupted Desire": new CorruptionRequirement([getTaskElement("Corrupted Desire")], [{requirement: 20}]),
-  "Corrupted Consciousness": new CorruptionRequirement([getTaskElement("Corrupted Consciousness")], [{requirement: 100}]),
-  "Corrupted Body": new CorruptionRequirement([getTaskElement("Corrupted Body")], [{requirement: 500}]),
-  "Corrupted Mind": new CorruptionRequirement([getTaskElement("Corrupted Mind")], [{requirement: 1000}]),
+  "Corrupted Consciousness": new CorruptionRequirement([getTaskElement("Corrupted Consciousness")], [{requirement: 50}]),
+  "Corrupted Greed": new CorruptionRequirement([getTaskElement("Corrupted Greed")], [{requirement: 250}]),
+  "Corrupted Body": new CorruptionRequirement([getTaskElement("Corrupted Body")], [{requirement: 1000}]),
+  "Corrupted Mind": new CorruptionRequirement([getTaskElement("Corrupted Mind")], [{requirement: 5000}]),
 
   // Shop
   //Properties
