@@ -41,13 +41,13 @@ const permanentUnlocks = ["Shop", "Automation", "Quick task display"]
 
 const jobBaseData = {
   "Cleaner": {name: "Cleaner", maxXp: 100, income: 5},
-  "Chief cleaner": {name: "Chief cleaner", maxXp: 200, income: 10},
-  "Sales intern": {name: "Sales intern", maxXp: 400, income: 20},
-  "Experienced salesman": {name: "Experienced salesman", maxXp: 800, income: 40},
-  "Manager": {name: "Manager", maxXp: 1600, income: 80},
-  "Chief manager": {name: "Chief manager", maxXp: 3200, income: 160},
-  "Store headmaster": {name: "Store headmaster", maxXp: 6400, income: 320},
-  "Brand lord": {name: "Brand lord", maxXp: 12800, income: 640},
+  "Chief cleaner": {name: "Chief cleaner", maxXp: 300, income: 10},
+  "Sales intern": {name: "Sales intern", maxXp: 900, income: 20},
+  "Experienced salesman": {name: "Experienced salesman", maxXp: 2700, income: 40},
+  "Manager": {name: "Manager", maxXp: 8100, income: 80},
+  "Chief manager": {name: "Chief manager", maxXp: 24300, income: 160},
+  "Store headmaster": {name: "Store headmaster", maxXp: 72900, income: 320},
+  "Brand lord": {name: "Brand lord", maxXp: 218700, income: 640},
 
   "Junior": {name: "Junior", maxXp: 500, income: 20},
   "Middle": {name: "Middle", maxXp: 5000, income: 40},
