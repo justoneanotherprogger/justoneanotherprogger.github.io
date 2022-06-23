@@ -93,7 +93,7 @@ const skillBaseData = {
   "Corrupted Soul": {name: "Corrupted Soul", maxXp: 100, effect: 0.012, description: "Corruption gain"},
   "Corrupted Desire": {name: "Corrupted Desire", maxXp: 100, effect: 0.006, description: "All XP"},
   "Corrupted Consciousness": {name: "Corrupted Consciousness", maxXp: 100, effect: 0.01, description: "Corruption gain"},
-  "Corrupted Greed": {name: "Corrupted Greed", maxXp: 100, effect: 0.001, description: "All income"},
+  "Corrupted Greed": {name: "Corrupted Greed", maxXp: 100, effect: 0.003, description: "All income"},
   "Corrupted Body": {name: "Corrupted Body", maxXp: 100, effect: 0.003, description: "Lifespan"},
   "Corrupted Mind": {name: "Corrupted Mind", maxXp: 100, effect: 0.004, description: "Corruption efficiency"},
 }
@@ -946,7 +946,7 @@ function getLifespan() {
   var hardening = gameData.taskData["Hardening"]
   var agingReversal = gameData.taskData["Reversal of aging"]
   var corruptedBody = gameData.taskData["Corrupted Body"]
-  var coinPile = 25 * getBaseLog(2, gameData.coins + 1)
+  var coinPile = 25 * getBaseLog(5, gameData.coins + 1)
   var corruptionProlongation = 100 * getBaseLog(2, gameData.corruption + 1)
   var lifespan = (baseLifespan + coinPile + corruptionProlongation) * hardening.getEffect() * agingReversal.getEffect() * corruptedBody.getEffect()
   return lifespan
@@ -1177,7 +1177,7 @@ gameData.currentMisc = []
 
 gameData.requirements = {
   //Other
-  "Science": new TaskRequirement(getElementsByClass("Science"), [{task: "Interest in knowledge", requirement: 10}]),
+  "Science": new TaskRequirement(getElementsByClass("Science"), [{task: "Interest in knowledge", requirement: 1}]),
   "Technology": new TaskRequirement(getElementsByClass("Technology"), [{task: "Interest in knowledge", requirement: 500}]),
   "Occultism": new CorruptionRequirement(getElementsByClass("Occultism"), [{requirement: 1}]),
   "Shop": new CoinRequirement([document.getElementById("shopTabButton")], [{requirement: gameData.itemData["Gym membership"].getExpense() * 100}]),
@@ -1204,7 +1204,7 @@ gameData.requirements = {
   "Manager": new TaskRequirement([getTaskElement("Manager")], [{task: "Experienced salesman", requirement: 10}, {task: "Endurance", requirement: 60}]),
   "Chief manager": new TaskRequirement([getTaskElement("Chief manager")], [{task: "Manager", requirement: 10}, {task: "Endurance", requirement: 80}]),
   "Store headmaster": new TaskRequirement([getTaskElement("Store headmaster")], [{task: "Chief manager", requirement: 10}, {task: "Perception", requirement: 100}]),
-  "Brand lord": new TaskRequirement([getTaskElement("Brand lord")], [{task: "Store headmaster", requirement: 20}, {task: "Perception", requirement: 150}, {task: "Corrupted Soul", requirement: 10}]),
+  "Brand lord": new TaskRequirement([getTaskElement("Brand lord")], [{task: "Store headmaster", requirement: 20}, {task: "Perception", requirement: 160}, {task: "Corrupted Soul", requirement: 10}]),
 
   //IT
   "Junior": new TaskRequirement([getTaskElement("Junior")], [{task: "Programming", requirement: 15}]),
