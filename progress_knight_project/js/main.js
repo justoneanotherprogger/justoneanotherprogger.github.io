@@ -663,6 +663,7 @@ function updateText() {
   document.getElementById("happinessDisplay").textContent = getHappiness().toFixed(1)
 
   document.getElementById("secondRebirthAgeDisplay").textContent = getSecondRebirthAge()
+  document.getElementById("secondRebirthAgeDisplay2").textContent = getSecondRebirthAge()
 
   document.getElementById("corruptionDisplay").textContent = gameData.corruption.toFixed(1)
   document.getElementById("corruptionGainDisplay").textContent = getCorruptionGain().toFixed(1)
