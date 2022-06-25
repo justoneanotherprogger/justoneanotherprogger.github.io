@@ -322,7 +322,7 @@ function applySpeed(value) {
 function getCorruptionGain() {
   var corruptedSoul = gameData.taskData["Corrupted Soul"]
   var corruptedConsciousness = gameData.taskData["Corrupted Consciousness"]
-  var ageModifier = 1 + getBaseLog(200, daysToYears(gameData.days + 1))
+  var ageModifier = getBaseLog(200, daysToYears(gameData.days) + 1)
   var corruption = ageModifier * corruptedSoul.getEffect() * corruptedConsciousness.getEffect()
   return corruption
 }
