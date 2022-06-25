@@ -89,12 +89,13 @@ const skillBaseData = {
   "Time machine": {name: "Time machine", maxXp: 100, effect: 0.006, description: "Gamespeed"},
   "Deep tech understanding": {name: "Deep tech understanding", maxXp: 100, effect: 0.005, description: "Technologies effect"},
 
-  "Corrupted Wish": {name: "Corrupted Wish", maxXp: 100, effect: 0.005, description: "All XP"},
-  "Corrupted Soul": {name: "Corrupted Soul", maxXp: 100, effect: 0.012, description: "Corruption gain"},
-  "Corrupted Desire": {name: "Corrupted Desire", maxXp: 100, effect: 0.006, description: "All XP"},
-  "Corrupted Consciousness": {name: "Corrupted Consciousness", maxXp: 100, effect: 0.01, description: "Corruption gain"},
+  "Corrupted Wish": {name: "Corrupted Wish", maxXp: 100, effect: 0.004, description: "All XP"},
+  "Corrupted Soul": {name: "Corrupted Soul", maxXp: 100, effect: 0.01, description: "Corruption gain"},
+  "Corrupted Desire": {name: "Corrupted Desire", maxXp: 100, effect: 0.003, description: "All XP"},
+  "Corrupted Consciousness": {name: "Corrupted Consciousness", maxXp: 100, effect: 0.008, description: "Corruption gain"},
   "Corrupted Greed": {name: "Corrupted Greed", maxXp: 100, effect: 0.003, description: "All income"},
-  "Corrupted Body": {name: "Corrupted Body", maxXp: 100, effect: 0.003, description: "Lifespan"},
+  "Corrupted Body": {name: "Corrupted Body", maxXp: 100, effect: 0.002, description: "Lifespan"},
+  "Corrupted Time": {name: "Corrupted Time", maxXp: 100, effect: 0.003, description: "Gamespeed"},
   "Corrupted Mind": {name: "Corrupted Mind", maxXp: 100, effect: 0.004, description: "Corruption efficiency"},
 }
 
@@ -139,7 +140,7 @@ const skillCategories = {
   "Body": ["Perception", "Endurance", "Stealth", "Aptitude", "Hardening"],
   "Mind": ["Programming", "Attentiveness", "Language understanding", "Luckiness", "Waiting skill", "Interest in knowledge", "Devil's tongue"],
   "Technology": ["Reversal of aging", "Time acceleration", "Time machine", "Deep tech understanding"],
-  "Occultism": ["Corrupted Wish", "Corrupted Soul", "Corrupted Desire", "Corrupted Consciousness", "Corrupted Greed", "Corrupted Body", "Corrupted Mind"],
+  "Occultism": ["Corrupted Wish", "Corrupted Soul", "Corrupted Desire", "Corrupted Consciousness", "Corrupted Greed", "Corrupted Body", "Corrupted Time", "Corrupted Mind"],
 }
 
 const itemCategories = {
@@ -335,11 +336,12 @@ function getGameSpeed(forTaskbar=0) {
   var waiting = gameData.taskData["Waiting skill"]
   var acceleration = gameData.taskData["Time acceleration"]
   var timeMachine = gameData.taskData["Time machine"]
+  var corruptedTime = gameData.taskData["Corrupted Time"]
   if (forTaskbar) {
-    var timeWarpingSpeed = waiting.getEffect() * acceleration.getEffect() * timeMachine.getEffect()
+    var timeWarpingSpeed = waiting.getEffect() * acceleration.getEffect() * timeMachine.getEffect() * corruptedTime.getEffect()
     var gameSpeed = timeWarpingSpeed
   } else {
-    var timeWarpingSpeed = gameData.timeWarpingEnabled ? waiting.getEffect() * acceleration.getEffect() * timeMachine.getEffect() : 1
+    var timeWarpingSpeed = gameData.timeWarpingEnabled ? waiting.getEffect() * acceleration.getEffect() * timeMachine.getEffect() * corruptedTime.getEffect() : 1
     var gameSpeed = baseGameSpeed * +!gameData.paused * +isAlive() * timeWarpingSpeed
   }
   return gameSpeed
@@ -659,6 +661,8 @@ function updateText() {
 
   document.getElementById("happinessDisplay").textContent = getHappiness().toFixed(1)
 
+  document.getElementById("secondRebirthAgeDisplay").textContent = getSecondRebirthAge()
+
   document.getElementById("corruptionDisplay").textContent = gameData.corruption.toFixed(1)
   document.getElementById("corruptionGainDisplay").textContent = getCorruptionGain().toFixed(1)
 
@@ -942,6 +946,17 @@ function rebirthReset() {
   }
 }
 
+function getSecondRebirthAge() {
+  var initialAge = 200
+  var tier = Math.floor(getBaseLog(10, gameData.corruption + 1))
+  var result = initialAge
+  for (var i = 0; i <= tier; i++) {
+    var addition = 50 * i
+    result += addition
+  }
+  return result
+}
+
 function getLifespan() {
   var hardening = gameData.taskData["Hardening"]
   var agingReversal = gameData.taskData["Reversal of aging"]
@@ -1184,13 +1199,13 @@ gameData.requirements = {
   "Rebirth tab": new AgeRequirement([document.getElementById("rebirthTabButton")], [{requirement: 25}]),
   "Rebirth note 1": new AgeRequirement([document.getElementById("rebirthNote1")], [{requirement: 45}]),
   "Rebirth note 2": new AgeRequirement([document.getElementById("rebirthNote2")], [{requirement: 70}]),
-  "Rebirth note 3": new AgeRequirement([document.getElementById("rebirthNote3")], [{requirement: 200}]),
+  "Rebirth note 3": new AgeRequirement([document.getElementById("rebirthNote3")], [{requirement: getSecondRebirthAge()}]),
   "Rebirth note 4": new AgeRequirement([document.getElementById("rebirthNote4")], [{requirement: 1000}]),
   "Rebirth note 5": new AgeRequirement([document.getElementById("rebirthNote5")], [{requirement: 10000}]),
   "Rebirth note 6": new AgeRequirement([document.getElementById("rebirthNote6")], [{requirement: 100000}]),
   "Corruption info": new CorruptionRequirement([document.getElementById("corruptionInfo")], [{requirement: 1}]),
   "InnerExp info": new InnerExpRequirement([document.getElementById("innerExpInfo")], [{requirement: 1}]),
-  "Time warping info": new TaskRequirement([document.getElementById("timeWarping")], [{task: "Waiting skill", requirement: 1}]),
+  // "Time warping info": new TaskRequirement([document.getElementById("timeWarping")], [{task: "Waiting skill", requirement: 1}]),
 
   "Automation": new AgeRequirement([document.getElementById("automation")], [{requirement: 25}]),
   "Quick task display": new AgeRequirement([document.getElementById("quickTaskDisplay")], [{requirement: 20}]),
@@ -1257,7 +1272,8 @@ gameData.requirements = {
   "Corrupted Consciousness": new CorruptionRequirement([getTaskElement("Corrupted Consciousness")], [{requirement: 50}]),
   "Corrupted Greed": new CorruptionRequirement([getTaskElement("Corrupted Greed")], [{requirement: 250}]),
   "Corrupted Body": new CorruptionRequirement([getTaskElement("Corrupted Body")], [{requirement: 1000}]),
-  "Corrupted Mind": new CorruptionRequirement([getTaskElement("Corrupted Mind")], [{requirement: 5000}]),
+  "Corrupted Time": new CorruptionRequirement([getTaskElement("Corrupted Time")], [{requirement: 5000}]),
+  "Corrupted Mind": new CorruptionRequirement([getTaskElement("Corrupted Mind")], [{requirement: 10000}]),
 
   // Shop
   //Properties
@@ -1277,7 +1293,7 @@ gameData.requirements = {
   "Placeholder7": new CoinRequirement([getItemElement("Placeholder7")], [{requirement: gameData.itemData["Placeholder7"].getExpense() * 100}]),
 
   //Misc
-  "Gym membership": new CoinRequirement([getItemElement("Gym membership")], [{requirement: gameData.itemData["Gym membership"].getExpense() * 100}]),
+  "Gym membership": new CoinRequirement([getItemElement("Gym membership")], [{requirement: gameData.itemData["Gym membership"].getExpense() * 0}]),
   "Library card": new CoinRequirement([getItemElement("Library card")], [{requirement: gameData.itemData["Library card"].getExpense() * 100}]),
   "Laptop": new CoinRequirement([getItemElement("Laptop")], [{requirement: gameData.itemData["Laptop"].getExpense() * 100}]),
   "Car": new CoinRequirement([getItemElement("Car")], [{requirement: gameData.itemData["Car"].getExpense() * 100}]),
