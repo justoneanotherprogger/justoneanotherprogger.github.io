@@ -37,7 +37,7 @@ const baseLifespan = 365 * 75
 
 const baseGameSpeed = 10
 
-const permanentUnlocks = ["Shop", "Automation", "Quick task display"]
+const permanentUnlocks = ["Shop", "Automation", "Quick task display", "Corruption info", "InnerExp info", "Time warping info"]
 
 const jobBaseData = {
   "Cleaner": {name: "Cleaner", maxXp: 100, income: 5},
@@ -1207,7 +1207,7 @@ gameData.requirements = {
   "Rebirth note 6": new AgeRequirement([document.getElementById("rebirthNote6")], [{requirement: 100000}]),
   "Corruption info": new CorruptionRequirement([document.getElementById("corruptionInfo")], [{requirement: 1}]),
   "InnerExp info": new InnerExpRequirement([document.getElementById("innerExpInfo")], [{requirement: 1}]),
-  // "Time warping info": new TaskRequirement([document.getElementById("timeWarping")], [{task: "Waiting skill", requirement: 1}]),
+  "Time warping info": new TaskRequirement([document.getElementById("timeWarping")], [{task: "Waiting skill", requirement: 1}]),
 
   "Automation": new AgeRequirement([document.getElementById("automation")], [{requirement: 25}]),
   "Quick task display": new AgeRequirement([document.getElementById("quickTaskDisplay")], [{requirement: 20}]),
