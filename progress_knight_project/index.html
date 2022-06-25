@@ -41,34 +41,18 @@
 
                     <div style="font-size: large" id="coinDisplay">
                         <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-						<span></span>
                     </div>
                     <div style="color: gray">Balance</div>
 
                     <ul class="sidebar-element" style="padding-left: 20px;">
                         <li><span style="color: rgb(9, 160, 230)">Net/day: </span ><b id="signDisplay"></b><span id="netDisplay">
                             <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-							<span></span>
                         </span></li>
                         <li><span style="color: green">Income/day: </span><span id="incomeDisplay">
                             <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-							<span></span>
                         </span></li>
                         <li><span style="color: red">Expense/day: </span><span id="expenseDisplay">
                             <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-							<span></span>
                         </span></li>
                     </ul>
 
@@ -99,19 +83,6 @@
                         <div style="color: gray" class="sidebar-element">Affects Almightiness XP gain</div>
                     </span>
 
-
-                    <!--
-                    <span id="scheduling">
-                        <div style="font-size: large">Scheduling</div>
-                        <div style="color: gray" class="sidebar-element">Schedule time to jobs/skills</div>
-                        <span style="height: 30px">
-                            <p style="width: 15px">Jobs</br>(32%)</p>
-                            <input id="schedulingSlider" class="slider" type="range" min="0" max="100" value="0">
-                            <p style="width: 5px">Skills</br>(68%)</p>
-                        </span>
-                    </span>
-                    -->
-
                     <span id="timeWarping">
                         <div style="font-size: large"><span style="color: rgb(204, 34, 219)">Gamespeed: </span><span id="timeWarpingDisplay"></span></div>
                         <div style="color: gray">Affects game speed</div>
@@ -120,14 +91,14 @@
                     </span>
                 </div>
                 <div class="column">
-                    <div class="panel w3-margin-left" style="width: 1100px; height: 40px;">
+                    <div class="panel w3-margin-left" style="width: 1200px; height: 40px;">
                         <div class="w3-button w3-bar-item tabButton" id="jobTabButton" onClick="setTab(this, 'jobs')">Positions</div>
                         <div class="w3-button w3-bar-item tabButton" onClick="setTab(this, 'skills')">Abilities</div>
                         <div class="w3-button w3-bar-item tabButton" id="shopTabButton" onClick="setTab(this, 'shop')">Shop</div>
                         <div class="w3-button w3-bar-item tabButton" id="rebirthTabButton" onClick="setTab(this, 'rebirth')">Reincarnation</div>
                         <div class="w3-button w3-bar-item tabButton" onClick="setTab(this, 'settings')" style="float: right">Settings</div>
                     </div>
-                    <div class="panel w3-margin-left w3-margin-top w3-padding" style="width: 1100px; height: auto; float: right">
+                    <div class="panel w3-margin-left w3-margin-top w3-padding" style="width: 1200px; height: auto; float: right">
                         <template class="headerRowTaskTemplate">
                             <tr>
                                 <th class="category" style="width: 300px">Job</th>
