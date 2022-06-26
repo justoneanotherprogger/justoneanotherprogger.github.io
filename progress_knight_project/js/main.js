@@ -40,14 +40,14 @@ const baseGameSpeed = 10
 const permanentUnlocks = ["Shop", "Automation", "Quick task display", "Corruption info", "InnerExp info", "Time warping info"]
 
 const jobBaseData = {
-  "Cleaner": {name: "Cleaner", maxXp: 100, income: 5},
-  "Chief cleaner": {name: "Chief cleaner", maxXp: 300, income: 10},
-  "Sales intern": {name: "Sales intern", maxXp: 900, income: 20},
-  "Experienced salesman": {name: "Experienced salesman", maxXp: 2700, income: 40},
-  "Manager": {name: "Manager", maxXp: 8100, income: 80},
-  "Chief manager": {name: "Chief manager", maxXp: 24300, income: 160},
-  "Store headmaster": {name: "Store headmaster", maxXp: 72900, income: 320},
-  "Brand lord": {name: "Brand lord", maxXp: 218700, income: 640},
+  "Cleaner": {name: "Cleaner", maxXp: 100, income: 6},
+  "Chief cleaner": {name: "Chief cleaner", maxXp: 300, income: 12},
+  "Sales intern": {name: "Sales intern", maxXp: 900, income: 24},
+  "Experienced salesman": {name: "Experienced salesman", maxXp: 2700, income: 48},
+  "Manager": {name: "Manager", maxXp: 8100, income: 96},
+  "Chief manager": {name: "Chief manager", maxXp: 24300, income: 192},
+  "Store headmaster": {name: "Store headmaster", maxXp: 72900, income: 384},
+  "Brand lord": {name: "Brand lord", maxXp: 218700, income: 768},
 
   "Junior": {name: "Junior", maxXp: 500, income: 20},
   "Middle": {name: "Middle", maxXp: 5000, income: 40},
@@ -59,14 +59,14 @@ const jobBaseData = {
   "World class guru": {name: "World class guru", maxXp: 5000000000, income: 2560},
   "World IT coordinator": {name: "World IT coordinator", maxXp: 50000000000, income: 5120},
 
-  "Student": {name: "Student", maxXp: 100000, income: 80},
-  "Scientist naturalist": {name: "Scientist naturalist", maxXp: 1000000, income: 240},
-  "Expert naturalist": {name: "Expert naturalist", maxXp: 10000000, income: 720},
-  "Theoretical physicist": {name: "Theoretical physicist", maxXp: 100000000, income: 2160},
-  "Inventor": {name: "Inventor", maxXp: 1000000000, income: 6480},
-  "Quantum engineer": {name: "Quantum engineer", maxXp: 10000000000, income: 19440},
-  "Science revolutioneer": {name: "Science revolutioneer", maxXp: 100000000000, income: 58320},
-  "Mad scientist": {name: "Mad scientist", maxXp: 1000000000000, income: 174960},
+  "Student": {name: "Student", maxXp: 10000, income: 80},
+  "Scientist naturalist": {name: "Scientist naturalist", maxXp: 100000, income: 240},
+  "Expert naturalist": {name: "Expert naturalist", maxXp: 1000000, income: 720},
+  "Theoretical physicist": {name: "Theoretical physicist", maxXp: 10000000, income: 2160},
+  "Inventor": {name: "Inventor", maxXp: 100000000, income: 6480},
+  "Quantum engineer": {name: "Quantum engineer", maxXp: 1000000000, income: 19440},
+  "Science revolutioneer": {name: "Science revolutioneer", maxXp: 10000000000, income: 58320},
+  "Mad scientist": {name: "Mad scientist", maxXp: 100000000000, income: 174960},
 }
 
 const skillBaseData = {
