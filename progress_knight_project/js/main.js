@@ -101,19 +101,19 @@ const skillBaseData = {
 
 const itemBaseData = {
   "Parents house": {name: "Parents house", expense: 0, effect: 1},
-  "Placeholder8": {name: "Placeholder8", expense: 15, effect: 1.2},
-  "Hostel": {name: "Hostel", expense: 56, effect: 2}, // expense ~ expensePrev+2^log10(effect)+10*effect^2
-  "3-star hotel room": {name: "3-star hotel room", expense: 147, effect: 3},
-  "5-star hotel room": {name: "5-star hotel room", expense: 508, effect: 6},
-  "Small apartment": {name: "Small apartment", expense: 1950, effect: 12},
-  "Apartment": {name: "Apartment", expense: 8202, effect: 25},
-  "Placeholder1": {name: "Placeholder1", expense: 44205, effect: 60},
-  "Placeholder2": {name: "Placeholder2", expense: 269209, effect: 150},
-  "Placeholder3": {name: "Placeholder3", expense: 1169214, effect: 300},
-  "Placeholder4": {name: "Placeholder4", expense: 6069221, effect: 700},
-  "Placeholder5": {name: "Placeholder5", expense: 28569230, effect: 1500},
-  "Placeholder6": {name: "Placeholder6", expense: 278569242, effect: 5000},
-  "Placeholder7": {name: "Placeholder7", expense: 100278569324, effect: 100000},
+  "Placeholder8": {name: "Placeholder8", expense: 17, effect: 1.4}, // expense ~ floor(expensePrev+4^log(effect, 5)+effect^2+50*effect*log(effect, 5))
+  "Hostel": {name: "Hostel", expense: 65, effect: 2},
+  "3-star hotel room": {name: "3-star hotel room", expense: 178, effect: 3},
+  "5-star hotel room": {name: "5-star hotel room", expense: 457, effect: 5},
+  "Small apartment": {name: "Small apartment", expense: 1279, effect: 10},
+  "Apartment": {name: "Apartment", expense: 3720, effect: 21},
+  "Placeholder1": {name: "Placeholder1", expense: 11093, effect: 45},
+  "Placeholder2": {name: "Placeholder2", expense: 35452, effect: 100},
+  "Placeholder3": {name: "Placeholder3", expense: 140951, effect: 250},
+  "Placeholder4": {name: "Placeholder4", expense: 694507, effect: 650},
+  "Placeholder5": {name: "Placeholder5", expense: 5167474, effect: 2000},
+  "Placeholder6": {name: "Placeholder6", expense: 42760863, effect: 6000},
+  "Placeholder7": {name: "Placeholder7", expense: 448919312, effect: 20000},
 
   "Gym membership": {name: "Gym membership", expense: 5, effect: 1.5, description: "Body XP"},
   "Library card": {name: "Library card", expense: 20, effect: 1.5, description: "Mind XP"},
