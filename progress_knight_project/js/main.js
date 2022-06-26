@@ -865,10 +865,9 @@ function formatCoins(coins, element) {
   var finalTier = Math.floor(getBaseLog(1000, coins))
   var tier = tiers[finalTier]
   element.children[0].style.color = colors[tier]
+  element.children[0].style.textShadow = "0 0 0"
   if (finalTier % 2 == 1) {
     element.children[0].style.textShadow = "0 0 9px"
-  } else {
-    element.children[0].style.textShadow = "none"
   }
   var text = Math.floor(coins)
   element.children[0].textContent = format(String(text),2) + " ℧"
