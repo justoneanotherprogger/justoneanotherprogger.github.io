@@ -849,21 +849,24 @@ function format(number,decimals= 1) {
 }
 
 function formatCoins(coins, element) {
-  var tiers = ["c", "s", "g", "p"]
+  var tiers = ["c", "cg", "s", "sg", "g", "gg", "p", "pg", "d", "dg"]
   var colors = {
+    "d": "#c0eaed",
     "p": "#79b9c7",
     "g": "#E5C100",
     "s": "#a8a8a8",
-    "c": "#a15c2f"
+    "c": "#a15c2f",
+    "dg": "#c0eaed",
+    "pg": "#79b9c7",
+    "gg": "#E5C100",
+    "sg": "#a8a8a8",
+    "cg": "#a15c2f"
   }
-  for (var i = 0 ; i < tiers.length ; i++) {
-    var tier = tiers[i]
-    if (coins == 0) {
-      tier = tiers[0];
-      element.children[0].style.color = colors[tier];
-    } else if (coins >= Math.pow(1000, i)) {
-      element.children[0].style.color = colors[tier]
-    }
+  var finalTier = Math.floor(getBaseLog(1000, coins))
+  var tier = tiers[finalTier]
+  element.children[0].style.color = colors[tier]
+  if (finalTier % 2 == 1) {
+    element.children[0].style.textShadow = "0 0 9px"
   }
   var text = Math.floor(coins)
   element.children[0].textContent = format(String(text),2) + " ℧"
