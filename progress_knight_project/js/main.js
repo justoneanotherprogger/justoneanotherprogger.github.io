@@ -867,6 +867,8 @@ function formatCoins(coins, element) {
   element.children[0].style.color = colors[tier]
   if (finalTier % 2 == 1) {
     element.children[0].style.textShadow = "0 0 9px"
+  } else {
+    element.children[0].style.textShadow = "none"
   }
   var text = Math.floor(coins)
   element.children[0].textContent = format(String(text),2) + " ℧"
