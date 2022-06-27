@@ -37,7 +37,7 @@ const baseLifespan = 365 * 75
 
 const baseGameSpeed = 10
 
-const permanentUnlocks = ["Shop", "Automation", "Quick task display", "Corruption info", "InnerExp info", "Time warping info"]
+const permanentUnlocks = ["Shop", "Automation", "Quick task display", "Corruption info", "Corruption power info", "InnerExp info", "Time warping info"]
 
 const jobBaseData = {
   "Cleaner": {name: "Cleaner", maxXp: 100, income: 6},
@@ -660,16 +660,17 @@ function updateText() {
   formatCoins(getIncome(), document.getElementById("incomeDisplay"))
   formatCoins(getExpense(), document.getElementById("expenseDisplay"))
 
-  document.getElementById("happinessDisplay").textContent = getHappiness().toFixed(1)
+  document.getElementById("happinessDisplay").textContent = format(getHappiness(), 2)
 
   document.getElementById("secondRebirthAgeDisplay").textContent = getSecondRebirthAge()
   document.getElementById("secondRebirthAgeDisplay2").textContent = getSecondRebirthAge()
 
-  document.getElementById("corruptionDisplay").textContent = gameData.corruption.toFixed(1)
-  document.getElementById("corruptionGainDisplay").textContent = getCorruptionGain().toFixed(1)
+  document.getElementById("corruptionDisplay").textContent = format(gameData.corruption, 2)
+  document.getElementById("corruptionPowerDisplay").textContent = format(gameData.taskData["Corrupted Mind"].getEffect(), 2)
+  document.getElementById("corruptionGainDisplay").textContent = format(getCorruptionGain(), 2)
 
-  document.getElementById("innerExpDisplay").textContent = gameData.innerExp.toFixed(1)
-  document.getElementById("innerExpGainDisplay").textContent = getInnerExpGain().toFixed(1)
+  document.getElementById("innerExpDisplay").textContent = format(gameData.innerExp, 2)
+  document.getElementById("innerExpGainDisplay").textContent = format(getInnerExpGain(), 2)
 
   document.getElementById("timeWarpingDisplay").textContent = "x" + (getGameSpeed(1)).toFixed(2)
   document.getElementById("timeWarpingButton").textContent = gameData.timeWarpingEnabled ? "Disable warp" : "Enable warp"
@@ -1210,6 +1211,7 @@ gameData.requirements = {
   "Rebirth note 5": new AgeRequirement([document.getElementById("rebirthNote5")], [{requirement: 10000}]),
   "Rebirth note 6": new AgeRequirement([document.getElementById("rebirthNote6")], [{requirement: 100000}]),
   "Corruption info": new CorruptionRequirement([document.getElementById("corruptionInfo")], [{requirement: 1}]),
+  "Corruption power info": new TaskRequirement([document.getElementById("corruptionPower")], [{task: "Corrupted Mind", requirement: 1}]),
   "InnerExp info": new InnerExpRequirement([document.getElementById("innerExpInfo")], [{requirement: 1}]),
   "Time warping info": new TaskRequirement([document.getElementById("timeWarping")], [{task: "Waiting skill", requirement: 1}]),
 
