@@ -60,13 +60,13 @@ const jobBaseData = {
   "World IT coordinator": {name: "World IT coordinator", maxXp: 50000000000, income: 5120},
 
   "Student": {name: "Student", maxXp: 40000, income: 80},
-  "Scientist naturalist": {name: "Scientist naturalist", maxXp: 400000, income: 240},
-  "Expert naturalist": {name: "Expert naturalist", maxXp: 4000000, income: 720},
-  "Theoretical physicist": {name: "Theoretical physicist", maxXp: 40000000, income: 2160},
-  "Inventor": {name: "Inventor", maxXp: 400000000, income: 6480},
-  "Quantum engineer": {name: "Quantum engineer", maxXp: 4000000000, income: 19440},
-  "Science revolutioneer": {name: "Science revolutioneer", maxXp: 40000000000, income: 58320},
-  "Mad scientist": {name: "Mad scientist", maxXp: 400000000000, income: 174960},
+  "Scientist naturalist": {name: "Scientist naturalist", maxXp: 400000, income: 320},
+  "Expert naturalist": {name: "Expert naturalist", maxXp: 4000000, income: 1280},
+  "Theoretical physicist": {name: "Theoretical physicist", maxXp: 40000000, income: 5120},
+  "Inventor": {name: "Inventor", maxXp: 400000000, income: 20480},
+  "Quantum engineer": {name: "Quantum engineer", maxXp: 4000000000, income: 81920},
+  "Science revolutioneer": {name: "Science revolutioneer", maxXp: 40000000000, income: 327680},
+  "Mad scientist": {name: "Mad scientist", maxXp: 400000000000, income: 1310720},
 }
 
 const skillBaseData = {
