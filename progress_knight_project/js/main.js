@@ -41,13 +41,13 @@ const permanentUnlocks = ["Shop", "Automation", "Quick task display", "Corruptio
 
 const jobBaseData = {
   "Cleaner": {name: "Cleaner", maxXp: 100, income: 6},
-  "Chief cleaner": {name: "Chief cleaner", maxXp: 300, income: 12},
-  "Sales intern": {name: "Sales intern", maxXp: 900, income: 24},
-  "Experienced salesman": {name: "Experienced salesman", maxXp: 2700, income: 48},
-  "Manager": {name: "Manager", maxXp: 8100, income: 96},
-  "Chief manager": {name: "Chief manager", maxXp: 24300, income: 192},
-  "Store headmaster": {name: "Store headmaster", maxXp: 72900, income: 384},
-  "Brand lord": {name: "Brand lord", maxXp: 218700, income: 768},
+  "Chief cleaner": {name: "Chief cleaner", maxXp: 300, income: 15},
+  "Sales intern": {name: "Sales intern", maxXp: 900, income: 37},
+  "Experienced salesman": {name: "Experienced salesman", maxXp: 2700, income: 92},
+  "Manager": {name: "Manager", maxXp: 8100, income: 230},
+  "Chief manager": {name: "Chief manager", maxXp: 24300, income: 575},
+  "Store headmaster": {name: "Store headmaster", maxXp: 72900, income: 1437},
+  "Brand lord": {name: "Brand lord", maxXp: 218700, income: 3592},
 
   "Junior": {name: "Junior", maxXp: 500, income: 20},
   "Middle": {name: "Middle", maxXp: 5000, income: 40},
@@ -70,23 +70,23 @@ const jobBaseData = {
 }
 
 const skillBaseData = {
-  "Perception": {name: "Perception", maxXp: 100, effect: 0.01, description: "Abilities XP"},
+  "Perception": {name: "Perception", maxXp: 100, effect: 0.011, description: "Abilities XP"},
   "Endurance": {name: "Endurance", maxXp: 100, effect: 0.01, description: "Positions XP"},
   "Stealth": {name: "Stealth", maxXp: 100, effect: -0.01, description: "Expenses"},
-  "Aptitude": {name: "Aptitude", maxXp: 100, effect: 0.01, description: "Positions XP"},
+  "Aptitude": {name: "Aptitude", maxXp: 100, effect: 0.009, description: "Positions XP"},
   "Hardening": {name: "Hardening", maxXp: 100, effect: 0.002, description: "Lifespan"},
 
   "Programming": {name: "Programming", maxXp: 100, effect: 0.009, description: "IT income"},
-  "Attentiveness": {name: "Attentiveness", maxXp: 100, effect: 0.01, description: "IT XP"},
-  "Language understanding": {name: "Language understanding", maxXp: 100, effect: 0.01, description: "Programming XP"},
-  "Luckiness": {name: "Luckiness", maxXp: 100, effect: 0.01, description: "Happiness"},
-  "Waiting skill": {name: "Waiting skill", maxXp: 100, effect: 0.004, description: "Gamespeed"},
-  "Interest in knowledge": {name: "Interest in knowledge", maxXp: 100, effect: 0.01, description: "Science XP"},
+  "Attentiveness": {name: "Attentiveness", maxXp: 100, effect: 0.008, description: "IT XP"},
+  "Language understanding": {name: "Language understanding", maxXp: 100, effect: 0.011, description: "Programming XP"},
+  "Luckiness": {name: "Luckiness", maxXp: 100, effect: 0.00777, description: "Happiness"},
+  "Waiting skill": {name: "Waiting skill", maxXp: 100, effect: 0.003, description: "Gamespeed"},
+  "Interest in knowledge": {name: "Interest in knowledge", maxXp: 100, effect: 0.0088, description: "Science XP"},
   "Devil's tongue": {name: "Devil's tongue", maxXp: 100, effect: -0.01, description: "Expenses"},
 
   "Reversal of aging": {name: "Reversal of aging", maxXp: 100, effect: 0.004, description: "Lifespan"},
-  "Time acceleration": {name: "Time acceleration", maxXp: 100, effect: 0.005, description: "Gamespeed"},
-  "Time machine": {name: "Time machine", maxXp: 100, effect: 0.006, description: "Gamespeed"},
+  "Time acceleration": {name: "Time acceleration", maxXp: 100, effect: 0.006, description: "Gamespeed"},
+  "Time machine": {name: "Time machine", maxXp: 100, effect: 0.007, description: "Gamespeed"},
   "Deep tech understanding": {name: "Deep tech understanding", maxXp: 100, effect: 0.005, description: "Technologies effect"},
 
   "Corrupted Wish": {name: "Corrupted Wish", maxXp: 100, effect: 0.004, description: "All XP"},
@@ -95,7 +95,7 @@ const skillBaseData = {
   "Corrupted Consciousness": {name: "Corrupted Consciousness", maxXp: 100, effect: 0.008, description: "Corruption gain"},
   "Corrupted Greed": {name: "Corrupted Greed", maxXp: 100, effect: 0.003, description: "All income"},
   "Corrupted Body": {name: "Corrupted Body", maxXp: 100, effect: 0.002, description: "Lifespan"},
-  "Corrupted Time": {name: "Corrupted Time", maxXp: 100, effect: 0.003, description: "Gamespeed"},
+  "Corrupted Time": {name: "Corrupted Time", maxXp: 100, effect: 0.004, description: "Gamespeed"},
   "Corrupted Mind": {name: "Corrupted Mind", maxXp: 100, effect: 0.004, description: "Corruption efficiency"},
 }
 
