@@ -1235,7 +1235,7 @@ gameData.requirements = {
   "IT supervisor": new TaskRequirement([getTaskElement("IT supervisor")], [{task: "Senior", requirement: 10}, {task: "Attentiveness", requirement: 300}]),
   "Technical Director": new TaskRequirement([getTaskElement("Technical Director")], [{task: "IT supervisor", requirement: 10}, {task: "Programming", requirement: 500}, {task: "Perception", requirement: 350}]),
   "Head of an IT conglomerate": new TaskRequirement([getTaskElement("Head of an IT conglomerate")], [{task: "Technical Director", requirement: 10}, {task: "Interest in knowledge", requirement: 300}, {task: "Attentiveness", requirement: 700}]),
-  "World class guru": new TaskRequirement([getTaskElement("World class guru")], [{task: "Head of an IT conglomerate", requirement: 10}, {task: "Interest in knowledge", requirement: 750}]),
+  "World class guru": new TaskRequirement([getTaskElement("World class guru")], [{task: "Head of an IT conglomerate", requirement: 10}, {task: "Interest in knowledge", requirement: 750}, {task: "Corrupted Desire", requirement: 10}]),
   "World IT coordinator": new TaskRequirement([getTaskElement("World IT coordinator")], [{task: "World class guru", requirement: 20}, {task: "Programming", requirement: 1500}, {task: "Devil's tongue", requirement: 1200}, {task: "Corrupted Greed", requirement: 10}]),
 
   // Science
