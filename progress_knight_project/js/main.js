@@ -41,32 +41,32 @@ const permanentUnlocks = ["Shop", "Automation", "Quick task display", "Corruptio
 
 const jobBaseData = {
   "Cleaner": {name: "Cleaner", maxXp: 100, income: 6},
-  "Chief cleaner": {name: "Chief cleaner", maxXp: 300, income: 15},
-  "Sales intern": {name: "Sales intern", maxXp: 900, income: 37},
-  "Experienced salesman": {name: "Experienced salesman", maxXp: 2700, income: 92},
-  "Manager": {name: "Manager", maxXp: 8100, income: 230},
-  "Chief manager": {name: "Chief manager", maxXp: 24300, income: 575},
-  "Store headmaster": {name: "Store headmaster", maxXp: 72900, income: 1437},
-  "Brand lord": {name: "Brand lord", maxXp: 218700, income: 3592},
+  "Chief cleaner": {name: "Chief cleaner", maxXp: 300, income: 13},
+  "Sales intern": {name: "Sales intern", maxXp: 900, income: 28},
+  "Experienced salesman": {name: "Experienced salesman", maxXp: 2700, income: 61},
+  "Manager": {name: "Manager", maxXp: 8100, income: 134},
+  "Chief manager": {name: "Chief manager", maxXp: 24300, income: 294},
+  "Store headmaster": {name: "Store headmaster", maxXp: 72900, income: 646},
+  "Brand lord": {name: "Brand lord", maxXp: 218700, income: 1421},
 
-  "Junior": {name: "Junior", maxXp: 500, income: 20},
-  "Middle": {name: "Middle", maxXp: 5000, income: 40},
-  "Middle+": {name: "Middle+", maxXp: 50000, income: 80},
-  "Senior": {name: "Senior", maxXp: 500000, income: 160},
-  "IT supervisor": {name: "IT supervisor", maxXp: 5000000, income: 320},
-  "Technical Director": {name: "Technical Director", maxXp: 50000000, income: 640},
-  "Head of an IT conglomerate": {name: "Head of an IT conglomerate", maxXp: 500000000, income: 1280},
-  "World class guru": {name: "World class guru", maxXp: 5000000000, income: 2560},
-  "World IT coordinator": {name: "World IT coordinator", maxXp: 50000000000, income: 5120},
+  "Junior": {name: "Junior", maxXp: 500, income: 16},
+  "Middle": {name: "Middle", maxXp: 5000, income: 43},
+  "Middle+": {name: "Middle+", maxXp: 50000, income: 116},
+  "Senior": {name: "Senior", maxXp: 600000, income: 313},
+  "IT supervisor": {name: "IT supervisor", maxXp: 7000000, income: 845},
+  "Technical Director": {name: "Technical Director", maxXp: 80000000, income: 2281},
+  "Head of an IT conglomerate": {name: "Head of an IT conglomerate", maxXp: 900000000, income: 6158},
+  "World class guru": {name: "World class guru", maxXp: 10000000000, income: 16626},
+  "World IT coordinator": {name: "World IT coordinator", maxXp: 150000000000, income: 44890},
 
   "Student": {name: "Student", maxXp: 40000, income: 80},
-  "Scientist naturalist": {name: "Scientist naturalist", maxXp: 400000, income: 320},
-  "Expert naturalist": {name: "Expert naturalist", maxXp: 4000000, income: 1280},
-  "Theoretical physicist": {name: "Theoretical physicist", maxXp: 40000000, income: 5120},
-  "Inventor": {name: "Inventor", maxXp: 400000000, income: 20480},
-  "Quantum engineer": {name: "Quantum engineer", maxXp: 4000000000, income: 81920},
-  "Science revolutioneer": {name: "Science revolutioneer", maxXp: 40000000000, income: 327680},
-  "Mad scientist": {name: "Mad scientist", maxXp: 400000000000, income: 1310720},
+  "Scientist naturalist": {name: "Scientist naturalist", maxXp: 500000, income: 320},
+  "Expert naturalist": {name: "Expert naturalist", maxXp: 6000000, income: 1280},
+  "Theoretical physicist": {name: "Theoretical physicist", maxXp: 80000000, income: 5120},
+  "Inventor": {name: "Inventor", maxXp: 1000000000, income: 20480},
+  "Quantum engineer": {name: "Quantum engineer", maxXp: 20000000000, income: 81920},
+  "Science revolutioneer": {name: "Science revolutioneer", maxXp: 500000000000, income: 327680},
+  "Mad scientist": {name: "Mad scientist", maxXp: 15000000000000, income: 1310720},
 }
 
 const skillBaseData = {
@@ -74,28 +74,29 @@ const skillBaseData = {
   "Endurance": {name: "Endurance", maxXp: 100, effect: 0.01, description: "Positions XP"},
   "Stealth": {name: "Stealth", maxXp: 100, effect: -0.01, description: "Expenses"},
   "Aptitude": {name: "Aptitude", maxXp: 100, effect: 0.009, description: "Positions XP"},
-  "Hardening": {name: "Hardening", maxXp: 100, effect: 0.002, description: "Lifespan"},
+  "Hardening": {name: "Hardening", maxXp: 100, effect: 0.0022, description: "Lifespan"},
 
   "Programming": {name: "Programming", maxXp: 100, effect: 0.009, description: "IT income"},
   "Attentiveness": {name: "Attentiveness", maxXp: 100, effect: 0.008, description: "IT XP"},
   "Language understanding": {name: "Language understanding", maxXp: 100, effect: 0.011, description: "Programming XP"},
   "Luckiness": {name: "Luckiness", maxXp: 100, effect: 0.00777, description: "Happiness"},
-  "Waiting skill": {name: "Waiting skill", maxXp: 100, effect: 0.003, description: "Gamespeed"},
+  "Waiting skill": {name: "Waiting skill", maxXp: 100, effect: 0.0035, description: "Gamespeed"},
   "Interest in knowledge": {name: "Interest in knowledge", maxXp: 100, effect: 0.0088, description: "Science XP"},
   "Devil's tongue": {name: "Devil's tongue", maxXp: 100, effect: -0.01, description: "Expenses"},
 
-  "Reversal of aging": {name: "Reversal of aging", maxXp: 100, effect: 0.004, description: "Lifespan"},
+  "Reversal of aging": {name: "Reversal of aging", maxXp: 100, effect: 0.0035, description: "Lifespan"},
   "Time acceleration": {name: "Time acceleration", maxXp: 100, effect: 0.006, description: "Gamespeed"},
   "Time machine": {name: "Time machine", maxXp: 100, effect: 0.007, description: "Gamespeed"},
   "Deep tech understanding": {name: "Deep tech understanding", maxXp: 100, effect: 0.005, description: "Technologies effect"},
 
-  "Corrupted Wish": {name: "Corrupted Wish", maxXp: 100, effect: 0.004, description: "All XP"},
+  "Corrupted Wish": {name: "Corrupted Wish", maxXp: 100, effect: 0.0075, description: "All XP"},
   "Corrupted Soul": {name: "Corrupted Soul", maxXp: 100, effect: 0.01, description: "Corruption gain"},
   "Corrupted Desire": {name: "Corrupted Desire", maxXp: 100, effect: 0.003, description: "All XP"},
   "Corrupted Consciousness": {name: "Corrupted Consciousness", maxXp: 100, effect: 0.008, description: "Corruption gain"},
   "Corrupted Greed": {name: "Corrupted Greed", maxXp: 100, effect: 0.003, description: "All income"},
   "Corrupted Body": {name: "Corrupted Body", maxXp: 100, effect: 0.002, description: "Lifespan"},
   "Corrupted Time": {name: "Corrupted Time", maxXp: 100, effect: 0.004, description: "Gamespeed"},
+  "Corrupted Imagination": {name: "Corrupted Imagination", maxXp: 100, effect: 0.0021, description: "Inspiration"},
   "Corrupted Mind": {name: "Corrupted Mind", maxXp: 100, effect: 0.004, description: "Corruption efficiency"},
 }
 
@@ -115,19 +116,19 @@ const itemBaseData = {
   "Placeholder6": {name: "Placeholder6", expense: 42760863, effect: 6000},
   "Placeholder7": {name: "Placeholder7", expense: 448919312, effect: 20000},
 
-  "Gym membership": {name: "Gym membership", expense: 5, effect: 1.5, description: "Body XP"},
-  "Library card": {name: "Library card", expense: 20, effect: 1.5, description: "Mind XP"},
-  "Laptop": {name: "Laptop", expense: 100, effect: 2, description: "IT XP"},
-  "Car": {name: "Car", expense: 500, effect: 1.5, description: "Happiness"},
-  "Miscplaceholder7": {name: "Miscplaceholder7", expense: 2600, effect: 2, description: "Positions XP"},
-  "Personal assistant": {name: "Personal assistant", expense: 8900, effect: 2, description: "Abilities XP"},
-  "Professional mentor": {name: "Professional mentor", expense: 25000, effect: 2, description: "Programming XP"},
-  "Miscplaceholder6": {name: "Miscplaceholder6", expense: 100000, effect: 2, description: "Mind XP"},
-  "Miscplaceholder1": {name: "Miscplaceholder1", expense: 600000, effect: 3, description: "Positions XP"},
-  "Miscplaceholder2": {name: "Miscplaceholder2", expense: 2500000, effect: 1.5, description: "Happiness"},
-  "Miscplaceholder3": {name: "Miscplaceholder3", expense: 12000000, effect: 3, description: "Technologies XP"},
-  "Miscplaceholder4": {name: "Miscplaceholder4", expense: 70000000, effect: 10, description: "Body & Mind XP"},
-  "Miscplaceholder5": {name: "Miscplaceholder5", expense: 300000000, effect: 3, description: "Positions XP"},
+  "Gym membership": {name: "Gym membership", expense: 20, effect: 1.5, description: "Body XP"},
+  "Library card": {name: "Library card", expense: 100, effect: 1.5, description: "Mind XP"},
+  "Laptop": {name: "Laptop", expense: 500, effect: 1.8, description: "Inspiration"},
+  "Car": {name: "Car", expense: 2600, effect: 1.5, description: "Happiness"},
+  "Miscplaceholder7": {name: "Miscplaceholder7", expense: 8900, effect: 2, description: "Positions XP"},
+  "Personal assistant": {name: "Personal assistant", expense: 25000, effect: 2, description: "Abilities XP"},
+  "Professional mentor": {name: "Professional mentor", expense: 100000, effect: 2, description: "Programming XP"},
+  "Miscplaceholder6": {name: "Miscplaceholder6", expense: 600000, effect: 2, description: "Mind XP"},
+  "Miscplaceholder1": {name: "Miscplaceholder1", expense: 2500000, effect: 3, description: "Positions XP"},
+  "Miscplaceholder2": {name: "Miscplaceholder2", expense: 12000000, effect: 1.5, description: "Happiness"},
+  "Miscplaceholder3": {name: "Miscplaceholder3", expense: 70000000, effect: 3, description: "Technologies XP"},
+  "Miscplaceholder4": {name: "Miscplaceholder4", expense: 300000000, effect: 10, description: "Body & Mind XP"},
+  "Miscplaceholder5": {name: "Miscplaceholder5", expense: 1000000000, effect: 3, description: "Positions XP"},
 }
 
 const jobCategories = {
@@ -140,7 +141,7 @@ const skillCategories = {
   "Body": ["Perception", "Endurance", "Stealth", "Aptitude", "Hardening"],
   "Mind": ["Programming", "Attentiveness", "Language understanding", "Luckiness", "Waiting skill", "Interest in knowledge", "Devil's tongue"],
   "Technology": ["Reversal of aging", "Time acceleration", "Time machine", "Deep tech understanding"],
-  "Occultism": ["Corrupted Wish", "Corrupted Soul", "Corrupted Desire", "Corrupted Consciousness", "Corrupted Greed", "Corrupted Body", "Corrupted Time", "Corrupted Mind"],
+  "Occultism": ["Corrupted Wish", "Corrupted Soul", "Corrupted Desire", "Corrupted Consciousness", "Corrupted Greed", "Corrupted Body", "Corrupted Time", "Corrupted Imagination", "Corrupted Mind"],
 }
 
 const itemCategories = {
@@ -200,7 +201,7 @@ function addMultipliers() {
 
     task.xpMultipliers.push(task.getMaxLevelMultiplier.bind(task))
     task.xpMultipliers.push(getHappiness)
-    task.xpMultipliers.push(getAgeModifier)
+    task.xpMultipliers.push(getInspiration)
     task.xpMultipliers.push(getBindedTaskEffect("Corrupted Wish"))
     task.xpMultipliers.push(getBindedTaskEffect("Corrupted Desire"))
 
@@ -218,7 +219,6 @@ function addMultipliers() {
     }
 
     if (jobCategories["IT"].includes(task.name)) {
-      task.xpMultipliers.push(getBindedItemEffect("Laptop"))
       task.xpMultipliers.push(getBindedTaskEffect("Attentiveness"))
       task.incomeMultipliers.push(getBindedTaskEffect("Programming"))
     } else if (jobCategories["Science"].includes(task.name)) {
@@ -291,6 +291,13 @@ function getHappiness() {
   var misceffect2 = getBindedItemEffect("Miscplaceholder2")
   var happiness = luckinessEffect() * carEffect() * misceffect2() * gameData.currentProperty.getEffect()
   return happiness
+}
+
+function getInspiration() {
+  var imaginationEffect = getBindedTaskEffect("Corrupted Imagination")
+  var laptopEffect = getBindedItemEffect("Laptop")
+  var inspiration = getAgeModifier() * imaginationEffect() * laptopEffect()
+  return inspiration
 }
 
 function getCorruption() {
@@ -660,19 +667,17 @@ function updateText() {
   formatCoins(getIncome(), document.getElementById("incomeDisplay"))
   formatCoins(getExpense(), document.getElementById("expenseDisplay"))
 
-  document.getElementById("happinessDisplay").textContent = format(getHappiness(), 2)
+  document.getElementById("happinessDisplay").textContent = format(getHappiness().toFixed(1), 2)
+  document.getElementById("inspirationDisplay").textContent = format(getInspiration().toFixed(1), 2)
 
-  document.getElementById("secondRebirthAgeDisplay").textContent = getSecondRebirthAge()
-  document.getElementById("secondRebirthAgeDisplay2").textContent = getSecondRebirthAge()
+  document.getElementById("corruptionDisplay").textContent = format(gameData.corruption.toFixed(2), 2)
+  document.getElementById("corruptionPowerDisplay").textContent = format(gameData.taskData["Corrupted Mind"].getEffect().toFixed(2) * 100, 2)
+  document.getElementById("corruptionGainDisplay").textContent = format(getCorruptionGain().toFixed(2), 2)
 
-  document.getElementById("corruptionDisplay").textContent = format(gameData.corruption, 2)
-  document.getElementById("corruptionPowerDisplay").textContent = format(gameData.taskData["Corrupted Mind"].getEffect(), 2)
-  document.getElementById("corruptionGainDisplay").textContent = format(getCorruptionGain(), 2)
+  document.getElementById("innerExpDisplay").textContent = format(gameData.innerExp.toFixed(2), 2)
+  document.getElementById("innerExpGainDisplay").textContent = format(getInnerExpGain().toFixed(2), 2)
 
-  document.getElementById("innerExpDisplay").textContent = format(gameData.innerExp, 2)
-  document.getElementById("innerExpGainDisplay").textContent = format(getInnerExpGain(), 2)
-
-  document.getElementById("timeWarpingDisplay").textContent = "x" + (getGameSpeed(1)).toFixed(2)
+  document.getElementById("timeWarpingDisplay").textContent = "x" + format((getGameSpeed(1)).toFixed(2), 2)
   document.getElementById("timeWarpingButton").textContent = gameData.timeWarpingEnabled ? "Disable warp" : "Enable warp"
 }
 
@@ -863,7 +868,7 @@ function formatCoins(coins, element) {
     "sg": "#a8a8a8",
     "cg": "#a15c2f"
   }
-  var finalTier = Math.floor(getBaseLog(1000, coins))
+  var finalTier = Math.floor(getBaseLog(1000, coins + 1))
   var tier = tiers[finalTier]
   element.children[0].style.color = colors[tier]
   element.children[0].style.textShadow = "0 0 0"
@@ -953,23 +958,12 @@ function rebirthReset() {
   }
 }
 
-function getSecondRebirthAge() {
-  var initialAge = 200
-  var tier = Math.floor(getBaseLog(10, gameData.corruption + 1))
-  var result = initialAge
-  for (var i = 0; i <= tier; i++) {
-    var addition = 50 * i
-    result += addition
-  }
-  return result
-}
-
 function getLifespan() {
   var hardening = gameData.taskData["Hardening"]
   var agingReversal = gameData.taskData["Reversal of aging"]
   var corruptedBody = gameData.taskData["Corrupted Body"]
-  var coinPile = 25 * getBaseLog(5, gameData.coins + 1)
-  var corruptionProlongation = 100 * getBaseLog(2, gameData.corruption + 1)
+  var coinPile = 30 * getBaseLog(5, gameData.coins + 1)
+  var corruptionProlongation = 365 * getBaseLog(10, getCorruption() + 1)
   var lifespan = (baseLifespan + coinPile + corruptionProlongation) * hardening.getEffect() * agingReversal.getEffect() * corruptedBody.getEffect()
   return lifespan
 }
@@ -977,7 +971,7 @@ function getLifespan() {
 function getAgeModifier() {
   var age = gameData.days
   var lifespan = getLifespan()
-  var modifier = getBaseLog(2, lifespan / (age + 1)) + 0.5
+  var modifier = getBaseLog(10, lifespan / (age + 1)) + 0.5
   return modifier
 }
 
@@ -1200,13 +1194,13 @@ gameData.currentMisc = []
 gameData.requirements = {
   //Other
   "Science": new TaskRequirement(getElementsByClass("Science"), [{task: "Interest in knowledge", requirement: 1}]),
-  "Technology": new TaskRequirement(getElementsByClass("Technology"), [{task: "Interest in knowledge", requirement: 500}]),
+  "Technology": new TaskRequirement(getElementsByClass("Technology"), [{task: "Interest in knowledge", requirement: 300}]),
   "Occultism": new CorruptionRequirement(getElementsByClass("Occultism"), [{requirement: 1}]),
-  "Shop": new CoinRequirement([document.getElementById("shopTabButton")], [{requirement: gameData.itemData["Gym membership"].getExpense() * 100}]),
+  "Shop": new CoinRequirement([document.getElementById("shopTabButton")], [{requirement: gameData.itemData["Placeholder8"].getExpense() * 1000}]),
   "Rebirth tab": new AgeRequirement([document.getElementById("rebirthTabButton")], [{requirement: 25}]),
   "Rebirth note 1": new AgeRequirement([document.getElementById("rebirthNote1")], [{requirement: 45}]),
   "Rebirth note 2": new AgeRequirement([document.getElementById("rebirthNote2")], [{requirement: 70}]),
-  "Rebirth note 3": new AgeRequirement([document.getElementById("rebirthNote3")], [{requirement: getSecondRebirthAge()}]),
+  "Rebirth note 3": new AgeRequirement([document.getElementById("rebirthNote3")], [{requirement: 200}]),
   "Rebirth note 4": new AgeRequirement([document.getElementById("rebirthNote4")], [{requirement: 1000}]),
   "Rebirth note 5": new AgeRequirement([document.getElementById("rebirthNote5")], [{requirement: 10000}]),
   "Rebirth note 6": new AgeRequirement([document.getElementById("rebirthNote6")], [{requirement: 100000}]),
@@ -1223,32 +1217,32 @@ gameData.requirements = {
   "Cleaner": new TaskRequirement([getTaskElement("Cleaner")], []),
   "Chief cleaner": new TaskRequirement([getTaskElement("Chief cleaner")], [{task: "Cleaner", requirement: 10}, {task: "Endurance", requirement: 10}]),
   "Sales intern": new TaskRequirement([getTaskElement("Sales intern")], [{task: "Chief cleaner", requirement: 10}, {task: "Endurance", requirement: 20}]),
-  "Experienced salesman": new TaskRequirement([getTaskElement("Experienced salesman")], [{task: "Sales intern", requirement: 10}, {task: "Endurance", requirement: 30}]),
-  "Manager": new TaskRequirement([getTaskElement("Manager")], [{task: "Experienced salesman", requirement: 10}, {task: "Endurance", requirement: 60}]),
-  "Chief manager": new TaskRequirement([getTaskElement("Chief manager")], [{task: "Manager", requirement: 10}, {task: "Endurance", requirement: 80}]),
-  "Store headmaster": new TaskRequirement([getTaskElement("Store headmaster")], [{task: "Chief manager", requirement: 10}, {task: "Perception", requirement: 100}]),
-  "Brand lord": new TaskRequirement([getTaskElement("Brand lord")], [{task: "Store headmaster", requirement: 20}, {task: "Perception", requirement: 160}, {task: "Corrupted Soul", requirement: 10}]),
+  "Experienced salesman": new TaskRequirement([getTaskElement("Experienced salesman")], [{task: "Sales intern", requirement: 10}, {task: "Endurance", requirement: 40}]),
+  "Manager": new TaskRequirement([getTaskElement("Manager")], [{task: "Experienced salesman", requirement: 10}, {task: "Endurance", requirement: 80}]),
+  "Chief manager": new TaskRequirement([getTaskElement("Chief manager")], [{task: "Manager", requirement: 10}, {task: "Endurance", requirement: 160}]),
+  "Store headmaster": new TaskRequirement([getTaskElement("Store headmaster")], [{task: "Chief manager", requirement: 10}, {task: "Perception", requirement: 320}]),
+  "Brand lord": new TaskRequirement([getTaskElement("Brand lord")], [{task: "Store headmaster", requirement: 20}, {task: "Perception", requirement: 640}, {task: "Corrupted Soul", requirement: 10}]),
 
   //IT
   "Junior": new TaskRequirement([getTaskElement("Junior")], [{task: "Programming", requirement: 15}]),
   "Middle": new TaskRequirement([getTaskElement("Middle")], [{task: "Junior", requirement: 10}, {task: "Programming", requirement: 60}]),
-  "Middle+": new TaskRequirement([getTaskElement("Middle+")], [{task: "Middle", requirement: 10}, {task: "Programming", requirement: 100}]),
-  "Senior": new TaskRequirement([getTaskElement("Senior")], [{task: "Middle+", requirement: 10}, {task: "Programming", requirement: 200}, {task: "Language understanding", requirement: 150}]),
-  "IT supervisor": new TaskRequirement([getTaskElement("IT supervisor")], [{task: "Senior", requirement: 10}, {task: "Attentiveness", requirement: 300}]),
-  "Technical Director": new TaskRequirement([getTaskElement("Technical Director")], [{task: "IT supervisor", requirement: 10}, {task: "Programming", requirement: 500}, {task: "Perception", requirement: 350}]),
-  "Head of an IT conglomerate": new TaskRequirement([getTaskElement("Head of an IT conglomerate")], [{task: "Technical Director", requirement: 10}, {task: "Interest in knowledge", requirement: 300}, {task: "Attentiveness", requirement: 700}]),
-  "World class guru": new TaskRequirement([getTaskElement("World class guru")], [{task: "Head of an IT conglomerate", requirement: 10}, {task: "Interest in knowledge", requirement: 750}, {task: "Corrupted Desire", requirement: 10}]),
+  "Middle+": new TaskRequirement([getTaskElement("Middle+")], [{task: "Middle", requirement: 10}, {task: "Programming", requirement: 120}]),
+  "Senior": new TaskRequirement([getTaskElement("Senior")], [{task: "Middle+", requirement: 10}, {task: "Programming", requirement: 250}, {task: "Language understanding", requirement: 150}]),
+  "IT supervisor": new TaskRequirement([getTaskElement("IT supervisor")], [{task: "Senior", requirement: 10}, {task: "Programming", requirement: 500}, {task: "Attentiveness", requirement: 300}]),
+  "Technical Director": new TaskRequirement([getTaskElement("Technical Director")], [{task: "IT supervisor", requirement: 10}, {task: "Programming", requirement: 750}, {task: "Perception", requirement: 350}]),
+  "Head of an IT conglomerate": new TaskRequirement([getTaskElement("Head of an IT conglomerate")], [{task: "Technical Director", requirement: 10}, {task: "Programming", requirement: 1000}, {task: "Interest in knowledge", requirement: 300}, {task: "Attentiveness", requirement: 700}]),
+  "World class guru": new TaskRequirement([getTaskElement("World class guru")], [{task: "Head of an IT conglomerate", requirement: 10}, {task: "Interest in knowledge", requirement: 1000}, {task: "Corrupted Desire", requirement: 10}]),
   "World IT coordinator": new TaskRequirement([getTaskElement("World IT coordinator")], [{task: "World class guru", requirement: 20}, {task: "Programming", requirement: 1500}, {task: "Devil's tongue", requirement: 1200}, {task: "Corrupted Greed", requirement: 10}]),
 
   // Science
   "Student": new TaskRequirement([getTaskElement("Student")], [{task: "Interest in knowledge", requirement: 10}]),
-  "Scientist naturalist": new TaskRequirement([getTaskElement("Scientist naturalist")], [{task: "Student", requirement: 10}, {task: "Interest in knowledge", requirement: 200}]),
-  "Expert naturalist": new TaskRequirement([getTaskElement("Expert naturalist")], [{task: "Scientist naturalist", requirement: 10}, {task: "Interest in knowledge", requirement: 500}, {task: "Perception", requirement: 500}]),
-  "Theoretical physicist": new TaskRequirement([getTaskElement("Theoretical physicist")], [{task: "Expert naturalist", requirement: 20}, {task: "Interest in knowledge", requirement: 800}]),
-  "Inventor": new TaskRequirement([getTaskElement("Inventor")], [{task: "Theoretical physicist", requirement: 50}, {task: "Interest in knowledge", requirement: 1050}]),
-  "Quantum engineer": new TaskRequirement([getTaskElement("Quantum engineer")], [{task: "Inventor", requirement: 100}, {task: "Interest in knowledge", requirement: 1500}]),
-  "Science revolutioneer": new TaskRequirement([getTaskElement("Science revolutioneer")], [{task: "Quantum engineer", requirement: 500}, {task: "Interest in knowledge", requirement: 2000}]),
-  "Mad scientist": new TaskRequirement([getTaskElement("Mad scientist")], [{task: "Science revolutioneer", requirement: 1000}, {task: "Interest in knowledge", requirement: 3000}]),
+  "Scientist naturalist": new TaskRequirement([getTaskElement("Scientist naturalist")], [{task: "Student", requirement: 10}, {task: "Interest in knowledge", requirement: 150}]),
+  "Expert naturalist": new TaskRequirement([getTaskElement("Expert naturalist")], [{task: "Scientist naturalist", requirement: 10}, {task: "Interest in knowledge", requirement: 300}]),
+  "Theoretical physicist": new TaskRequirement([getTaskElement("Theoretical physicist")], [{task: "Expert naturalist", requirement: 20}, {task: "Interest in knowledge", requirement: 600}]),
+  "Inventor": new TaskRequirement([getTaskElement("Inventor")], [{task: "Theoretical physicist", requirement: 50}, {task: "Interest in knowledge", requirement: 1200}]),
+  "Quantum engineer": new TaskRequirement([getTaskElement("Quantum engineer")], [{task: "Inventor", requirement: 100}, {task: "Interest in knowledge", requirement: 2000}]),
+  "Science revolutioneer": new TaskRequirement([getTaskElement("Science revolutioneer")], [{task: "Quantum engineer", requirement: 500}, {task: "Interest in knowledge", requirement: 3000}]),
+  "Mad scientist": new TaskRequirement([getTaskElement("Mad scientist")], [{task: "Science revolutioneer", requirement: 1000}, {task: "Interest in knowledge", requirement: 4000}]),
 
   // Skills
   // Body
@@ -1281,7 +1275,8 @@ gameData.requirements = {
   "Corrupted Greed": new CorruptionRequirement([getTaskElement("Corrupted Greed")], [{requirement: 250}]),
   "Corrupted Body": new CorruptionRequirement([getTaskElement("Corrupted Body")], [{requirement: 1000}]),
   "Corrupted Time": new CorruptionRequirement([getTaskElement("Corrupted Time")], [{requirement: 5000}]),
-  "Corrupted Mind": new CorruptionRequirement([getTaskElement("Corrupted Mind")], [{requirement: 10000}]),
+  "Corrupted Imagination": new CorruptionRequirement([getTaskElement("Corrupted Imagination")], [{requirement: 10000}]),
+  "Corrupted Mind": new CorruptionRequirement([getTaskElement("Corrupted Mind")], [{requirement: 50000}]),
 
   // Shop
   //Properties
@@ -1301,7 +1296,7 @@ gameData.requirements = {
   "Placeholder7": new CoinRequirement([getItemElement("Placeholder7")], [{requirement: gameData.itemData["Placeholder7"].getExpense() * 100}]),
 
   //Misc
-  "Gym membership": new CoinRequirement([getItemElement("Gym membership")], [{requirement: gameData.itemData["Gym membership"].getExpense() * 0}]),
+  "Gym membership": new CoinRequirement([getItemElement("Gym membership")], [{requirement: gameData.itemData["Gym membership"].getExpense() * 100}]),
   "Library card": new CoinRequirement([getItemElement("Library card")], [{requirement: gameData.itemData["Library card"].getExpense() * 100}]),
   "Laptop": new CoinRequirement([getItemElement("Laptop")], [{requirement: gameData.itemData["Laptop"].getExpense() * 100}]),
   "Car": new CoinRequirement([getItemElement("Car")], [{requirement: gameData.itemData["Car"].getExpense() * 100}]),
