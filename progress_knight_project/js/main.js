@@ -116,9 +116,10 @@ const itemBaseData = {
   "Placeholder6": {name: "Placeholder6", expense: 42760863, effect: 6000},
   "Placeholder7": {name: "Placeholder7", expense: 448919312, effect: 20000},
 
+  "Miscplaceholder8": {name: "Miscplaceholder8", expense: 6, effect: 1.2, description: "Inspiration"},
   "Gym membership": {name: "Gym membership", expense: 20, effect: 1.5, description: "Body XP"},
-  "Library card": {name: "Library card", expense: 100, effect: 1.5, description: "Mind XP"},
-  "Laptop": {name: "Laptop", expense: 500, effect: 1.8, description: "Inspiration"},
+  "Library card": {name: "Library card", expense: 22, effect: 1.5, description: "Mind XP"},
+  "Laptop": {name: "Laptop", expense: 470, effect: 1.8, description: "Inspiration"},
   "Car": {name: "Car", expense: 2600, effect: 1.5, description: "Happiness"},
   "Miscplaceholder7": {name: "Miscplaceholder7", expense: 8900, effect: 2, description: "Positions XP"},
   "Personal assistant": {name: "Personal assistant", expense: 25000, effect: 2, description: "Abilities XP"},
@@ -146,7 +147,7 @@ const skillCategories = {
 
 const itemCategories = {
   "Properties": ["Parents house", "Placeholder8", "Hostel", "3-star hotel room", "5-star hotel room", "Small apartment", "Apartment", "Placeholder1", "Placeholder2", "Placeholder3", "Placeholder4", "Placeholder5", "Placeholder6", "Placeholder7"],
-  "Misc": ["Gym membership", "Library card", "Laptop", "Car", "Miscplaceholder7", "Personal assistant", "Professional mentor", "Miscplaceholder6", "Miscplaceholder1", "Miscplaceholder2", "Miscplaceholder3", "Miscplaceholder4", "Miscplaceholder5"]
+  "Misc": ["Miscplaceholder8", "Gym membership", "Library card", "Laptop", "Car", "Miscplaceholder7", "Personal assistant", "Professional mentor", "Miscplaceholder6", "Miscplaceholder1", "Miscplaceholder2", "Miscplaceholder3", "Miscplaceholder4", "Miscplaceholder5"]
 }
 
 const headerRowColors = {
@@ -296,7 +297,8 @@ function getHappiness() {
 function getInspiration() {
   var imaginationEffect = getBindedTaskEffect("Corrupted Imagination")
   var laptopEffect = getBindedItemEffect("Laptop")
-  var inspiration = getAgeModifier() * imaginationEffect() * laptopEffect()
+  var misc8Effect = getBindedItemEffect("Miscplaceholder8")
+  var inspiration = getAgeModifier() * imaginationEffect() * laptopEffect() * misc8Effect()
   return inspiration
 }
 
@@ -1196,7 +1198,7 @@ gameData.requirements = {
   "Science": new TaskRequirement(getElementsByClass("Science"), [{task: "Interest in knowledge", requirement: 1}]),
   "Technology": new TaskRequirement(getElementsByClass("Technology"), [{task: "Interest in knowledge", requirement: 300}]),
   "Occultism": new CorruptionRequirement(getElementsByClass("Occultism"), [{requirement: 1}]),
-  "Shop": new CoinRequirement([document.getElementById("shopTabButton")], [{requirement: gameData.itemData["Placeholder8"].getExpense() * 1000}]),
+  "Shop": new CoinRequirement([document.getElementById("shopTabButton")], [{requirement: gameData.itemData["Miscplaceholder8"].getExpense() * 1000}]),
   "Rebirth tab": new AgeRequirement([document.getElementById("rebirthTabButton")], [{requirement: 25}]),
   "Rebirth note 1": new AgeRequirement([document.getElementById("rebirthNote1")], [{requirement: 45}]),
   "Rebirth note 2": new AgeRequirement([document.getElementById("rebirthNote2")], [{requirement: 70}]),
@@ -1296,6 +1298,7 @@ gameData.requirements = {
   "Placeholder7": new CoinRequirement([getItemElement("Placeholder7")], [{requirement: gameData.itemData["Placeholder7"].getExpense() * 100}]),
 
   //Misc
+  "Miscplaceholder8": new CoinRequirement([getItemElement("Miscplaceholder8")], [{requirement: gameData.itemData["Miscplaceholder8"].getExpense() * 100}]),
   "Gym membership": new CoinRequirement([getItemElement("Gym membership")], [{requirement: gameData.itemData["Gym membership"].getExpense() * 100}]),
   "Library card": new CoinRequirement([getItemElement("Library card")], [{requirement: gameData.itemData["Library card"].getExpense() * 100}]),
   "Laptop": new CoinRequirement([getItemElement("Laptop")], [{requirement: gameData.itemData["Laptop"].getExpense() * 100}]),
