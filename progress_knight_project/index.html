@@ -15,14 +15,60 @@
           <img src="img/logos.png" alt="logos" />
           <h1>Progress Knight: Our Days<sup>mod</sup></h1>
         </div>
+        <div class="row" style="width: 1566px; display: flex; position: sticky; top: 0; z-index: 1;">
+            <div id="resources" class="panel w3-padding" style="width: 1566px; display: flex; column-gap: 20px; border-bottom-width: 16px; border-bottom-style: solid;">
+                <div id="money">
+                    <ul>
+                        <div style="font-size: large" id="coinDisplay">
+                            <span></span>
+                            <div style="color: gray">Balance</div>
+                        </div>
+                    </ul>
+                </div>
+
+                <div id="income">
+                    <ul style="padding-left: 20px;">
+                        <div style="font-size: small;">
+                            <span style="color: rgb(9, 160, 230)">Net/day: </span>
+                            <b id="signDisplay"></b>
+                            <span id="netDisplay">
+                                <span></span>
+                            </span>
+                        </div>
+                        <div style="font-size: small;">
+                            <span style="color: green">Income/day: </span>
+                            <span id="incomeDisplay">
+                                <span></span>
+                            </span>
+                        </div>
+                        <div style="font-size: small;">
+                            <span style="color: red">Expense/day: </span>
+                            <span id="expenseDisplay">
+                                <span></span>
+                            </span>
+                        </div>
+                    </ul>
+                </div>
+
+                <div id="corruption">
+                    <ul>
+                        <span id="corruptionInfo">
+                            <div style="font-size: large"><span style="color: rgb(160, 0, 200)">Corruption: </span><span id="corruptionDisplay"></span></div>
+                            <div id="corruptionPower" style="font-size: large"><span style="color: rgb(216, 128, 238)">Efficiency: </span><span id="corruptionPowerDisplay"></span>%</div>
+                            <div style="color: gray" class="sidebar-element">Affects occultism XP gain</div>
+                        </span>
+                    </ul>
+                </div>
+          </div>
+        </div>
         <div class="row" style="width: 1500px;">
-                <div id="info" class="panel w3-padding" style="width: 350px; top: 0;">
+                <div id="info" class="panel w3-padding" style="width: 350px; top: 120px;">
                     <span id="deathText">
                         <div style="font-size: large; color: red">Age has caught up to you</div>
                         <div class="sidebar-element" style="color: gray">Your age has met your lifespan, use the strange phone from "Reincarnation" tab to rebirth before you pass away</div>
                     </span>
 
-                    <div class="" style="font-size: large">Age <span id="ageDisplay">14</span> Day <span id="dayDisplay">0</span></div>
+                    <div style="font-size: large">Age <span id="ageDisplay">14</span> Day <span id="dayDisplay">0</span></div>
                     <div class="sidebar-element" style="color: gray">Lifespan: <span id="lifespanDisplay">70</span> years</div>
 
                     <button id="pauseButton" class="w3-button button sidebar-element" onClick="setPause()">Pause</button>
@@ -39,22 +85,7 @@
                         </span>
                     </span>
 
-                    <div style="font-size: large" id="coinDisplay">
-                        <span></span>
-                    </div>
-                    <div style="color: gray">Balance</div>
 
-                    <ul class="sidebar-element" style="padding-left: 20px;">
-                        <li><span style="color: rgb(9, 160, 230)">Net/day: </span ><b id="signDisplay"></b><span id="netDisplay">
-                            <span></span>
-                        </span></li>
-                        <li><span style="color: green">Income/day: </span><span id="incomeDisplay">
-                            <span></span>
-                        </span></li>
-                        <li><span style="color: red">Expense/day: </span><span id="expenseDisplay">
-                            <span></span>
-                        </span></li>
-                    </ul>
 
                     <span id="quickTaskDisplay">
                         <div style="width: 318px" class="small-margin inline job progress-bar progressBar">
@@ -77,11 +108,7 @@
                     <div style="color: gray"">Affects all XP gain</div>
                     <div style="color: rgb(168, 111, 111)" class="sidebar-element">Decays slowly with age</div>
 
-                    <span id="corruptionInfo">
-                        <div style="font-size: large"><span style="color: rgb(160, 0, 200)">Corruption: </span><span id="corruptionDisplay"></span></div>
-                        <div id="corruptionPower" style="font-size: large"><span style="color: rgb(216, 128, 238)">Efficiency: </span><span id="corruptionPowerDisplay"></span>%</div>
-                        <div style="color: gray" class="sidebar-element">Affects occultism XP gain</div>
-                    </span>
+
 
                     <span id="innerExpInfo">
                         <div style="font-size: large"><span style="color: rgb(24, 210, 217)">Inner Experience: </span><span id="innerExpDisplay"></span></div>
