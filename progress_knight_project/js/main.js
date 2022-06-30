@@ -624,6 +624,8 @@ function setStickySidebar(sticky) {
   gameData.settings.stickySidebar = sticky;
   settingsStickySidebar.checked = sticky;
   info.style.position = sticky ? 'sticky' : 'initial';
+  resources.style.position = sticky ? 'sticky' : 'initial';
+  tabs.style.position = sticky ? 'sticky' : 'initial';
 }
 
 function updateItemRows() {

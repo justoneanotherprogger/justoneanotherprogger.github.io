@@ -12,6 +12,11 @@ td {
     vertical-align: middle !important;
 }
 
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 .current {
     background-color: orange !important;
 }

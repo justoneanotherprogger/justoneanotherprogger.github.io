@@ -15,9 +15,9 @@
           <img src="img/logos.png" alt="logos" />
           <h1>Progress Knight: Our Days<sup>mod</sup></h1>
         </div>
-        <div class="row" style="width: 1566px; display: flex; position: sticky; top: 0; z-index: 1;">
-            <div id="resources" class="panel w3-padding" style="width: 1566px; display: flex; column-gap: 20px; border-bottom-width: 16px; border-bottom-style: solid;">
-                <div id="money">
+        <div id="resources" class="row" style="top: 0; z-index: 1;">
+            <div class="panel w3-padding" style="width: 1566px; display: flex; column-gap: 20px; border-bottom-width: 16px; border-bottom-style: solid;">
+                <div id="money" style="width: 140px;">
                     <ul>
                       <div style="color: gray">Balance</div>
                       <div style="font-size: large" id="coinDisplay">
@@ -26,7 +26,7 @@
                     </ul>
                 </div>
 
-                <div id="income">
+                <div id="income" style="width: 160px;">
                     <ul style="padding-left: 20px;">
                         <div style="font-size: small;">
                             <span style="color: rgb(9, 160, 230)">Net/day: </span>
@@ -50,7 +50,7 @@
                     </ul>
                 </div>
 
-                <div id="corruption">
+                <div id="corruption" style="width: 200px;">
                   <ul>
                     <span id="corruptionInfo">
                       <div>
@@ -66,7 +66,7 @@
                   </ul>
                 </div>
 
-                <div id="innerExp">
+                <div id="innerExp" style="width: 200px;">
                   <ul>
                     <span id="innerExpInfo">
                       <div><span style="color: rgb(24, 210, 217)">Inner Experience: </span><span style="font-size: large" id="innerExpDisplay"></span></div>
@@ -77,7 +77,7 @@
           </div>
         </div>
         <div class="row" style="width: 1566px;">
-                <div id="info" class="panel w3-padding" style="width: 350px; top: 120px;">
+                <div id="info" class="panel w3-padding" style="width: 350px; top: 90px;">
                     <span id="deathText">
                         <div style="font-size: large; color: red">Age has caught up to you</div>
                         <div class="sidebar-element" style="color: gray">Your age has met your lifespan, use the strange phone from "Reincarnation" tab to rebirth before you pass away</div>
@@ -128,14 +128,14 @@
                     </span>
                 </div>
                 <div class="column">
-                    <div class="panel w3-margin-left" style="width: 1200px; height: 40px;">
+                    <div id="tabs" class="panel w3-margin-left" style="width: 1200px; height: 56px; top: 90px; border-bottom-width: 16px; border-bottom-style: solid;">
                         <div class="w3-button w3-bar-item tabButton" id="jobTabButton" onClick="setTab(this, 'jobs')">Positions</div>
                         <div class="w3-button w3-bar-item tabButton" onClick="setTab(this, 'skills')">Abilities</div>
                         <div class="w3-button w3-bar-item tabButton" id="shopTabButton" onClick="setTab(this, 'shop')">Shop</div>
                         <div class="w3-button w3-bar-item tabButton" id="rebirthTabButton" onClick="setTab(this, 'rebirth')">Reincarnation</div>
                         <div class="w3-button w3-bar-item tabButton" onClick="setTab(this, 'settings')" style="float: right">Settings</div>
                     </div>
-                    <div class="panel w3-margin-left w3-margin-top w3-padding" style="width: 1200px; height: auto; float: right">
+                    <div class="panel w3-margin-left w3-padding" style="width: 1200px; height: auto; float: right">
                         <template class="headerRowTaskTemplate">
                             <tr>
                                 <th class="category" style="width: 300px">Job</th>
