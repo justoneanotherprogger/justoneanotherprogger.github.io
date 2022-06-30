@@ -74,24 +74,25 @@ const skillBaseData = {
   "Endurance": {name: "Endurance", maxXp: 100, effect: 0.01, description: "Positions XP"},
   "Stealth": {name: "Stealth", maxXp: 100, effect: -0.01, description: "Expenses"},
   "Aptitude": {name: "Aptitude", maxXp: 100, effect: 0.009, description: "Positions XP"},
-  "Hardening": {name: "Hardening", maxXp: 100, effect: 0.0022, description: "Lifespan"},
+  "Hardening": {name: "Hardening", maxXp: 100, effect: 0.0021, description: "Lifespan"},
 
   "Programming": {name: "Programming", maxXp: 100, effect: 0.009, description: "IT income"},
-  "Attentiveness": {name: "Attentiveness", maxXp: 100, effect: 0.008, description: "IT XP"},
+  "Attentiveness": {name: "Attentiveness", maxXp: 100, effect: 0.0071, description: "IT XP"},
   "Language understanding": {name: "Language understanding", maxXp: 100, effect: 0.011, description: "Programming XP"},
   "Luckiness": {name: "Luckiness", maxXp: 100, effect: 0.00777, description: "Happiness"},
   "Waiting skill": {name: "Waiting skill", maxXp: 100, effect: 0.0035, description: "Gamespeed"},
   "Interest in knowledge": {name: "Interest in knowledge", maxXp: 100, effect: 0.0058, description: "Science XP"},
   "Devil's tongue": {name: "Devil's tongue", maxXp: 100, effect: -0.01, description: "Expenses"},
 
-  "Reversal of aging": {name: "Reversal of aging", maxXp: 100, effect: 0.0035, description: "Lifespan"},
+  "Reversal of aging": {name: "Reversal of aging", maxXp: 100, effect: 0.0032, description: "Lifespan"},
   "Time acceleration": {name: "Time acceleration", maxXp: 100, effect: 0.006, description: "Gamespeed"},
   "Time machine": {name: "Time machine", maxXp: 100, effect: 0.007, description: "Gamespeed"},
+  "Cellular restructuration": {name: "Cellular restructuration", maxXp: 100, effect: 0.0056, description: "Lifespan"},
   "Deep tech understanding": {name: "Deep tech understanding", maxXp: 100, effect: 0.005, description: "Technologies effect"},
 
-  "Corrupted Wish": {name: "Corrupted Wish", maxXp: 100, effect: 0.0075, description: "All XP"},
+  "Corrupted Wish": {name: "Corrupted Wish", maxXp: 100, effect: 0.0075, description: "Happiness"},
   "Corrupted Soul": {name: "Corrupted Soul", maxXp: 100, effect: 0.01, description: "Corruption gain"},
-  "Corrupted Desire": {name: "Corrupted Desire", maxXp: 100, effect: 0.003, description: "All XP"},
+  "Corrupted Desire": {name: "Corrupted Desire", maxXp: 100, effect: 0.0046, description: "Inspiration"},
   "Corrupted Consciousness": {name: "Corrupted Consciousness", maxXp: 100, effect: 0.008, description: "Corruption gain"},
   "Corrupted Greed": {name: "Corrupted Greed", maxXp: 100, effect: 0.003, description: "All income"},
   "Corrupted Body": {name: "Corrupted Body", maxXp: 100, effect: 0.002, description: "Lifespan"},
@@ -116,7 +117,7 @@ const itemBaseData = {
   "Placeholder6": {name: "Placeholder6", expense: 42760863, effect: 6000},
   "Placeholder7": {name: "Placeholder7", expense: 448919312, effect: 20000},
 
-  "Miscplaceholder8": {name: "Miscplaceholder8", expense: 6, effect: 1.2, description: "Inspiration"},
+  "Miscplaceholder8": {name: "Miscplaceholder8", expense: 10, effect: 1.2, description: "Inspiration"},
   "Gym membership": {name: "Gym membership", expense: 20, effect: 1.5, description: "Body XP"},
   "Library card": {name: "Library card", expense: 22, effect: 1.5, description: "Mind XP"},
   "Laptop": {name: "Laptop", expense: 250, effect: 1.8, description: "Inspiration"},
@@ -141,7 +142,7 @@ const jobCategories = {
 const skillCategories = {
   "Body": ["Perception", "Endurance", "Stealth", "Aptitude", "Hardening"],
   "Mind": ["Programming", "Attentiveness", "Language understanding", "Luckiness", "Waiting skill", "Interest in knowledge", "Devil's tongue"],
-  "Technology": ["Reversal of aging", "Time acceleration", "Time machine", "Deep tech understanding"],
+  "Technology": ["Reversal of aging", "Time acceleration", "Time machine", "Cellular restructuration", "Deep tech understanding"],
   "Occultism": ["Corrupted Wish", "Corrupted Soul", "Corrupted Desire", "Corrupted Consciousness", "Corrupted Greed", "Corrupted Body", "Corrupted Time", "Corrupted Imagination", "Corrupted Mind"],
 }
 
@@ -203,8 +204,6 @@ function addMultipliers() {
     task.xpMultipliers.push(task.getMaxLevelMultiplier.bind(task))
     task.xpMultipliers.push(getHappiness)
     task.xpMultipliers.push(getInspiration)
-    task.xpMultipliers.push(getBindedTaskEffect("Corrupted Wish"))
-    task.xpMultipliers.push(getBindedTaskEffect("Corrupted Desire"))
 
     if (task instanceof Job) {
       task.incomeMultipliers.push(task.getLevelMultiplier.bind(task))
@@ -288,17 +287,19 @@ function setCustomEffects() {
 
 function getHappiness() {
   var luckinessEffect = getBindedTaskEffect("Luckiness")
+  var corwishEffect = getBindedTaskEffect("Corrupted Wish")
   var carEffect = getBindedItemEffect("Car")
   var misceffect2 = getBindedItemEffect("Miscplaceholder2")
-  var happiness = luckinessEffect() * carEffect() * misceffect2() * gameData.currentProperty.getEffect()
+  var happiness = luckinessEffect() * corwishEffect() * carEffect() * misceffect2() * gameData.currentProperty.getEffect()
   return happiness
 }
 
 function getInspiration() {
+  var cordesEffect = getBindedTaskEffect("Corrupted Desire")
   var imaginationEffect = getBindedTaskEffect("Corrupted Imagination")
   var laptopEffect = getBindedItemEffect("Laptop")
   var misc8Effect = getBindedItemEffect("Miscplaceholder8")
-  var inspiration = getAgeModifier() * imaginationEffect() * laptopEffect() * misc8Effect()
+  var inspiration = getAgeModifier() * cordesEffect() * imaginationEffect() * laptopEffect() * misc8Effect()
   return inspiration
 }
 
@@ -966,9 +967,10 @@ function getLifespan() {
   var hardening = gameData.taskData["Hardening"]
   var agingReversal = gameData.taskData["Reversal of aging"]
   var corruptedBody = gameData.taskData["Corrupted Body"]
+  var cellRes = gameData.taskData["Cellular restructuration"]
   var coinPile = 30 * getBaseLog(5, gameData.coins + 1)
   var corruptionProlongation = 365 * getBaseLog(10, getCorruption() + 1)
-  var lifespan = (baseLifespan + coinPile + corruptionProlongation) * hardening.getEffect() * agingReversal.getEffect() * corruptedBody.getEffect()
+  var lifespan = (baseLifespan + coinPile + corruptionProlongation) * hardening.getEffect() * agingReversal.getEffect() * corruptedBody.getEffect() * cellRes.getEffect()
   return lifespan
 }
 
@@ -1268,7 +1270,8 @@ gameData.requirements = {
   // Technology
   "Reversal of aging": new TaskRequirement([getTaskElement("Reversal of aging")], [{task: "Expert naturalist", requirement: 15}]),
   "Time acceleration": new TaskRequirement([getTaskElement("Time acceleration")], [{task: "Theoretical physicist", requirement: 25}]),
-  "Time machine": new TaskRequirement([getTaskElement("Time machine")], [{task: "Inventor", requirement: 70}]),
+  "Time machine": new TaskRequirement([getTaskElement("Time machine")], [{task: "Inventor", requirement: 50}]),
+  "Cellular restructuration": new TaskRequirement([getTaskElement("Cellular restructuration")], [{task: "Quantum engineer", requirement: 200}]),
   "Deep tech understanding": new TaskRequirement([getTaskElement("Deep tech understanding")], [{task: "Mad scientist", requirement: 1000}]),
 
   // Occultism
