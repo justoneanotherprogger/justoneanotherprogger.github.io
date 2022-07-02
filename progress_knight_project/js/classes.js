@@ -20,7 +20,7 @@ class Task {
     }
 
     getMaxLevelMultiplier() {
-        var maxLevelMultiplier = 1 + Math.pow(Math.log10(this.maxLevel + 1), 4)
+        var maxLevelMultiplier = 1 + Math.pow(Math.log10(this.maxLevel + 1), 4.5)
         return maxLevelMultiplier
     }
 
@@ -49,7 +49,7 @@ class Job extends Task {
     }
 
     getLevelMultiplier() {
-        var levelMultiplier = 1 + Math.log10(this.level + 1) / 2
+        var levelMultiplier = 1 + Math.log10(this.level + 1)
         return levelMultiplier
     }
 
