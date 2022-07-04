@@ -11,7 +11,7 @@ class Task {
     }
 
     getMaxXp() {
-        var maxXp = Math.round(this.baseData.maxXp * (this.level + 1) * Math.pow(1.01, this.level))
+        var maxXp = Math.round(this.baseData.maxXp * (this.level / 5 + 1) * Math.pow(1.02, this.level))
         return maxXp
     }
 
@@ -20,7 +20,7 @@ class Task {
     }
 
     getMaxLevelMultiplier() {
-        var maxLevelMultiplier = 1 + Math.pow(Math.log10(this.maxLevel + 1), 4.5)
+        var maxLevelMultiplier = 1 + Math.pow(Math.log10(this.maxLevel + 1), 4)
         return maxLevelMultiplier
     }
 
@@ -64,7 +64,7 @@ class Skill extends Task {
     }
 
     getEffect() {
-        var effect = Math.pow(2, Math.log(this.level / 50 + 1) * this.baseData.effect * 100)
+        var effect = Math.pow(2, Math.log(this.level / 50 + 1) * this.baseData.effect)
         return effect
     }
 

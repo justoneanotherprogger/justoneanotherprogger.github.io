@@ -83,18 +83,18 @@
                         <div class="sidebar-element" style="color: gray">Your age has met your lifespan, use the strange phone from "Reincarnation" tab to rebirth before you pass away</div>
                     </span>
 
-                    <div style="font-size: large">Age <span id="ageDisplay">14</span> Day <span id="dayDisplay">0</span></div>
-                    <div class="sidebar-element" style="color: gray">Lifespan: <span id="lifespanDisplay">70</span> years</div>
+                    <div style="font-size: large">Age <span id="ageDisplay">16</span> Day <span id="dayDisplay">0</span></div>
+                    <div class="sidebar-element" style="color: gray">Expected lifespan: <span id="lifespanDisplay">75</span> years</div>
 
                     <button id="pauseButton" class="w3-button button sidebar-element" onClick="setPause()">Pause</button>
 
-                    <span id="automation" class="inline" style="margin-left: 8px">
-                        <span>
+                    <span id="automation" class="inline" style="margin-left: 8px; float: right;">
+                        <span style="float: right;">
                             <div class="inline">Auto-promote</div>
                             <input type="checkbox" class="inline" id="autoPromote">
                         </span>
                         </br>
-                        <span>
+                        <span style="float: right;">
                             <div class="inline">Auto-learn</div>
                             <input type="checkbox" class="inline sidebar-element" id="autoLearn">
                         </span>
@@ -258,7 +258,7 @@
                                     </div>
                                     <i style="color: grey">
                                       By pressing the green button, you will be reborn and you will have to start life anew, having lost all your levels and money.
-                                      However, you will receive <b>experience multipliers</b> for your positions and abilities, equivalent to: <b>1&nbsp;+&nbsp;(log<sub>10</sub>(max&nbsp;position&nbsp;or&nbsp;ability&nbsp;level&nbsp;+&nbsp;1))&nbsp;<sup>4</sup></b>.
+                                      However, you will receive <b>experience multipliers</b> for your positions and abilities based on max level achieved.
                                       This means that you will learn everything again much faster than in a past life.
                                       <br><span style="color: rgb(200, 0, 0)">Something tells me that the window on the screen may change if I live for <b>200 years</b>...</span>
                                     </i>
