@@ -60,14 +60,14 @@ const jobBaseData = {
   "World class guru": {name: "World class guru", maxXp: 44057143, income: 2048}, //tier 8
   "World IT coordinator": {name: "World IT coordinator", maxXp: 260197102, income: 4096}, //tier 9
 
-  "Student": {name: "Student", maxXp: 40000, income: 20}, //maxXp = round(maxXpPrev*8*(tier/(tier+1))*(1.01^tier))
-  "Scientist naturalist": {name: "Scientist naturalist", maxXp: 217621, income: 60}, //tier 2
-  "Expert naturalist": {name: "Expert naturalist", maxXp: 1345291, income: 180}, //tier 3
-  "Theoretical physicist": {name: "Theoretical physicist", maxXp: 8959457, income: 540}, //tier 4
-  "Inventor": {name: "Inventor", maxXp: 62776529, income: 1620}, //tier 5
-  "Quantum engineer": {name: "Quantum engineer", maxXp: 456950061, income: 4860}, //tier 6
-  "Science revolutioneer": {name: "Science revolutioneer", maxXp: 3429386202, income: 14580}, //tier 7
-  "Mad scientist": {name: "Mad scientist", maxXp: 26407351787, income: 43740}, //tier 8
+  "Student": {name: "Student", maxXp: 400000, income: 20}, //maxXp = round(maxXpPrev*8*(tier/(tier+1))*(1.01^tier))
+  "Scientist naturalist": {name: "Scientist naturalist", maxXp: 2176210, income: 60}, //tier 2
+  "Expert naturalist": {name: "Expert naturalist", maxXp: 13452910, income: 180}, //tier 3
+  "Theoretical physicist": {name: "Theoretical physicist", maxXp: 89594570, income: 540}, //tier 4
+  "Inventor": {name: "Inventor", maxXp: 627765290, income: 1620}, //tier 5
+  "Quantum engineer": {name: "Quantum engineer", maxXp: 4569500610, income: 4860}, //tier 6
+  "Science revolutioneer": {name: "Science revolutioneer", maxXp: 34293862020, income: 14580}, //tier 7
+  "Mad scientist": {name: "Mad scientist", maxXp: 264073517870, income: 43740}, //tier 8
 }
 
 const skillBaseData = {
