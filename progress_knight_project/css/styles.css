@@ -269,6 +269,9 @@ button:focus {
 
 .sidebar-element {
     margin-bottom: 0.8em;
+}
+
+.topbar-element {
     font-size: small;
 }
 
