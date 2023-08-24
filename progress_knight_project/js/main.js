@@ -899,7 +899,7 @@ function rebirthReset(set_tab_to_jobs = true) {
     }
 
     gameData.coins = 0
-    gameData.days = 365 * 14
+    gameData.days = 365 * 16
     gameData.realtime = 0
     gameData.currentJob = gameData.taskData["Beggar"]
     gameData.currentProperty = gameData.itemData["Homeless"]
