@@ -8,15 +8,86 @@
 	<link rel="stylesheet" type="text/css" href="css/dark.css">
 	<link rel="stylesheet" type="text/css" href="css/colorblind.css">
 	<link rel="stylesheet" type="text/css" href="css/currencies.css">
-	<title>Progress Knight Quest</title>
+	<title>Progress Knight Quest mod</title>
 	<link rel="shortcut icon" href="img/logo.ico" />
 </head>
 <body id="body" class="dark" style="font-size: x-small">
 	<div class="w3-margin">
 		<div class="header">
 			<img src="img/logos.png" alt="logos" />
-			<h3>Progress Knight Quest</h3>
+			<h3>Progress Knight Quest<sup>mod</sup></h3>
 		</div>
+		<div id="resources" class="row" style="top: 0; z-index: 1;">
+            <div class="panel w3-padding" style="width: 1566px; display: flex; column-gap: 20px; border-width: 10px 0 16px 0; border-style: solid;">
+                <div id="money" style="width: 150px;">
+                    <ul>
+						<div class="text-caption" id="coinDisplay">
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+						<div style="color: gray">Balance</div>
+                    </ul>
+                </div>
+
+                <div id="income" style="width: 200px;">
+                    <ul class="sidebar-element" style="padding-left: 1em;">
+						<li>
+							<span class="color-hypercubes">Net: </span><b id="signDisplay"></b>
+							<div id="netDisplay" style="display: inline;">
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+						</li>
+						<li>
+							<span class="color-income">Income: </span>
+							<div id="incomeDisplay" style="display: inline;">
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+						</li>
+						<li>
+							<span style="color: red">Expense: </span>
+							<div id="expenseDisplay" style="display: inline;">
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
+						</li>
+					</ul>
+                </div>
+				<div id="evilInfo" class="hidden">
+					<div class="text-caption"><span class="color-evil">Evil: </span><span id="evilDisplay"></span></div>
+					<div style="color: gray" class="sidebar-element">Affects Dark Magic XP gain</div>
+				</div>
+				<div id="essenceInfo" class="hidden">
+					<div class="text-caption"><span class="color-essence">Essence: </span><span id="essenceDisplay"></span></div>
+					<div style="color: gray" class="sidebar-element">Affects Almightiness XP gain</div>
+				</div>
+				<div id="darkMatterInfo" class="hidden">
+					<div class="text-caption"><span class="color-dark-matter">Dark Matter: </span><span id="darkMatterDisplay"></span></div>
+					<div style="color: gray" class="sidebar-element">Affects all XP gain</div>
+				</div>
+				<div id="darkOrbsInfo" class="hidden">
+					<div class="text-caption"><span class="color-dark-orbs">Dark Orbs: </span><span id="darkOrbsDisplay"></span></div>
+					<div style="color: gray" class="sidebar-element">Used to buy items in the Dark Matter shop</div>
+				</div>
+				<div id="hypercubesInfo">
+					<div class="text-caption"><span class="color-hypercubes">Hypercubes: </span><span id="hypercubesDisplay"></span></div>
+					<div style="color: gray" class="sidebar-element">for Metaverse sacrifices</div>
+				</div>
+          	</div>
+        </div>
 		<div id="row" class="row">
 			<div id="info" class="panel w3-padding quick-bar" style="width:20em">
 				<div id="challengeTitle" class="challenge-title" hidden="hidden">
@@ -49,46 +120,6 @@
 					<button id="boostButton" class="perk perk-boost" onClick="applyBoost()">Boost</button>
 					<span style="padding-left:0.4em" id="boostCooldownDisplay">00:00</span>
 				</div>
-				<div class="text-caption" id="coinDisplay">
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>
-				<div style="color: gray">Balance</div>
-				<ul class="sidebar-element" style="padding-left: 1em;">
-					<li>
-						<span class="color-hypercubes">Net: </span><b id="signDisplay"></b>
-						<div id="netDisplay" style="display: inline;">
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-					</li>
-					<li>
-						<span class="color-income">Income: </span>
-						<div id="incomeDisplay" style="display: inline;">
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-					</li>
-					<li>
-						<span style="color: red">Expense: </span>
-						<div id="expenseDisplay" style="display: inline;">
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-					</li>
-				</ul>
 				<div id="quickTaskDisplay" class="hidden">
 					<div class="small-margin inline job progress-bar progressBar">
 						<div class="progress-fill progressFill current"></div>
@@ -97,29 +128,9 @@
 				</div>
 				<div class="text-caption" style="padding-top: 0.2em"><span class="color-happiness">Happiness: </span><span id="happinessDisplay"></span></div>
 				<div style="color: gray" class="sidebar-element">Affects all XP gain</div>
-				<div id="evilInfo" class="hidden">
-					<div class="text-caption"><span class="color-evil">Evil: </span><span id="evilDisplay"></span></div>
-					<div style="color: gray" class="sidebar-element">Affects Dark Magic XP gain</div>
-				</div>
-				<div id="essenceInfo" class="hidden">
-					<div class="text-caption"><span class="color-essence">Essence: </span><span id="essenceDisplay"></span></div>
-					<div style="color: gray" class="sidebar-element">Affects Almightiness XP gain</div>
-				</div>
-				<div id="darkMatterInfo" class="hidden">
-					<div class="text-caption"><span class="color-dark-matter">Dark Matter: </span><span id="darkMatterDisplay"></span></div>
-					<div style="color: gray" class="sidebar-element">Affects all XP gain</div>
-				</div>
-				<div id="darkOrbsInfo" class="hidden">
-					<div class="text-caption"><span class="color-dark-orbs">Dark Orbs: </span><span id="darkOrbsDisplay"></span></div>
-					<div style="color: gray" class="sidebar-element">Used to buy items in the Dark Matter shop</div>
-				</div>
 				<div id="timeWarping">
 					<div class="text-caption"><span class="color-time-warping">Time Warping: </span><span id="timeWarpingDisplay"></span></div>
 					<div style="color: gray" class="sidebar-element">Affects game speed</div>
-				</div>
-				<div id="hypercubesInfo">
-					<div class="text-caption"><span class="color-hypercubes">Hypercubes: </span><span id="hypercubesDisplay"></span></div>
-					<div style="color: gray" class="sidebar-element">for Metaverse sacrifices</div>
 				</div>
 				<div id="rebirthButton1" class="hidden">
 					<button class="w3-button button" style="margin-bottom: 0.1em; margin-top: 0.8em; width: 100%" onClick="rebirthOne()">Touch the eye</button>
