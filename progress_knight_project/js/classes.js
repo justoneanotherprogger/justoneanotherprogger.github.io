@@ -249,12 +249,12 @@ class Item {
             }
 
             if (itemCategories["Properties"].includes(this.name)) {
-                description = "Happiness"
+                description = "Life Comfort"
                 effect = this.baseData.heroeffect
             }
         }
         else {
-            if (itemCategories["Properties"].includes(this.name)) description = "Happiness"
+            if (itemCategories["Properties"].includes(this.name)) description = "Life Comfort"
         }
 
         return "x" + format(effect) + " " + description
