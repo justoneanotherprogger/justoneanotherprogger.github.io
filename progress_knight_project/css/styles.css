@@ -519,3 +519,8 @@ button:focus {
     border-radius: 0.5em;
     animation: currency-rainbow 40s infinite;
 }
+
+.resource {
+    margin-block-start: auto;
+    margin-block-end: auto;
+}
