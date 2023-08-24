@@ -1,4 +1,3 @@
-Progress Knight Rework: Our Days
+# Progress Knight Quest mod
 
-My rework of the most full version of Progress Knight
-Original you may find here: https://symb1.github.io/progress_knight_2/
+A continuation of Progress Knight Quest from https://indomit.github.io/progress_knight_2/ . My vision of balance and names in this game
