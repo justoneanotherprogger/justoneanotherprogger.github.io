@@ -3,7 +3,7 @@
     itemData: {},
 
     coins: 0,
-    days: 365 * 14,
+    days: 365 * 16,
     totalDays: 0,
     evil: 0,
     essence: 0,
@@ -126,8 +126,8 @@ var tempData = {}
 var autoBuyEnabled = true
 
 const updateSpeed = 20
-const baseLifespan = 365 * 70
-const baseGameSpeed = 4
+const baseLifespan = 365 * 75
+const baseGameSpeed = 10
 const heroIncomeMult = 2.5e18
 
 const permanentUnlocks = ["Quick task display", "Rebirth tab", "Dark Matter", "Dark Matter Skills", "Dark Matter Skills2", "Metaverse", "Metaverse Perks", "Metaverse Perks Button", "Congratulations"]

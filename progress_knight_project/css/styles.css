@@ -78,9 +78,9 @@ td {
     color: rgb(245, 119, 13);
 }
 
-.effect {
+/* .effect {
     margin-bottom: 0.8rem;
-}
+} */
 
 .current {
     background-color: orange !important;    
