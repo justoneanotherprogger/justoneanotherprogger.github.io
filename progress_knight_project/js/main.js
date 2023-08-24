@@ -73,7 +73,7 @@ const jobBaseData = {
 const skillBaseData = {
   "Perception": {name: "Perception", maxXp: 100, effect: 1.2, description: "Abilities XP"},
   "Endurance": {name: "Endurance", maxXp: 100, effect: 1, description: "Positions XP"},
-  "Stealth": {name: "Stealth", maxXp: 100, effect: -1, description: "Expenses"},
+  "Stealth": {name: "Stealth", maxXp: 100, effect: 1, description: "Greed"},
   "Aptitude": {name: "Aptitude", maxXp: 100, effect: 0.5, description: "Positions XP"},
   "Hardening": {name: "Hardening", maxXp: 100, effect: 0.21, description: "Lifespan"},
 
@@ -256,13 +256,6 @@ function addMultipliers() {
 }
 
 function setCustomEffects() {
-  var stealth = gameData.taskData["Stealth"]
-  stealth.getEffect = function() {
-    var multiplier = Math.pow(1 - getBaseLog(10, stealth.level + 1) / 8, 1 / 3)
-    if (multiplier < 0.1) {multiplier = 0.1}
-    return multiplier
-  }
-
   var devil = gameData.taskData["Devil's tongue"]
   devil.getEffect = function() {
     var multiplier = Math.pow(1 - getBaseLog(10, stealth.level + 1) / 9, 1 / 3)
@@ -313,7 +306,8 @@ function getGreed() {
   var age = gameData.days
   var modifier = getBaseLog(adultAge, age)
   var corgreedEffect = getBindedTaskEffect("Corrupted Greed")
-  var greed = modifier * corgreedEffect()
+  var stealtheffect = getBindedTaskEffect("Stealth")
+  var greed = modifier * corgreedEffect() * stealtheffect()
   return greed
 }
 
@@ -1245,7 +1239,7 @@ gameData.requirements = {
   "Brand lord": new TaskRequirement([getTaskElement("Brand lord")], [{task: "Store headmaster", requirement: 20}, {task: "Perception", requirement: 1000}]),
 
   //IT
-  "Junior": new TaskRequirement([getTaskElement("Junior")], [{task: "Programming", requirement: 20}]),
+  "Junior": new TaskRequirement([getTaskElement("Junior")], [{task: "Sales intern", requirement: 10}, {task: "Programming", requirement: 20}]),
   "Middle": new TaskRequirement([getTaskElement("Middle")], [{task: "Junior", requirement: 10}, {task: "Programming", requirement: 60}]),
   "Middle+": new TaskRequirement([getTaskElement("Middle+")], [{task: "Middle", requirement: 10}, {task: "Programming", requirement: 200}]),
   "Senior": new TaskRequirement([getTaskElement("Senior")], [{task: "Middle+", requirement: 10}, {task: "Programming", requirement: 350}]),
