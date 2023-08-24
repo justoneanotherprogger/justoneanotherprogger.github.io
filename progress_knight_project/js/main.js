@@ -83,7 +83,7 @@ const skillBaseData = {
   "Luckiness": {name: "Luckiness", maxXp: 100, effect: 0.777, description: "Happiness"},
   "Waiting skill": {name: "Waiting skill", maxXp: 100, effect: 0.85, description: "Gamespeed"},
   "Interest in knowledge": {name: "Interest in knowledge", maxXp: 100, effect: 1, description: "Science XP"},
-  "Devil's tongue": {name: "Devil's tongue", maxXp: 100, effect: -1, description: "Expenses"},
+  "Devil's tongue": {name: "Devil's tongue", maxXp: 100, effect: 1, description: "Greed"},
 
   "Reversal of aging": {name: "Reversal of aging", maxXp: 500, effect: 0.51, description: "Lifespan"},
   "Time acceleration": {name: "Time acceleration", maxXp: 500, effect: 0.9, description: "Gamespeed"},
@@ -250,19 +250,10 @@ function addMultipliers() {
   for (itemName in gameData.itemData) {
     var item = gameData.itemData[itemName]
     item.expenseMultipliers = []
-    item.expenseMultipliers.push(getBindedTaskEffect("Stealth"))
-    item.expenseMultipliers.push(getBindedTaskEffect("Devil's tongue"))
   }
 }
 
 function setCustomEffects() {
-  var devil = gameData.taskData["Devil's tongue"]
-  devil.getEffect = function() {
-    var multiplier = Math.pow(1 - getBaseLog(10, stealth.level + 1) / 9, 1 / 3)
-    if (multiplier < 0.1) {multiplier = 0.1}
-    return multiplier
-  }
-
   var techUnderstanding = gameData.taskData["Deep tech understanding"]
   var timeAcceleration = gameData.taskData["Time acceleration"]
   timeAcceleration.getEffect = function() {
@@ -307,7 +298,8 @@ function getGreed() {
   var modifier = getBaseLog(adultAge, age)
   var corgreedEffect = getBindedTaskEffect("Corrupted Greed")
   var stealtheffect = getBindedTaskEffect("Stealth")
-  var greed = modifier * corgreedEffect() * stealtheffect()
+  var devileffect = getBindedTaskEffect("Devil's tongue")
+  var greed = modifier * corgreedEffect() * stealtheffect() * devileffect()
   return greed
 }
 
