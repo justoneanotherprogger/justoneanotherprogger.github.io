@@ -942,7 +942,7 @@ function rebirthReset(set_tab_to_jobs = true) {
 }
 
 function getLifespan() {
-    const coinpile = 20 * getBaseLog(10, gameData.coins)
+    const coinpile = 20 * getBaseLog(10, gameData.coins + 1)
     const immortality = gameData.taskData["Life Essence"]
     const superImmortality = gameData.taskData["Astral Body"]
     const higherDimensions = gameData.taskData["Higher Dimensions"]
