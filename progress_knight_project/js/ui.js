@@ -101,6 +101,8 @@ function renderSideBar() {
     formatCoins(getExpense(), document.getElementById("expenseDisplay"))
 
     document.getElementById("happinessDisplay").textContent = format(getHappiness())
+    document.getElementById("inspirationDisplay").textContent = format(getInspiration())
+    document.getElementById("greedDisplay").textContent = format(getGreed())
 
     document.getElementById("evilDisplay").textContent = format(gameData.evil)
     document.getElementById("evilGainDisplay").textContent = format(getEvilGain())

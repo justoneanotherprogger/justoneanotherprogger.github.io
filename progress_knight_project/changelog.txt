@@ -1,3 +1,7 @@
+version 0.0.3 / 24.08.2023
+* Implemented Inspiration and Greed
+* Changed formaula of skill effect
+
 version 0.0.2 / 24.08.2023
 * Age changes (start at 16, base lifespan 75)
 * Interface adjustments

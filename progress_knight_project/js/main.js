@@ -15,6 +15,7 @@ function addMultipliers() {
 
         task.xpMultipliers.push(task.getMaxLevelMultiplier.bind(task))
         task.xpMultipliers.push(getHappiness)
+        task.xpMultipliers.push(getInspiration)
         task.xpMultipliers.push(getDarkMatterXpGain)
         task.xpMultipliers.push(getBindedTaskEffect("Dark Influence"))
         task.xpMultipliers.push(getBindedTaskEffect("Demon Training"))
@@ -1454,3 +1455,21 @@ setInterval(function () {
     fpsOut.innerHTML = (1000 / frameTime).toFixed(1) + " fps";
 }, 1000);
 */
+
+// My own features
+
+function getInspiration() {
+    const age = gameData.days
+    const lifespan = getLifespan()
+    const modifier = getBaseLog(10, lifespan / (age + 1)) + 0.7
+    const inspiration = modifier
+    return inspiration
+}
+
+function getGreed() {
+    const adultAge = 20 * 365
+    const age = gameData.days
+    const modifier = getBaseLog(adultAge, age)
+    const greed = modifier
+    return greed
+}
