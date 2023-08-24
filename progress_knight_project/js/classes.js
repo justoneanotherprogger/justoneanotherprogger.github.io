@@ -191,7 +191,7 @@ class Skill extends Task {
     }
 
     getEffect() {
-        var effect = 1 + this.baseData.effect * (this.isHero ? 1000 * this.level + 8000 : this.level)
+        var effect = 1 + this.baseData.effect * (this.isHero ? 1000 * this.level + 8000 : this.level) * Math.pow(1.01, getBaseLog(10, this.level))
         return effect
     }
 
