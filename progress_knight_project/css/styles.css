@@ -58,7 +58,7 @@ body {
 }
 
 .text-caption {
-    font-size: larger
+    font-size: small
 }
 
 table {
@@ -269,6 +269,7 @@ button:focus {
 
 .sidebar-element {
     margin-bottom: 0.8em;
+    font-size: small;
 }
 
 .slidecontainer {
@@ -281,6 +282,7 @@ button:focus {
 
 .panel {
     background-color: white;
+    border-color: rgb(243, 243, 243);
 }
 
 .small-margin  {

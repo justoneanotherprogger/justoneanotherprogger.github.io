@@ -980,6 +980,7 @@ function setStickySidebar(sticky) {
     settingsStickySidebar.checked = sticky;
     info.style.position = sticky ? 'sticky' : 'initial';
     resources.style.position = sticky ? 'sticky' : 'initial';
+    tabcolumn.style.position = sticky ? 'sticky' : 'initial';
 }
 
 function selectElementInGroup(group, index) {

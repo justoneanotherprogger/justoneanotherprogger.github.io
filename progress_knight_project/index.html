@@ -18,8 +18,8 @@
 			<h3>Progress Knight Quest<sup>mod</sup></h3>
 		</div>
 		<div id="resources" class="row" style="top: 0; z-index: 1;">
-            <div class="panel w3-padding" style="width: 86em; display: flex; column-gap: 20px; border-width: 10px 0 16px 0; border-style: solid;">
-                <div id="money" style="width: 150px;">
+            <div class="panel w3-padding" style="width: 86em; display: flex; column-gap: 20px; border-width: 1em 0 1em 0; border-style: solid;">
+                <div id="money" class="resource" style="width: 150px;">
                     <ul>
 						<div class="text-caption" id="coinDisplay">
 							<span></span>
@@ -32,7 +32,7 @@
                     </ul>
                 </div>
 
-                <div id="income" style="width: 200px;">
+                <div id="income" class="resource" style="width: 200px;">
                     <ul class="sidebar-element" style="padding-left: 1em;">
 						<li>
 							<span class="color-hypercubes">Net: </span><b id="signDisplay"></b>
@@ -159,7 +159,7 @@
 				</div>
 			</div>
 			<div class="column">
-				<div id="tabcolumn" class="panel w3-margin-left tabs-tab-column">
+				<div id="tabcolumn" class="panel w3-margin-left tabs-tab-column quick-bar">
 					<div class="w3-button w3-bar-item tabButton baritem" id="jobsTabButton" onClick="setTab('jobs')">Hero</div>
 					<div class="w3-button w3-bar-item tabButton baritem hidden" id="skillsTabButton" onClick="setTab('skills')">Skills</div>
 					<div class="w3-button w3-bar-item tabButton baritem hidden" id="shopTabButton" onClick="setTab('shop')">Shop</div>
