@@ -37,7 +37,7 @@ const baseLifespan = 365 * 75
 
 const baseGameSpeed = 10
 
-const permanentUnlocks = ["Shop", "Automation", "Quick task display", "Corruption info", "Corruption power info", "InnerExp info", "Time warping info",
+const permanentUnlocks = ["Shop", "Automation", "Quick task display", "Rebirth tab", "Corruption info", "Corruption power info", "InnerExp info", "Time warping info",
 "Science", "Technology", "Occultism"]
 
 const jobBaseData = {
@@ -685,6 +685,8 @@ function updateText() {
 
   document.getElementById("timeWarpingDisplay").textContent = "x" + format((getGameSpeed(1)).toFixed(2), 2)
   document.getElementById("timeWarpingButton").textContent = gameData.timeWarpingEnabled ? "Disable warp" : "Enable warp"
+
+  document.getElementById("rebirthNote0").textContent = gameData.rebirthOneCount ? "Looks like that smartphone saves all your memory from past lives so you can reach any point faster than before." : "You stumble upon a strange smartphone on your 25th birthday. You do not know anything about its manufacturer and the device does not respond to your actions. However, you feel a strange desire to keep the phone, so you put it in your pocket just in case."
 }
 
 function setSignDisplay() {
