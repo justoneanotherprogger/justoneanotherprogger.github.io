@@ -52,7 +52,7 @@
     settings: {
         stickySidebar: true,
         theme: 1,
-        currencyNotation: 0,
+        currencyNotation: 3,
         numberNotation: 1,
         layout: 1,
         fontSize: 3,
