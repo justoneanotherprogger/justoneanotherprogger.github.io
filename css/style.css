@@ -442,6 +442,12 @@ body {
   font-size: 31px;
 }
 
+.paper-plane {
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+
 .footer__social-link:hover {
   box-shadow: 0 0 10px 1px var(--secondary-color);
   text-shadow: 0 0 1px var(--secondary-color);
