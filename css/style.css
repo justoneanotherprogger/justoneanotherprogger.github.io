@@ -37,15 +37,11 @@ body {
   font-weight: 700;
 }
 
-.fixed-on-top {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
 /* HEADER */
 
 .header {
+  position: sticky;
+  top: 0;
   background-color: var(--text-color);
   color: var(--main-color);
   font-size: 30px;
