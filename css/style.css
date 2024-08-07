@@ -46,6 +46,7 @@ body {
   color: var(--main-color);
   font-size: 30px;
   font-weight: 400;
+  z-index: 100;
 }
 
 .header__container {
