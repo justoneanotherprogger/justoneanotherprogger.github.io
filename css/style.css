@@ -37,7 +37,7 @@ body {
   font-weight: 700;
 }
 
-.fixed__nav-menu {
+.fixed-on-top {
   position: fixed;
   top: 0;
 }

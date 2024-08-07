@@ -15,10 +15,10 @@ $(document).ready(function(){
 
 $(document).ready(function () {
   $(window).scroll(function () {
-    var distanceNav = $('#header-nav-menu').offset().top;
+    var distanceNav = $('#about-start').offset().top;
     if ($(window).scrollTop() >= distanceNav)
-      $('#fixed-nav-menu').show();
+      $('#main-header').classList.add('fixed-on-top');
     else
-      $('#fixed-nav-menu').hide();
+      $('#main-header').classList.remove('fixed-on-top');
   });
 });
