@@ -16,9 +16,10 @@ $(document).ready(function(){
 $(document).ready(function () {
   $(window).scroll(function () {
     var distanceNav = $('#about-start').offset().top;
+    var fixedelem = document.getElementById('main-header')
     if ($(window).scrollTop() >= distanceNav)
-      $('#main-header').classList.add('fixed-on-top');
+      fixedelem.classList.add('fixed-on-top');
     else
-      $('#main-header').classList.remove('fixed-on-top');
+      fixedelem.classList.remove('fixed-on-top');
   });
 });
