@@ -37,6 +37,11 @@ body {
   font-weight: 700;
 }
 
+.fixed__nav-menu {
+  position: fixed;
+  top: 0;
+}
+
 /* HEADER */
 
 .header {
