@@ -44,6 +44,7 @@ body {
   top: 0;
   background-color: var(--text-color);
   color: var(--main-color);
+  border-bottom: #222 1px solid;
   font-size: 30px;
   font-weight: 400;
   z-index: 100;
@@ -109,6 +110,7 @@ body {
 .about__nickname {
   width: fit-content;
   padding: 0 20px;
+  padding-bottom: 5px;
   background-color: var(--text-color);
   color: var(--secondary-color);
   font-size: 50px;
