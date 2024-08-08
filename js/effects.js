@@ -1,10 +1,11 @@
 $(document).ready(function(){
-  var height = document.getElementById('main-header').offsetHeight;
+  let height = document.getElementById('main-header').offsetHeight;
 
   $("#header-nav-menu").on("click","a", function (event) {
     event.preventDefault();
-    var id  = $(this).attr('href'),
-    top = $(id).offset().top + height;
-    $('body,html').animate({scrollTop: top}, 500);
+    let id  = $(this).attr('href'),
+    top = $(id).offset().top,
+    total = top - height + 20;
+    $('body,html').animate({scrollTop: total}, 500);
   });
 });
