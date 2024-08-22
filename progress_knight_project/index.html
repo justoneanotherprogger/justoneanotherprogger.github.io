@@ -18,22 +18,20 @@
 			<h3>Progress Knight Quest<sup>mod</sup></h3>
 		</div>
 		<div id="resources" class="row" style="top: 0; z-index: 1;">
-            <div class="panel w3-padding" style="width: 86em; display: flex; column-gap: 20px; border-width: 1em 0 1em 0; border-style: solid;">
-                <div id="money" class="resource topbar-element" style="width: 150px;">
-                    <ul>
-						<div class="text-caption" id="coinDisplay">
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-						<div style="color: gray">Balance</div>
-                    </ul>
+            <div class="panel w3-padding" style="width: 86em; display: flex; justify-content: space-between; column-gap: 20px; border-width: 1em 0 1em 0; border-style: solid;">
+                <div id="money" class="resource topbar-element" style="padding-left: 1rem; padding-right: 1rem;">
+					<div class="text-caption" id="coinDisplay">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<div style="color: gray">Balance</div>
                 </div>
 
-                <div id="income" class="resource topbar-element" style="width: 200px;">
-                    <ul style="padding-left: 1em;">
+                <div id="income" class="resource topbar-element">
+                    <ul>
 						<li>
 							<span class="color-hypercubes">Net: </span><b id="signDisplay"></b>
 							<div id="netDisplay" style="display: inline;">
