@@ -1461,16 +1461,14 @@ setInterval(function () {
 
 function getInspiration() {
     const age = gameData.days
-    const lifespan = getLifespan()
-    const modifier = getBaseLog(10, lifespan / (age + 1)) + 0.7
-    const inspiration = modifier
+    const lifespan = getLifespan() == Infinity ? 1e300 : getLifespan()
+    const inspiration = getBaseLog(10, lifespan / (age + 1)) + 0.7
     return inspiration
 }
 
 function getGreed() {
     const adultAge = 20 * 365
     const age = gameData.days
-    const modifier = getBaseLog(adultAge, age)
-    const greed = modifier
+    const greed = getBaseLog(adultAge, age)
     return greed
 }
