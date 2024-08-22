@@ -62,7 +62,11 @@ body {
     text-align: center;
 }
 
-.text-caption + div {
+#resources .text-caption + div {
+    text-align: center;
+}
+
+#info .text-caption + div {
     text-align: center;
 }
 
