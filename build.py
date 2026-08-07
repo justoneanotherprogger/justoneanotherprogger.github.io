@@ -1,0 +1,26 @@
+from pathlib import Path
+from jinja2 import Environment, FileSystemLoader
+from data.projects import projects, socials, about_text
+
+BASE_DIR = Path(__file__).parent
+TEMPLATES_DIR = BASE_DIR / "templates"
+OUTPUT_DIR = BASE_DIR
+STATIC_DIR = BASE_DIR / "static"
+
+
+def build():
+    env = Environment(
+        loader=FileSystemLoader(str(TEMPLATES_DIR)),
+        autoescape=False,
+    )
+
+    template = env.get_template("index.html")
+    html = template.render(projects=projects, socials=socials, about=about_text)
+
+    output_path = OUTPUT_DIR / "index.html"
+    output_path.write_text(html, encoding="utf-8")
+    print(f"Built {output_path}")
+
+
+if __name__ == "__main__":
+    build()
