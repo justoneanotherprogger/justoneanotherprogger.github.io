@@ -69,58 +69,59 @@ body {
   align-items: center;
 }
 
-.header__logo-img {
-  width: 15vw;
-  height: 100%;
-  transition: width 0.3s ease;
-}
-
-.header__nav-list {
-  display: flex;
-  justify-content: space-between;
-  column-gap: 30px;
-}
-
-.header__nav-link {
-  color: var(--main-color);
-  transition: text-shadow 0.3s ease;
-}
-
-.header__nav-link:hover {
-  text-shadow: 1px 1px 2px var(--secondary-color);
-}
-
-/* Десктоп: свёрнутая шапка, разворачивается при ховере */
-@media (min-width: 1000px) {
-  .header {
-    font-size: 14px;
-    max-height: 40px;
-    overflow: hidden;
-  }
-
-  .header__container {
-    padding: 0 10px;
-  }
-
   .header__logo-img {
-    width: auto;
-    height: 28px;
-  }
-
-  .header:hover {
-    font-size: 30px;
-    max-height: 200px;
-  }
-
-  .header:hover .header__container {
-    padding: 0 20px;
-  }
-
-  .header:hover .header__logo-img {
     width: 15vw;
     height: auto;
+    transition: width 0.3s ease;
   }
-}
+
+  .header__nav-list {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+  }
+
+  .header__nav-link {
+    color: var(--main-color);
+    transition: text-shadow 0.3s ease;
+  }
+
+  .header__nav-link:hover {
+    text-shadow: 1px 1px 2px var(--secondary-color);
+  }
+
+  /* Десктоп: свёрнутая шапка, разворачивается при ховере */
+  @media (min-width: 1000px) {
+    .header {
+      font-size: 14px;
+      max-height: 40px;
+      overflow: hidden;
+    }
+
+    .header__container {
+      padding: 0 10px;
+    }
+
+    .header__logo-img {
+      width: 40px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .header:hover {
+      font-size: 30px;
+      max-height: 200px;
+    }
+
+    .header:hover .header__container {
+      padding: 0 20px;
+    }
+
+    .header:hover .header__logo-img {
+      width: 15vw;
+      height: auto;
+    }
+  }
 
 /* ABOUT */
 
