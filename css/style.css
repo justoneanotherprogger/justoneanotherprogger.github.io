@@ -189,6 +189,8 @@ body {
   margin-bottom: 0;
   pointer-events: none;
   font-size: 150px;
+  line-height: 0.85;
+  margin-bottom: 0.2em;
 }
 
 .projects__desc {
