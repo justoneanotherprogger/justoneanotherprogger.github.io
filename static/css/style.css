@@ -195,21 +195,22 @@ body {
 .about__tech-stack {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 12px;
-  margin-top: 20px;
+  gap: 4px 6px;
   padding: 0;
   list-style: none;
   pointer-events: none;
+  align-content: flex-start;
 }
 
 .about__tech-item {
-  padding: 6px 14px;
+  padding: 2px 8px;
   background-color: var(--main-color);
   color: var(--text-color);
-  border-radius: 20px;
-  font-size: 14px;
+  border-radius: 3px;
+  font-size: 12px;
   font-weight: 400;
   white-space: nowrap;
+  line-height: 1.5;
 }
 
 /* PROJECTS */
