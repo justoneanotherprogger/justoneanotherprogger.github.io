@@ -216,7 +216,7 @@ body {
 }
 
 .about__tech-item:hover {
-  background-color: var(--text-color);
+  background-color: var(--secondary-color);
   color: var(--main-color);
   padding: 0.2em 0.5em;
   transform: scale(1.1);
