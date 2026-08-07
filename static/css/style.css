@@ -94,7 +94,7 @@ body {
   padding-bottom: 0;
   display: flex;
   justify-content: space-between;
-  background-image: url("/img/line.png");
+  background-image: url("/static/img/line.png");
   background-repeat: repeat-y;
   background-position: left;
 }
