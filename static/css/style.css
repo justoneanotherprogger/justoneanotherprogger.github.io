@@ -53,6 +53,7 @@ body {
   font-size: 30px;
   font-weight: 400;
   z-index: 100;
+  transition: font-size 0.3s ease, padding 0.3s ease;
 }
 
 .header__container {
@@ -60,6 +61,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: padding 0.3s ease;
 }
 
 .header__logo-container {
@@ -70,6 +72,7 @@ body {
 .header__logo-img {
   width: 15vw;
   height: 100%;
+  transition: width 0.3s ease, height 0.3s ease;
 }
 
 .header__nav-list {
@@ -80,11 +83,40 @@ body {
 
 .header__nav-link {
   color: var(--main-color);
-  transition: .3s;
+  transition: text-shadow 0.3s ease;
 }
 
 .header__nav-link:hover {
   text-shadow: 1px 1px 2px var(--secondary-color);
+}
+
+/* Десктоп: свёрнутая шапка, разворачивается при ховере */
+@media (min-width: 1000px) {
+  .header {
+    font-size: 14px;
+  }
+
+  .header__container {
+    padding: 0 10px;
+  }
+
+  .header__logo-img {
+    width: auto;
+    height: 30px;
+  }
+
+  .header:hover {
+    font-size: 30px;
+  }
+
+  .header:hover .header__container {
+    padding: 0 20px;
+  }
+
+  .header:hover .header__logo-img {
+    width: 15vw;
+    height: 100%;
+  }
 }
 
 /* ABOUT */
