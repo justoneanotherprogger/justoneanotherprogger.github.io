@@ -13,22 +13,6 @@
 - **GitHub Actions** — автоматический деплой на GitHub Pages
 - **HTML/CSS/JS** — фронтенд без фреймворков
 
-## Структура
-
-```
-├── templates/
-│   └── index.html          # Jinja2-шаблон главной страницы
-├── data/
-│   └── projects.py         # данные: проекты, соцсети, тексты, теги
-├── static/
-│   ├── css/style.css       # стили
-│   ├── js/effects.js       # навигация и интерактив
-│   └── img/                # изображения
-├── build.py                # генерация index.html из шаблона
-└── .github/workflows/
-    └── deploy.yml          # CI/CD деплой
-```
-
 ## Локальный запуск
 
 ```bash
