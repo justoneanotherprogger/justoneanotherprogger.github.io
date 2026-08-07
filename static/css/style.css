@@ -70,7 +70,8 @@ body {
 .header__logo-img {
   width: 15vw;
   height: auto;
-  transition: width 0.3s ease, height 0.3s ease;
+  transform-origin: left center;
+  transition: transform 0.3s ease;
 }
 
 .header__nav-list {
@@ -102,8 +103,8 @@ body {
   }
 
   .header__logo-img {
-    width: auto;
-    height: 28px;
+    width: 15vw;
+    transform: scale(0.12);
   }
 
   .header:hover {
@@ -116,8 +117,7 @@ body {
   }
 
   .header:hover .header__logo-img {
-    width: 15vw;
-    height: auto;
+    transform: scale(1);
   }
 }
 
