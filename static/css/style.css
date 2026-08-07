@@ -104,7 +104,7 @@ body {
 
   .header__logo-img {
     width: 15vw;
-    transform: scale(0.28);
+    transform: scale(0.35);
   }
 
   .header:hover {
