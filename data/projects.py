@@ -17,6 +17,7 @@ socials = [
 tech_stack = [
     "Python", "FastAPI", "HTMX", "Tailwind CSS", "Jinja2",
     "SQLite", "Pydantic", "pytest",
+    "LLM Orchestration", "Prompt Engineering", "Vibe Coding",
 ]
 
 about_text = [
