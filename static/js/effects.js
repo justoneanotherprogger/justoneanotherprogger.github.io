@@ -16,3 +16,10 @@ if (header) {
     window.scrollTo({ top, behavior: 'smooth' });
   });
 }
+
+document.querySelector('.about__tech-stack')?.addEventListener('click', (event) => {
+  const tag = event.target.closest('.about__tech-item');
+  if (!tag) return;
+  const query = encodeURIComponent(tag.textContent.trim());
+  window.open(`https://www.google.com/search?q=${query}`, '_blank');
+});
