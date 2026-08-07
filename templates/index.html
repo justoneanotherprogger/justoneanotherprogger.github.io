@@ -41,11 +41,6 @@
             <h1 class="about__name">Кирилл Иващенко</h1>
             <h3 class="about__spec"><span class="about__spec-text">AQA Engineer</span></h3>
           </div>
-          <ul class="about__tech-stack">
-            {% for tech in tech_stack %}
-            <li class="about__tech-item">{{ tech }}</li>
-            {% endfor %}
-          </ul>
         </div>
         <div id="about" class="container about__bottom">
           <div class="about__text">
@@ -54,6 +49,11 @@
             <p class="about__about-text">{{ paragraph }}</p>
             {% endfor %}
           </div>
+          <ul class="about__tech-stack">
+            {% for tech in tech_stack %}
+            <li class="about__tech-item">{{ tech }}</li>
+            {% endfor %}
+          </ul>
         </div>
       </div>
     </section>

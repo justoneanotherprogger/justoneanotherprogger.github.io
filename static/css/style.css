@@ -174,10 +174,12 @@ body {
   justify-content: space-between;
   background-color: var(--text-color);
   color: var(--secondary-color);
+  gap: 30px;
 }
 
 .about__text {
   pointer-events: none;
+  flex: 1;
 }
 
 .about__header {
@@ -422,6 +424,10 @@ body {
 
   .about__main-image {
     display: none;
+  }
+
+  .about__bottom {
+    flex-direction: column;
   }
 
   .projects__section {
