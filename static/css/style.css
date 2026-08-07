@@ -89,10 +89,26 @@ body {
 }
 
 /* Десктоп: свёрнутая шапка, разворачивается при ховере */
+.header--expanded {
+  font-size: 30px !important;
+  max-height: 300px !important;
+}
+
+.header--expanded .header__container {
+  padding: 0 20px !important;
+}
+
+.header--expanded .header__logo-img {
+  width: 15vw !important;
+  height: auto !important;
+}
+
 @media (min-width: 1000px) {
   .header {
     font-size: 14px;
-    height: 40px;
+    max-height: 40px;
+    overflow: hidden;
+    cursor: pointer;
   }
 
   .header__container {
@@ -102,14 +118,7 @@ body {
   .header__logo-img {
     width: auto;
     height: 30px;
-  }
-
-  .header:hover {
-    transform: scaleY(2.5);
-  }
-
-  .header:hover .header__container {
-    padding: 0 20px;
+    object-fit: contain;
   }
 }
 
