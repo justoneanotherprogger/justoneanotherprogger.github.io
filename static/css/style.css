@@ -197,6 +197,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  align-content: flex-start;
   gap: 0.2em 0.75em;
   padding: 0;
   list-style: none;
