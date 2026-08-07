@@ -4,7 +4,7 @@ projects = [
         "text": "AI Tabletop Framework",
         "description": "Веб-фреймворк для настольных ролевых игр, где роль Гейм-Мастера выполняет языковая модель",
         "url": "https://github.com/justoneanotherprogger/AITTF",
-        "image": "/static/img/wip-icon.png",
+        "image": "/static/img/aittf-screenshot.jpg",
     },
 ]
 
