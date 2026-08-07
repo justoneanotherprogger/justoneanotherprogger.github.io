@@ -48,6 +48,11 @@
             {% for paragraph in about %}
             <p class="about__about-text">{{ paragraph }}</p>
             {% endfor %}
+            <ul class="about__tech-stack">
+              {% for tech in tech_stack %}
+              <li class="about__tech-item">{{ tech }}</li>
+              {% endfor %}
+            </ul>
           </div>
         </div>
       </div>

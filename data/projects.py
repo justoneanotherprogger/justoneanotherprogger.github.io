@@ -14,6 +14,11 @@ socials = [
     {"name": "Telegram", "url": "https://t.me/strategovich", "icon_svg": True},
 ]
 
+tech_stack = [
+    "Python", "FastAPI", "HTMX", "Tailwind CSS", "Jinja2",
+    "SQLite", "Pydantic", "pytest", "GitHub Actions", "Linux",
+]
+
 about_text = [
     "Люблю автоматизировать рутину и делать вещи, которые работают.",
     "Пишу на Python, нейросети — мои соразработчики: они пишут код и генерируют задачи, а я тестирую и сверяю с общим видением.",
