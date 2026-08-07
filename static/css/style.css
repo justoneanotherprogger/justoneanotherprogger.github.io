@@ -95,7 +95,6 @@ body {
     .header {
       font-size: 14px;
       max-height: 40px;
-      overflow: hidden;
     }
 
     .header__container {
@@ -110,7 +109,7 @@ body {
 
     .header:hover {
       font-size: 30px;
-      max-height: 200px;
+      max-height: 300px;
     }
 
     .header:hover .header__container {
