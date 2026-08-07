@@ -50,10 +50,10 @@ body {
   background-color: var(--text-color);
   color: var(--main-color);
   border-bottom: #222 1px solid;
-  font-size: 30px;
   font-weight: 400;
   z-index: 100;
-  transition: font-size 0.3s ease, max-height 0.3s ease;
+  transform-origin: top;
+  transition: transform 0.3s ease;
 }
 
 .header__container {
@@ -61,7 +61,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: padding 0.3s ease;
 }
 
 .header__logo-container {
@@ -69,59 +68,50 @@ body {
   align-items: center;
 }
 
+.header__logo-img {
+  width: 15vw;
+  height: auto;
+}
+
+.header__nav-list {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
+}
+
+.header__nav-link {
+  color: var(--main-color);
+  transition: text-shadow 0.3s ease;
+}
+
+.header__nav-link:hover {
+  text-shadow: 1px 1px 2px var(--secondary-color);
+}
+
+/* Десктоп: свёрнутая шапка, разворачивается при ховере */
+@media (min-width: 1000px) {
+  .header {
+    font-size: 14px;
+    height: 40px;
+  }
+
+  .header__container {
+    padding: 0 10px;
+  }
+
   .header__logo-img {
-    width: 15vw;
-    height: auto;
-    transition: transform 0.3s ease;
+    width: auto;
+    height: 30px;
   }
 
-  .header__nav-list {
-    display: flex;
-    justify-content: space-between;
-    column-gap: 30px;
+  .header:hover {
+    transform: scaleY(2.5);
   }
 
-  .header__nav-link {
-    color: var(--main-color);
-    transition: text-shadow 0.3s ease;
+  .header:hover .header__container {
+    padding: 0 20px;
   }
-
-  .header__nav-link:hover {
-    text-shadow: 1px 1px 2px var(--secondary-color);
-  }
-
-  /* Десктоп: свёрнутая шапка, разворачивается при ховере */
-  @media (min-width: 1000px) {
-    .header {
-      font-size: 14px;
-      max-height: 40px;
-    }
-
-    .header__container {
-      padding: 0 10px;
-    }
-
-    .header__logo-img {
-      width: auto;
-      height: 30px;
-      transform: scale(1);
-    }
-
-    .header:hover {
-      font-size: 30px;
-      max-height: 300px;
-    }
-
-    .header:hover .header__container {
-      padding: 0 20px;
-    }
-
-    .header:hover .header__logo-img {
-      width: 15vw;
-      height: auto;
-      transform: scale(1);
-    }
-  }
+}
 
 /* ABOUT */
 
