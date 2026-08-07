@@ -1,6 +1,6 @@
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
-from data.projects import projects, socials, about_text
+from data.projects import projects, socials, about_text, site_description
 
 BASE_DIR = Path(__file__).parent
 TEMPLATES_DIR = BASE_DIR / "templates"
@@ -15,7 +15,7 @@ def build():
     )
 
     template = env.get_template("index.html")
-    html = template.render(projects=projects, socials=socials, about=about_text)
+    html = template.render(projects=projects, socials=socials, about=about_text, site_description=site_description)
 
     output_path = OUTPUT_DIR / "index.html"
     output_path.write_text(html, encoding="utf-8")
