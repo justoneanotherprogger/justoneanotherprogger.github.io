@@ -202,6 +202,7 @@ body {
   list-style: none;
   pointer-events: none;
   line-height: 1.2;
+  max-width: 280px;
 }
 
 .about__tech-item {
