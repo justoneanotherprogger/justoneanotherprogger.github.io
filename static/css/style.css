@@ -72,7 +72,7 @@ body {
   .header__logo-img {
     width: 15vw;
     height: auto;
-    transition: width 0.3s ease;
+    transition: transform 0.3s ease;
   }
 
   .header__nav-list {
@@ -102,9 +102,9 @@ body {
     }
 
     .header__logo-img {
-      width: 40px;
-      height: 28px;
-      object-fit: contain;
+      width: auto;
+      height: 30px;
+      transform: scale(1);
     }
 
     .header:hover {
@@ -119,6 +119,7 @@ body {
     .header:hover .header__logo-img {
       width: 15vw;
       height: auto;
+      transform: scale(1);
     }
   }
 
