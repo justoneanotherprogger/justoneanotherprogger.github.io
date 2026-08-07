@@ -15,9 +15,17 @@ socials = [
 ]
 
 tech_stack = [
-    "Python", "FastAPI", "HTMX", "Tailwind CSS", "Jinja2",
-    "SQLite", "Pydantic", "pytest",
-    "LLM Orchestration", "Prompt Engineering", "Vibe Coding",
+    {"name": "Python", "weight": 5},
+    {"name": "FastAPI", "weight": 4},
+    {"name": "Jinja2", "weight": 3},
+    {"name": "SQLite", "weight": 3},
+    {"name": "HTMX", "weight": 2},
+    {"name": "Tailwind CSS", "weight": 2},
+    {"name": "Pydantic", "weight": 2},
+    {"name": "pytest", "weight": 2},
+    {"name": "LLM Orchestration", "weight": 3},
+    {"name": "Prompt Engineering", "weight": 3},
+    {"name": "Vibe Coding", "weight": 1},
 ]
 
 about_text = [

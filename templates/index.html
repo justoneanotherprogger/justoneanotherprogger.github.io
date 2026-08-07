@@ -51,7 +51,7 @@
           </div>
           <ul class="about__tech-stack">
             {% for tech in tech_stack %}
-            <li class="about__tech-item">{{ tech }}</li>
+            <li class="about__tech-item tag-w{{ tech.weight }}">{{ tech.name }}</li>
             {% endfor %}
           </ul>
         </div>
