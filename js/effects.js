@@ -1,11 +1,18 @@
-$(document).ready(function(){
-  let height = document.getElementById('main-header').offsetHeight;
+const header = document.getElementById('main-header');
 
-  $("#header-nav-menu").on("click","a", function (event) {
+if (header) {
+  const nav = document.getElementById('header-nav-menu');
+  const offset = header.offsetHeight + 20;
+
+  nav.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link) return;
+
     event.preventDefault();
-    let id  = $(this).attr('href'),
-    top = $(id).offset().top,
-    total = top - height + 20;
-    $('body,html').animate({scrollTop: total}, 500);
+    const target = document.querySelector(link.getAttribute('href'));
+    if (!target) return;
+
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
   });
-});
+}

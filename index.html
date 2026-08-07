@@ -2,8 +2,9 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Сайт-визитка Кирилла Иващенко: AQA-инженер, проекты по вёрстке и разработке игр">
+  <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/fonts/opensans/opensans.css">
   <link rel="stylesheet" href="/fonts/fonts.css">
@@ -19,7 +20,7 @@
       <div class="header__logo-container">
         <img src="/img/logo.png" alt="" class="header__logo-img">
       </div>
-      <nav id="header-nav-menu" class="header__nav-menu">
+      <nav id="header-nav-menu" class="header__nav-menu" aria-label="Основное меню">
         <ul class="header__nav-list">
           <li class="header__nav-item">
             <a href="#about" class="header__nav-link">Обо мне</a>
@@ -37,15 +38,11 @@
     <section id="about-start" class="about__section">
       <div class="about__container">
         <div class="container about__top">
-          <img src="/img/photo-face.png" alt="" class="about__main-image">
+          <img src="/img/photo-face.png" alt="Фотография Кирилла Иващенко" class="about__main-image">
           <div class="about__main-info">
             <h3 class="about__nickname">justoneanotherprogger</h3>
             <h1 class="about__name">Кирилл Иващенко</h1>
-            <h3 class="about__spec">
-              <ul>
-                <li>AQA Engineer</li>
-              </ul>
-            </h3>
+            <h3 class="about__spec"><span class="about__spec-text">AQA Engineer</span></h3>
           </div>
         </div>
         <div id="about" class="container about__bottom">
@@ -67,43 +64,13 @@
         </div>
         <ul class="projects__list">
           <li class="projects__project">
-            <a href="/hotels/" class="projects__project-link" target="_blank">
+            <a href="https://github.com/justoneanotherprogger/AITTF" class="projects__project-link" target="_blank">
               <span class="projects__project-name">
-                <span class="projects__project-site-name">Lagoona</span>
-                <span class="projects__project-name-text">Сайт туристического агенства</span>
-                <span class="projects__project-name-desc">Домашнее задание на курсе Вёрстки (еще без адаптивности)</span>
+                <span class="projects__project-site-name">AITTF</span>
+                <span class="projects__project-name-text">AI Tabletop Framework</span>
+                <span class="projects__project-name-desc">Веб-фреймворк для настольных ролевых игр, где роль Гейм-Мастера выполняет языковая модель</span>
               </span>
-              <img src="/img/site1.jpg" alt="" class="projects__projects-pic">
-            </a>
-          </li>
-          <li class="projects__project">
-            <a href="/evklid/" class="projects__project-link" target="_blank">
-              <span class="projects__project-name">
-                <span class="projects__project-site-name">Евклид</span>
-                <span class="projects__project-name-text">Сайт инженерной компании</span>
-                <span class="projects__project-name-desc">Домашнее задание на курсе Вёрстки (уже с адаптивностью)</span>
-              </span>
-              <img src="/img/site2.jpg" alt="" class="projects__projects-pic">
-            </a>
-          </li>
-          <li class="projects__project">
-            <a href="/blanchard/" class="projects__project-link" target="_blank">
-              <span class="projects__project-name">
-                <span class="projects__project-site-name">Blanchard</span>
-                <span class="projects__project-name-text">Сайт картинной галереи</span>
-                <span class="projects__project-name-desc">Дипломная работа на курсе Вёрстки</span>
-              </span>
-              <img src="/img/site3.jpg" alt="" class="projects__projects-pic">
-            </a>
-          </li>
-          <li class="projects__project">
-            <a href="https://github.com/justoneanotherprogger/pytest_example_tests" class="projects__project-link" target="_blank">
-              <span class="projects__project-name">
-                <span class="projects__project-site-name">Тесты на Pytest</span>
-                <span class="projects__project-name-text">Репозиторий на Github</span>
-                <span class="projects__project-name-desc">Мое видение правильных тестов на фреймворке Pytest</span>
-              </span>
-              <img src="/img/site4.jpg" alt="" class="projects__projects-pic">
+              <img src="/img/wip-icon.png" alt="" class="projects__projects-pic">
             </a>
           </li>
         </ul>
@@ -135,9 +102,7 @@
     </div>
   </footer>
 
-  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-
-  <script src="/js/effects.js"></script>
+  <script src="/js/effects.js" defer></script>
 
 </body>
 </html>
