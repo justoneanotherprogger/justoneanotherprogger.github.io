@@ -571,3 +571,24 @@ body {
     row-gap: 20px;
   }
 }
+
+/* Кнопка «Резюме» рядом с профессией */
+.about__resume-btn {
+  display: inline-block;
+  width: fit-content;
+  margin-top: 18px;
+  padding: 10px 28px;
+  color: var(--secondary-color);
+  background-color: var(--text-color);
+  font-size: 20px;
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+  }
+.about__resume-btn:hover {
+  box-shadow: 0 0 10px 1px var(--secondary-color);
+  transform: translateY(-2px);
+  }
+
+@media (max-width: 991px) {
+  .about__resume-btn { font-size: 18px; padding: 8px 22px; }
+  }

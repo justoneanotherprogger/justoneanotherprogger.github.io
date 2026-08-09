@@ -47,6 +47,9 @@
             <h3 class="about__nickname">justoneanotherprogger</h3>
             <h1 class="about__name">Кирилл Иващенко</h1>
             <h3 class="about__spec"><span class="about__spec-text">AQA Engineer</span></h3>
+            {% if resume_url %}
+            <a href="{{ resume_url }}" class="about__resume-btn" target="_blank" rel="noopener">Резюме</a>
+            {% endif %}
           </div>
         </div>
         <div id="about" class="container about__bottom">
