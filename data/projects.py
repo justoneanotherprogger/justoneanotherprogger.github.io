@@ -37,5 +37,5 @@ about_text = [
 
 site_description = "Сайт-визитка Кирилла Иващенко: AQA-инженер, проекты по вёрстке и разработке игр"
 
-# ссылка на резюме (hh.ru и т.п.) — пока нет, впишем позже
-resume_url = ""
+# ссылка на резюме (hh.ru и т.п.)
+resume_url = "https://hh.ru/resume/182ceffbff05bcbf3b0039ed1f6f686a776f54"
