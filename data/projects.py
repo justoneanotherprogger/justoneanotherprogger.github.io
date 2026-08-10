@@ -3,7 +3,8 @@ projects = [
         "name": "Progress Knight Quest Mod",
         "text": "Мод для Progress Knight Quest",
         "description": "Модификация кликер-RPG про перерождения с новыми классами, умениями и механиками",
-        "url": "https://github.com/justoneanotherprogger/progress_knight_project",
+        "url": "https://justoneanotherprogger.github.io/progress_knight_project/",
+        "repo": "https://github.com/justoneanotherprogger/progress_knight_project",
         "image": "/static/img/PKQ-mod.jpg",
     },
     {
