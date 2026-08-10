@@ -1,5 +1,12 @@
 projects = [
     {
+        "name": "Progress Knight Quest Mod",
+        "text": "Мод для Progress Knight Quest",
+        "description": "Модификация кликер-RPG про перерождения с новыми классами, умениями и механиками",
+        "url": "https://github.com/justoneanotherprogger/progress_knight_project",
+        "image": "/static/img/PKQ-mod.jpg",
+    },
+    {
         "name": "AITTF",
         "text": "AI Tabletop Framework",
         "description": "Веб-фреймворк для настольных ролевых игр, где роль Гейм-Мастера выполняет языковая модель",
