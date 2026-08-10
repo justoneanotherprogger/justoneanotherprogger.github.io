@@ -608,7 +608,7 @@ body {
   }
 .projects__repo-link {
   position: absolute;
-  top: 8px;
+  bottom: 8px;
   right: 8px;
   display: flex;
   align-items: center;
