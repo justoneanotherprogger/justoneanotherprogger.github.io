@@ -750,7 +750,7 @@ body {
         flex: 1 1 100%;
         padding-right: 0;
         margin-bottom: 20px;
-        text-align: right;
+        text-align: left;
     }
     .agents__header {
         font-size: 80px;
@@ -787,6 +787,7 @@ body {
         flex: 1 1 100%;
         padding-right: 0;
         margin-bottom: 20px;
+        text-align: left;
     }
     .agents__header {
         font-size: 40px;
