@@ -757,6 +757,7 @@ body {
     }
     .agents__desc {
         font-size: 20px;
+        margin-left: 0;
     }
     .agents__list {
         flex: 1 1 100%;
@@ -782,6 +783,7 @@ body {
     }
     .agents__desc {
         font-size: 16px;
+        margin-left: 0;
     }
     .agents__description {
         flex: 1 1 100%;
