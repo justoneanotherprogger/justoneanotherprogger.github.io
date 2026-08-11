@@ -121,7 +121,7 @@
     <section id="agents" class="agents__section">
       <div class="container agents__container">
         <div class="agents__description">
-          <h2 class="agents__header section-header">Мои ИИ-агенты</h2>
+          <h2 class="agents__header section-header">Мои ИИ‑агенты</h2>
           <p class="agents__desc">каждый со своей страничкой</p>
         </div>
         <ul class="agents__list">
@@ -130,7 +130,7 @@
             <a href="{{ agent.url }}" class="agents__card">
               <span class="agents__card-info">
                 <span class="agents__card-name">{{ agent.name }}</span>
-                <span class="agents__card-desc">{{ agent.desc }}</span>
+                <span class="agents__card-desc">{{ agent.desc | replace("-", "‑") }}</span>
               </span>
               <span class="agents__card-avatar">{{ agent.avatar }}</span>
             </a>
