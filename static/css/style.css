@@ -674,8 +674,10 @@ body {
     margin-top: 15px;
     padding: 5px;
     width: fit-content;
-    font-size: 18px;
-    color: var(--text-color);
+    color: var(--secondary-color);
+    background-color: var(--text-color);
+    font-size: 30px;
+    pointer-events: none;
   }
 .agents__list {
     flex: 0 0 40%;
@@ -728,6 +730,9 @@ body {
     .agents__description {
         padding-right: 20px;
     }
+    .agents__desc {
+        font-size: 20px;
+    }
     .agents__list {
         flex: 0 0 45%;
     }
@@ -743,6 +748,9 @@ body {
     }
     .agents__container {
         flex-direction: column;
+    }
+    .agents__desc {
+        font-size: 16px;
     }
     .agents__description {
         flex: 1 1 100%;
@@ -760,3 +768,5 @@ body {
         min-width: 100%;
     }
   }
+
+
