@@ -646,9 +646,21 @@ body {
     justify-content: space-between;
     flex-direction: row-reverse;
   }
+.agents__container::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    left: 0;
+    background-color: var(--text-color);
+    z-index: 0;
+  }
 .agents__description {
     padding-right: 30px;
     flex: 0 0 55%;
+    position: relative;
+    z-index: 1;
   }
 .agents__header {
     margin-bottom: 0;
@@ -672,13 +684,15 @@ body {
     gap: 16px;
     list-style: none;
     padding: 0;
+    position: relative;
+    z-index: 1;
   }
 .agents__card {
     display: flex;
     align-items: center;
     gap: 16px;
     padding: 20px;
-    background-color: var(--text-color);
+    background-color: var(--main-color);
     color: var(--secondary-color);
     text-decoration: none;
     transition: box-shadow 0.2s, transform 0.2s;
@@ -727,6 +741,9 @@ body {
     }
     .agents__container {
         flex-direction: column;
+    }
+    .agents__container::before {
+        content: unset;
     }
     .agents__description {
         flex: 1 1 100%;
