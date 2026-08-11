@@ -733,20 +733,31 @@ body {
   }
 
 @media (max-width: 1000px) {
+    .agents__divider {
+        height: 50px;
+    }
     .agents__section {
         margin-right: 50px;
+    }
+    .agents__container {
+        padding: 20px;
+        column-gap: 30px;
     }
     .agents__header {
         font-size: 80px;
     }
     .agents__description {
         padding-right: 20px;
+        flex: 1 1 45%;
     }
     .agents__desc {
         font-size: 20px;
     }
     .agents__list {
-        flex: 0 0 45%;
+        flex: 1 1 55%;
+    }
+    .agents__card {
+        gap: 20px;
     }
   }
 
