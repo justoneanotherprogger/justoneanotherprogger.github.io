@@ -638,7 +638,6 @@ body {
 .agents__section {
     margin-right: 120px;
     border-right: 5px solid var(--text-color);
-    padding: 40px 0;
   }
 .agents__container {
     display: flex;
