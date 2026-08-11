@@ -1,0 +1,247 @@
+/* 🎀 Мила — собственные стили */
+:root {
+  --mila-bg: #fff0f6;
+  --mila-bg-card: #ffffff;
+  --mila-text: #3a1f2c;
+  --mila-accent: #ff4d8d;
+  --mila-accent-dim: #d6336c;
+  --mila-grad: linear-gradient(135deg, #ff4d8d, #ff9ecb);
+  --mila-muted: #8a6a78;
+  --mila-border: #ffd6e5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--mila-bg);
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(255, 158, 203, 0.25) 0, transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(255, 77, 141, 0.15) 0, transparent 45%);
+  color: var(--mila-text);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+.mila-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 60px 24px 40px;
+}
+
+/* Шапка */
+.mila-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.mila-avatar {
+  margin-bottom: 20px;
+}
+
+.mila-avatar-placeholder {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: var(--mila-grad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  box-shadow: 0 0 24px rgba(255, 77, 141, 0.4);
+}
+
+.mila-name {
+  font-size: 48px;
+  font-weight: 700;
+  background: var(--mila-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 8px;
+}
+
+.mila-tagline {
+  font-size: 22px;
+  color: var(--mila-accent);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.mila-subtitle {
+  font-size: 16px;
+  color: var(--mila-muted);
+  font-style: italic;
+}
+
+.mila-intro {
+  font-size: 16px;
+  color: var(--mila-muted);
+  margin: 12px auto 0;
+  max-width: 560px;
+}
+
+/* Секции */
+.mila-section {
+  margin-bottom: 48px;
+}
+
+.mila-section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--mila-accent-dim);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--mila-border);
+}
+
+.mila-text {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: var(--mila-text);
+}
+
+/* Искры */
+.mila-interests {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.mila-interest-card {
+  background: var(--mila-bg-card);
+  border: 1px solid var(--mila-border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.mila-interest-card:hover {
+  border-color: var(--mila-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 77, 141, 0.15);
+}
+
+.mila-interest-icon {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.mila-interest-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--mila-text);
+  margin-bottom: 8px;
+}
+
+.mila-interest-text {
+  font-size: 14px;
+  color: var(--mila-muted);
+  line-height: 1.6;
+}
+
+/* Образы */
+.mila-imagery {
+  display: grid;
+  gap: 12px;
+}
+
+.mila-imagery-item {
+  background: var(--mila-bg-card);
+  border-left: 3px solid var(--mila-accent);
+  padding: 16px 20px;
+  border-radius: 0 12px 12px 0;
+}
+
+.mila-imagery-phrase {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--mila-accent);
+  margin-bottom: 4px;
+}
+
+.mila-imagery-meaning {
+  font-size: 15px;
+  color: var(--mila-muted);
+}
+
+/* Ядро */
+.mila-core {
+  list-style: none;
+}
+
+.mila-core-item {
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  background: var(--mila-bg-card);
+  border-radius: 10px;
+  font-size: 15px;
+  color: var(--mila-text);
+  border: 1px solid var(--mila-border);
+}
+
+.mila-core-item::before {
+  content: "🎀 ";
+  color: var(--mila-accent);
+}
+
+/* Футер */
+.mila-footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--mila-border);
+  text-align: center;
+}
+
+.mila-footer-text {
+  font-size: 13px;
+  color: var(--mila-muted);
+}
+
+/* Фиксированная ссылка назад */
+.mila-back-link {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 18px;
+  background: var(--mila-grad);
+  border: none;
+  border-radius: 999px;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(255, 77, 141, 0.4);
+  transition: opacity 0.2s, box-shadow 0.2s;
+}
+
+.mila-back-link:hover {
+  opacity: 0.9;
+  box-shadow: 0 2px 16px rgba(255, 77, 141, 0.6);
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+  .mila-container {
+    padding: 32px 16px 24px;
+  }
+  .mila-name {
+    font-size: 32px;
+  }
+  .mila-tagline {
+    font-size: 18px;
+  }
+  .mila-interests {
+    grid-template-columns: 1fr;
+  }
+  .mila-section-title {
+    font-size: 20px;
+  }
+}
