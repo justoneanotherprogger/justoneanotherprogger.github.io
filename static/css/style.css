@@ -593,9 +593,7 @@ body {
   transform: translateY(-2px);
   }
 
-@media (max-width: 991px) {
-  .about__resume-btn { font-size: 18px; padding: 8px 22px; }
-  }
+
 
 
 
@@ -627,6 +625,7 @@ body {
   }
 
 @media (max-width: 767px) {
+  .about__tech-stack { display: none; }
   .projects__repo-link {
     top: 4px;
     right: 4px;
@@ -634,3 +633,5 @@ body {
     height: 28px;
     }
   }
+
+
