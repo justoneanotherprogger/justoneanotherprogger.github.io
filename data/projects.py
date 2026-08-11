@@ -19,7 +19,7 @@ projects = [
 socials = [
     {"name": "VK", "url": "https://vk.com/id16681919"},
     {"name": "email", "url": "mailto:strategovich@gmail.com", "content": "&#9993;"},
-    {"name": "Telegram", "url": "https://t.me/strategovich", "icon_svg": True},
+    # {"name": "Telegram", "url": "https://t.me/strategovich", "icon_svg": True},
 ]
 
 tech_stack = [
