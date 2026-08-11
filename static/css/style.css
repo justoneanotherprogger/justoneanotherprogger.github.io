@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --main-color: #222;
   --text-color: #b24a3b;
   --secondary-color: #f4ead2;
@@ -571,3 +571,65 @@ body {
     row-gap: 20px;
   }
 }
+
+/* Кнопка «Резюме» рядом с профессией */
+.about__resume-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-left: 12px;
+  color: var(--secondary-color);
+  background-color: var(--text-color);
+  border-radius: 4px;
+  text-decoration: none;
+  pointer-events: auto;
+  vertical-align: middle;
+  transition: box-shadow 0.2s, transform 0.2s;
+  }
+.about__resume-btn:hover {
+  box-shadow: 0 0 10px 1px var(--secondary-color);
+  transform: translateY(-2px);
+  }
+
+
+
+
+
+
+
+
+/* Кнопка репозитория — строка после описания проекта */
+.projects__repo-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 6px;
+  }
+.projects__repo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--secondary-color);
+  text-decoration: none;
+  opacity: 0.8;
+  font-size: 14px;
+  transition: opacity 0.2s;
+  }
+.projects__repo-link svg {
+  width: 20px;
+  height: 20px;
+  }
+.projects__repo-link:hover {
+  opacity: 1;
+  }
+
+@media (max-width: 1000px) {
+  .about__tech-stack { display: none; }
+  }
+
+
+
+
+
+

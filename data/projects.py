@@ -1,5 +1,13 @@
 projects = [
     {
+        "name": "Progress Knight Quest Mod",
+        "text": "Мод для Progress Knight Quest",
+        "description": "Модификация кликер-RPG про перерождения с новыми классами, умениями и механиками",
+        "url": "https://justoneanotherprogger.github.io/progress_knight_project/",
+        "repo": "https://github.com/justoneanotherprogger/progress_knight_project",
+        "image": "/static/img/PKQ-mod.jpg",
+    },
+    {
         "name": "AITTF",
         "text": "AI Tabletop Framework",
         "description": "Веб-фреймворк для настольных ролевых игр, где роль Гейм-Мастера выполняет языковая модель",
@@ -11,7 +19,7 @@ projects = [
 socials = [
     {"name": "VK", "url": "https://vk.com/id16681919"},
     {"name": "email", "url": "mailto:strategovich@gmail.com", "content": "&#9993;"},
-    {"name": "Telegram", "url": "https://t.me/strategovich", "icon_svg": True},
+    # {"name": "Telegram", "url": "https://t.me/strategovich", "icon_svg": True},
 ]
 
 tech_stack = [
@@ -30,9 +38,12 @@ tech_stack = [
 
 about_text = [
     "Люблю автоматизировать рутину и делать вещи, которые работают.",
-    "Пишу на Python, нейросети — мои соразработчики: они пишут код и генерируют задачи, а я тестирую и сверяю с общим видением.",
-    "Двигаюсь в сторону Data Science и DevOps: хочу не только искать баги, но и строить системы.",
-    "Девиз: сначала сделай работающий прототип, потом уже думай об идеальной архитектуре.",
+    "Нейросети — мой главный исследовательский интерес: они мне и соразработчики, и объект изучения.",
+    "Сейчас погружаюсь в Data Science — со стороны LLM: копаю, как они устроены и как с ними работать.",
+    "Девиз: сначала работающий прототип, потом идеальная архитектура.",
 ]
 
-site_description = "Сайт-визитка Кирилла Иващенко: AQA-инженер, проекты по вёрстке и разработке игр"
+site_description = "Сайт-визитка Кирилла Иващенко: AQA-инженер, проекты по геймдеву и LLM-разработке"
+
+# ссылка на резюме (hh.ru и т.п.)
+resume_url = "https://hh.ru/resume/182ceffbff05bcbf3b0039ed1f6f686a776f54"
