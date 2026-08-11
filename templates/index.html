@@ -128,11 +128,11 @@
           {% for agent in agents %}
           <li>
             <a href="{{ agent.url }}" class="agents__card">
-              <span class="agents__card-avatar">{{ agent.avatar }}</span>
               <span class="agents__card-info">
                 <span class="agents__card-name">{{ agent.name }}</span>
                 <span class="agents__card-desc">{{ agent.desc }}</span>
               </span>
+              <span class="agents__card-avatar">{{ agent.avatar }}</span>
             </a>
           </li>
           {% endfor %}

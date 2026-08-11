@@ -320,6 +320,7 @@ body {
 .projects__project-link:hover > .projects__projects-pic {
   filter: none;
   transform: scale(1.05);
+  box-shadow: 0 0 10px 1px var(--secondary-color);
 }
 
 /* FOOTER */
@@ -544,6 +545,7 @@ body {
 
   .projects__project-link:hover > .projects__projects-pic {
     transform: none;
+    box-shadow: none;
   }
 
   .projects__project-link:active > .projects__projects-pic {
@@ -662,7 +664,8 @@ body {
   }
 .agents__description {
     padding-right: 30px;
-    flex: 0 0 55%;
+    flex: 0 0 65%;
+    text-align: right;
     position: relative;
     z-index: 1;
   }
@@ -678,13 +681,14 @@ body {
     margin-top: 15px;
     padding: 5px;
     width: fit-content;
+    margin-left: auto;
     color: var(--secondary-color);
     background-color: var(--text-color);
     font-size: 30px;
     pointer-events: none;
   }
 .agents__list {
-    flex: 0 0 40%;
+    flex: 0 0 35%;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -692,11 +696,12 @@ body {
     padding: 0;
     position: relative;
     z-index: 1;
+    min-width: 0;
   }
 .agents__card {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 50px;
     padding: 20px;
     color: var(--secondary-color);
     text-decoration: none;
@@ -709,11 +714,15 @@ body {
 .agents__card-avatar {
     font-size: 40px;
     flex-shrink: 0;
+    margin-left: auto;
   }
 .agents__card-info {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: break-word;
   }
 .agents__card-name {
     font-size: 24px;
