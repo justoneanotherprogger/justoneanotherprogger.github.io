@@ -183,22 +183,32 @@ body {
   text-align: center;
 }
 
-.lina-back-link {
-  display: inline-block;
-  color: var(--lina-accent);
-  text-decoration: none;
-  font-size: 16px;
-  margin-bottom: 12px;
-  transition: opacity 0.2s;
-}
-
-.lina-back-link:hover {
-  opacity: 0.8;
-}
-
 .lina-footer-text {
   font-size: 13px;
   color: var(--lina-muted);
+}
+
+/* Фиксированная ссылка назад */
+.lina-back-link {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  color: var(--lina-accent);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 14px;
+  background: rgba(26, 26, 26, 0.85);
+  border: 1px solid var(--lina-border);
+  border-radius: 6px;
+  z-index: 100;
+  transition: border-color 0.2s, opacity 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.lina-back-link:hover {
+  border-color: var(--lina-accent);
+  opacity: 0.9;
 }
 
 /* Адаптив */
