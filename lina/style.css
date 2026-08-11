@@ -171,7 +171,7 @@ body {
 }
 
 .lina-core-item::before {
-  content: "◇ ";
+  content: "✧ ";
   color: var(--lina-accent);
 }
 
