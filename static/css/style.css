@@ -652,6 +652,7 @@ body {
     position: absolute;
     width: 30%;
     height: 100%;
+    top: 0;
     left: 0;
     background-color: var(--text-color);
     z-index: 0;
