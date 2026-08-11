@@ -634,54 +634,131 @@ body {
 
 
 
-/* Блок «Мои ИИ-агенты» */
+/* Блок «Мои ИИ-агенты» — зеркально проектам */
 .agents__section {
-  padding: 60px 0;
+    margin-right: 120px;
+    border-right: 5px solid var(--text-color);
+    background-color: var(--text-color);
+    color: var(--secondary-color);
+    padding: 40px 0;
+  }
+.agents__container {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  }
+.agents__container::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    left: 0;
+    background-color: var(--main-color);
+    z-index: 0;
+  }
+.agents__description {
+    padding-right: 30px;
+    flex: 0 0 55%;
+    z-index: 1;
   }
 .agents__header {
-  margin-bottom: 32px;
+    margin-bottom: 0;
+    pointer-events: none;
+    font-size: 150px;
+    line-height: 0.85;
+    color: var(--secondary-color);
+    word-break: break-word;
+  }
+.agents__desc {
+    margin-top: 15px;
+    padding: 5px;
+    width: fit-content;
+    color: var(--secondary-color);
+    background-color: var(--text-color);
+    font-size: 18px;
   }
 .agents__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+    flex: 0 0 40%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
   }
 .agents__card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px;
-  background-color: var(--text-color);
-  color: var(--secondary-color);
-  text-decoration: none;
-  transition: box-shadow 0.2s, transform 0.2s;
-  min-width: 280px;
-  flex: 1 1 300px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.2s;
   }
 .agents__card:hover {
-  box-shadow: 0 0 10px 1px var(--secondary-color);
-  transform: translateY(-2px);
+    box-shadow: 0 0 10px 1px var(--secondary-color);
+    transform: translateY(-2px);
   }
 .agents__card-avatar {
-  font-size: 40px;
-  flex-shrink: 0;
+    font-size: 40px;
+    flex-shrink: 0;
   }
 .agents__card-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 .agents__card-name {
-  font-size: 24px;
-  font-weight: 600;
+    font-size: 24px;
+    font-weight: 600;
   }
 .agents__card-desc {
-  font-size: 14px;
-  opacity: 0.9;
+    font-size: 14px;
+    opacity: 0.9;
+  }
+
+@media (max-width: 1000px) {
+    .agents__section {
+        margin-right: 50px;
+    }
+    .agents__header {
+        font-size: 80px;
+    }
+    .agents__description {
+        padding-right: 20px;
+    }
+    .agents__list {
+        flex: 0 0 45%;
+    }
   }
 
 @media (max-width: 767px) {
-  .agents__card {
-    min-width: 100%;
+    .agents__section {
+        margin-right: 0;
+        border-right: unset;
+    }
+    .agents__container {
+        flex-direction: column;
+    }
+    .agents__container::before {
+        content: unset;
+    }
+    .agents__description {
+        flex: 1 1 100%;
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+    .agents__header {
+        font-size: 40px;
+        pointer-events: auto;
+    }
+    .agents__list {
+        flex: 1 1 100%;
+    }
+    .agents__card {
+        min-width: 100%;
     }
   }
