@@ -626,6 +626,7 @@ body {
 
 @media (max-width: 1000px) {
   .about__tech-stack { display: none; }
+  .projects__repo-link { width: 40px; height: 40px; }
   .projects__repo-link {
     top: 4px;
     right: 4px;
@@ -633,6 +634,8 @@ body {
     height: 28px;
     }
   }
+
+
 
 
 
