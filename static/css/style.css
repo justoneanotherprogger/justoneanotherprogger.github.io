@@ -637,7 +637,7 @@ body {
 
 /* Блок «Мои ИИ-агенты» — зеркально проектам */
 .agents__divider {
-    height: 50px;
+    height: 100px;
     background-color: var(--text-color);
   }
 .agents__section {
