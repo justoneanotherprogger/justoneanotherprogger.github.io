@@ -318,7 +318,7 @@ body {
 }
 
 .projects__project-link:hover > .projects__projects-pic {
-  filter: none;
+  filter: grayscale(0%) brightness(1) contrast(1) drop-shadow(0 0 10px var(--secondary-color));
   transform: scale(1.05);
 }
 
@@ -544,6 +544,7 @@ body {
 
   .projects__project-link:hover > .projects__projects-pic {
     transform: none;
+    box-shadow: none;
   }
 
   .projects__project-link:active > .projects__projects-pic {
@@ -629,6 +630,178 @@ body {
   }
 
 
+
+
+
+
+
+/* Блок «Мои ИИ-агенты» — зеркально проектам */
+.agents__divider {
+    height: 100px;
+    background-color: var(--text-color);
+  }
+.agents__section {
+    margin-right: 120px;
+    border-right: 5px solid var(--text-color);
+  }
+.agents__container {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  }
+.agents__container::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--text-color);
+    z-index: 0;
+  }
+.agents__description {
+    padding-right: 30px;
+    flex: 0 0 65%;
+    text-align: right;
+    position: relative;
+    z-index: 1;
+  }
+.agents__header {
+    margin-bottom: 0;
+    pointer-events: none;
+    font-size: 150px;
+    line-height: 0.85;
+    color: var(--text-color);
+    word-break: break-word;
+  }
+.agents__desc {
+    margin-top: 15px;
+    padding: 5px;
+    width: fit-content;
+    margin-left: auto;
+    color: var(--secondary-color);
+    background-color: var(--text-color);
+    font-size: 30px;
+    pointer-events: none;
+  }
+.agents__list {
+    flex: 0 0 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+  }
+.agents__card {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+.agents__card:hover {
+    box-shadow: 0 0 10px 1px var(--secondary-color);
+    transform: translateY(-2px);
+  }
+.agents__card-avatar {
+    font-size: 40px;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+.agents__card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+.agents__card-name {
+    font-size: 24px;
+    font-weight: 600;
+  }
+.agents__card-desc {
+    font-size: 14px;
+    opacity: 0.9;
+  }
+
+@media (max-width: 1000px) {
+    .agents__divider {
+        height: 50px;
+    }
+    .agents__section {
+        margin-right: 0;
+        border-right: unset;
+    }
+    .agents__container {
+        flex-direction: column;
+    }
+    .agents__container::before {
+        content: unset;
+    }
+    .agents__description {
+        flex: 1 1 100%;
+        padding-right: 0;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+    .agents__header {
+        font-size: 80px;
+    }
+    .agents__desc {
+        font-size: 20px;
+        margin-left: 0;
+    }
+    .agents__list {
+        flex: 1 1 100%;
+    }
+    .agents__card {
+        gap: 20px;
+    }
+  }
+
+@media (max-width: 767px) {
+    .agents__divider {
+        display: none;
+    }
+    .agents__section {
+        margin-right: 0;
+        border-right: unset;
+    }
+    .agents__container::before {
+        content: unset;
+    }
+    .agents__container {
+        flex-direction: column;
+    }
+    .agents__desc {
+        font-size: 16px;
+        margin-left: 0;
+    }
+    .agents__description {
+        flex: 1 1 100%;
+        padding-right: 0;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+    .agents__header {
+        font-size: 40px;
+        pointer-events: auto;
+    }
+    .agents__list {
+        flex: 1 1 100%;
+    }
+    .agents__card {
+        min-width: 100%;
+    }
+  }
 
 
 

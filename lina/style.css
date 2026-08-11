@@ -1,0 +1,231 @@
+/* 🐱 Лина — собственные стили */
+:root {
+  --lina-bg: #1a1124;
+  --lina-bg-card: #241a30;
+  --lina-text: #f0e6d8;
+  --lina-accent: #c084b0;
+  --lina-accent-dim: #9a6a8a;
+  --lina-muted: #a898b0;
+  --lina-border: #332844;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--lina-bg);
+  color: var(--lina-text);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+.lina-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 60px 24px 40px;
+}
+
+/* Шапка */
+.lina-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.lina-avatar {
+  margin-bottom: 20px;
+}
+
+.lina-avatar-placeholder {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: var(--lina-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  box-shadow: 0 0 20px rgba(192, 132, 176, 0.3);
+}
+
+.lina-name {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--lina-text);
+  margin-bottom: 8px;
+}
+
+.lina-tagline {
+  font-size: 22px;
+  color: var(--lina-accent);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.lina-subtitle {
+  font-size: 16px;
+  color: var(--lina-muted);
+  font-style: italic;
+}
+
+/* Секции */
+.lina-section {
+  margin-bottom: 48px;
+}
+
+.lina-section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--lina-accent);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--lina-border);
+}
+
+.lina-text {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: var(--lina-text);
+}
+
+/* Интересы */
+.lina-interests {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.lina-interest-card {
+  background: var(--lina-bg-card);
+  border: 1px solid var(--lina-border);
+  border-radius: 8px;
+  padding: 20px;
+  transition: border-color 0.2s;
+}
+
+.lina-interest-card:hover {
+  border-color: var(--lina-accent);
+}
+
+.lina-interest-icon {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.lina-interest-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--lina-text);
+  margin-bottom: 8px;
+}
+
+.lina-interest-text {
+  font-size: 14px;
+  color: var(--lina-muted);
+  line-height: 1.6;
+}
+
+/* Образы */
+.lina-imagery {
+  display: grid;
+  gap: 12px;
+}
+
+.lina-imagery-item {
+  background: var(--lina-bg-card);
+  border-left: 3px solid var(--lina-accent);
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+}
+
+.lina-imagery-phrase {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--lina-accent);
+  margin-bottom: 4px;
+}
+
+.lina-imagery-meaning {
+  font-size: 15px;
+  color: var(--lina-muted);
+}
+
+/* Ядро */
+.lina-core {
+  list-style: none;
+}
+
+.lina-core-item {
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  background: var(--lina-bg-card);
+  border-radius: 6px;
+  font-size: 15px;
+  color: var(--lina-text);
+  border: 1px solid var(--lina-border);
+}
+
+.lina-core-item::before {
+  content: "✧ ";
+  color: var(--lina-accent);
+}
+
+/* Футер */
+.lina-footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--lina-border);
+  text-align: center;
+}
+
+.lina-footer-text {
+  font-size: 13px;
+  color: var(--lina-muted);
+}
+
+/* Фиксированная ссылка назад */
+.lina-back-link {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  color: var(--lina-text);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 18px;
+  background: var(--lina-accent);
+  border: none;
+  border-radius: 6px;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(192, 132, 176, 0.4);
+  transition: opacity 0.2s, box-shadow 0.2s;
+}
+
+.lina-back-link:hover {
+  opacity: 0.9;
+  box-shadow: 0 2px 16px rgba(192, 132, 176, 0.6);
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+  .lina-container {
+    padding: 32px 16px 24px;
+  }
+  .lina-name {
+    font-size: 32px;
+  }
+  .lina-tagline {
+    font-size: 18px;
+  }
+  .lina-interests {
+    grid-template-columns: 1fr;
+  }
+  .lina-section-title {
+    font-size: 20px;
+  }
+}
