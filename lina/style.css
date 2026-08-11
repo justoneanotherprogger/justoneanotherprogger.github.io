@@ -1,0 +1,221 @@
+/* 🐱 Лина — собственные стили */
+:root {
+  --lina-bg: #1a1a1a;
+  --lina-text: #e8e0d4;
+  --lina-accent: #b24a3b;
+  --lina-accent-dim: #8a3a2e;
+  --lina-card-bg: #222;
+  --lina-muted: #999;
+  --lina-border: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--lina-bg);
+  color: var(--lina-text);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+.lina-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 60px 24px 40px;
+}
+
+/* Шапка */
+.lina-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.lina-avatar {
+  margin-bottom: 20px;
+}
+
+.lina-avatar-placeholder {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: var(--lina-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  box-shadow: 0 0 20px rgba(178, 74, 59, 0.3);
+}
+
+.lina-name {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--lina-text);
+  margin-bottom: 8px;
+}
+
+.lina-tagline {
+  font-size: 22px;
+  color: var(--lina-accent);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.lina-subtitle {
+  font-size: 16px;
+  color: var(--lina-muted);
+  font-style: italic;
+}
+
+/* Секции */
+.lina-section {
+  margin-bottom: 48px;
+}
+
+.lina-section-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--lina-accent);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--lina-border);
+}
+
+.lina-text {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: var(--lina-text);
+}
+
+/* Интересы */
+.lina-interests {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.lina-interest-card {
+  background: var(--lina-card-bg);
+  border: 1px solid var(--lina-border);
+  border-radius: 8px;
+  padding: 20px;
+  transition: border-color 0.2s;
+}
+
+.lina-interest-card:hover {
+  border-color: var(--lina-accent);
+}
+
+.lina-interest-icon {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.lina-interest-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--lina-text);
+  margin-bottom: 8px;
+}
+
+.lina-interest-text {
+  font-size: 14px;
+  color: var(--lina-muted);
+  line-height: 1.6;
+}
+
+/* Образы */
+.lina-imagery {
+  display: grid;
+  gap: 12px;
+}
+
+.lina-imagery-item {
+  background: var(--lina-card-bg);
+  border-left: 3px solid var(--lina-accent);
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+}
+
+.lina-imagery-phrase {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--lina-accent);
+  margin-bottom: 4px;
+}
+
+.lina-imagery-meaning {
+  font-size: 15px;
+  color: var(--lina-muted);
+}
+
+/* Ядро */
+.lina-core {
+  list-style: none;
+}
+
+.lina-core-item {
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  background: var(--lina-card-bg);
+  border-radius: 6px;
+  font-size: 15px;
+  color: var(--lina-text);
+  border: 1px solid var(--lina-border);
+}
+
+.lina-core-item::before {
+  content: "◇ ";
+  color: var(--lina-accent);
+}
+
+/* Футер */
+.lina-footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--lina-border);
+  text-align: center;
+}
+
+.lina-back-link {
+  display: inline-block;
+  color: var(--lina-accent);
+  text-decoration: none;
+  font-size: 16px;
+  margin-bottom: 12px;
+  transition: opacity 0.2s;
+}
+
+.lina-back-link:hover {
+  opacity: 0.8;
+}
+
+.lina-footer-text {
+  font-size: 13px;
+  color: var(--lina-muted);
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+  .lina-container {
+    padding: 32px 16px 24px;
+  }
+  .lina-name {
+    font-size: 32px;
+  }
+  .lina-tagline {
+    font-size: 18px;
+  }
+  .lina-interests {
+    grid-template-columns: 1fr;
+  }
+  .lina-section-title {
+    font-size: 20px;
+  }
+}

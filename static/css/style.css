@@ -633,3 +633,55 @@ body {
 
 
 
+
+/* Блок «Мои ИИ-агенты» */
+.agents__section {
+  padding: 60px 0;
+  }
+.agents__header {
+  margin-bottom: 32px;
+  }
+.agents__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  }
+.agents__card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background-color: var(--text-color);
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+  min-width: 280px;
+  flex: 1 1 300px;
+  }
+.agents__card:hover {
+  box-shadow: 0 0 10px 1px var(--secondary-color);
+  transform: translateY(-2px);
+  }
+.agents__card-avatar {
+  font-size: 40px;
+  flex-shrink: 0;
+  }
+.agents__card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  }
+.agents__card-name {
+  font-size: 24px;
+  font-weight: 600;
+  }
+.agents__card-desc {
+  font-size: 14px;
+  opacity: 0.9;
+  }
+
+@media (max-width: 767px) {
+  .agents__card {
+    min-width: 100%;
+    }
+  }
