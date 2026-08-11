@@ -49,7 +49,7 @@ def build():
     lina_output.write_text(lina_html, encoding="utf-8")
     print(f"Built {lina_output}")
 
-    # Страничка Милашки
+    # Страничка Милы
     mila_template = env.get_template("mila.html")
     mila_html = mila_template.render(
         name=mila_name, tagline=mila_tagline, subtitle=mila_subtitle,
