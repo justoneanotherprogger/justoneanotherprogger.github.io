@@ -635,6 +635,10 @@ body {
 
 
 /* Блок «Мои ИИ-агенты» — зеркально проектам */
+.agents__divider {
+    height: 10px;
+    background-color: var(--text-color);
+  }
 .agents__section {
     margin-right: 120px;
     border-right: 5px solid var(--text-color);
@@ -739,6 +743,9 @@ body {
   }
 
 @media (max-width: 767px) {
+    .agents__divider {
+        display: none;
+    }
     .agents__section {
         margin-right: 0;
         border-right: unset;
@@ -768,5 +775,7 @@ body {
         min-width: 100%;
     }
   }
+
+
 
 
