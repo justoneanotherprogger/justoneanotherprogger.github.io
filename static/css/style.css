@@ -318,7 +318,7 @@ body {
 }
 
 .projects__project-link:hover > .projects__projects-pic {
-  filter: drop-shadow(0 0 10px var(--secondary-color));
+  filter: grayscale(0%) brightness(1) contrast(1) drop-shadow(0 0 10px var(--secondary-color));
   transform: scale(1.05);
 }
 
