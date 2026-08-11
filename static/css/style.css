@@ -318,9 +318,8 @@ body {
 }
 
 .projects__project-link:hover > .projects__projects-pic {
-  filter: none;
+  filter: drop-shadow(0 0 10px var(--secondary-color));
   transform: scale(1.05);
-  box-shadow: 0 0 10px 1px var(--secondary-color);
 }
 
 /* FOOTER */
