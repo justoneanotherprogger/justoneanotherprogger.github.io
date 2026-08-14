@@ -33,7 +33,7 @@ tech_stack = [
     {"name": "pytest", "weight": 2},
     {"name": "LLM Orchestration", "weight": 3},
     {"name": "Prompt Engineering", "weight": 3},
-    {"name": "Vibe Coding", "weight": 1},
+    {"name": "Agentic Coding", "weight": 4},
 ]
 
 about_text = [
