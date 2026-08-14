@@ -99,6 +99,36 @@ body {
   border-bottom: 2px solid var(--lambda-border);
 }
 
+.lambda-section-note {
+  font-size: 15px;
+  color: var(--lambda-muted);
+  margin-bottom: 16px;
+  max-width: 560px;
+}
+
+.lambda-text {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: var(--lambda-text);
+}
+
+/* Вопрос — финальная секция */
+.lambda-question-section {
+  margin-top: 8px;
+}
+
+.lambda-question {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--lambda-accent);
+  font-style: italic;
+  padding: 20px 24px;
+  border: 1px solid var(--lambda-border);
+  border-left: 3px solid var(--lambda-accent);
+  border-radius: 0 8px 8px 0;
+  background: var(--lambda-bg-card);
+}
+
 /* Перспективы */
 .lambda-perspectives {
   display: grid;

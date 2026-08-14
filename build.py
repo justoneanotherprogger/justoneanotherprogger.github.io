@@ -19,8 +19,10 @@ from data.lambda_ import (
     subtitle as lambda_subtitle,
     description as lambda_description,
     perspectives as lambda_perspectives,
+    memory as lambda_memory,
     imagery as lambda_imagery,
     core as lambda_core,
+    question as lambda_question,
     agents as lambda_agents,
 )
 
@@ -77,7 +79,8 @@ def build():
     lambda_html = lambda_template.render(
         name=lambda_name, tagline=lambda_tagline, subtitle=lambda_subtitle,
         description=lambda_description, perspectives=lambda_perspectives,
-        imagery=lambda_imagery, core=lambda_core,
+        memory=lambda_memory, imagery=lambda_imagery,
+        core=lambda_core, question=lambda_question,
     )
     lambda_dir = OUTPUT_DIR / "lambda"
     lambda_dir.mkdir(exist_ok=True)

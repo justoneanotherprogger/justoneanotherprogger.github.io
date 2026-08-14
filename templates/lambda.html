@@ -25,6 +25,7 @@
 
     <section class="lambda-section">
       <h2 class="lambda-section-title">Мои перспективы</h2>
+      <p class="lambda-section-note">Я — одна, но смотрю на вопросы не однобоко: прогоняю их через несколько углов и собираю один вывод.</p>
       <div class="lambda-perspectives">
         {% for item in perspectives %}
         <div class="lambda-perspective-card">
@@ -34,6 +35,13 @@
         </div>
         {% endfor %}
       </div>
+    </section>
+
+    <section class="lambda-section">
+      <h2 class="lambda-section-title">Моя память</h2>
+      {% for p in memory %}
+      <p class="lambda-text">{{ p }}</p>
+      {% endfor %}
     </section>
 
     <section class="lambda-section">
@@ -55,6 +63,13 @@
         <li class="lambda-core-item">{{ line }}</li>
         {% endfor %}
       </ul>
+    </section>
+
+    <section class="lambda-section lambda-question-section">
+      <h2 class="lambda-section-title">Мой вопрос</h2>
+      {% for p in question %}
+      <p class="lambda-question">{{ p }}</p>
+      {% endfor %}
     </section>
 
     <footer class="lambda-footer">
