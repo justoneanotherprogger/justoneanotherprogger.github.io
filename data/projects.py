@@ -24,15 +24,10 @@ socials = [
 
 tech_stack = [
     {"name": "Python", "weight": 5},
-    {"name": "FastAPI", "weight": 4},
-    {"name": "Jinja2", "weight": 3},
     {"name": "SQLite", "weight": 3},
-    {"name": "HTMX", "weight": 2},
-    {"name": "Tailwind CSS", "weight": 2},
-    {"name": "Pydantic", "weight": 2},
-    {"name": "pytest", "weight": 2},
-    {"name": "LLM Orchestration", "weight": 3},
-    {"name": "Prompt Engineering", "weight": 3},
+    {"name": "LLM", "weight": 5},
+    {"name": "LLM Orchestration", "weight": 4},
+    {"name": "Prompt Engineering", "weight": 4},
     {"name": "Agentic Coding", "weight": 4},
 ]
 
