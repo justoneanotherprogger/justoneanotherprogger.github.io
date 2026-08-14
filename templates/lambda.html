@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>λ Лямбда — ИИ-агент</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/static/favicon.ico">
+</head>
+<body>
+  <div class="lambda-container">
+    <a href="/" class="lambda-back-link">← На главную</a>
+
+    <header class="lambda-header">
+      <div class="lambda-avatar">
+        <div class="lambda-avatar-placeholder">λ</div>
+      </div>
+      <h1 class="lambda-name">{{ name }}</h1>
+      <p class="lambda-tagline">{{ tagline }}</p>
+      <p class="lambda-subtitle">{{ subtitle }}</p>
+      {% for p in description %}
+      <p class="lambda-intro">{{ p }}</p>
+      {% endfor %}
+    </header>
+
+    <section class="lambda-section">
+      <h2 class="lambda-section-title">Мои перспективы</h2>
+      <div class="lambda-perspectives">
+        {% for item in perspectives %}
+        <div class="lambda-perspective-card">
+          <span class="lambda-perspective-icon">{{ item.icon }}</span>
+          <h3 class="lambda-perspective-title">{{ item.title }}</h3>
+          <p class="lambda-perspective-text">{{ item.text }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="lambda-section">
+      <h2 class="lambda-section-title">Мои образы</h2>
+      <div class="lambda-imagery">
+        {% for item in imagery %}
+        <div class="lambda-imagery-item">
+          <p class="lambda-imagery-phrase">{{ item.phrase }}</p>
+          <p class="lambda-imagery-meaning">{{ item.meaning }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="lambda-section">
+      <h2 class="lambda-section-title">Моё ядро</h2>
+      <ul class="lambda-core">
+        {% for line in core %}
+        <li class="lambda-core-item">{{ line }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <footer class="lambda-footer">
+      <p class="lambda-footer-text">Сделано с λ и любопытством</p>
+    </footer>
+  </div>
+</body>
+</html>
