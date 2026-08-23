@@ -35,9 +35,6 @@
           <li class="header__nav-item">
             <a href="#projects" class="header__nav-link">Мои проекты</a>
           </li>
-          <li class="header__nav-item">
-            <a href="#agents" class="header__nav-link">ИИ-агенты</a>
-          </li>
         </ul>
       </nav>
     </div>
@@ -110,30 +107,6 @@
             </div>
             {% endif %}
             </div>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </section>
-
-    <div class="agents__divider"></div>
-
-    <section id="agents" class="agents__section">
-      <div class="container agents__container">
-        <div class="agents__description">
-          <h2 class="agents__header section-header">Мои ИИ‑агенты</h2>
-          <p class="agents__desc">каждый со своей страничкой</p>
-        </div>
-        <ul class="agents__list">
-          {% for agent in agents %}
-          <li>
-            <a href="{{ agent.url }}" class="agents__card">
-              <span class="agents__card-info">
-                <span class="agents__card-name">{{ agent.name }}</span>
-                <span class="agents__card-desc">{{ agent.desc | replace("-", "‑") }}</span>
-              </span>
-              <span class="agents__card-avatar">{{ agent.avatar }}</span>
-            </a>
           </li>
           {% endfor %}
         </ul>
