@@ -27,7 +27,7 @@ function initTagCloud() {
 
   WordCloud(container, {
     list: tagList,
-    gridSize: 18,
+    gridSize: 24,
     weightFactor: 7,
     fontFamily: 'Inter, system-ui, sans-serif',
     fontWeight: 'bold',
