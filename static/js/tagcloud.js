@@ -18,40 +18,58 @@ function initTagCloud() {
   // Сортируем по весу (крупные первые — они будут в центре)
   tagData.sort((a, b) => b.weight - a.weight);
 
-  // Параметры спирали
-  const containerWidth = container.offsetWidth;
-  const containerHeight = container.offsetHeight;
+  // Параметры
+  const containerWidth = container.offsetWidth || 350;
+  const containerHeight = container.offsetHeight || 400;
   const centerX = containerWidth / 2;
   const centerY = containerHeight / 2;
-  const maxRadius = Math.min(containerWidth, containerHeight) / 2 - 50;
 
   // Размещаем теги по спирали
+  const placedTags = [];
+
   tagData.forEach((tag, index) => {
-    const angle = index * 0.8; // шаг угла
-    const radiusStep = maxRadius / tagData.length;
-    const radius = radiusStep * index; // расстояние от центра
+    const el = tag.element;
+
+    // Убираем из потока для абсолютного позиционирования
+    el.style.position = 'absolute';
+    el.style.whiteSpace = 'nowrap';
+
+    // Формула спирали
+    const angle = index * 1.2; // шаг угла (больше = шире спираль)
+    const radius = 20 + index * 35; // расстояние от центра
 
     // Вычисляем координаты
-    const x = centerX + radius * Math.cos(angle) - tag.element.offsetWidth / 2;
-    const y = centerY + radius * Math.sin(angle) - tag.element.offsetHeight / 2;
+    let x = centerX + radius * Math.cos(angle);
+    let y = centerY + radius * Math.sin(angle);
+
+    // Центрируем тег относительно его координаты
+    x -= el.offsetWidth / 2;
+    y -= el.offsetHeight / 2;
+
+    // Ограничиваем границами контейнера
+    x = Math.max(0, Math.min(x, containerWidth - el.offsetWidth));
+    y = Math.max(0, Math.min(y, containerHeight - el.offsetHeight));
 
     // Применяем позицию
-    tag.element.style.position = 'absolute';
-    tag.element.style.left = `${x}px`;
-    tag.element.style.top = `${y}px`;
+    el.style.left = `${x}px`;
+    el.style.top = `${y}px`;
 
     // Анимация появления с задержкой
-    tag.element.style.opacity = '0';
-    tag.element.style.transform = 'scale(0)';
-    tag.element.style.animation = `tagAppear 0.5s ease-out ${index * 0.1}s forwards`;
+    el.style.opacity = '0';
+    el.style.transform = 'scale(0)';
+    el.style.animation = `tagAppear 0.4s ease-out ${index * 0.08}s forwards`;
 
-    // Добавляем плавание
-    tag.element.style.animation += `, tagFloat ${3 + Math.random() * 2}s ease-in-out ${index * 0.1}s infinite`;
+    // Добавляем плавание с разной задержкой
+    const floatDelay = 0.5 + index * 0.1;
+    const floatDuration = 3 + Math.random() * 2;
+    el.style.animation += `, tagFloat ${floatDuration}s ease-in-out ${floatDelay}s infinite`;
+
+    placedTags.push({ x, y, width: el.offsetWidth, height: el.offsetHeight });
   });
 
   // Делаем контейнер относительным для позиционирования
   container.style.position = 'relative';
-  container.style.minHeight = `${maxRadius * 2 + 100}px`;
+  container.style.minHeight = `${centerY * 2 + 100}px`;
 }
 
 // Запускаем после загрузки DOM
