@@ -18,7 +18,7 @@ function initTagCloud() {
 
   // Очищаем — wordcloud2 создаст свои span'ы
   container.innerHTML = '';
-  container.style.cssText = 'position:relative;width:560px;height:400px;max-width:100%;margin:0 auto;';
+  container.style.cssText = 'position:relative;width:700px;height:450px;max-width:100%;margin:0 auto;';
 
   // Цвета по весам
   const colors = {
@@ -27,8 +27,8 @@ function initTagCloud() {
 
   WordCloud(container, {
     list: tagList,
-    gridSize: 8,
-    weightFactor: 5,
+    gridSize: 4,
+    weightFactor: 3,
     fontFamily: 'Inter, system-ui, sans-serif',
     fontWeight: 'normal',
     classes: 'tag-cloud-item',
