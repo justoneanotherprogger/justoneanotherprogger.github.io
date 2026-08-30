@@ -203,11 +203,10 @@ body {
 /* TAG CLOUD */
 
 .tag-cloud-item {
-  position: relative;
+  outline: 1px solid var(--secondary-color);
+  outline-offset: 2px;
   transition: background-color 0.2s, color 0.2s;
   cursor: pointer;
-  outline: 1px solid var(--secondary-color);
-  outline-offset: 3px;
 }
 
 .tag-cloud-item:hover {
