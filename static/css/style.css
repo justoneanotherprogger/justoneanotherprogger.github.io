@@ -52,7 +52,9 @@ body {
   border-bottom: #222 1px solid;
   font-weight: 400;
   z-index: 100;
-  transition: height 0.3s ease, font-size 0.3s ease;
+  transition:
+    height 0.3s ease,
+    font-size 0.3s ease;
 }
 
 .header__container {
@@ -82,7 +84,9 @@ body {
 
 .header__nav-link {
   color: var(--main-color);
-  transition: text-shadow 0.3s ease, font-size 0.3s ease;
+  transition:
+    text-shadow 0.3s ease,
+    font-size 0.3s ease;
 }
 
 .header__nav-link:hover {
@@ -129,7 +133,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background-image: url("/static/img/line.png");
+  background-image: url('/static/img/line.png');
   background-repeat: repeat-y;
   background-position: left;
 }
@@ -208,7 +212,10 @@ body {
   color: var(--text-color);
   box-shadow: 0 0 0 1px rgba(34, 34, 34, 0.85);
   border-radius: 0.3em;
-  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
   cursor: pointer;
 }
 
@@ -232,7 +239,8 @@ body {
 }
 
 @keyframes tagFloat {
-  0%, 100% {
+  0%,
+  100% {
     margin-top: 0;
   }
   50% {
@@ -259,7 +267,7 @@ body {
 }
 
 .projects__container::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   width: 30%;
@@ -330,7 +338,8 @@ body {
 }
 
 .projects__project-link:hover > .projects__projects-pic {
-  filter: grayscale(0%) brightness(1) contrast(1) drop-shadow(0 0 10px var(--secondary-color));
+  filter: grayscale(0%) brightness(1) contrast(1)
+    drop-shadow(0 0 10px var(--secondary-color));
   transform: scale(1.05);
 }
 
@@ -371,7 +380,7 @@ body {
   font-size: 20px;
   font-weight: 700;
   line-height: 1;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .footer__social-icon {
@@ -607,26 +616,21 @@ body {
   text-decoration: none;
   pointer-events: auto;
   vertical-align: middle;
-  transition: box-shadow 0.2s, transform 0.2s;
-  }
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
+}
 .about__resume-btn:hover {
   box-shadow: 0 0 10px 1px var(--secondary-color);
   transform: translateY(-2px);
-  }
-
-
-
-
-
-
-
+}
 
 /* Кнопка репозитория — строка после описания проекта */
 .projects__repo-row {
   display: flex;
   justify-content: flex-end;
   margin-top: 6px;
-  }
+}
 .projects__repo-link {
   display: inline-flex;
   align-items: center;
@@ -636,11 +640,11 @@ body {
   opacity: 0.8;
   font-size: 14px;
   transition: opacity 0.2s;
-  }
+}
 .projects__repo-link svg {
   width: 20px;
   height: 20px;
-  }
+}
 .projects__repo-link:hover {
   opacity: 1;
 }

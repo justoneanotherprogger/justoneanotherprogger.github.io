@@ -1,6 +1,8 @@
 from pathlib import Path
+
 from jinja2 import Environment, FileSystemLoader
-from data.projects import projects, socials, about_text, site_description, tech_stack, resume_url
+
+from data.projects import about_text, projects, resume_url, site_description, socials, tech_stack
 
 BASE_DIR = Path(__file__).parent
 TEMPLATES_DIR = BASE_DIR / "templates"
