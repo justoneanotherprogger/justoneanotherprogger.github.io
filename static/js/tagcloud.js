@@ -1,5 +1,5 @@
 /**
- * Динамическое облако тегов — спиральное расположение + анимации
+ * Динамическое облако тегов — физическое отталкивание
  */
 function initTagCloud() {
   const container = document.querySelector('.about__tech-stack');
@@ -8,7 +8,7 @@ function initTagCloud() {
   const tags = Array.from(container.querySelectorAll('.about__tech-item'));
   if (tags.length === 0) return;
 
-  // Измеряем теги в потоке
+  // Измеряем теги
   const tagData = tags.map((tag, index) => {
     const weightClass = Array.from(tag.classList).find(c => c.startsWith('tag-w'));
     const weight = weightClass ? parseInt(weightClass.replace('tag-w', '')) : 3;
@@ -19,11 +19,10 @@ function initTagCloud() {
       index,
       width: rect.width,
       height: rect.height,
+      x: 0,
+      y: 0,
     };
   });
-
-  // Сортируем по весу (крупные в центре)
-  tagData.sort((a, b) => b.weight - a.weight);
 
   // Параметры контейнера
   const containerWidth = 350;
@@ -35,73 +34,66 @@ function initTagCloud() {
   const centerX = containerWidth / 2;
   const centerY = containerHeight / 2;
 
-  // Размещаем теги — каждый следующий на расстоянии от предыдущего
-  const placed = []; // уже размещённые теги
+  // Все теги начинают в центре
+  tagData.forEach(tag => {
+    tag.x = centerX - tag.width / 2;
+    tag.y = centerY - tag.height / 2;
+  });
 
-  tagData.forEach((tag, index) => {
-    const el = tag.element;
-    el.style.position = 'absolute';
-    el.style.whiteSpace = 'nowrap';
+  // Сортируем по весу — крупные стабильнее
+  tagData.sort((a, b) => b.weight - a.weight);
 
-    // Начинаем с центра, идём по спирали
-    let angle = index * 0.9; // шаг угла
-    let radius = 0;
-    let x, y;
-    let found = false;
+  // Физика: отталкивание при коллизиях
+  const GAP = 4;
+  const ITERATIONS = 50;
 
-    // Ищем позицию без коллизий
-    for (let r = 0; r < 200; r += 5) {
-      const testX = centerX + r * Math.cos(angle) - tag.width / 2;
-      const testY = centerY + r * Math.sin(angle) - tag.height / 2;
+  for (let iter = 0; iter < ITERATIONS; iter++) {
+    for (let i = 0; i < tagData.length; i++) {
+      for (let j = i + 1; j < tagData.length; j++) {
+        const a = tagData[i];
+        const b = tagData[j];
 
-      // Проверяем границы
-      if (testX < 0 || testX + tag.width > containerWidth) continue;
-      if (testY < 0 || testY + tag.height > containerHeight) continue;
+        // Проверяем коллизию
+        const overlapX = Math.min(a.x + a.width + GAP, b.x + b.width + GAP) - Math.max(a.x, b.x);
+        const overlapY = Math.min(a.y + a.height + GAP, b.y + b.height + GAP) - Math.max(a.y, b.y);
 
-      // Проверяем коллизии с размещёнными тегами
-      let collision = false;
-      for (const p of placed) {
-        if (
-          testX < p.x + p.width + 4 &&
-          testX + tag.width + 4 > p.x &&
-          testY < p.y + p.height + 4 &&
-          testY + tag.height + 4 > p.y
-        ) {
-          collision = true;
-          break;
+        if (overlapX > 0 && overlapY > 0) {
+          // Есть коллизия — отталкиваем
+          const pushX = overlapX / 2;
+          const pushY = overlapY / 2;
+
+          // Менее весомый тег отодвигается сильнее
+          const ratio = b.weight / (a.weight + b.weight);
+
+          a.x -= pushX * ratio;
+          a.y -= pushY * ratio;
+          b.x += pushX * (1 - ratio);
+          b.y += pushY * (1 - ratio);
         }
       }
-
-      if (!collision) {
-        x = testX;
-        y = testY;
-        found = true;
-        break;
-      }
     }
+  }
 
-    // Если не нашли позицию — ставим в центр с randomness
-    if (!found) {
-      x = centerX + (Math.random() - 0.5) * 100 - tag.width / 2;
-      y = centerY + (Math.random() - 0.5) * 100 - tag.height / 2;
-    }
+  // Применяем позиции и ограничиваем границами
+  tagData.forEach((tag, index) => {
+    const el = tag.element;
 
     // Ограничиваем
-    x = Math.max(0, Math.min(x, containerWidth - tag.width));
-    y = Math.max(0, Math.min(y, containerHeight - tag.height));
+    tag.x = Math.max(0, Math.min(tag.x, containerWidth - tag.width));
+    tag.y = Math.max(0, Math.min(tag.y, containerHeight - tag.height));
 
-    el.style.left = `${x}px`;
-    el.style.top = `${y}px`;
-
-    placed.push({ x, y, width: tag.width, height: tag.height });
+    el.style.position = 'absolute';
+    el.style.left = `${tag.x}px`;
+    el.style.top = `${tag.y}px`;
+    el.style.whiteSpace = 'nowrap';
 
     // Анимация появления
     el.style.opacity = '0';
     el.style.transform = 'scale(0)';
-    el.style.animation = `tagAppear 0.4s ease-out ${index * 0.08}s forwards`;
+    el.style.animation = `tagAppear 0.4s ease-out ${index * 0.06}s forwards`;
 
     // Плавание
-    const floatDelay = 0.5 + index * 0.1;
+    const floatDelay = 0.4 + index * 0.08;
     const floatDuration = 3 + Math.random() * 2;
     el.style.animation += `, tagFloat ${floatDuration}s ease-in-out ${floatDelay}s infinite`;
   });
