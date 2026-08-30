@@ -206,15 +206,8 @@ body {
   position: relative;
   transition: background-color 0.2s, color 0.2s;
   cursor: pointer;
-}
-
-.tag-cloud-item::before {
-  content: '';
-  position: absolute;
-  inset: 0;
   outline: 1px solid var(--secondary-color);
-  border-radius: 0.3em;
-  pointer-events: none;
+  outline-offset: 3px;
 }
 
 .tag-cloud-item:hover {
