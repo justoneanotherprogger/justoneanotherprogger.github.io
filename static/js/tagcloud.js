@@ -37,35 +37,56 @@ function initTagCloud() {
     1: 'about__tech-item tag-w1',
   };
 
+  // Сохраняем оригинальные стили для сброса hover
+  const originalStyles = new Map();
+
   WordCloud(container, {
     list: tagList,
-    gridSize: 4,
+    gridSize: 8, // больше расстояние между тегами
     weightFactor: function(size) {
-      // Масштабируем размеры
-      return size * 5;
+      return size * 3.5; // уменьшила масштаб
     },
     fontFamily: 'Inter, system-ui, sans-serif',
-    fontWeight: function(word, weight, fontSize) {
+    fontWeight: function(word, weight) {
       return weight >= 4 ? '700' : '500';
     },
     classes: function(word, weight) {
       return weightClasses[weight] || 'about__tech-item tag-w3';
     },
-    color: null, // не ставим цвет — берём из CSS
+    color: null,
     backgroundColor: 'transparent',
     shuffle: true,
     shape: 'circle',
-    rotateRatio: 0, // без вращения
+    rotateRatio: 0,
     minRotation: 0,
     maxRotation: 0,
     shrinkToFit: true,
     drawOutOfBound: false,
-    hover: function(item) {
-      if (!item) return;
-      // Подсветка при hover
+    hover: function(item, dimension, event) {
       const spans = container.querySelectorAll('span');
+
+      if (!item) {
+        // Mouse leave — сбрасываем все стили
+        spans.forEach(s => {
+          const orig = originalStyles.get(s);
+          if (orig) {
+            s.style.backgroundColor = orig.bg;
+            s.style.color = orig.color;
+          }
+        });
+        return;
+      }
+
+      // Mouse enter — подсвечиваем
       spans.forEach(s => {
         if (s.textContent === item[0]) {
+          // Сохраняем оригинальные стили
+          if (!originalStyles.has(s)) {
+            originalStyles.set(s, {
+              bg: s.style.backgroundColor || '',
+              color: s.style.color || '',
+            });
+          }
           s.style.backgroundColor = 'var(--secondary-color)';
           s.style.color = 'var(--main-color)';
         }
