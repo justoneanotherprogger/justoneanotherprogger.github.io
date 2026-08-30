@@ -203,7 +203,6 @@ body {
 /* TAG CLOUD */
 
 .tag-cloud-item {
-  font-weight: bold;
   outline: 1px solid var(--secondary-color);
   outline-offset: 0;
   transition: background-color 0.2s, color 0.2s;
