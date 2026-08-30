@@ -44,8 +44,9 @@ function initTagCloud() {
   tagData.sort((a, b) => b.weight - a.weight);
 
   // Физика: отталкивание при коллизиях
-  const GAP = 4;
-  const ITERATIONS = 80;
+  const GAP = 2;
+  const ITERATIONS = 100;
+  const PUSH_FORCE = 1.5;
 
   for (let iter = 0; iter < ITERATIONS; iter++) {
     for (let i = 0; i < tagData.length; i++) {
@@ -70,8 +71,8 @@ function initTagCloud() {
           const dist = Math.sqrt(dx * dx + dy * dy) || 1;
 
           // Вектор отталкивания (от центра a к центру b)
-          const pushX = (dx / dist) * overlapX * 0.5;
-          const pushY = (dy / dist) * overlapY * 0.5;
+          const pushX = (dx / dist) * overlapX * PUSH_FORCE;
+          const pushY = (dy / dist) * overlapY * PUSH_FORCE;
 
           // Менее весомый тег отодвигается сильнее
           const ratio = b.weight / (a.weight + b.weight);
