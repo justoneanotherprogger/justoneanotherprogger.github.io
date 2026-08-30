@@ -205,7 +205,7 @@ body {
 .tag-cloud-item {
   padding: 0.2em 0.5em;
   background-color: rgba(34, 34, 34, 0.85);
-  color: var(--secondary-color);
+  color: var(--text-color);
   box-shadow: 0 0 0 1px rgba(244, 234, 210, 0.3);
   border-radius: 0.3em;
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
