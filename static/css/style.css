@@ -193,41 +193,12 @@ body {
 }
 
 .about__tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  gap: 0.2em 0.75em;
-  padding: 0;
-  list-style: none;
-  line-height: 1.4;
-  max-width: 350px;
+  position: relative;
+  width: 420px;
+  height: 340px;
+  max-width: 100%;
+  margin: 0 auto;
 }
-
-.about__tech-item {
-  display: inline-block;
-  padding: 0.15em 0.4em;
-  background-color: var(--main-color);
-  color: var(--text-color);
-  border-radius: 0.25em;
-  transition: background-color 0.2s, color 0.2s;
-  cursor: pointer;
-  box-sizing: border-box;
-}
-
-.about__tech-item:hover {
-  background-color: var(--secondary-color);
-  color: var(--main-color);
-}
-  z-index: 1;
-}
-
-.tag-w1 { opacity: 0.55; }
-.tag-w2 { opacity: 0.65; }
-.tag-w3 { opacity: 0.8; }
-.tag-w4 { font-weight: 500; opacity: 0.9; }
-.tag-w5 { font-weight: 700; opacity: 1; }
 
 /* TAG CLOUD ANIMATIONS */
 
