@@ -1,2 +1,4 @@
+node_modules/
 __pycache__/
-index.html
+*.pyc
+.DS_Store
