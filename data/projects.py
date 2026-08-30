@@ -17,7 +17,7 @@ projects = [
 ]
 
 socials = [
-    {"name": "VK", "url": "https://vk.com/id16681919", "icon": "/static/icons/vk.svg"},
+    {"name": "VK", "url": "https://vk.com/id16681919"},
     {"name": "email", "url": "mailto:strategovich@gmail.com", "icon": "/static/icons/mail.svg"},
 ]
 

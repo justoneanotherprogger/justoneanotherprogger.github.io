@@ -35,7 +35,11 @@
           {% for social in socials %}
           <li class="footer__social-item">
             <a target="_blank" href="{{ social.url }}" class="footer__social-link {{ social.name }}-link" title="{{ social.name }}">
+              {% if social.icon %}
               <img src="{{ social.icon }}" alt="{{ social.name }}" class="footer__social-icon">
+              {% else %}
+              {{ social.name }}
+              {% endif %}
             </a>
           </li>
           {% endfor %}
