@@ -204,7 +204,7 @@ body {
 
 .tag-cloud-item {
   outline: 1px solid var(--secondary-color);
-  outline-offset: 2px;
+  outline-offset: 0;
   transition: background-color 0.2s, color 0.2s;
   cursor: pointer;
 }
