@@ -77,7 +77,7 @@ body {
 .header__nav-list {
   display: flex;
   justify-content: space-between;
-  column-gap: 30px;
+  gap: 30px;
 }
 
 .header__nav-link {
@@ -260,11 +260,10 @@ body {
 }
 
 .projects__header {
-  margin-bottom: 0;
+  margin-bottom: 0.2em;
   pointer-events: none;
   font-size: 150px;
   line-height: 0.85;
-  margin-bottom: 0.2em;
 }
 
 .projects__desc {
@@ -282,14 +281,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  column-gap: 20px;
-  row-gap: 50px;
+  gap: 50px 20px;
 }
 
 .projects__project-link {
   display: flex;
-  row-gap: 20px;
-  column-gap: 20px;
+  gap: 20px;
   flex-direction: row-reverse;
   justify-content: space-between;
   color: var(--secondary-color);
@@ -299,8 +296,7 @@ body {
   display: flex;
   flex: 1 1 40%;
   flex-wrap: wrap;
-  column-gap: 20px;
-  row-gap: 10px;
+  gap: 10px 20px;
   align-items: flex-start;
   font-size: 20px;
   font-weight: 300;
@@ -343,27 +339,22 @@ body {
 
 .footer__socials-list {
   display: flex;
-  column-gap: 10px;
+  gap: 10px;
 }
 
 .footer__social-link {
-  display: block;
-  padding: 20px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
   color: var(--text-color);
   background-color: var(--main-color);
   border-radius: 100px;
-  font-size: 20px;
-  line-height: 1;
   transition: .4s;
 }
 
-.mail-link {
-  padding: 14px;
-  font-size: 31px;
-}
-
-.paper-plane {
-  display: block;
+.footer__social-icon {
   width: 30px;
   height: 30px;
 }
@@ -397,7 +388,7 @@ body {
 
   .projects__container {
     padding: 20px;
-    column-gap: 30px;
+    gap: 30px;
   }
 
   .projects__description {
@@ -447,6 +438,10 @@ body {
     flex-direction: column;
   }
 
+  .about__tech-stack {
+    display: none;
+  }
+
   .projects__section {
     margin-left: 0;
     border-left: unset;
@@ -493,7 +488,7 @@ body {
   }
 
   .header__nav-list {
-    column-gap: 10px;
+    gap: 10px;
     font-size: 15px;
   }
 
@@ -569,7 +564,7 @@ body {
 
   .footer__container {
     flex-direction: column;
-    row-gap: 20px;
+    gap: 20px;
   }
 }
 
@@ -623,20 +618,4 @@ body {
   }
 .projects__repo-link:hover {
   opacity: 1;
-  }
-
-@media (max-width: 1000px) {
-  .about__tech-stack { display: none; }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
+}
