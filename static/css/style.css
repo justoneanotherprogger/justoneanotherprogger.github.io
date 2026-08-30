@@ -200,6 +200,14 @@ body {
   margin: 0 auto;
 }
 
+/* TAG CLOUD CLASSES */
+
+.tag-w1 { opacity: 0.55; }
+.tag-w2 { opacity: 0.65; }
+.tag-w3 { opacity: 0.8; }
+.tag-w4 { opacity: 0.9; font-weight: 600; }
+.tag-w5 { opacity: 1; font-weight: 700; }
+
 /* TAG CLOUD ANIMATIONS */
 
 @keyframes tagAppear {

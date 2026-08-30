@@ -25,12 +25,20 @@ function initTagCloud() {
     5: '#f0e6d3', 4: '#c9b896', 3: '#a89878', 2: '#887860', 1: '#685848',
   };
 
+  // CSS-классы по весам
+  const weightClasses = {
+    5: 'tag-w5', 4: 'tag-w4', 3: 'tag-w3', 2: 'tag-w2', 1: 'tag-w1',
+  };
+
   WordCloud(container, {
     list: tagList,
     gridSize: 6,
     weightFactor: 7,
     fontFamily: 'Inter, system-ui, sans-serif',
     fontWeight: 'bold',
+    classes: function(word, weight) {
+      return weightClasses[weight] || 'tag-w3';
+    },
     color: function(word, weight) {
       return colors[weight] || '#a89878';
     },
