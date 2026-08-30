@@ -212,7 +212,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  border: 1px solid var(--secondary-color);
+  outline: 1px solid var(--secondary-color);
   border-radius: 0.3em;
   pointer-events: none;
 }
