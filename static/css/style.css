@@ -346,17 +346,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  padding: 20px 15px;
   color: var(--text-color);
   background-color: var(--main-color);
   border-radius: 100px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
   transition: .4s;
 }
 
 .footer__social-icon {
   width: 30px;
   height: 30px;
+}
+
+.footer__social-link.email-link {
+  padding: 14px;
+  font-size: 31px;
 }
 
 .footer__social-link:hover {
