@@ -53,7 +53,7 @@ tech_stack = [
     Tech(name="Python", weight=5),
     Tech(name="SQLite", weight=3),
     Tech(name="LLM", weight=5),
-    Tech(name="LLM Orchestration", weight=4),
+    Tech(name="AI Agent Management", weight=4),
     Tech(name="Prompt Engineering", weight=4),
     Tech(name="Agentic Coding", weight=4),
 ]
