@@ -203,8 +203,8 @@ body {
 /* TAG CLOUD */
 
 .tag-cloud-item {
-  outline: 1px solid var(--secondary-color);
-  outline-offset: 0;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.2);
+  border-radius: 0.3em;
   transition: background-color 0.2s, color 0.2s;
   cursor: pointer;
 }
@@ -212,6 +212,7 @@ body {
 .tag-cloud-item:hover {
   background-color: var(--secondary-color);
   color: var(--main-color);
+  box-shadow: 0 0 0 1px var(--secondary-color);
 }
 
 /* TAG CLOUD ANIMATIONS */
