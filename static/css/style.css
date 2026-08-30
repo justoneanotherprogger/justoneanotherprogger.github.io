@@ -223,11 +223,11 @@ body {
   z-index: 1;
 }
 
-.tag-w1 { font-size: 0.7rem; opacity: 0.55; padding: 0.05em 0.2em; }
-.tag-w2 { font-size: 0.8rem; opacity: 0.65; padding: 0.08em 0.25em; }
-.tag-w3 { font-size: 0.95rem; opacity: 0.8; padding: 0.1em 0.35em; }
-.tag-w4 { font-size: 1.1rem; font-weight: 500; opacity: 0.9; padding: 0.15em 0.45em; }
-.tag-w5 { font-size: 1.3rem; font-weight: 700; opacity: 1; padding: 0.2em 0.55em; }
+.tag-w1 { font-size: 0.6rem; opacity: 0.55; padding: 0.02em 0.15em; }
+.tag-w2 { font-size: 0.7rem; opacity: 0.65; padding: 0.04em 0.18em; }
+.tag-w3 { font-size: 0.8rem; opacity: 0.8; padding: 0.06em 0.22em; }
+.tag-w4 { font-size: 0.95rem; font-weight: 500; opacity: 0.9; padding: 0.08em 0.28em; }
+.tag-w5 { font-size: 1.1rem; font-weight: 700; opacity: 1; padding: 0.1em 0.35em; }
 
 /* TAG CLOUD ANIMATIONS */
 
