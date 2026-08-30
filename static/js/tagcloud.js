@@ -31,7 +31,7 @@ function initTagCloud() {
     padding: 20,
     weightFactor: 7,
     fontFamily: 'Inter, system-ui, sans-serif',
-    fontWeight: 'bold',
+    fontWeight: 'normal',
     classes: 'tag-cloud-item',
     color: function(word, weight) {
       return colors[weight] || '#a89878';
