@@ -203,6 +203,7 @@ body {
 /* TAG CLOUD */
 
 .tag-cloud-item {
+  padding: 0.2em 0.5em;
   background-color: rgba(34, 34, 34, 0.85);
   color: var(--secondary-color);
   box-shadow: 0 0 0 1px rgba(244, 234, 210, 0.3);
