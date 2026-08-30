@@ -8,68 +8,67 @@ function initTagCloud() {
   const tags = Array.from(container.querySelectorAll('.about__tech-item'));
   if (tags.length === 0) return;
 
-  // Получаем данные о весе из CSS-классов
+  // Сначала измеряем все теги (пока они в потоке)
   const tagData = tags.map((tag, index) => {
     const weightClass = Array.from(tag.classList).find(c => c.startsWith('tag-w'));
     const weight = weightClass ? parseInt(weightClass.replace('tag-w', '')) : 3;
-    return { element: tag, weight, index };
+    const rect = tag.getBoundingClientRect();
+    return {
+      element: tag,
+      weight,
+      index,
+      width: rect.width,
+      height: rect.height,
+    };
   });
 
-  // Сортируем по весу (крупные первые — они будут в центре)
+  // Сортируем по весу (крупные первые — в центре)
   tagData.sort((a, b) => b.weight - a.weight);
 
-  // Параметры
-  const containerWidth = container.offsetWidth || 350;
-  const containerHeight = container.offsetHeight || 400;
+  // Задаём контейнеру фиксированную высоту до позиционирования
+  const containerWidth = 350;
+  const containerHeight = 400;
+  container.style.position = 'relative';
+  container.style.width = `${containerWidth}px`;
+  container.style.height = `${containerHeight}px`;
+
   const centerX = containerWidth / 2;
   const centerY = containerHeight / 2;
 
   // Размещаем теги по спирали
-  const placedTags = [];
-
   tagData.forEach((tag, index) => {
     const el = tag.element;
 
-    // Убираем из потока для абсолютного позиционирования
+    // Делаем абсолютно позиционированным
     el.style.position = 'absolute';
     el.style.whiteSpace = 'nowrap';
 
-    // Формула спирали
-    const angle = index * 1.2; // шаг угла (больше = шире спираль)
-    const radius = 20 + index * 35; // расстояние от центра
+    // Формула спирали — tighter spacing
+    const angle = index * 1.1;
+    const radius = 15 + index * 30;
 
-    // Вычисляем координаты
-    let x = centerX + radius * Math.cos(angle);
-    let y = centerY + radius * Math.sin(angle);
+    // Вычисляем координаты (от центра контейнера)
+    let x = centerX + radius * Math.cos(angle) - tag.width / 2;
+    let y = centerY + radius * Math.sin(angle) - tag.height / 2;
 
-    // Центрируем тег относительно его координаты
-    x -= el.offsetWidth / 2;
-    y -= el.offsetHeight / 2;
-
-    // Ограничиваем границами контейнера
-    x = Math.max(0, Math.min(x, containerWidth - el.offsetWidth));
-    y = Math.max(0, Math.min(y, containerHeight - el.offsetHeight));
+    // Ограничиваем границами
+    x = Math.max(5, Math.min(x, containerWidth - tag.width - 5));
+    y = Math.max(5, Math.min(y, containerHeight - tag.height - 5));
 
     // Применяем позицию
     el.style.left = `${x}px`;
     el.style.top = `${y}px`;
 
-    // Анимация появления с задержкой
+    // Анимация появления
     el.style.opacity = '0';
     el.style.transform = 'scale(0)';
     el.style.animation = `tagAppear 0.4s ease-out ${index * 0.08}s forwards`;
 
-    // Добавляем плавание с разной задержкой
+    // Плавание
     const floatDelay = 0.5 + index * 0.1;
     const floatDuration = 3 + Math.random() * 2;
     el.style.animation += `, tagFloat ${floatDuration}s ease-in-out ${floatDelay}s infinite`;
-
-    placedTags.push({ x, y, width: el.offsetWidth, height: el.offsetHeight });
   });
-
-  // Делаем контейнер относительным для позиционирования
-  container.style.position = 'relative';
-  container.style.minHeight = `${centerY * 2 + 100}px`;
 }
 
 // Запускаем после загрузки DOM
