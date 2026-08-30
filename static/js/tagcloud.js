@@ -1,93 +1,76 @@
 /**
- * Облако тегов — тяжёлые в центре, лёгкие по краям
+ * Облако тегов — wordcloud2.js (плотная упаковка)
  */
 function initTagCloud() {
   const container = document.querySelector('.about__tech-stack');
-  if (!container) return;
+  if (!container || typeof WordCloud === 'undefined') return;
 
-  const tags = Array.from(container.querySelectorAll('.about__tech-item'));
-  if (tags.length === 0) return;
-
-  // Средние высоты строк по весам (из CSS font-size × line-height)
-  const sizeMap = { 1: 16, 2: 18, 3: 21, 4: 24, 5: 28 };
-
-  const tagData = tags.map((tag, i) => {
-    const wc = Array.from(tag.classList).find(c => c.startsWith('tag-w'));
-    const w = wc ? parseInt(wc.replace('tag-w', '')) : 3;
-    // ширина приблизительная — длина текста × размер
-    const estWidth = tag.textContent.trim().length * sizeMap[w] * 0.55;
-    return { element: tag, weight: w, estWidth, height: sizeMap[w] + 8 };
-  });
-
-  // Контейнер
-  const W = 420, H = 340;
+  // Убираем существующие теги — wordcloud2 создаст свои span'ы
+  container.innerHTML = '';
   container.style.position = 'relative';
-  container.style.width = `${W}px`;
-  container.style.height = `${H}px`;
+  container.style.width = '420px';
+  container.style.height = '340px';
   container.style.maxWidth = '100%';
+  container.style.margin = '0 auto';
 
-  const cx = W / 2, cy = H / 2;
+  // Данные из оригинального templates
+  const tagList = [
+    ['Python', 5],
+    ['LLM', 5],
+    ['AI Agents', 4],
+    ['LLM Orchestration', 4],
+    ['Prompt Engineering', 4],
+    ['Rust', 3],
+    ['egui', 3],
+    ['AQA', 3],
+    ['pytest', 2],
+    ['Postman', 2],
+    ['Docker', 1],
+  ];
 
-  // Сортируем: тяжёлые первые (в центре)
-  tagData.sort((a, b) => b.weight - a.weight);
+  // CSS-классы по весам (из style.css)
+  const weightClasses = {
+    5: 'about__tech-item tag-w5',
+    4: 'about__tech-item tag-w4',
+    3: 'about__tech-item tag-w3',
+    2: 'about__tech-item tag-w2',
+    1: 'about__tech-item tag-w1',
+  };
 
-  // Размещаем: тяжёлые ближе к центру, лёгкие по краям + хаос
-  tagData.forEach((tag, i) => {
-    const angle = Math.random() * Math.PI * 2; // полный хаос по углу
-    const maxR = Math.min(W, H) * 0.38;
-    // Вес определяет базовый радиус, random заполняет пространство
-    const baseR = (1 - tag.weight / 6) * maxR;
-    const r = baseR + Math.random() * baseR * 0.6;
-
-    let x = cx + r * Math.cos(angle) - tag.estWidth / 2;
-    let y = cy + r * Math.sin(angle) - tag.height / 2;
-
-    // Ограничиваем
-    x = Math.max(4, Math.min(x, W - tag.estWidth - 4));
-    y = Math.max(4, Math.min(y, H - tag.height - 4));
-
-    tag.x = x;
-    tag.y = y;
-  });
-
-  // Простое отталкивание (без замеров)
-  const GAP = 4;
-  for (let iter = 0; iter < 80; iter++) {
-    for (let i = 0; i < tagData.length; i++) {
-      for (let j = i + 1; j < tagData.length; j++) {
-        const a = tagData[i], b = tagData[j];
-        const ox = Math.min(a.x + a.estWidth + GAP, b.x + b.estWidth + GAP) - Math.max(a.x, b.x);
-        const oy = Math.min(a.y + a.height + GAP, b.y + b.height + GAP) - Math.max(a.y, b.y);
-
-        if (ox > 0 && oy > 0) {
-          const dx = (b.x + b.estWidth / 2) - (a.x + a.estWidth / 2);
-          const dy = (b.y + b.height / 2) - (a.y + a.height / 2);
-          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-          const nx = dx / dist, ny = dy / dist;
-          const f = Math.max(ox, oy) * 0.8;
-          // Тяжёлые меньше сдвигаются, лёгкие уступают
-          const tw = a.weight + b.weight;
-          a.x -= nx * f * (b.weight / tw);
-          a.y -= ny * f * (b.weight / tw);
-          b.x += nx * f * (a.weight / tw);
-          b.y += ny * f * (a.weight / tw);
+  WordCloud(container, {
+    list: tagList,
+    gridSize: 4,
+    weightFactor: function(size) {
+      // Масштабируем размеры
+      return size * 5;
+    },
+    fontFamily: 'Inter, system-ui, sans-serif',
+    fontWeight: function(word, weight, fontSize) {
+      return weight >= 4 ? '700' : '500';
+    },
+    classes: function(word, weight) {
+      return weightClasses[weight] || 'about__tech-item tag-w3';
+    },
+    color: null, // не ставим цвет — берём из CSS
+    backgroundColor: 'transparent',
+    shuffle: true,
+    shape: 'circle',
+    rotateRatio: 0, // без вращения
+    minRotation: 0,
+    maxRotation: 0,
+    shrinkToFit: true,
+    drawOutOfBound: false,
+    hover: function(item) {
+      if (!item) return;
+      // Подсветка при hover
+      const spans = container.querySelectorAll('span');
+      spans.forEach(s => {
+        if (s.textContent === item[0]) {
+          s.style.backgroundColor = 'var(--secondary-color)';
+          s.style.color = 'var(--main-color)';
         }
-      }
-    }
-  }
-
-  // Применяем
-  tagData.forEach((tag, i) => {
-    const el = tag.element;
-    tag.x = Math.max(2, Math.min(tag.x, W - tag.estWidth - 2));
-    tag.y = Math.max(2, Math.min(tag.y, H - tag.height - 2));
-
-    el.style.position = 'absolute';
-    el.style.left = `${tag.x}px`;
-    el.style.top = `${tag.y}px`;
-    el.style.whiteSpace = 'nowrap';
-
-    el.style.animation = `tagAppear 0.4s ease-out ${i * 0.07}s both, tagFloat ${3 + Math.random() * 2}s ease-in-out ${0.5 + i * 0.1}s infinite`;
+      });
+    },
   });
 }
 
