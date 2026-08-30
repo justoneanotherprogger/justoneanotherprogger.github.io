@@ -200,13 +200,21 @@ body {
   margin: 0 auto;
 }
 
-/* TAG CLOUD CLASSES */
+/* TAG CLOUD */
 
-.tag-w1 { opacity: 0.55; }
-.tag-w2 { opacity: 0.65; }
-.tag-w3 { opacity: 0.8; }
-.tag-w4 { opacity: 0.9; font-weight: 600; }
-.tag-w5 { opacity: 1; font-weight: 700; }
+.tag-cloud-item {
+  padding: 0.15em 0.4em;
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.3em;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+
+.tag-cloud-item:hover {
+  background-color: var(--secondary-color);
+  color: var(--main-color);
+  border-color: var(--secondary-color);
+}
 
 /* TAG CLOUD ANIMATIONS */
 
