@@ -203,18 +203,23 @@ body {
 /* TAG CLOUD */
 
 .tag-cloud-item {
-  padding: 0.15em 0.4em;
+  position: relative;
+  transition: background-color 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.tag-cloud-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   border: 1px solid var(--secondary-color);
   border-radius: 0.3em;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-  cursor: pointer;
-  box-sizing: border-box;
+  pointer-events: none;
 }
 
 .tag-cloud-item:hover {
   background-color: var(--secondary-color);
   color: var(--main-color);
-  border-color: var(--secondary-color);
 }
 
 /* TAG CLOUD ANIMATIONS */
