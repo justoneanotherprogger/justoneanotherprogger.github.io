@@ -40,12 +40,12 @@ function initTagCloud() {
     tag.y = centerY - tag.height / 2;
   });
 
-  // Сортируем по весу — крупные стабильнее
+  // Сортируем по весу
   tagData.sort((a, b) => b.weight - a.weight);
 
   // Физика: отталкивание при коллизиях
   const GAP = 4;
-  const ITERATIONS = 50;
+  const ITERATIONS = 80;
 
   for (let iter = 0; iter < ITERATIONS; iter++) {
     for (let i = 0; i < tagData.length; i++) {
@@ -53,14 +53,25 @@ function initTagCloud() {
         const a = tagData[i];
         const b = tagData[j];
 
-        // Проверяем коллизию
+        // Центры тегов
+        const aCX = a.x + a.width / 2;
+        const aCY = a.y + a.height / 2;
+        const bCX = b.x + b.width / 2;
+        const bCY = b.y + b.height / 2;
+
+        // Проверяем коллизию (с зазором)
         const overlapX = Math.min(a.x + a.width + GAP, b.x + b.width + GAP) - Math.max(a.x, b.x);
         const overlapY = Math.min(a.y + a.height + GAP, b.y + b.height + GAP) - Math.max(a.y, b.y);
 
         if (overlapX > 0 && overlapY > 0) {
-          // Есть коллизия — отталкиваем
-          const pushX = overlapX / 2;
-          const pushY = overlapY / 2;
+          // Есть коллизия — вычисляем направление отталкивания
+          const dx = bCX - aCX;
+          const dy = bCY - aCY;
+          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+
+          // Вектор отталкивания (от центра a к центру b)
+          const pushX = (dx / dist) * overlapX * 0.5;
+          const pushY = (dy / dist) * overlapY * 0.5;
 
           // Менее весомый тег отодвигается сильнее
           const ratio = b.weight / (a.weight + b.weight);
@@ -74,7 +85,7 @@ function initTagCloud() {
     }
   }
 
-  // Применяем позиции и ограничиваем границами
+  // Применяем позиции
   tagData.forEach((tag, index) => {
     const el = tag.element;
 
