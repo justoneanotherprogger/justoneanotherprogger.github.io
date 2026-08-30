@@ -44,7 +44,7 @@ function initTagCloud() {
     list: tagList,
     gridSize: 8, // больше расстояние между тегами
     weightFactor: function(size) {
-      return size * 3; // уменьшила масштаб
+      return size * 4;
     },
     fontFamily: 'Inter, system-ui, sans-serif',
     fontWeight: function(word, weight) {

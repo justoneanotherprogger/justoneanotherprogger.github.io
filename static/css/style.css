@@ -207,27 +207,27 @@ body {
 
 .about__tech-item {
   display: inline-block;
-  padding: 0.1em 0.3em;
+  padding: 0.15em 0.4em;
   background-color: var(--main-color);
   color: var(--text-color);
   border-radius: 0.25em;
-  transition: background-color 0.2s, color 0.2s, transform 0.2s, padding 0.2s;
+  transition: background-color 0.2s, color 0.2s;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .about__tech-item:hover {
   background-color: var(--secondary-color);
   color: var(--main-color);
-  padding: 0.2em 0.5em;
-  transform: scale(1.1);
+}
   z-index: 1;
 }
 
-.tag-w1 { font-size: 0.6rem; opacity: 0.55; padding: 0.02em 0.15em; }
-.tag-w2 { font-size: 0.7rem; opacity: 0.65; padding: 0.04em 0.18em; }
-.tag-w3 { font-size: 0.8rem; opacity: 0.8; padding: 0.06em 0.22em; }
-.tag-w4 { font-size: 0.95rem; font-weight: 500; opacity: 0.9; padding: 0.08em 0.28em; }
-.tag-w5 { font-size: 1.1rem; font-weight: 700; opacity: 1; padding: 0.1em 0.35em; }
+.tag-w1 { opacity: 0.55; }
+.tag-w2 { opacity: 0.65; }
+.tag-w3 { opacity: 0.8; }
+.tag-w4 { font-weight: 500; opacity: 0.9; }
+.tag-w5 { font-weight: 700; opacity: 1; }
 
 /* TAG CLOUD ANIMATIONS */
 
