@@ -208,6 +208,7 @@ body {
   border-radius: 0.3em;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .tag-cloud-item:hover {
