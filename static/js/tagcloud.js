@@ -13,72 +13,73 @@ function initTagCloud() {
     const weightClass = Array.from(tag.classList).find(c => c.startsWith('tag-w'));
     const weight = weightClass ? parseInt(weightClass.replace('tag-w', '')) : 3;
     const rect = tag.getBoundingClientRect();
-    return {
-      element: tag,
-      weight,
-      index,
-      width: rect.width,
-      height: rect.height,
-      x: 0,
-      y: 0,
-    };
+    return { element: tag, weight, index, width: rect.width, height: rect.height, x: 0, y: 0 };
   });
 
   // Параметры контейнера
-  const containerWidth = 350;
-  const containerHeight = 400;
+  const W = 350, H = 400;
   container.style.position = 'relative';
-  container.style.width = `${containerWidth}px`;
-  container.style.height = `${containerHeight}px`;
+  container.style.width = `${W}px`;
+  container.style.height = `${H}px`;
+  const cx = W / 2, cy = H / 2;
 
-  const centerX = containerWidth / 2;
-  const centerY = containerHeight / 2;
-
-  // Все теги начинают в центре
-  tagData.forEach(tag => {
-    tag.x = centerX - tag.width / 2;
-    tag.y = centerY - tag.height / 2;
-  });
-
-  // Сортируем по весу
+  // Сортируем по весу (крупные первые)
   tagData.sort((a, b) => b.weight - a.weight);
 
-  // Физика: отталкивание при коллизиях
-  const GAP = 2;
-  const ITERATIONS = 100;
-  const PUSH_FORCE = 1.5;
+  // Начальные позиции: случайный разброс вокруг центра
+  // Крупные ближе к центру, мелкие дальше
+  tagData.forEach((tag, i) => {
+    const angle = Math.random() * Math.PI * 2;
+    const maxSpread = 80;
+    const spread = maxSpread * (1 - tag.weight / 6) + Math.random() * 30;
+    tag.x = cx + Math.cos(angle) * spread - tag.width / 2;
+    tag.y = cy + Math.sin(angle) * spread - tag.height / 2;
+  });
 
-  for (let iter = 0; iter < ITERATIONS; iter++) {
+  // Физика: отталкивание при коллизиях
+  const GAP = 3;
+  const ITERS = 120;
+
+  for (let iter = 0; iter < ITERS; iter++) {
     for (let i = 0; i < tagData.length; i++) {
       for (let j = i + 1; j < tagData.length; j++) {
-        const a = tagData[i];
-        const b = tagData[j];
+        const a = tagData[i], b = tagData[j];
 
-        // Центры тегов
-        const aCX = a.x + a.width / 2;
-        const aCY = a.y + a.height / 2;
-        const bCX = b.x + b.width / 2;
-        const bCY = b.y + b.height / 2;
+        // Центры
+        const ax = a.x + a.width / 2, ay = a.y + a.height / 2;
+        const bx = b.x + b.width / 2, by = b.y + b.height / 2;
 
-        // Проверяем коллизию (с зазором)
-        const overlapX = Math.min(a.x + a.width + GAP, b.x + b.width + GAP) - Math.max(a.x, b.x);
-        const overlapY = Math.min(a.y + a.height + GAP, b.y + b.height + GAP) - Math.max(a.y, b.y);
+        // Коллизия?
+        const ox = Math.min(a.x + a.width + GAP, b.x + b.width + GAP) - Math.max(a.x, b.x);
+        const oy = Math.min(a.y + a.height + GAP, b.y + b.height + GAP) - Math.max(a.y, b.y);
 
-        if (overlapX > 0 && overlapY > 0) {
-          // Есть коллизия — вычисляем направление отталкивания
-          const dx = bCX - aCX;
-          const dy = bCY - aCY;
-          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        if (ox > 0 && oy > 0) {
+          // Направление от a к b
+          let dx = bx - ax, dy = by - ay;
+          const dist = Math.sqrt(dx * dx + dy * dy);
 
-          // Вектор отталкивания (от центра a к центру b)
-          const pushX = (dx / dist) * overlapX * PUSH_FORCE;
-          const pushY = (dy / dist) * overlapY * PUSH_FORCE;
+          if (dist < 0.1) {
+            // Совпадают почти полностью — рандомный вектор
+            const randAngle = Math.random() * Math.PI * 2;
+            dx = Math.cos(randAngle);
+            dy = Math.sin(randAngle);
+          } else {
+            dx /= dist;
+            dy /= dist;
+          }
 
-          // Отталкиваем оба тега в противоположные стороны
-          a.x -= pushX;
-          a.y -= pushY;
-          b.x += pushX;
-          b.y += pushY;
+          // Сила отталкивания пропорциональна площади перекрытия
+          const force = Math.sqrt(ox * oy);
+
+          // Тяжёлые теги меньше сдвигаются
+          const totalWeight = a.weight + b.weight;
+          const aRatio = b.weight / totalWeight;
+          const bRatio = a.weight / totalWeight;
+
+          a.x -= dx * force * aRatio;
+          a.y -= dy * force * aRatio;
+          b.x += dx * force * bRatio;
+          b.y += dy * force * bRatio;
         }
       }
     }
@@ -88,26 +89,22 @@ function initTagCloud() {
   tagData.forEach((tag, index) => {
     const el = tag.element;
 
-    // Ограничиваем
-    tag.x = Math.max(0, Math.min(tag.x, containerWidth - tag.width));
-    tag.y = Math.max(0, Math.min(tag.y, containerHeight - tag.height));
+    tag.x = Math.max(0, Math.min(tag.x, W - tag.width));
+    tag.y = Math.max(0, Math.min(tag.y, H - tag.height));
 
     el.style.position = 'absolute';
     el.style.left = `${tag.x}px`;
     el.style.top = `${tag.y}px`;
     el.style.whiteSpace = 'nowrap';
 
-    // Анимация появления
     el.style.opacity = '0';
     el.style.transform = 'scale(0)';
     el.style.animation = `tagAppear 0.4s ease-out ${index * 0.06}s forwards`;
 
-    // Плавание
-    const floatDelay = 0.4 + index * 0.08;
+    const floatDelay = 0.5 + index * 0.08;
     const floatDuration = 3 + Math.random() * 2;
     el.style.animation += `, tagFloat ${floatDuration}s ease-in-out ${floatDelay}s infinite`;
   });
 }
 
-// Запускаем после загрузки DOM
 document.addEventListener('DOMContentLoaded', initTagCloud);
