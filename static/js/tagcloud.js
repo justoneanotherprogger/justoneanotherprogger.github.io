@@ -64,9 +64,13 @@ function initTagCloud() {
           const dy = (b.y + b.height / 2) - (a.y + a.height / 2);
           const dist = Math.sqrt(dx * dx + dy * dy) || 1;
           const nx = dx / dist, ny = dy / dist;
-          const f = Math.max(ox, oy) * 0.6;
-          a.x -= nx * f; a.y -= ny * f;
-          b.x += nx * f; b.y += ny * f;
+          const f = Math.max(ox, oy) * 0.8;
+          // Тяжёлые меньше сдвигаются, лёгкие уступают
+          const tw = a.weight + b.weight;
+          a.x -= nx * f * (b.weight / tw);
+          a.y -= ny * f * (b.weight / tw);
+          b.x += nx * f * (a.weight / tw);
+          b.y += ny * f * (a.weight / tw);
         }
       }
     }
