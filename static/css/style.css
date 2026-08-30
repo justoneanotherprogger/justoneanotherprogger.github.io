@@ -211,7 +211,7 @@ body {
 .tag-cloud-item::before {
   content: '';
   position: absolute;
-  inset: 0;
+  inset: -4px;
   border: 1px solid var(--secondary-color);
   border-radius: 0.3em;
   pointer-events: none;
