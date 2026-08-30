@@ -74,13 +74,11 @@ function initTagCloud() {
           const pushX = (dx / dist) * overlapX * PUSH_FORCE;
           const pushY = (dy / dist) * overlapY * PUSH_FORCE;
 
-          // Менее весомый тег отодвигается сильнее
-          const ratio = b.weight / (a.weight + b.weight);
-
-          a.x -= pushX * ratio;
-          a.y -= pushY * ratio;
-          b.x += pushX * (1 - ratio);
-          b.y += pushY * (1 - ratio);
+          // Отталкиваем оба тега в противоположные стороны
+          a.x -= pushX;
+          a.y -= pushY;
+          b.x += pushX;
+          b.y += pushY;
         }
       }
     }
