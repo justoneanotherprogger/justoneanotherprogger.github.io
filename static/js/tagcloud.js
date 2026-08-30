@@ -31,12 +31,12 @@ function initTagCloud() {
   // Сортируем: тяжёлые первые (в центре)
   tagData.sort((a, b) => b.weight - a.weight);
 
-  // Размещаем: тяжёлые ближе к центру, лёгкие по спирали наружу
+  // Размещаем: тяжёлые ближе к центру, лёгкие по краям + random
   tagData.forEach((tag, i) => {
-    const angle = i * 1.8 + Math.random() * 0.3;
-    // Чем тяжелее — тем ближе к центру
+    const angle = i * 1.8;
     const maxR = Math.min(W, H) * 0.42;
-    const r = (1 - tag.weight / 6) * maxR + (i * 4);
+    // Только вес определяет расстояние + малый random для естественности
+    const r = (1 - tag.weight / 6) * maxR + Math.random() * 15;
 
     let x = cx + r * Math.cos(angle) - tag.estWidth / 2;
     let y = cy + r * Math.sin(angle) - tag.height / 2;
