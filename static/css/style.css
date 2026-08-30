@@ -229,6 +229,33 @@ body {
 .tag-w4 { font-size: 1.125rem;  font-weight: 500; }
 .tag-w5 { font-size: 1.25rem;   font-weight: 700; }
 
+/* TAG CLOUD ANIMATIONS */
+
+@keyframes tagAppear {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes tagFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+.about__tech-item:hover {
+  animation-play-state: paused;
+  z-index: 10;
+}
+
 /* PROJECTS */
 
 .projects__section {
