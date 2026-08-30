@@ -69,6 +69,10 @@ function initTagCloud() {
           tag.span.style.top = y + 'px';
           tag.span.style.visibility = 'visible';
           tag.span.style.animation = `tagAppear 0.3s ease-out ${i * 0.06}s both`;
+          tag.span.style.cursor = 'pointer';
+          tag.span.addEventListener('click', () => {
+            window.open('https://www.google.com/search?q=' + encodeURIComponent(tag.name), '_blank');
+          });
           placed.push({ x, y, w: tag.w, h: tag.h });
           found = true;
           break;
