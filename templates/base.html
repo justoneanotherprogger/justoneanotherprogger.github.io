@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{ site_description }}" />
+    <meta property="og:title" content="Кирилл Иващенко — AQA Engineer" />
+    <meta property="og:description" content="{{ site_description }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://justoneanotherprogger.github.io" />
+    <meta
+      property="og:image"
+      content="https://justoneanotherprogger.github.io/static/img/og-preview.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/static/favicon.ico" />
+    <link rel="stylesheet" href="/static/css/normalize.css" />
+    <link rel="stylesheet" href="/static/fonts/opensans/opensans.css" />
+    <link rel="stylesheet" href="/static/fonts/fonts.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <title>{% block title %}Сайт-визитка{% endblock %}</title>
+  </head>
+  <body>
+    {% block header %}{% endblock %}
+
+    <main class="main-content">{% block content %}{% endblock %}</main>
+
+    <footer class="footer">
+      <div class="container footer__container">
+        <p class="footer__copyright-text">
+          © 2026 justoneanotherprogger. Дизайн, код, контент — мои.<br /><br />Сделано
+          с Python, HTML/CSS/JS и ИИ-агентом
+        </p>
+        <div class="footer__social-links">
+          <ul class="footer__socials-list">
+            {% for social in socials %}
+            <li class="footer__social-item">
+              <a
+                target="_blank"
+                href="{{ social.url }}"
+                class="footer__social-link {{ social.name }}-link"
+                title="{{ social.name }}"
+              >
+                {% if social.icon %}
+                <img
+                  src="{{ social.icon }}"
+                  alt="{{ social.name }}"
+                  class="footer__social-icon"
+                />
+                {% else %} {{ social.name }} {% endif %}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/static/js/tagcloud.js" defer></script>
+    <script src="/static/js/effects.js" defer></script>
+  </body>
+</html>

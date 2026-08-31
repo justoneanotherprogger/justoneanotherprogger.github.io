@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Ruff
+        run: pip install ruff
+
+      - name: Install Prettier + Stylelint
+        run: |
+          npm install --save-dev prettier stylelint stylelint-config-standard
+
+      - name: Run Ruff (Python)
+        run: ruff check data/ build.py
+
+      - name: Run Prettier (CSS/HTML)
+        run: npx prettier --check "static/css/**/*.css" "templates/**/*.html"
+
+      - name: Run Stylelint (CSS)
+        run: npx stylelint "static/css/**/*.css"

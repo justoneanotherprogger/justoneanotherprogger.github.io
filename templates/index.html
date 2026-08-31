@@ -1,145 +1,128 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ site_description }}">
-  <meta property="og:title" content="Кирилл Иващенко — AQA Engineer">
-  <meta property="og:description" content="{{ site_description }}">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://justoneanotherprogger.github.io">
-  <meta property="og:image" content="https://justoneanotherprogger.github.io/static/img/og-preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="ru_RU">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="/static/favicon.ico">
-  <link rel="stylesheet" href="/static/css/normalize.css">
-  <link rel="stylesheet" href="/static/fonts/opensans/opensans.css">
-  <link rel="stylesheet" href="/static/fonts/fonts.css">
-  <link rel="stylesheet" href="/static/css/style.css">
-  <title>Сайт-визитка Иващенко Кирилла</title>
-</head>
-<body>
-
-  <header id="main-header" class="header">
-    <div class="container header__container">
-      <div class="header__logo-container">
-        <img src="/static/img/logo.png" alt="" class="header__logo-img">
-      </div>
-      <nav id="header-nav-menu" class="header__nav-menu" aria-label="Основное меню">
-        <ul class="header__nav-list">
-          <li class="header__nav-item">
-            <a href="#about" class="header__nav-link">Обо мне</a>
-          </li>
-          <li class="header__nav-item">
-            <a href="#projects" class="header__nav-link">Мои проекты</a>
-          </li>
-        </ul>
-      </nav>
+{% extends "base.html" %} {% block title %}Сайт-визитка Иващенко Кирилла{%
+endblock %} {% block header %}
+<header id="main-header" class="header">
+  <div class="container header__container">
+    <div class="header__logo-container">
+      <img src="/static/img/logo.png" alt="" class="header__logo-img" />
     </div>
-  </header>
-
-  <main class="main-content">
-    <section id="about-start" class="about__section">
-      <div class="about__container">
-        <div class="container about__top">
-          <img src="/static/img/photo-face.png" alt="Фотография Кирилла Иващенко" class="about__main-image">
-          <div class="about__main-info">
-            <h3 class="about__nickname">justoneanotherprogger</h3>
-            <h1 class="about__name">Кирилл Иващенко</h1>
-            <h3 class="about__spec"><span class="about__spec-text">AQA Engineer</span>
-            {% if resume_url %}
-            <a href="{{ resume_url }}" class="about__resume-btn" target="_blank" rel="noopener" title="Резюме">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
-              </svg>
-            </a>
-            {% endif %}</h3>
-          </div>
-        </div>
-        <div id="about" class="container about__bottom">
-          <div class="about__text">
-            <h3 class="about__header">Обо мне</h3>
-            {% for paragraph in about %}
-            <p class="about__about-text">{{ paragraph }}</p>
-            {% endfor %}
-          </div>
-          <ul class="about__tech-stack">
-            {% for tech in tech_stack %}
-            <li class="about__tech-item tag-w{{ tech.weight }}">{{ tech.name }}</li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="projects__section">
-      <div class="container projects__container">
-        <div class="projects__description">
-          <h2 class="projects__header section-header">Мои проекты</h2>
-          <p class="projects__desc">в хронологическом порядке</p>
-        </div>
-        <ul class="projects__list">
-          {% for project in projects %}
-          <li class="projects__project">
-            <div class="projects__project-inner">
-            <a href="{{ project.url }}" class="projects__project-link" target="_blank">
-              <span class="projects__project-name">
-                <span class="projects__project-site-name">{{ project.name }}</span>
-                <span class="projects__project-name-text">{{ project.text }}</span>
-                <span class="projects__project-name-desc">{{ project.description }}</span>
-              </span>
-              <img src="{{ project.image }}" alt="" class="projects__projects-pic">
-            </a>
-            {% if project.repo %}
-            <div class="projects__repo-row">
-              <a href="{{ project.repo }}" class="projects__repo-link" target="_blank" title="Репозиторий">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--secondary-color)">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-                </svg>
-                <span class="projects__repo-text">Репозиторий</span>
-              </a>
-            </div>
-            {% endif %}
-            </div>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer__container">
-      <p class="footer__copyright-text">© 2026 justoneanotherprogger. Дизайн, код, контент — мои.<br><br>Сделано с Python, HTML/CSS/JS и ИИ-агентом</p>
-      <div class="footer__social-links">
-        <ul class="footer__socials-list">
-          {% for social in socials %}
-          <li class="footer__social-item">
-            {% if social.icon_svg %}
-            <a target="_blank" href="{{ social.url }}" class="footer__social-link mail-link">
-              <div class="paper-plane">
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve"><g><g><path fill="#b24a3b" d="M501.974,41.949c-8.237-7.547-19.944-10.062-30.555-6.565L21.231,183.785c-12.269,4.044-20.589,14.996-21.196,27.899 c-0.606,12.904,6.649,24.589,18.483,29.768l90.405,39.554l266.17-147.723c6.501-3.608,14.66-1.922,19.2,3.961 c4.541,5.885,4.1,14.204-1.037,19.576L227.319,330.325L193.287,453.28l81.681-61.162l96.589,79.039 c5.626,4.606,12.502,7.008,19.513,7.008c3.338-0.001,6.708-0.545,9.986-1.657c10.166-3.447,17.702-11.744,20.159-22.193 l89.965-382.503C513.737,60.939,510.211,49.496,501.974,41.949z"/></g></g><g><g><path fill="#b24a3b" d="M132.476,302.325l31.261,144.992l35.612-128.661c0.662-2.394,1.907-4.587,3.623-6.381l100.029-104.59L132.476,302.325z"/></g></g></svg>
-              </div>
-            </a>
-            {% elif social.content %}
-            <a target="_blank" href="{{ social.url }}" class="footer__social-link mail-link">{{ social.content | safe }}</a>
-            {% else %}
-            <a target="_blank" href="{{ social.url }}" class="footer__social-link {{ social.name }}-link">{{ social.name }}</a>
-            {% endif %}
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
+    <nav
+      id="header-nav-menu"
+      class="header__nav-menu"
+      aria-label="Основное меню"
+    >
+      <ul class="header__nav-list">
+        <li class="header__nav-item">
+          <a href="#about" class="header__nav-link">Обо мне</a>
+        </li>
+        <li class="header__nav-item">
+          <a href="#projects" class="header__nav-link">Мои проекты</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+{% endblock %} {% block content %}
+<section id="about-start" class="about__section">
+  <div class="container about__top">
+    <img
+      src="/static/img/photo-face.png"
+      alt="Фотография Кирилла Иващенко"
+      class="about__main-image"
+    />
+    <div class="about__main-info">
+      <h3 class="about__nickname">justoneanotherprogger</h3>
+      <h1 class="about__name">Кирилл Иващенко</h1>
+      <h3 class="about__spec">
+        <span class="about__spec-text">AQA Engineer</span>
+        {% if resume_url %}
+        <a
+          href="{{ resume_url }}"
+          class="about__resume-btn"
+          target="_blank"
+          rel="noopener"
+          title="Резюме"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+            ></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </a>
+        {% endif %}
+      </h3>
     </div>
-  </footer>
+  </div>
+  <div id="about" class="container about__bottom">
+    <div class="about__text">
+      <h3 class="about__header">Обо мне</h3>
+      {% for paragraph in about %}
+      <p class="about__about-text">{{ paragraph }}</p>
+      {% endfor %}
+    </div>
+    <ul class="about__tech-stack">
+      {% for tech in tech_stack %}
+      <li class="about__tech-item tag-w{{ tech.weight }}">{{ tech.name }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
 
-  <script src="/static/js/effects.js" defer></script>
-
-</body>
-</html>
+<section id="projects" class="projects__section">
+  <div class="container projects__container">
+    <div class="projects__description">
+      <h2 class="projects__header section-header">Мои проекты</h2>
+      <p class="projects__desc">в хронологическом порядке</p>
+    </div>
+    <ul class="projects__list">
+      {% for project in projects %}
+      <li class="projects__project">
+        <a
+          href="{{ project.url }}"
+          class="projects__project-link"
+          target="_blank"
+        >
+          <span class="projects__project-name">
+            <span class="projects__project-site-name">{{ project.name }}</span>
+            <span class="projects__project-name-text">{{ project.text }}</span>
+            <span class="projects__project-name-desc"
+              >{{ project.description }}</span
+            >
+          </span>
+          <img
+            src="{{ project.image }}"
+            alt=""
+            class="projects__projects-pic"
+          />
+        </a>
+        {% if project.repo %}
+        <div class="projects__repo-row">
+          <a
+            href="{{ project.repo }}"
+            class="projects__repo-link"
+            target="_blank"
+            title="Репозиторий"
+          >
+            {% include "github.svg" %}
+            <span class="projects__repo-text">Репозиторий</span>
+          </a>
+        </div>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}

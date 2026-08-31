@@ -52,7 +52,9 @@ body {
   border-bottom: #222 1px solid;
   font-weight: 400;
   z-index: 100;
-  transition: height 0.3s ease, font-size 0.3s ease;
+  transition:
+    height 0.3s ease,
+    font-size 0.3s ease;
 }
 
 .header__container {
@@ -77,12 +79,14 @@ body {
 .header__nav-list {
   display: flex;
   justify-content: space-between;
-  column-gap: 30px;
+  gap: 30px;
 }
 
 .header__nav-link {
   color: var(--main-color);
-  transition: text-shadow 0.3s ease, font-size 0.3s ease;
+  transition:
+    text-shadow 0.3s ease,
+    font-size 0.3s ease;
 }
 
 .header__nav-link:hover {
@@ -129,7 +133,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background-image: url("/static/img/line.png");
+  background-image: url('/static/img/line.png');
   background-repeat: repeat-y;
   background-position: left;
 }
@@ -193,41 +197,61 @@ body {
 }
 
 .about__tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  gap: 0.2em 0.75em;
-  padding: 0;
-  list-style: none;
-  line-height: 1.4;
-  max-width: 350px;
+  position: relative;
+  width: 700px;
+  height: 450px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
-.about__tech-item {
-  display: inline-block;
-  padding: 0.1em 0.3em;
-  background-color: var(--main-color);
+/* TAG CLOUD */
+
+.tag-cloud-item {
+  padding: 0.2em 0.5em;
+  background-color: rgba(34, 34, 34, 0.85);
   color: var(--text-color);
-  border-radius: 0.25em;
-  transition: background-color 0.2s, color 0.2s, transform 0.2s, padding 0.2s;
+  box-shadow: 0 0 0 1px rgba(34, 34, 34, 0.85);
+  border-radius: 0.3em;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
   cursor: pointer;
 }
 
-.about__tech-item:hover {
+.tag-cloud-item:hover {
   background-color: var(--secondary-color);
   color: var(--main-color);
-  padding: 0.2em 0.5em;
-  transform: scale(1.1);
-  z-index: 1;
+  box-shadow: 0 0 0 1px var(--secondary-color);
 }
 
-.tag-w1 { font-size: 0.75rem; opacity: 0.7; }
-.tag-w2 { font-size: 0.875rem; opacity: 0.8; }
-.tag-w3 { font-size: 1rem;      opacity: 0.9; }
-.tag-w4 { font-size: 1.125rem;  font-weight: 500; }
-.tag-w5 { font-size: 1.25rem;   font-weight: 700; }
+/* TAG CLOUD ANIMATIONS */
+
+@keyframes tagAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes tagFloat {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -6px;
+  }
+}
+
+.about__tech-item:hover {
+  animation-play-state: paused !important;
+  z-index: 10;
+}
 
 /* PROJECTS */
 
@@ -243,7 +267,7 @@ body {
 }
 
 .projects__container::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   width: 30%;
@@ -260,11 +284,10 @@ body {
 }
 
 .projects__header {
-  margin-bottom: 0;
+  margin-bottom: 0.2em;
   pointer-events: none;
   font-size: 150px;
   line-height: 0.85;
-  margin-bottom: 0.2em;
 }
 
 .projects__desc {
@@ -282,14 +305,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  column-gap: 20px;
-  row-gap: 50px;
+  gap: 50px 20px;
 }
 
 .projects__project-link {
   display: flex;
-  row-gap: 20px;
-  column-gap: 20px;
+  gap: 20px;
   flex-direction: row-reverse;
   justify-content: space-between;
   color: var(--secondary-color);
@@ -299,8 +320,7 @@ body {
   display: flex;
   flex: 1 1 40%;
   flex-wrap: wrap;
-  column-gap: 20px;
-  row-gap: 10px;
+  gap: 10px 20px;
   align-items: flex-start;
   font-size: 20px;
   font-weight: 300;
@@ -318,7 +338,8 @@ body {
 }
 
 .projects__project-link:hover > .projects__projects-pic {
-  filter: grayscale(0%) brightness(1) contrast(1) drop-shadow(0 0 10px var(--secondary-color));
+  filter: grayscale(0%) brightness(1) contrast(1)
+    drop-shadow(0 0 10px var(--secondary-color));
   transform: scale(1.05);
 }
 
@@ -343,29 +364,33 @@ body {
 
 .footer__socials-list {
   display: flex;
-  column-gap: 10px;
+  gap: 10px;
 }
 
 .footer__social-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  min-height: 60px;
   padding: 20px 15px;
   color: var(--text-color);
   background-color: var(--main-color);
   border-radius: 100px;
   font-size: 20px;
+  font-weight: 700;
   line-height: 1;
-  transition: .4s;
+  transition: 0.4s;
 }
 
-.mail-link {
-  padding: 14px;
-  font-size: 31px;
-}
-
-.paper-plane {
-  display: block;
+.footer__social-icon {
   width: 30px;
   height: 30px;
+}
+
+.footer__social-link.email-link {
+  padding: 14px;
+  font-size: 31px;
 }
 
 .footer__social-link:hover {
@@ -397,7 +422,7 @@ body {
 
   .projects__container {
     padding: 20px;
-    column-gap: 30px;
+    gap: 30px;
   }
 
   .projects__description {
@@ -447,6 +472,10 @@ body {
     flex-direction: column;
   }
 
+  .about__tech-stack {
+    display: none;
+  }
+
   .projects__section {
     margin-left: 0;
     border-left: unset;
@@ -493,7 +522,7 @@ body {
   }
 
   .header__nav-list {
-    column-gap: 10px;
+    gap: 10px;
     font-size: 15px;
   }
 
@@ -569,7 +598,7 @@ body {
 
   .footer__container {
     flex-direction: column;
-    row-gap: 20px;
+    gap: 20px;
   }
 }
 
@@ -587,26 +616,21 @@ body {
   text-decoration: none;
   pointer-events: auto;
   vertical-align: middle;
-  transition: box-shadow 0.2s, transform 0.2s;
-  }
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
+}
 .about__resume-btn:hover {
   box-shadow: 0 0 10px 1px var(--secondary-color);
   transform: translateY(-2px);
-  }
-
-
-
-
-
-
-
+}
 
 /* Кнопка репозитория — строка после описания проекта */
 .projects__repo-row {
   display: flex;
   justify-content: flex-end;
   margin-top: 6px;
-  }
+}
 .projects__repo-link {
   display: inline-flex;
   align-items: center;
@@ -616,27 +640,11 @@ body {
   opacity: 0.8;
   font-size: 14px;
   transition: opacity 0.2s;
-  }
+}
 .projects__repo-link svg {
   width: 20px;
   height: 20px;
-  }
+}
 .projects__repo-link:hover {
   opacity: 1;
-  }
-
-@media (max-width: 1000px) {
-  .about__tech-stack { display: none; }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
+}
