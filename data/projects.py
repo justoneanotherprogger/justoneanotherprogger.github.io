@@ -27,9 +27,9 @@ class Tech:
 
 projects = [
     Project(
-        name="Progress Knight Quest Mod",
+        name="Progress Knight Quest λ",
         text="Мод для Progress Knight Quest",
-        description="Модификация кликер-RPG про перерождения с новыми классами, умениями и механиками",
+        description="Продолжение Progress Knight Quest с новым интерфейсом, темпом и балансом",
         url="https://justoneanotherprogger.github.io/progress_knight_project/",
         image="/static/img/PKQ-mod.jpg",
         repo="https://github.com/justoneanotherprogger/progress_knight_project",
