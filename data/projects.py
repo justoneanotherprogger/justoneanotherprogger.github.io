@@ -41,6 +41,17 @@ projects = [
         url="https://github.com/justoneanotherprogger/AITTF",
         image="/static/img/aittf-screenshot.jpg",
     ),
+    Project(
+        name="BUG SURVIVORS",
+        text="Аркадный выживач",
+        description=(
+            "Агент эпохи отбивается от легиона багов, прокачивается и собирает оружие, "
+            "названное в честь инструментов разработчика"
+        ),
+        url="https://justoneanotherprogger.github.io/bug-survivors/",
+        image="/static/img/bug-survivors.jpg",
+        repo="https://github.com/justoneanotherprogger/bug-survivors",
+    ),
 ]
 
 socials = [
