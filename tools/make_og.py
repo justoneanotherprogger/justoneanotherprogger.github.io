@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import os
+
+from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1200, 630
 BG = (34, 34, 34, 255)
